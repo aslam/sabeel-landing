@@ -1,48 +1,60 @@
-# Astro Starter Kit: Basics
+# Sabeel 🌿
 
-```sh
-npm create astro@latest -- --template basics
-```
+_A daily Islamic learning app for peaceful, consistent growth_
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Sabeel (Arabic: سبيل) means "a path" — and this app is designed to help you walk a gentle, enriching path of learning about Islam, one small step at a time. Whether you’re new to Islamic teachings or looking to reconnect, Sabeel delivers 5-minute daily lessons that build knowledge, habit, and reflection.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🕌 Vision
 
-## 🚀 Project Structure
+To make Islamic learning accessible, approachable, and part of everyday life — in multiple languages, for all ages.
 
-Inside of your Astro project, you'll see the following folders and files:
+We believe that consistent, bite-sized learning is key to deeper understanding and long-term spiritual growth. Sabeel is being built with love and intention, not just as a product, but as a meaningful resource for the global Muslim community.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+---
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 💡 Features (In Progress)
 
-## 🧞 Commands
+- 📖 Daily 5-minute lessons rooted in authentic sources
+- 🌍 Support for multiple languages and translations
+- 🧠 Progress tracking to build learning habits
+- 👨‍👩‍👧‍👦 Family plans and gifting options
+- 📬 Optional email or app notifications
+- ✨ Beautiful, simple, and culturally respectful UI
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 🚧 Tech Stack
 
-## 👀 Want to learn more?
+This is a **Hotwire + Ruby on Rails** app powered by Turbo Native for iOS/Android, optimized for low data usage and high accessibility.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Backend: Ruby on Rails 7
+- Frontend: Hotwire (Turbo + Stimulus)
+- Mobile: Turbo Native
+- Testing: RSpec, Capybara
+- CI/CD: GitHub Actions (planned)
+- AI-assisted translation: GPT-4 API (planned)
+
+---
+
+## 🤝 Team
+
+This project is being lovingly built by:
+
+- **Syed Aslam** – Software Engineer, Product Thinker, and Builder
+- **Humera** – Co-founder & Product Collaborator
+  _First-time builder. Big-picture thinker. Heart of the mission._
+
+---
+
+## 📬 Stay Updated
+
+We're just getting started — and we’d love for you to be part of this journey.
+
+🔗 [Join the waitlist](https://sabeel.in)
+✉️ Or send us an email at `support@sabeel.in`
+
+---
+
+> May Sabeel be a source of beneficial knowledge, growth, and barakah in the lives of many. Ameen.
