@@ -1,12 +1,12 @@
 ---
-import sabeelLogo from '../assets/sabeel.svg';
+import sabeel from '../assets/sabeel.png';
 ---
 
 <div class="container">
   <img
-    src={sabeelLogo.src}
+    src={sabeel.src}
     alt="Sabeel Logo"
-    width="200"
+    width="380"
     alt="Sabeel Logo"
     id="logo"
   />
@@ -37,16 +37,22 @@ import sabeelLogo from '../assets/sabeel.svg';
     this journey with us.
   </p>
 
-  <form action="https://formspree.io/f/mdkejooo" method="POST">
-    <div class="form-row">
-      <input
-        type="email"
-        name="email"
-        placeholder="Enter your email"
-        required
-      />
-      <button type="submit">Notify Me</button>
-    </div>
+  <form
+    action="https://buttondown.com/api/emails/embed-subscribe/syedaslam"
+    method="post"
+    target="popupwindow"
+    onsubmit="window.open('https://buttondown.com/syedaslam', 'popupwindow')"
+    class="embeddable-buttondown-form"
+  >
+    <label for="bd-email">Enter your email</label>
+    <input type="email" name="email" id="bd-email" />
+
+    <button type="submit">Notify Me</button>
+    <p>
+      <a href="https://buttondown.com/refer/syedaslam" target="_blank"
+        >Powered by Buttondown.</a
+      >
+    </p>
   </form>
 
   <footer>
@@ -57,91 +63,163 @@ import sabeelLogo from '../assets/sabeel.svg';
 
 <style>
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #2e2e2e;
+    font-family:
+      'Inter',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      sans-serif;
+    color: #1a2b3b;
     margin: 0;
     padding: 0;
-    background-color: white;
-    background-image: url("data:image/svg+xml,%3Csvg width='80' height='88' viewBox='0 0 80 88' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22 21.91V26h-2c-9.94 0-18 8.06-18 18 0 9.943 8.058 18 18 18h2v4.09c8.012.722 14.785 5.738 18 12.73 3.212-6.99 9.983-12.008 18-12.73V62h2c9.94 0 18-8.06 18-18 0-9.943-8.058-18-18-18h-2v-4.09c-8.012-.722-14.785-5.738-18-12.73-3.212 6.99-9.983 12.008-18 12.73zM54 58v4.696c-5.574 1.316-10.455 4.428-14 8.69-3.545-4.262-8.426-7.374-14-8.69V58h-5.993C12.27 58 6 51.734 6 44c0-7.732 6.275-14 14.007-14H26v-4.696c5.574-1.316 10.455-4.428 14-8.69 3.545 4.262 8.426 7.374 14 8.69V30h5.993C67.73 30 74 36.266 74 44c0 7.732-6.275 14-14.007 14H54zM42 88c0-9.94 8.06-18 18-18h2v-4.09c8.016-.722 14.787-5.738 18-12.73v7.434c-3.545 4.262-8.426 7.374-14 8.69V74h-5.993C52.275 74 46 80.268 46 88h-4zm-4 0c0-9.943-8.058-18-18-18h-2v-4.09c-8.012-.722-14.785-5.738-18-12.73v7.434c3.545 4.262 8.426 7.374 14 8.69V74h5.993C27.73 74 34 80.266 34 88h4zm4-88c0 9.943 8.058 18 18 18h2v4.09c8.012.722 14.785 5.738 18 12.73v-7.434c-3.545-4.262-8.426-7.374-14-8.69V14h-5.993C52.27 14 46 7.734 46 0h-4zM0 34.82c3.213-6.992 9.984-12.008 18-12.73V18h2c9.94 0 18-8.06 18-18h-4c0 7.732-6.275 14-14.007 14H14v4.696c-5.574 1.316-10.455 4.428-14 8.69v7.433z' fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background: linear-gradient(135deg, #f5f9ff 0%, #fff 100%);
+    min-height: 100vh;
   }
 
   .container {
-    max-width: 600px;
-    margin: 60px auto;
-    background-color: #f8ebd5;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 24px;
   }
 
   #logo {
     display: block;
-    margin: 0 auto 20px;
-    align-self: center;
+    margin: 0 auto 40px;
+    width: 380px;
+    height: auto;
   }
 
-  h1,
   h2 {
-    color: #27625b;
+    color: #0a3255;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
   }
 
-  h1 {
-    font-size: 2em;
-    margin-bottom: 0.25em;
+  h3 {
+    color: #0a3255;
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
   }
 
   p {
-    line-height: 1.6;
+    line-height: 1.7;
+    color: #405671;
+    font-size: 1.125rem;
   }
 
   ul {
-    margin: 1em 0;
-    padding-left: 20px;
+    margin: 1.5rem 0;
+    padding-left: 0;
+    list-style: none;
   }
 
-  input[type='email'] {
-    padding: 10px;
-    font-size: 16px;
-    width: calc(100% - 120px);
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
+  ul li {
+    padding: 0.75rem 0;
+    color: #405671;
+    font-size: 1.125rem;
   }
 
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4d6659;
+  .embeddable-buttondown-form {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    margin: 32px 0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .embeddable-buttondown-form label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #0a3255;
+    font-size: 1.125rem;
+  }
+
+  .embeddable-buttondown-form input[type='email'] {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+    border: 2px solid #e1e8f0;
+    border-radius: 8px;
+    background: #f8fafc;
+    transition: all 0.2s ease;
+  }
+
+  .embeddable-buttondown-form input[type='email']:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  }
+
+  .embeddable-buttondown-form button {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #3b82f6;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .embeddable-buttondown-form button:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+  }
+
+  .embeddable-buttondown-form p {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+
+  .embeddable-buttondown-form a {
+    color: #3b82f6;
+    text-decoration: none;
   }
 
   footer {
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #666;
+    margin-top: 60px;
     text-align: center;
+    color: #64748b;
+    font-size: 0.875rem;
   }
 
-  .form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-  }
-
-  @media (max-width: 500px) {
-    .form-row {
-      flex-direction: column;
+  @media (min-width: 768px) {
+    .container {
+      padding: 80px 40px;
     }
 
-    input[type='email'] {
+    .embeddable-buttondown-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-end;
+    }
+
+    .embeddable-buttondown-form label {
       width: 100%;
     }
 
-    button {
+    .embeddable-buttondown-form input[type='email'] {
+      flex: 1;
+      margin: 0;
+    }
+
+    .embeddable-buttondown-form button {
+      width: auto;
+      min-width: 140px;
+    }
+
+    .embeddable-buttondown-form p {
       width: 100%;
     }
   }
