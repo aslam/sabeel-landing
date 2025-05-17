@@ -1,14 +1,17 @@
 ---
+import { Image } from 'astro:assets';
 import sabeel from '../assets/sabeel.png';
 ---
 
 <div class="container">
-  <img
-    src={sabeel.src}
-    alt="Sabeel Logo"
-    width="380"
-    alt="Sabeel Logo"
+  <Image
+    src={sabeel}
+    width={380}
+    height={120}
     id="logo"
+    alt="Sabeel Logo"
+    format="webp"
+    quality="high"
   />
   <h2>A peaceful path to daily Islamic learning</h2>
   <p>
@@ -18,14 +21,14 @@ import sabeel from '../assets/sabeel.png';
     build a habit that brings peace, not guilt.
   </p>
 
-  <h3>What You’ll Get</h3>
+  <h3>What You'll Get</h3>
   <ul>
     <li>✅ 5-minute daily lessons</li>
     <li>✅ Clear, calming explanations</li>
     <li>✅ Delivered with love and purpose</li>
   </ul>
   <p>
-    Whether you’re returning to learning, or just want something
+    Whether you're returning to learning, or just want something
     simple to reflect on — Sabeel is your quiet companion on the
     journey.
   </p>
@@ -33,7 +36,7 @@ import sabeel from '../assets/sabeel.png';
   <h3>Join Our Early Access List</h3>
   <p>
     <strong>Be among the first to try Sabeel for free.</strong><br
-    />We’ll send you early lessons, updates, and invite you to shape
+    />We'll send you early lessons, updates, and invite you to shape
     this journey with us.
   </p>
 

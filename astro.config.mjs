@@ -8,7 +8,8 @@ export default defineConfig({
   integrations: [
     partytown({
       config: {
-        forward: ['dataLayer.push', 'gtag'],
+        forward: ['dataLayer.push'],
+        debug: process.env.NODE_ENV === 'development',
         resolveUrl: (url) => {
           if (url.hostname === 'www.googletagmanager.com') {
             return new URL(
