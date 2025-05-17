@@ -1,3 +1,7 @@
+---
+import { GoogleAnalytics } from 'astro-analytics';
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -51,37 +55,12 @@
       content="https://sabeel.in/images/sabeel_og_image.png"
     />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      type="text/partytown"
-      src="https://www.googletagmanager.com/gtag/js?id=G-T709B9JN3Y"
-    ></script>
-    <script type="text/partytown">
-      const win = window;
-      win.dataLayer = win.dataLayer || [];
-      function gtag() {
-        win.dataLayer.push(arguments);
-      }
-
-      // Initialize GA4
-      gtag('js', new Date());
-
-      // Set default consent state
-      gtag('consent', 'default', {
-        analytics_storage: 'denied',
-      });
-
-      // Configure GA4
-      gtag('config', 'G-T709B9JN3Y', {
-        send_page_view: true,
-        anonymize_ip: true,
-      });
-    </script>
-
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <GoogleAnalytics id="G-T709B9JN3Y" />
   </head>
 
   <body>

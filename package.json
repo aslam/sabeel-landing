@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/partytown": "2.1.4",
-    "astro": "^5.6.1"
+    "astro": "^5.6.1",
+    "astro-analytics": "2.7.0"
   }
 }
