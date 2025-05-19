@@ -1,0 +1,101 @@
+:root {
+  --font-heading: 'Amiri', serif;
+  --font-body: 'Nunito', sans-serif;
+}
+
+html,
+body {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+p, a, li {
+  font-family: var(--font-body);
+}
+
+/* Amiri font classes */
+
+.amiri-regular {
+  font-family: "Amiri", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.amiri-bold {
+  font-family: "Amiri", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.amiri-regular-italic {
+  font-family: "Amiri", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.amiri-bold-italic {
+  font-family: "Amiri", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Nunito font classes */
+.nunito-thin {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.nunito-light {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.nunito-regular {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nunito-medium {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.nunito-semibold {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.nunito-bold {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.nunito-extrabold {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.nunito-black {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+

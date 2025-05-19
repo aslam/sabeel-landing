@@ -2,6 +2,9 @@
 import { GoogleAnalytics } from 'astro-analytics';
 import { Image } from 'astro:assets';
 import sabeel from '../assets/sabeel_no_text.png';
+import '../styles/global.css';
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -57,8 +60,14 @@ import sabeel from '../assets/sabeel_no_text.png';
       content="https://sabeel.in/images/sabeel_og_image.png"
     />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
       rel="stylesheet"
     />
 
@@ -78,7 +87,16 @@ import sabeel from '../assets/sabeel_no_text.png';
           />
         </a>
         <ul>
-          <li><a href="/lessons">Lessons</a></li>
+          <li>
+            <a
+              href="/lessons"
+              class={currentPath.startsWith('/lessons')
+                ? 'active'
+                : ''}
+            >
+              Lessons
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -136,11 +154,20 @@ import sabeel from '../assets/sabeel_no_text.png';
     color: #405671;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
   }
 
   nav li a:hover {
     color: #0a3255;
+    background: rgba(10, 50, 85, 0.05);
+  }
+
+  nav li a.active {
+    color: #0a3255;
+    background: rgba(10, 50, 85, 0.08);
+    font-weight: 600;
   }
 
   @media (max-width: 768px) {

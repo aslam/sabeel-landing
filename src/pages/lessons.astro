@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main>
+    <div class="container">
+      <h1>Daily Islamic Lessons</h1>
+      <p class="subtitle">
+        Join us on a journey of continuous learning, one lesson at a
+        time.
+      </p>
+
+      <div class="lessons-grid">
+        <a href="/lessons/foundations-of-faith" class="lesson-card">
+          <h2>Foundations of Faith</h2>
+          <p>
+            Essential lessons about Islamic beliefs and practices,
+            explained with clarity and depth.
+          </p>
+        </a>
+
+        <a href="/" class="lesson-card">
+          <span class="status">Coming Soon</span>
+          <h2>Daily Reflections</h2>
+          <p>
+            Short, meaningful insights from the Quran and Hadith for
+            daily spiritual growth.
+          </p>
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-top: 80px;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  h1 {
+    color: #0a3255;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #405671;
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .lesson-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    position: relative;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    display: block;
+  }
+
+  .lesson-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #e5f0ff;
+    color: #3b82f6;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .lesson-card h2 {
+    color: #0a3255;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .lesson-card p {
+    color: #405671;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 24px 16px;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1.125rem;
+    }
+  }
+</style>
