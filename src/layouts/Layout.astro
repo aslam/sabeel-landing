@@ -1,5 +1,7 @@
 ---
 import { GoogleAnalytics } from 'astro-analytics';
+import { Image } from 'astro:assets';
+import sabeel from '../assets/sabeel_no_text.png';
 ---
 
 <!doctype html>
@@ -62,8 +64,24 @@ import { GoogleAnalytics } from 'astro-analytics';
 
     <GoogleAnalytics id="G-T709B9JN3Y" />
   </head>
-
   <body>
+    <header>
+      <nav>
+        <a href="/" class="logo">
+          <Image
+            src={sabeel}
+            width={120}
+            height={38}
+            alt="Sabeel Logo"
+            format="webp"
+            quality="high"
+          />
+        </a>
+        <ul>
+          <li><a href="/lessons">Lessons</a></li>
+        </ul>
+      </nav>
+    </header>
     <slot />
   </body>
 </html>
@@ -74,5 +92,64 @@ import { GoogleAnalytics } from 'astro-analytics';
     margin: 0;
     width: 100%;
     height: 100%;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: block;
+  }
+
+  .logo img {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav li a {
+    color: #405671;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  nav li a:hover {
+    color: #0a3255;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      padding: 0.75rem 1rem;
+    }
+
+    .logo img {
+      height: 32px;
+    }
   }
 </style>
