@@ -2,9 +2,17 @@
 import Layout from '../../../../layouts/Layout.astro';
 
 const tabs = [
-  { id: 'kids', label: 'For Kids' },
-  { id: 'teens', label: 'For Teens' },
-  { id: 'adults', label: 'For Adults' },
+  { id: 'kids', label: 'For Kids', audio: '/audio/salah-kids.mp3' },
+  {
+    id: 'teens',
+    label: 'For Teens',
+    audio: '/audio/salah-teens.mp3',
+  },
+  {
+    id: 'adults',
+    label: 'For Adults',
+    audio: '/audio/salah-adults.mp3',
+  },
 ];
 ---
 
@@ -40,6 +48,12 @@ const tabs = [
 
       <div class="tab-content" data-tab="kids" aria-hidden="false">
         <div class="content-box">
+          <div class="audio-player">
+            <audio controls preload="metadata">
+              <source src="/audio/salah-kids.mp3" type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
           <p>
             Imagine, my dear little one, that you have a very special
             friend, the most powerful and loving friend in the whole
@@ -133,6 +147,15 @@ const tabs = [
 
       <div class="tab-content" data-tab="teens" aria-hidden="true">
         <div class="content-box">
+          <div class="audio-player">
+            <audio controls preload="metadata">
+              <source
+                src="/audio/salah-teens.mp3"
+                type="audio/mpeg"
+              />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
           <p>
             In a world of endless notifications, peer pressure, and
             academic demands, it's easy to feel overwhelmed or lost.
@@ -202,6 +225,15 @@ const tabs = [
 
       <div class="tab-content" data-tab="adults" aria-hidden="true">
         <div class="content-box">
+          <div class="audio-player">
+            <audio controls preload="metadata">
+              <source
+                src="/audio/salah-adults.mp3"
+                type="audio/mpeg"
+              />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
           <p>
             <strong>Salah</strong>, the prescribed prayer, is the very
             bedrock of Islamic practice, meticulously designed by
@@ -317,6 +349,103 @@ const tabs = [
       max-width: 800px;
       margin: 0 auto;
       padding: 120px 24px 60px;
+    }
+
+    /* Add these responsive styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 100px 16px 40px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1.125rem;
+      }
+
+      .tabs {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .tab-button {
+        width: 100%;
+        padding: 0.625rem 1rem;
+      }
+
+      .content-box {
+        padding: 1.5rem;
+      }
+
+      .workshop-content,
+      .challenge-content,
+      .practical-content {
+        padding: 1.25rem;
+      }
+
+      blockquote {
+        margin: 1rem 0;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.75rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .parent-note,
+      .workshop-section,
+      .challenge-section,
+      .practical-section {
+        margin-top: 1.5rem;
+      }
+
+      .practical-content li p {
+        margin-left: 1.5rem;
+      }
+
+      .download-link {
+        width: 100%;
+        justify-content: center;
+        padding: 0.625rem 1rem;
+      }
+    }
+
+    /* Add improved typography responsiveness */
+    @media (min-width: 769px) {
+      .content-box p {
+        font-size: 1.125rem;
+        line-height: 1.75;
+      }
+
+      blockquote {
+        font-size: 1.125rem;
+        margin: 1.5rem 0;
+        padding: 1rem 2rem;
+      }
+
+      .practical-content li p {
+        font-size: 1.0625rem;
+      }
+    }
+
+    /* Add better touch targets for mobile */
+    @media (hover: none) and (pointer: coarse) {
+      .tab-button {
+        min-height: 44px;
+      }
+
+      .download-link {
+        min-height: 44px;
+      }
     }
 
     h1 {
@@ -534,6 +663,33 @@ const tabs = [
       background: #eef2ff;
       border-color: #e0e7ff;
       color: #4338ca;
+    }
+
+    .audio-player {
+      margin-bottom: 2rem;
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .audio-player audio {
+      width: 100%;
+    }
+
+    /* Audio player responsive styles */
+    @media (max-width: 768px) {
+      .audio-player {
+        padding: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .audio-player {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+      }
     }
   </style>
 
