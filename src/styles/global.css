@@ -3,7 +3,6 @@
   --font-body: 'Nunito', sans-serif;
 }
 
-html,
 body {
   font-family: var(--font-body);
 }
@@ -12,7 +11,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
-p, a, li {
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
   font-family: var(--font-body);
 }
 

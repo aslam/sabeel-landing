@@ -20,6 +20,8 @@ export default {
         },
       },
       fontFamily: {
+        sans: ['Nunito', 'sans-serif'],
+        serif: ['Amiri', 'serif'],
         heading: ['Amiri', 'serif'],
         body: ['Nunito', 'sans-serif'],
       },
