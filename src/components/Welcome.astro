@@ -3,418 +3,242 @@ import { Image } from 'astro:assets';
 import sabeel from '../assets/sabeel.png';
 ---
 
-<div class="container">
-  <Image
-    src={sabeel}
-    width={380}
-    height={120}
-    id="logo"
-    alt="Sabeel Logo"
-    format="webp"
-    quality="high"
-  />
-  <h2>A peaceful path to daily Islamic learning</h2>
-  <p>
-    We're building Sabeel to help people like us reconnect with
-    Islamic knowledge — slowly, gently, and consistently. Just one
-    small reflection a day — no overwhelm, no pressure. So you can
-    build a habit that brings peace, not guilt.
-  </p>
-
-  <h3>What You'll Get</h3>
-  <ul>
-    <li>✅ 5-minute daily lessons</li>
-    <li>✅ Clear, calming explanations</li>
-    <li>✅ Delivered with love and purpose</li>
-  </ul>
-  <p>
-    Whether you're returning to learning, or just want something
-    simple to reflect on — Sabeel is your quiet companion on the
-    journey.
-  </p>
-
-  <h3>Join Our Early Access List</h3>
-  <p>
-    <strong>Be among the first to try Sabeel for free.</strong><br
-    />We'll send you early lessons, updates, and invite you to shape
-    this journey with us.
-  </p>
-
-  <form
-    action="https://buttondown.com/api/emails/embed-subscribe/sabeel"
-    method="post"
-    target="popupwindow"
-    onsubmit="window.open('https://buttondown.com/sabeel', 'popupwindow')"
-    class="embeddable-buttondown-form"
-  >
-    <label for="bd-email">Enter your email</label>
-    <input type="email" name="email" id="bd-email" />
-
-    <button type="submit">Notify Me</button>
-    <p>
-      <a href="https://buttondown.com/refer/sabeel" target="_blank"
-        >Powered by Buttondown.</a
+<div class="min-h-screen">
+  <!-- Hero Section -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <Image
+        src={sabeel}
+        width={380}
+        height={120}
+        class="mx-auto mb-8 w-[280px] sm:w-[380px]"
+        alt="Sabeel Logo"
+        format="webp"
+        quality="high"
+      />
+      <h2
+        class="text-3xl sm:text-4xl font-heading text-primary-900 mb-6"
       >
-    </p>
-  </form>
+        The path to Deen. One day at a time.
+      </h2>
+      <p
+        class="text-lg sm:text-xl text-primary-700 mb-8 max-w-2xl mx-auto"
+      >
+        Join us on a journey of continuous Islamic learning through
+        bite-sized, authentic lessons delivered daily.
+      </p>
+      <div class="mt-8">
+        <form
+          action="https://buttondown.com/api/emails/embed-subscribe/sabeel"
+          method="post"
+          class="max-w-md mx-auto bg-white rounded-lg shadow-xl p-6"
+        >
+          <label
+            class="block text-primary-900 font-semibold mb-2"
+            for="bd-email"
+          >
+            Get Early Access
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="bd-email"
+            placeholder="Enter your email"
+            class="w-full px-4 py-3 rounded-lg border border-primary-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 mb-4"
+            required
+          />
+          <button
+            type="submit"
+            class="w-full bg-primary-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-primary-700 transition duration-200"
+          >
+            Notify Me
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is Sabeel Section -->
+  <section class="py-16 bg-gradient-to-b from-white to-primary-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2
+        class="text-3xl font-heading text-primary-900 text-center mb-12"
+      >
+        What is Sabeel?
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="font-heading text-xl text-primary-900 mb-4">
+            Authentic Sources
+          </h3>
+          <p class="text-primary-700">
+            Lessons carefully curated from the Qurʾān and authentic
+            Hadith
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="font-heading text-xl text-primary-900 mb-4">
+            Bite-sized Learning
+          </h3>
+          <p class="text-primary-700">
+            5-minute daily lessons designed to fit your busy schedule
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="font-heading text-xl text-primary-900 mb-4">
+            Progressive Path
+          </h3>
+          <p class="text-primary-700">
+            Structured learning journey from basics to advanced topics
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tailored for Every Soul Section -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <h2
+        class="text-3xl font-heading text-primary-900 text-center mb-12"
+      >
+        Tailored for Every Soul
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="font-heading text-xl text-primary-900 mb-4">
+            For Kids
+          </h3>
+          <ul class="space-y-2 text-primary-700">
+            <li>• Interactive stories from Islamic history</li>
+            <li>• Fun quizzes and rewards</li>
+            <li>• Parent-guided learning mode</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="font-heading text-xl text-primary-900 mb-4">
+            For Teens
+          </h3>
+          <ul class="space-y-2 text-primary-700">
+            <li>• Relevant contemporary topics</li>
+            <li>• Peer discussion features</li>
+            <li>• Progress tracking</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="font-heading text-xl text-primary-900 mb-4">
+            For Adults
+          </h3>
+          <ul class="space-y-2 text-primary-700">
+            <li>• Deep dive into Islamic sciences</li>
+            <li>• Practical daily applications</li>
+            <li>• Advanced study paths</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coming Soon Features -->
+  <section class="py-16 bg-primary-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-heading text-primary-900 mb-8">
+        Coming Soon
+      </h2>
+      <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <p class="text-primary-900">Multi-language Support</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <p class="text-primary-900">Audio Lessons</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <p class="text-primary-900">Progress Tracking</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <p class="text-primary-900">Family Plans</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
 <style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  /* Custom styles for Sabeel */
+
+  /* Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  /* Colors */
+  :root {
+    --primary-50: #f9fafb;
+    --primary-100: #f3f4f6;
+    --primary-200: #e5e7eb;
+    --primary-300: #d1d5db;
+    --primary-400: #9ca3af;
+    --primary-500: #6b7280;
+    --primary-600: #4b5563;
+    --primary-700: #374151;
+    --primary-800: #1f2937;
+    --primary-900: #111827;
+  }
+
+  /* Custom Utilities */
+  @layer utilities {
+    .font-heading {
+      @apply font-extrabold tracking-tight;
+    }
+
+    .bg-primary {
+      @apply bg-primary-500;
+    }
+
+    .text-primary {
+      @apply text-primary-500;
+    }
+
+    .border-primary {
+      @apply border-primary-500;
+    }
+
+    .shadow-primary {
+      @apply shadow-lg;
+    }
+
+    /* Add more custom utilities as needed */
+  }
+
+  /* Global Styles */
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    font-family:
-      'Inter',
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      Roboto,
-      sans-serif;
-    color: #1a2b3b;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #f5f9ff 0%, #fff 100%);
-    min-height: 100vh;
+    @apply bg-primary-50 text-primary-900 antialiased;
+    font-family: 'Inter', sans-serif;
   }
 
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 120px 24px 60px; /* Added top padding to account for fixed header */
-  }
-
-  #logo {
-    display: block;
-    margin: 0 auto 40px;
-    width: 380px;
-    height: auto;
-  }
-
-  h2 {
-    color: #0a3255;
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-  }
-
-  h3 {
-    color: #0a3255;
-    font-size: 1.5rem;
-    margin-top: 2.5rem;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading leading-tight;
   }
 
   p {
-    line-height: 1.7;
-    color: #405671;
-    font-size: 1.125rem;
+    @apply text-base leading-relaxed;
   }
 
-  ul {
-    margin: 1.5rem 0;
-    padding-left: 0;
-    list-style: none;
+  a {
+    @apply text-primary-600 hover:text-primary-700 transition duration-200;
   }
 
-  ul li {
-    padding: 0.75rem 0;
-    color: #405671;
-    font-size: 1.125rem;
-  }
-
-  .embeddable-buttondown-form {
-    background: white;
-    padding: 32px;
-    border-radius: 16px;
-    margin: 32px 0;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  }
-
-  .embeddable-buttondown-form label {
-    display: block;
-    margin-bottom: 12px;
-    font-weight: 600;
-    color: #0a3255;
-    font-size: 1.125rem;
-  }
-
-  .embeddable-buttondown-form input[type='email'] {
-    width: 100%;
-    padding: 16px;
-    font-size: 1rem;
-    border: 2px solid #e1e8f0;
-    border-radius: 8px;
-    background: #f8fafc;
-    transition: all 0.2s ease;
-  }
-
-  .embeddable-buttondown-form input[type='email']:focus {
-    outline: none;
-    border-color: #3b82f6;
-    background: white;
-    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
-  }
-
-  .embeddable-buttondown-form button {
-    width: 100%;
-    padding: 16px 24px;
-    font-size: 1rem;
-    font-weight: 600;
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .embeddable-buttondown-form button:hover {
-    background-color: #2563eb;
-    transform: translateY(-1px);
-  }
-
-  .embeddable-buttondown-form p {
-    margin-top: 16px;
-    text-align: center;
-    font-size: 0.875rem;
-    color: #64748b;
-  }
-
-  .embeddable-buttondown-form a {
-    color: #3b82f6;
-    text-decoration: none;
-  }
-
-  footer {
-    margin-top: 60px;
-    text-align: center;
-    color: #64748b;
-    font-size: 0.875rem;
-  }
-
-  @media (min-width: 768px) {
-    .container {
-      padding: 60px 40px;
-    }
-
-    .embeddable-buttondown-form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .embeddable-buttondown-form label {
-      width: 100%;
-    }
-
-    .embeddable-buttondown-form input[type='email'] {
-      flex: 1;
-      margin: 0;
-    }
-
-    .embeddable-buttondown-form button {
-      width: auto;
-      min-width: 140px;
-    }
-
-    .embeddable-buttondown-form p {
-      width: 100%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .container {
-      padding: 60px 20px;
-    }
-
-    #logo {
-      width: 280px;
-      margin-bottom: 32px;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.25rem;
-    }
-
-    h3 {
-      font-size: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-
-    ul li {
-      font-size: 1rem;
-      padding: 0.5rem 0;
-    }
-
-    .embeddable-buttondown-form {
-      padding: 24px;
-      margin: 24px 0;
-    }
-
-    .embeddable-buttondown-form label {
-      font-size: 1rem;
-      margin-bottom: 8px;
-    }
-
-    .embeddable-buttondown-form input[type='email'] {
-      padding: 12px;
-      font-size: 16px;
-    }
-
-    .embeddable-buttondown-form button {
-      padding: 12px 20px;
-      font-size: 16px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .container {
-      padding: 60px 16px;
-    }
-
-    #logo {
-      width: 240px;
-      margin-bottom: 24px;
-    }
-
-    h2 {
-      font-size: 1.75rem;
-    }
-
-    .embeddable-buttondown-form {
-      padding: 20px 16px;
-      margin: 20px 0;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .embeddable-buttondown-form * {
-      box-sizing: border-box;
-    }
-
-    .embeddable-buttondown-form input[type='email'] {
-      width: 100%;
-      min-width: 0;
-      padding: 12px;
-      font-size: 16px;
-    }
-
-    .embeddable-buttondown-form button {
-      width: 100%;
-      padding: 12px 16px;
-      margin-top: 12px;
-    }
-
-    .embeddable-buttondown-form p {
-      font-size: 0.75rem;
-      margin-top: 12px;
-    }
-  }
-
-  @media (max-width: 360px) {
-    .container {
-      padding: 60px 12px;
-    }
-
-    #logo {
-      width: 200px;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-    }
-
-    .embeddable-buttondown-form {
-      padding: 16px 12px;
-    }
-  }
-
-  @media (max-height: 480px) and (orientation: landscape) {
-    .container {
-      padding: 60px 20px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 24px;
-    }
-
-    #logo {
-      width: 120px;
-      margin: 0;
-      grid-column: 1;
-      align-self: center;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin: 0;
-      text-align: left;
-      grid-column: 2;
-      align-self: center;
-    }
-
-    .embeddable-buttondown-form,
-    p,
-    ul,
-    h3,
-    footer {
-      grid-column: 1 / -1;
-    }
-
-    .embeddable-buttondown-form {
-      width: 100%;
-      padding: 16px;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .embeddable-buttondown-form label {
-      width: 100%;
-      margin-bottom: 0;
-    }
-
-    .embeddable-buttondown-form input[type='email'] {
-      flex: 1;
-      min-width: 200px;
-      margin: 0;
-    }
-
-    .embeddable-buttondown-form button {
-      width: auto;
-      min-width: 120px;
-      margin: 0;
-    }
-
-    .embeddable-buttondown-form p {
-      font-size: 0.75rem;
-      margin: 8px 0 0;
-      width: 100%;
-    }
-
-    p,
-    ul {
-      font-size: 0.875rem;
-      margin: 8px 0;
-    }
-
-    h3 {
-      font-size: 1.125rem;
-      margin: 16px 0 8px;
-    }
-
-    ul li {
-      padding: 4px 0;
-      font-size: 0.875rem;
-    }
-
-    footer {
-      margin-top: 16px;
-    }
-  }
+  /* Component Styles */
+  /* Add any component-specific styles here */
 </style>
