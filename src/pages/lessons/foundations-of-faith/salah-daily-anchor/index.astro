@@ -121,6 +121,7 @@ const tabs = [
               <a
                 href="/worksheets/Salah_Connection_Drawing.pdf"
                 class="download-link"
+                download="Salah_Connection_Drawing.pdf"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -699,7 +700,7 @@ const tabs = [
 
     tabs.forEach((tab) => {
       tab.addEventListener('click', () => {
-        const tabId = tab.dataset.tab;
+        const tabId = (tab as HTMLElement).dataset.tab;
 
         tabs.forEach((t) => t.setAttribute('aria-selected', 'false'));
         contents.forEach((c) =>
