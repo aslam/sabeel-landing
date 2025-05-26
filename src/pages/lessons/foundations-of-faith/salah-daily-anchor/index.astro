@@ -2,7 +2,7 @@
 import Layout from '../../../../layouts/Layout.astro';
 
 const tabs = [
-  { id: 'kids', label: 'For Kids', audio: '/audio/salah-kids.mp3' },
+  { id: 'kids', label: 'For Kids' },
   {
     id: 'teens',
     label: 'For Teens',
@@ -50,7 +50,10 @@ const tabs = [
         <div class="content-box">
           <div class="audio-player">
             <audio controls preload="metadata">
-              <source src="/audio/salah-kids.mp3" type="audio/mpeg" />
+              <source
+                src="https://res.cloudinary.com/syed-aslam/video/upload/v1748275428/Sabeel/audio/salah-kids.mp3"
+                type="audio/mpeg"
+              />
               Your browser does not support the audio element.
             </audio>
           </div>
@@ -119,7 +122,7 @@ const tabs = [
                 thank Him.
               </p>
               <a
-                href="/worksheets/Salah_Connection_Drawing.pdf"
+                href="https://res.cloudinary.com/syed-aslam/image/upload/v1748275315/Sabeel/worksheets/Salah_Connection_Drawing.pdf"
                 class="download-link"
                 download="Salah_Connection_Drawing.pdf"
               >
@@ -151,7 +154,7 @@ const tabs = [
           <div class="audio-player">
             <audio controls preload="metadata">
               <source
-                src="/audio/salah-teens.mp3"
+                src="https://res.cloudinary.com/syed-aslam/video/upload/v1748275429/Sabeel/audio/salah-teens.mp3"
                 type="audio/mpeg"
               />
               Your browser does not support the audio element.
@@ -229,7 +232,7 @@ const tabs = [
           <div class="audio-player">
             <audio controls preload="metadata">
               <source
-                src="/audio/salah-adults.mp3"
+                src="https://res.cloudinary.com/syed-aslam/video/upload/v1748275428/Sabeel/audio/salah-adults.mp3"
                 type="audio/mpeg"
               />
               Your browser does not support the audio element.
