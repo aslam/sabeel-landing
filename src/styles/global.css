@@ -99,3 +99,51 @@ p, a, li {
   font-style: normal;
 }
 
+/* Lessons */
+
+blockquote {
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  border-right: 4px solid #0a3255;
+  background: linear-gradient(to left,
+      rgba(10, 50, 85, 0.05),
+      transparent);
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #0a3255;
+  position: relative;
+}
+
+blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem;
+  right: -1rem;
+  font-size: 4rem;
+  font-family: var(--font-heading);
+  color: rgba(10, 50, 85, 0.1);
+}
+
+@media (max-width: 768px) {
+  blockquote {
+    padding: 1.25rem 1.5rem;
+    font-size: 1.125rem;
+  }
+}
+
+.breadcrumb {
+  margin-bottom: 2rem;
+  color: #405671;
+}
+
+.breadcrumb a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.breadcrumb span {
+  margin: 0 0.5rem;
+  color: #405671;
+}
