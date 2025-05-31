@@ -12,7 +12,7 @@ const subHeadingClass =
 const paragraphClass =
   'font-sans text-base md:text-lg text-gray-700 dark:text-gray-200 leading-relaxed';
 const ctaButtonClass =
-  'font-sans inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out shadow-lg hover:shadow-xl';
+  'font-sans inline-block bg-green-600 hover:bg-green-700 text-white hover:text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out shadow-lg hover:shadow-xl';
 const cardClass =
   'bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 transform transition duration-300 hover:scale-105 flex flex-col items-center text-center';
 ---
@@ -316,7 +316,7 @@ const cardClass =
         ></path>
       </svg>
       <p class="font-sans text-sm text-gray-700 dark:text-gray-200">
-        **Content Localization:** Lessons available in multiple
+        <strong>Content Localization:</strong> Lessons available in multiple
         languages.
       </p>
     </div>
@@ -330,8 +330,8 @@ const cardClass =
         ></path></svg
       >
       <p class={paragraphClass + ' text-sm'}>
-        **Daily Reminders:** Customizable notifications to help you
-        stay consistent.
+        <strong>Daily Reminders:</strong> Customizable notifications to
+        help you stay consistent.
       </p>
     </div>
     <div class="flex items-center space-x-3">
@@ -344,8 +344,8 @@ const cardClass =
         ></path></svg
       >
       <p class={paragraphClass + ' text-sm'}>
-        **Favorites:** Save and revisit lessons that deeply resonate
-        with you.
+        <strong>Favorites:</strong> Save and revisit lessons that deeply
+        resonate with you.
       </p>
     </div>
     <div class="flex items-center space-x-3">
@@ -358,8 +358,8 @@ const cardClass =
         ></path></svg
       >
       <p class={paragraphClass + ' text-sm'}>
-        **Offline Access:** Learn anytime, anywhere, without an
-        internet connection.
+        <strong>Offline Access:</strong> Learn anytime, anywhere, without
+        an internet connection.
       </p>
     </div>
     <div class="flex items-center space-x-3">
@@ -372,8 +372,8 @@ const cardClass =
         ></path></svg
       >
       <p class={paragraphClass + ' text-sm'}>
-        **Family Mode:** Shared goals, progress tracking, and parental
-        controls for a connected learning experience.
+        <strong>Family Mode:</strong> Shared goals, progress tracking,
+        and parental controls for a connected learning experience.
       </p>
     </div>
   </div>
