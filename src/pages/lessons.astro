@@ -25,6 +25,7 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+  /* Layout & Container */
   main {
     padding-top: 80px;
   }
@@ -35,6 +36,7 @@ import Layout from '../layouts/Layout.astro';
     padding: 40px 24px;
   }
 
+  /* Typography */
   h1 {
     color: #0a3255;
     font-size: 2.5rem;
@@ -49,12 +51,14 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 3rem;
   }
 
+  /* Grid Layout */
   .lessons-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
 
+  /* Card Styles */
   .lesson-card {
     background: white;
     padding: 2rem;
@@ -73,6 +77,18 @@ import Layout from '../layouts/Layout.astro';
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   }
 
+  .lesson-card h2 {
+    color: #0a3255;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .lesson-card p {
+    color: #405671;
+    line-height: 1.6;
+  }
+
+  /* Status Badge */
   .status {
     position: absolute;
     top: 1rem;
@@ -85,17 +101,7 @@ import Layout from '../layouts/Layout.astro';
     font-weight: 500;
   }
 
-  .lesson-card h2 {
-    color: #0a3255;
-    font-size: 1.5rem;
-    margin: 1rem 0;
-  }
-
-  .lesson-card p {
-    color: #405671;
-    line-height: 1.6;
-  }
-
+  /* Responsive Styles */
   @media (max-width: 768px) {
     .container {
       padding: 24px 16px;
