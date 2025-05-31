@@ -3,7 +3,6 @@
   --font-body: 'Nunito', sans-serif;
 }
 
-html,
 body {
   font-family: var(--font-body);
 }
@@ -12,7 +11,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
-p, a, li {
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
   font-family: var(--font-body);
 }
 
@@ -146,4 +149,126 @@ blockquote::before {
 .breadcrumb span {
   margin: 0 0.5rem;
   color: #405671;
+}
+
+/* Lesson Layout */
+.lesson-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 120px 24px 60px;
+}
+
+/* Typography */
+.lesson-title {
+  font-family: var(--font-heading);
+  color: #0a3255;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.lesson-subtitle {
+  color: #405671;
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+/* Content Box */
+.content-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem;
+}
+
+.content-box h3 {
+  color: #0a3255;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-box p {
+  color: #405671;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+/* Audio Player */
+.audio-player {
+  margin-bottom: 2rem;
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.audio-player audio {
+  width: 100%;
+}
+
+/* Parent Note */
+.parent-note {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-left: 4px solid #3b82f6;
+  border-radius: 0.5rem;
+}
+
+.parent-note h3 {
+  color: #3b82f6;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Code Blocks */
+code {
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875em;
+  border: 1px solid #e2e8f0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .lesson-container {
+    padding: 100px 16px 40px;
+  }
+
+  .lesson-title {
+    font-size: 2rem;
+  }
+
+  .lesson-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .content-box {
+    padding: 1.5rem;
+  }
+
+  .content-box p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .lesson-title {
+    font-size: 1.75rem;
+  }
+
+  .lesson-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .content-box {
+    padding: 1.25rem;
+  }
 }

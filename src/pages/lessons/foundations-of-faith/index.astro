@@ -64,12 +64,14 @@ const lessons = [
 </Layout>
 
 <style>
+  /* Layout & Container */
   .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 120px 24px 60px;
   }
 
+  /* Typography */
   h1 {
     font-family: var(--font-heading);
     color: #0a3255;
@@ -84,12 +86,14 @@ const lessons = [
     line-height: 1.6;
   }
 
+  /* Lessons List Layout */
   .lessons-list {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
   }
 
+  /* Card Styles */
   .lesson-card {
     background: white;
     padding: 2rem;
@@ -109,14 +113,6 @@ const lessons = [
     cursor: default;
   }
 
-  .lesson-number {
-    color: #3b82f6;
-    font-weight: 600;
-    font-size: 0.875rem;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
   .lesson-card h2 {
     color: #0a3255;
     font-size: 1.5rem;
@@ -128,6 +124,16 @@ const lessons = [
     line-height: 1.6;
   }
 
+  /* Lesson Number */
+  .lesson-number {
+    color: #3b82f6;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Status Badge */
   .status {
     position: absolute;
     top: 1rem;

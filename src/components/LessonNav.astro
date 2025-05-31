@@ -1,0 +1,107 @@
+---
+interface Props {
+  currentSlug: string;
+  lessons: {
+    slug: string;
+    title: string;
+    status: string;
+  }[];
+}
+
+const { currentSlug, lessons } = Astro.props;
+
+// Find current lesson index
+const currentIndex = lessons.findIndex((l) => l.slug === currentSlug);
+const prevLesson =
+  currentIndex > 0 ? lessons[currentIndex - 1] : null;
+const nextLesson =
+  currentIndex < lessons.length - 1
+    ? lessons[currentIndex + 1]
+    : null;
+---
+
+<nav class="lesson-nav">
+  {
+    prevLesson?.status === 'published' && (
+      <a
+        href={`/lessons/foundations-of-faith/${prevLesson.slug}`}
+        class="nav-link prev"
+      >
+        <span class="direction">Previous Lesson</span>
+        <span class="title">{prevLesson.title}</span>
+      </a>
+    )
+  }
+
+  {
+    nextLesson?.status === 'published' && (
+      <a
+        href={`/lessons/foundations-of-faith/${nextLesson.slug}`}
+        class="nav-link next"
+      >
+        <span class="direction">Next Lesson</span>
+        <span class="title">{nextLesson.title}</span>
+      </a>
+    )
+  }
+</nav>
+
+<style>
+  .lesson-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .nav-link {
+    flex: 1;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-link.prev {
+    text-align: left;
+  }
+
+  .nav-link.next {
+    text-align: right;
+  }
+
+  .direction {
+    display: block;
+    font-size: 0.875rem;
+    color: #3b82f6;
+    margin-bottom: 0.25rem;
+  }
+
+  .title {
+    display: block;
+    color: #0a3255;
+    font-weight: 500;
+  }
+
+  @media (max-width: 640px) {
+    .lesson-nav {
+      flex-direction: column;
+    }
+
+    .nav-link.prev,
+    .nav-link.next {
+      text-align: center;
+    }
+  }
+</style>

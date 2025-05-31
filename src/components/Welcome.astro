@@ -1,420 +1,607 @@
 ---
 import { Image } from 'astro:assets';
 import sabeel from '../assets/sabeel.png';
+
+// Define common Tailwind classes for reusability and maintainability.
+// These classes ensure consistent styling across different sections of the page.
+const sectionClass = 'py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto';
+const headingClass =
+  'font-serif text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-gray-50';
+const subHeadingClass =
+  'font-serif text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4';
+const paragraphClass =
+  'font-sans text-base md:text-lg text-gray-700 dark:text-gray-200 leading-relaxed';
+const ctaButtonClass =
+  'font-sans inline-block bg-green-600 hover:bg-green-700 text-white hover:text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out shadow-lg hover:shadow-xl';
+const cardClass =
+  'bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 transform transition duration-300 hover:scale-105 flex flex-col items-center text-center';
 ---
 
-<div class="container">
-  <Image
-    src={sabeel}
-    width={380}
-    height={120}
-    id="logo"
-    alt="Sabeel Logo"
-    format="webp"
-    quality="high"
-  />
-  <h2>A peaceful path to daily Islamic learning</h2>
-  <p>
-    We're building Sabeel to help people like us reconnect with
-    Islamic knowledge — slowly, gently, and consistently. Just one
-    small reflection a day — no overwhelm, no pressure. So you can
-    build a habit that brings peace, not guilt.
-  </p>
+<!-- Hero section - Light background -->
+<section
+  class="relative w-full h-screen flex flex-col items-center justify-center text-center p-4 bg-gradient-to-br from-blue-50 to-indigo-100 overflow-hidden"
+>
+  <div class="z-10 flex flex-col items-center justify-center">
+    <Image
+      src={sabeel}
+      alt="Sabeel Logo"
+      width={200}
+      height={200}
+      class="mb-6 rounded-full shadow-lg animate-fade-in"
+      loading="eager"
+      decoding="async"
+    />
+    <h1
+      class="font-serif text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4 animate-slide-in-top"
+    >
+      Sabeel
+    </h1>
+    <p
+      class="font-sans text-xl md:text-2xl text-gray-700 mb-8 animate-fade-in-delay-1"
+    >
+      The path to Deen. One day at a time.
+    </p>
+    <a
+      href="#early-access"
+      class={ctaButtonClass + ' animate-fade-in-delay-2'}
+    >
+      Subscribe for Early Access
+    </a>
+    <a
+      href="/lessons/foundations-of-faith/salah-daily-anchor#adults"
+      class="mt-4 text-green-700 hover:underline animate-fade-in-delay-3"
+    >
+      Or explore a free lesson
+    </a>
+  </div>
+  <div class="absolute inset-0 z-0 opacity-10">
+    <svg
+      class="w-full h-full"
+      fill="none"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <circle
+        cx="50"
+        cy="50"
+        r="30"
+        fill="currentColor"
+        class="text-blue-200 opacity-30"></circle>
+      <path d="M0 0h100v100H0z" fill="url(#pattern)"></path>
+      <defs>
+        <pattern
+          id="pattern"
+          patternUnits="userSpaceOnUse"
+          width="20"
+          height="20"
+        >
+          <rect
+            x="0"
+            y="0"
+            width="2"
+            height="2"
+            fill="currentColor"
+            class="text-blue-100 opacity-20"></rect>
+        </pattern>
+      </defs>
+    </svg>
+  </div>
+</section>
 
-  <h3>What You'll Get</h3>
-  <ul>
-    <li>✅ 5-minute daily lessons</li>
-    <li>✅ Clear, calming explanations</li>
-    <li>✅ Delivered with love and purpose</li>
-  </ul>
-  <p>
-    Whether you're returning to learning, or just want something
-    simple to reflect on — Sabeel is your quiet companion on the
-    journey.
+<!-- What is Sabeel - Dark background -->
+<section
+  id="what-is-sabeel"
+  class={sectionClass +
+    ' bg-gray-900 dark:bg-gray-900 text-white rounded-lg shadow-xl mb-8 -mt-20 z-20'}
+>
+  <h2
+    class="font-serif text-3xl md:text-4xl font-bold text-center mb-8 text-white"
+  >
+    What is Sabeel?
+  </h2>
+  <p
+    class="font-sans text-base md:text-lg text-gray-100 leading-relaxed text-center mb-8"
+  >
+    Sabeel is your daily companion for spiritual growth. We deliver
+    one authentic, bite-sized Islamic lesson every day, meticulously
+    curated to fit into your busy life and help you nurture your
+    faith.
   </p>
+  <div class="grid md:grid-cols-3 gap-8 mt-10">
+    <div
+      class="bg-gray-800 dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition duration-300 hover:scale-105 flex flex-col items-center text-center"
+    >
+      <svg
+        class="w-12 h-12 text-green-500 mb-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width={2}
+          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+        ></path>
+      </svg>
+      <h3
+        class="font-serif text-xl md:text-2xl font-semibold text-white mb-4"
+      >
+        Authentic Guidance
+      </h3>
+      <p class="font-sans text-sm text-gray-100">
+        Lessons rooted in the Qur'an and authentic Hadith (Sahih) to
+        ensure sound knowledge.
+      </p>
+    </div>
+    <div
+      class="bg-gray-800 dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition duration-300 hover:scale-105 flex flex-col items-center text-center"
+    >
+      <svg
+        class="w-12 h-12 text-blue-500 mb-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width={2}
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <h3
+        class="font-serif text-xl md:text-2xl font-semibold text-white mb-4"
+      >
+        Bite-sized Learning
+      </h3>
+      <p class="text-sm text-gray-300">
+        Each lesson is concise, designed to be understood and applied
+        in just 5 minutes a day.
+      </p>
+    </div>
+    <div
+      class="bg-gray-800 dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition duration-300 hover:scale-105 flex flex-col items-center text-center"
+    >
+      <svg
+        class="w-12 h-12 text-purple-500 mb-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width={2}
+          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+        ></path>
+      </svg>
+      <h3
+        class="font-serif text-xl md:text-2xl font-semibold text-white mb-4"
+      >
+        Action-Oriented
+      </h3>
+      <p class="text-sm text-gray-300">
+        Every lesson includes a practical 'try-this-today' action to
+        integrate learning into daily life.
+      </p>
+    </div>
+  </div>
+</section>
 
-  <h3>Join Our Early Access List</h3>
-  <p>
-    <strong>Be among the first to try Sabeel for free.</strong><br
-    />We'll send you early lessons, updates, and invite you to shape
-    this journey with us.
+<!-- Why Sabeel - Light background -->
+<section id="why-sabeel" class={sectionClass + ' bg-gray-50 mb-8'}>
+  <h2
+    class="font-serif text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900"
+  >
+    Why Sabeel?
+  </h2>
+  <div class="text-center">
+    <p
+      class="font-sans text-base md:text-lg text-gray-700 leading-relaxed mb-4 max-w-3xl mx-auto"
+    >
+      Our vision is to rekindle a living love for Allah and His
+      Messenger ﷺ by making sound, actionable Islamic knowledge
+      available to every busy Muslim in just five minutes a day.
+    </p>
+    <p
+      class="font-sans text-base md:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto"
+    >
+      We curate concise, authentic lessons that nurture ʿaqīdah
+      (creed), character, and spiritual practice, delivered in an
+      engaging, modern format that fits the pace of daily life.
+    </p>
+  </div>
+</section>
+
+<!-- How it Works - Light background (already working well) -->
+<section
+  id="how-it-works"
+  class={sectionClass + ' bg-white dark:bg-gray-900'}
+>
+  <h2 class={headingClass}>How It Works</h2>
+  <div class="grid md:grid-cols-3 gap-8 mt-10">
+    <div
+      class="flex flex-col items-center text-center p-4 bg-white dark:bg-gray-900 rounded-lg shadow-sm"
+    >
+      <div
+        class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 rounded-full h-16 w-16 flex items-center justify-center text-2xl font-serif font-bold mb-4 border-2 border-blue-300 dark:border-blue-700"
+      >
+        1
+      </div>
+      <h3 class={subHeadingClass}>Receive Daily Lesson</h3>
+      <p class={paragraphClass}>
+        Get a new, inspiring lesson delivered to your app every day.
+      </p>
+    </div>
+
+    <div
+      class="flex flex-col items-center text-center p-4 bg-white dark:bg-gray-900 rounded-lg shadow-sm"
+    >
+      <div
+        class="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 rounded-full h-16 w-16 flex items-center justify-center text-2xl font-serif font-bold mb-4 border-2 border-green-300 dark:border-green-700"
+      >
+        2
+      </div>
+      <h3 class={subHeadingClass}>Choose Your Learning Style</h3>
+      <p class={paragraphClass}>
+        Select content tailored for Kids, Teens, or Adults.
+      </p>
+    </div>
+
+    <div
+      class="flex flex-col items-center text-center p-4 bg-white dark:bg-gray-900 rounded-lg shadow-sm"
+    >
+      <div
+        class="bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full h-16 w-16 flex items-center justify-center text-2xl font-serif font-bold mb-4 border-2 border-purple-300 dark:border-purple-700"
+      >
+        3
+      </div>
+      <h3 class={subHeadingClass}>Engage & Apply</h3>
+      <p class={paragraphClass}>
+        Read the text or listen to the audio recitation, then
+        implement the practical takeaway.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Tailored Content - Dark background -->
+<section
+  id="tailored-content"
+  class={sectionClass + ' bg-gray-900 dark:bg-gray-900 text-white'}
+>
+  <h2
+    class="font-serif text-3xl md:text-4xl font-bold text-center mb-8 text-white"
+  >
+    Tailored for Every Soul
+  </h2>
+  <p
+    class="font-sans text-base md:text-lg text-gray-100 leading-relaxed text-center mb-10"
+  >
+    Our lessons are thoughtfully adapted to resonate deeply with each
+    age group, fostering understanding and spiritual growth across the
+    family.
   </p>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div
+      class="bg-gray-800 dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition duration-300 hover:scale-105 flex flex-col items-center text-center"
+    >
+      <h3
+        class="font-serif text-xl md:text-2xl font-semibold text-white mb-4"
+      >
+        For Kids
+      </h3>
+      <p class="text-sm text-gray-300 mb-2">
+        Simplified narratives and gentle lessons.
+      </p>
+      <p class="text-xs text-gray-300">
+        Parents can read them aloud, offering a sweet introduction to
+        Islamic principles and a foundation of love for Allah. Look
+        out for weekly printable activities!
+      </p>
+    </div>
+    <div
+      class="bg-gray-800 dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition duration-300 hover:scale-105 flex flex-col items-center text-center"
+    >
+      <h3
+        class="font-serif text-xl md:text-2xl font-semibold text-white mb-4"
+      >
+        For Teens
+      </h3>
+      <p class="text-sm text-gray-300 mb-2">
+        Encouraging, relatable content and real-world challenges.
+      </p>
+      <p class="text-xs text-gray-300">
+        Designed to empower them to live Islam confidently, teach
+        others, and build a strong identity in today's world.
+      </p>
+    </div>
+    <div
+      class="bg-gray-800 dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition duration-300 hover:scale-105 flex flex-col items-center text-center"
+    >
+      <h3
+        class="font-serif text-xl md:text-2xl font-semibold text-white mb-4"
+      >
+        For Adults
+      </h3>
+      <p class="text-sm text-gray-300 mb-2">
+        Deeper reflections, practical applications, and
+        self-assessment prompts.
+      </p>
+      <p class="text-xs text-gray-300">
+        Guiding towards consistent spiritual practice and deeper
+        connection with Allah, seamlessly integrating faith into daily
+        life.
+      </p>
+    </div>
+  </div>
+</section>
 
+<!-- Features - Light background -->
+<section
+  id="features"
+  class={sectionClass + ' bg-white dark:bg-gray-900 mb-8'}
+>
+  <h2 class={headingClass}>What's Coming Next</h2>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {/* Content Localization */}
+    <div class="flex items-center space-x-3">
+      <svg
+        class="flex-shrink-0 w-8 h-8 text-yellow-500 dark:text-yellow-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width={2}
+          d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+        ></path>
+      </svg>
+      <p class="font-sans text-sm text-gray-700 dark:text-gray-200">
+        <strong>Content Localization:</strong> Lessons available in multiple
+        languages.
+      </p>
+    </div>
+
+    {/* Daily Reminders */}
+    <div class="flex items-center space-x-3">
+      <svg
+        class="flex-shrink-0 w-8 h-8 text-red-500 dark:text-red-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width={2}
+          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+        ></path>
+      </svg>
+      <p class="font-sans text-sm text-gray-700 dark:text-gray-200">
+        <strong>Daily Reminders:</strong> Customizable notifications to
+        help you stay consistent.
+      </p>
+    </div>
+
+    {/* Favorites */}
+    <div class="flex items-center space-x-3">
+      <svg
+        class="flex-shrink-0 w-8 h-8 text-blue-500 dark:text-blue-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width={2}
+          d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+        ></path>
+      </svg>
+      <p class="font-sans text-sm text-gray-700 dark:text-gray-200">
+        <strong>Favorites:</strong> Save and revisit lessons that deeply
+        resonate with you.
+      </p>
+    </div>
+
+    {/* Offline Access */}
+    <div class="flex items-center space-x-3">
+      <svg
+        class="flex-shrink-0 w-8 h-8 text-green-500 dark:text-green-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width={2}
+          d="M8 16a5 5 0 01-.916-9.916 5.002 5.002 0 019.832 0A5 5 0 0116 16M12 12v6m0 0l3-3m-3 3l-3-3"
+        ></path>
+      </svg>
+      <p class="font-sans text-sm text-gray-700 dark:text-gray-200">
+        <strong>Offline Access:</strong> Learn anytime, anywhere, without
+        an internet connection.
+      </p>
+    </div>
+
+    {/* Family Mode */}
+    <div class="flex items-center space-x-3">
+      <svg
+        class="flex-shrink-0 w-8 h-8 text-indigo-500 dark:text-indigo-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width={2}
+          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+        ></path>
+      </svg>
+      <p class="font-sans text-sm text-gray-700 dark:text-gray-200">
+        <strong>Family Mode:</strong> Shared goals, progress tracking,
+        and parental controls.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Early Access - Light background -->
+<section
+  id="early-access"
+  class={sectionClass +
+    ' bg-primary-50 text-center rounded-lg shadow-xl mb-16'}
+>
+  <h2
+    class="font-serif text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900"
+  >
+    Join Our Early Access Community
+  </h2>
+  <p
+    class="font-sans text-base md:text-lg text-gray-700 leading-relaxed mb-8"
+  >
+    Be among the first to experience Sabeel! Get exclusive early
+    access to lessons and help us shape the future of Islamic
+    learning.
+  </p>
   <form
     action="https://buttondown.com/api/emails/embed-subscribe/sabeel"
-    method="post"
+    method="POST"
     target="popupwindow"
     onsubmit="window.open('https://buttondown.com/sabeel', 'popupwindow')"
-    class="embeddable-buttondown-form"
+    class="max-w-md mx-auto"
   >
-    <label for="bd-email">Enter your email</label>
-    <input type="email" name="email" id="bd-email" />
-
-    <button type="submit">Notify Me</button>
-    <p>
-      <a href="https://buttondown.com/refer/sabeel" target="_blank"
-        >Powered by Buttondown.</a
-      >
+    <div class="flex flex-col sm:flex-row gap-4 mb-6">
+      <input
+        type="email"
+        name="email"
+        placeholder="Your Email Address"
+        required
+        class="font-sans flex-1 px-5 py-3 rounded-full border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500"
+      />
+      <button type="submit" class={ctaButtonClass}>
+        Sign Up Now
+      </button>
+    </div>
+    <p class="font-sans text-sm text-gray-600">
+      We respect your privacy. No spam, ever.
     </p>
   </form>
-</div>
+</section>
 
 <style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  /* Custom styles for Sabeel */
+
+  /* Colors */
+  :root {
+    --primary-50: #f9fafb;
+    --primary-100: #f3f4f6;
+    --primary-200: #e5e7eb;
+    --primary-300: #d1d5db;
+    --primary-400: #9ca3af;
+    --primary-500: #6b7280;
+    --primary-600: #4b5563;
+    --primary-700: #374151;
+    --primary-800: #1f2937;
+    --primary-900: #111827;
+    --font-heading: 'Amiri', serif;
+    --font-body: 'Nunito', sans-serif;
+
+    --text-primary: #1f2937; /* gray-900 */
+    --text-secondary: #374151; /* gray-700 */
+    --text-tertiary: #4b5563; /* gray-600 */
+    --text-inverse: #f9fafb; /* gray-50 */
+  }
+
+  [data-theme='dark'] {
+    --text-primary: #f9fafb; /* gray-50 */
+    --text-secondary: #e5e7eb; /* gray-200 */
+    --text-tertiary: #d1d5db; /* gray-300 */
+    --text-inverse: #1f2937; /* gray-900 */
+  }
+
   body {
-    font-family:
-      'Inter',
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      Roboto,
-      sans-serif;
-    color: #1a2b3b;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #f5f9ff 0%, #fff 100%);
-    min-height: 100vh;
+    @apply bg-primary-50 text-gray-900 dark:text-gray-50 antialiased;
+    font-family: var(--font-body);
   }
 
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 120px 24px 60px; /* Added top padding to account for fixed header */
-  }
-
-  #logo {
-    display: block;
-    margin: 0 auto 40px;
-    width: 380px;
-    height: auto;
-  }
-
-  h2 {
-    color: #0a3255;
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-  }
-
-  h3 {
-    color: #0a3255;
-    font-size: 1.5rem;
-    margin-top: 2.5rem;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    @apply leading-tight font-bold;
   }
 
   p {
-    line-height: 1.7;
-    color: #405671;
-    font-size: 1.125rem;
+    font-family: var(--font-body);
+    @apply text-base leading-relaxed;
   }
 
-  ul {
-    margin: 1.5rem 0;
-    padding-left: 0;
-    list-style: none;
+  a {
+    @apply text-primary-600 hover:text-primary-700 transition duration-200;
   }
 
-  ul li {
-    padding: 0.75rem 0;
-    color: #405671;
-    font-size: 1.125rem;
+  /* Component Styles */
+  /* Add any component-specific styles here */
+
+  /* Basic animations for visual appeal */
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
   }
 
-  .embeddable-buttondown-form {
-    background: white;
-    padding: 32px;
-    border-radius: 16px;
-    margin: 32px 0;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  .animate-slide-in-top {
+    animation: slideInTop 1s ease-out forwards;
+    opacity: 0;
   }
 
-  .embeddable-buttondown-form label {
-    display: block;
-    margin-bottom: 12px;
-    font-weight: 600;
-    color: #0a3255;
-    font-size: 1.125rem;
+  .animate-fade-in-delay-1 {
+    animation: fadeIn 1s ease-out forwards 0.5s;
+    opacity: 0;
   }
 
-  .embeddable-buttondown-form input[type='email'] {
-    width: 100%;
-    padding: 16px;
-    font-size: 1rem;
-    border: 2px solid #e1e8f0;
-    border-radius: 8px;
-    background: #f8fafc;
-    transition: all 0.2s ease;
+  .animate-fade-in-delay-2 {
+    animation: fadeIn 1s ease-out forwards 1s;
+    opacity: 0;
   }
 
-  .embeddable-buttondown-form input[type='email']:focus {
-    outline: none;
-    border-color: #3b82f6;
-    background: white;
-    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  .animate-fade-in-delay-3 {
+    animation: fadeIn 1s ease-out forwards 1.5s;
+    opacity: 0;
   }
 
-  .embeddable-buttondown-form button {
-    width: 100%;
-    padding: 16px 24px;
-    font-size: 1rem;
-    font-weight: 600;
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .embeddable-buttondown-form button:hover {
-    background-color: #2563eb;
-    transform: translateY(-1px);
-  }
-
-  .embeddable-buttondown-form p {
-    margin-top: 16px;
-    text-align: center;
-    font-size: 0.875rem;
-    color: #64748b;
-  }
-
-  .embeddable-buttondown-form a {
-    color: #3b82f6;
-    text-decoration: none;
-  }
-
-  footer {
-    margin-top: 60px;
-    text-align: center;
-    color: #64748b;
-    font-size: 0.875rem;
-  }
-
-  @media (min-width: 768px) {
-    .container {
-      padding: 60px 40px;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
     }
-
-    .embeddable-buttondown-form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .embeddable-buttondown-form label {
-      width: 100%;
-    }
-
-    .embeddable-buttondown-form input[type='email'] {
-      flex: 1;
-      margin: 0;
-    }
-
-    .embeddable-buttondown-form button {
-      width: auto;
-      min-width: 140px;
-    }
-
-    .embeddable-buttondown-form p {
-      width: 100%;
+    to {
+      opacity: 1;
     }
   }
 
-  @media (max-width: 768px) {
-    .container {
-      padding: 60px 20px;
+  @keyframes slideInTop {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
     }
-
-    #logo {
-      width: 280px;
-      margin-bottom: 32px;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.25rem;
-    }
-
-    h3 {
-      font-size: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-
-    ul li {
-      font-size: 1rem;
-      padding: 0.5rem 0;
-    }
-
-    .embeddable-buttondown-form {
-      padding: 24px;
-      margin: 24px 0;
-    }
-
-    .embeddable-buttondown-form label {
-      font-size: 1rem;
-      margin-bottom: 8px;
-    }
-
-    .embeddable-buttondown-form input[type='email'] {
-      padding: 12px;
-      font-size: 16px;
-    }
-
-    .embeddable-buttondown-form button {
-      padding: 12px 20px;
-      font-size: 16px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .container {
-      padding: 60px 16px;
-    }
-
-    #logo {
-      width: 240px;
-      margin-bottom: 24px;
-    }
-
-    h2 {
-      font-size: 1.75rem;
-    }
-
-    .embeddable-buttondown-form {
-      padding: 20px 16px;
-      margin: 20px 0;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .embeddable-buttondown-form * {
-      box-sizing: border-box;
-    }
-
-    .embeddable-buttondown-form input[type='email'] {
-      width: 100%;
-      min-width: 0;
-      padding: 12px;
-      font-size: 16px;
-    }
-
-    .embeddable-buttondown-form button {
-      width: 100%;
-      padding: 12px 16px;
-      margin-top: 12px;
-    }
-
-    .embeddable-buttondown-form p {
-      font-size: 0.75rem;
-      margin-top: 12px;
-    }
-  }
-
-  @media (max-width: 360px) {
-    .container {
-      padding: 60px 12px;
-    }
-
-    #logo {
-      width: 200px;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-    }
-
-    .embeddable-buttondown-form {
-      padding: 16px 12px;
-    }
-  }
-
-  @media (max-height: 480px) and (orientation: landscape) {
-    .container {
-      padding: 60px 20px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 24px;
-    }
-
-    #logo {
-      width: 120px;
-      margin: 0;
-      grid-column: 1;
-      align-self: center;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin: 0;
-      text-align: left;
-      grid-column: 2;
-      align-self: center;
-    }
-
-    .embeddable-buttondown-form,
-    p,
-    ul,
-    h3,
-    footer {
-      grid-column: 1 / -1;
-    }
-
-    .embeddable-buttondown-form {
-      width: 100%;
-      padding: 16px;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .embeddable-buttondown-form label {
-      width: 100%;
-      margin-bottom: 0;
-    }
-
-    .embeddable-buttondown-form input[type='email'] {
-      flex: 1;
-      min-width: 200px;
-      margin: 0;
-    }
-
-    .embeddable-buttondown-form button {
-      width: auto;
-      min-width: 120px;
-      margin: 0;
-    }
-
-    .embeddable-buttondown-form p {
-      font-size: 0.75rem;
-      margin: 8px 0 0;
-      width: 100%;
-    }
-
-    p,
-    ul {
-      font-size: 0.875rem;
-      margin: 8px 0;
-    }
-
-    h3 {
-      font-size: 1.125rem;
-      margin: 16px 0 8px;
-    }
-
-    ul li {
-      padding: 4px 0;
-      font-size: 0.875rem;
-    }
-
-    footer {
-      margin-top: 16px;
+    to {
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 </style>
