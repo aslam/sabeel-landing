@@ -1,6 +1,8 @@
 ---
 import Layout from '../../../../layouts/Layout.astro';
 import Share from '../../../../components/Share.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
 
 const tabs = [
   { id: 'kids', label: 'For Kids' },
@@ -350,6 +352,8 @@ const tabs = [
       <Share
         title="Learning about Salah - Your Daily Anchor with Sabeel"
       />
+
+      <LessonNav currentSlug="salah-daily-anchor" lessons={lessons} />
     </div>
   </main>
 </Layout>

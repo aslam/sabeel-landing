@@ -1,6 +1,8 @@
 ---
 import Layout from '../../../../layouts/Layout.astro';
 import Share from '../../../../components/Share.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
 ---
 
 <Layout>
@@ -75,6 +77,8 @@ import Share from '../../../../components/Share.astro';
       </div>
 
       <Share title="The Creator of All Things: A Lesson in Faith" />
+
+      <LessonNav currentSlug="creator-of-all" lessons={lessons} />
     </div>
   </main>
 </Layout>
