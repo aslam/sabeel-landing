@@ -305,14 +305,16 @@ const cardClass =
 >
   <h2 class={headingClass}>What's Coming Next</h2>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {/* Content Localization */}
     <div class="flex items-center space-x-3">
       <svg
-        class="w-6 h-6 text-yellow-500 dark:text-yellow-400"
+        class="flex-shrink-0 w-8 h-8 text-yellow-500 dark:text-yellow-400"
         fill="currentColor"
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v-6h2v6zm0-8h2V7h2v2z"
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
         ></path>
       </svg>
       <p class="font-sans text-sm text-gray-700 dark:text-gray-200">
@@ -320,60 +322,76 @@ const cardClass =
         languages.
       </p>
     </div>
+
+    {/* Daily Reminders */}
     <div class="flex items-center space-x-3">
       <svg
-        class="w-6 h-6 text-red-500"
+        class="flex-shrink-0 w-8 h-8 text-red-500 dark:text-red-400"
         fill="currentColor"
         viewBox="0 0 24 24"
-        ><path
-          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
-        ></path></svg
+        xmlns="http://www.w3.org/2000/svg"
       >
-      <p class={paragraphClass + ' text-sm'}>
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
+        ></path>
+      </svg>
+      <p class="font-sans text-sm text-gray-700 dark:text-gray-200">
         <strong>Daily Reminders:</strong> Customizable notifications to
         help you stay consistent.
       </p>
     </div>
+
+    {/* Favorites */}
     <div class="flex items-center space-x-3">
       <svg
-        class="w-6 h-6 text-blue-500"
+        class="flex-shrink-0 w-8 h-8 text-blue-500 dark:text-blue-400"
         fill="currentColor"
         viewBox="0 0 24 24"
-        ><path
-          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
-        ></path></svg
+        xmlns="http://www.w3.org/2000/svg"
       >
-      <p class={paragraphClass + ' text-sm'}>
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
+        ></path>
+      </svg>
+      <p class="font-sans text-sm text-gray-700 dark:text-gray-200">
         <strong>Favorites:</strong> Save and revisit lessons that deeply
         resonate with you.
       </p>
     </div>
+
+    {/* Offline Access */}
     <div class="flex items-center space-x-3">
       <svg
-        class="w-6 h-6 text-green-500"
+        class="flex-shrink-0 w-8 h-8 text-green-500 dark:text-green-400"
         fill="currentColor"
         viewBox="0 0 24 24"
-        ><path
-          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
-        ></path></svg
+        xmlns="http://www.w3.org/2000/svg"
       >
-      <p class={paragraphClass + ' text-sm'}>
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
+        ></path>
+      </svg>
+      <p class="font-sans text-sm text-gray-700 dark:text-gray-200">
         <strong>Offline Access:</strong> Learn anytime, anywhere, without
         an internet connection.
       </p>
     </div>
+
+    {/* Family Mode */}
     <div class="flex items-center space-x-3">
       <svg
-        class="w-6 h-6 text-indigo-500"
+        class="flex-shrink-0 w-8 h-8 text-indigo-500 dark:text-indigo-400"
         fill="currentColor"
         viewBox="0 0 24 24"
-        ><path
-          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
-        ></path></svg
+        xmlns="http://www.w3.org/2000/svg"
       >
-      <p class={paragraphClass + ' text-sm'}>
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
+        ></path>
+      </svg>
+      <p class="font-sans text-sm text-gray-700 dark:text-gray-200">
         <strong>Family Mode:</strong> Shared goals, progress tracking,
-        and parental controls for a connected learning experience.
+        and parental controls.
       </p>
     </div>
   </div>
