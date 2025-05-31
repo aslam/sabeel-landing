@@ -5,6 +5,18 @@ interface Props {
 }
 
 const { title, url = Astro.url.href } = Astro.props;
+
+// Helper function to add UTM parameters
+const addUtmParams = (shareUrl: string) => {
+  const utmParams = new URLSearchParams({
+    utm_source: 'website',
+    utm_medium: 'social_share',
+    utm_campaign: 'lesson_share',
+  });
+  return `${shareUrl}${shareUrl.includes('?') ? '&' : '?'}${utmParams.toString()}`;
+};
+
+const shareUrl = addUtmParams(url);
 ---
 
 <div class="share-section">
@@ -13,7 +25,7 @@ const { title, url = Astro.url.href } = Astro.props;
     <button
       class="share-button twitter"
       aria-label="Share on Twitter"
-      onclick={`window.open('https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}')`}
+      onclick={`window.open('https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(shareUrl)}')`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +44,7 @@ const { title, url = Astro.url.href } = Astro.props;
     <button
       class="share-button facebook"
       aria-label="Share on Facebook"
-      onclick={`window.open('https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}')`}
+      onclick={`window.open('https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}')`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +63,7 @@ const { title, url = Astro.url.href } = Astro.props;
     <button
       class="share-button whatsapp"
       aria-label="Share on WhatsApp"
-      onclick={`window.open('https://api.whatsapp.com/send?text=${encodeURIComponent(title)}%0A${encodeURIComponent(url)}')`}
+      onclick={`window.open('https://api.whatsapp.com/send?text=${encodeURIComponent(title)}%0A${encodeURIComponent(shareUrl)}')`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
