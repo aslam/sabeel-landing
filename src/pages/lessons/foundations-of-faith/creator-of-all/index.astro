@@ -3,9 +3,16 @@ import Layout from '../../../../layouts/Layout.astro';
 import Share from '../../../../components/Share.astro';
 import LessonNav from '../../../../components/LessonNav.astro';
 import { lessons } from '../../../../data/lessons';
+
+const meta = {
+  title: 'Creator of All - Foundations of Faith | Sabeel',
+  description:
+    'Learn about Allah as the Creator of everything in existence and understand the fundamental concept of Tawheed.',
+  type: 'article',
+};
 ---
 
-<Layout>
+<Layout meta={meta}>
   <main>
     <div class="lesson-container">
       <div class="breadcrumb">

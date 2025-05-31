@@ -1,17 +1,38 @@
 ---
 import { GoogleAnalytics } from 'astro-analytics';
 import { Image } from 'astro:assets';
+import type { MetaProps } from '../types/meta';
 import sabeel from '../assets/sabeel_no_text.png';
 import '../styles/base.css';
 import '../styles/global.css';
 
-const currentPath = Astro.url.pathname;
+interface Props {
+  meta?: MetaProps;
+}
 
-// Meta tags content
-const description =
-  'Journey through authentic Islamic learning with daily bite-sized lessons from the Quran and Sahih sources.';
-const title = 'Sabeel - The path to Deen';
+const { meta } = Astro.props;
+
+// Default meta tags content
+const defaultMeta = {
+  title: 'Sabeel - The path to Deen',
+  description:
+    'Journey through authentic Islamic learning with daily bite-sized lessons from the Quran and Sahih sources.',
+  image: '/images/sabeel_og_image.png',
+  type: 'website',
+};
+
+// Merge default meta with provided meta
+const finalMeta = {
+  ...defaultMeta,
+  ...meta,
+};
+
 const siteUrl = 'https://sabeel.in';
+const currentPath = Astro.url.pathname;
+const fullUrl = `${siteUrl}${currentPath}`;
+const fullImageUrl = finalMeta.image?.startsWith('http')
+  ? finalMeta.image
+  : `${siteUrl}${finalMeta.image}`;
 ---
 
 <!doctype html>
@@ -22,33 +43,30 @@ const siteUrl = 'https://sabeel.in';
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <!-- Primary Meta Tags -->
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
+    <title>{finalMeta.title}</title>
+    <meta name="title" content={finalMeta.title} />
+    <meta name="description" content={finalMeta.description} />
     <meta
       name="keywords"
       content="Islamic learning, daily Islamic lessons, Muslim education, Sabeel app, short Islamic content, Islamic habit building, daily Islamic knowledge, Islamic reflection, Sabeel"
     />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={siteUrl} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta
-      property="og:image"
-      content={`${siteUrl}/images/sabeel_og_image.png`}
-    />
+    <meta property="og:type" content={finalMeta.type} />
+    <meta property="og:url" content={fullUrl} />
+    <meta property="og:title" content={finalMeta.title} />
+    <meta property="og:description" content={finalMeta.description} />
+    <meta property="og:image" content={fullImageUrl} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={siteUrl} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
+    <meta property="twitter:url" content={fullUrl} />
+    <meta property="twitter:title" content={finalMeta.title} />
     <meta
-      property="twitter:image"
-      content={`${siteUrl}/images/sabeel_og_image.png`}
+      property="twitter:description"
+      content={finalMeta.description}
     />
+    <meta property="twitter:image" content={fullImageUrl} />
 
     <!-- Additional Meta Tags -->
     <meta name="generator" content={Astro.generator} />
