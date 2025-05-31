@@ -15,6 +15,7 @@ const tabs = [
     id: 'adults',
     label: 'For Adults',
     audio: '/audio/salah-adults.mp3',
+    default: true,
   },
 ];
 
@@ -633,11 +634,19 @@ const meta = {
     history.replaceState(null, '', `#${tabId}`);
   }
 
-  // Initialize tab from URL hash or localStorage or default to 'kids'
+  // Helper function to extract tab ID from hash
+  function getTabFromHash() {
+    const hash = window.location.hash;
+    // Extract just the tab ID before any query parameters
+    const tabId = hash.split('?')[0].slice(1);
+    return tabId;
+  }
+
+  // Initialize tab from URL hash or localStorage or default to 'adults'
   const initTab = () => {
-    const hashTab = window.location.hash.slice(1);
+    const hashTab = getTabFromHash();
     const storedTab = localStorage.getItem('selectedTab');
-    const defaultTab = 'kids';
+    const defaultTab = 'adults';
 
     // Priority: URL hash > localStorage > default
     const tabToShow = hashTab || storedTab || defaultTab;
@@ -653,11 +662,11 @@ const meta = {
   });
 
   // Initialize on page load
-  initTab();
+  document.addEventListener('DOMContentLoaded', initTab);
 
   // Handle browser back/forward
   window.addEventListener('hashchange', () => {
-    const hashTab = window.location.hash.slice(1);
+    const hashTab = getTabFromHash();
     if (hashTab) switchTab(hashTab);
   });
 </script>
