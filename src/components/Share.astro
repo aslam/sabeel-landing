@@ -5,18 +5,6 @@ interface Props {
 }
 
 const { title, url = Astro.url.href } = Astro.props;
-
-// Helper function to add UTM parameters
-const addUtmParams = (shareUrl: string) => {
-  const utmParams = new URLSearchParams({
-    utm_source: 'website',
-    utm_medium: 'social_share',
-    utm_campaign: 'lesson_share',
-  });
-  return `${shareUrl}${shareUrl.includes('?') ? '&' : '?'}${utmParams.toString()}`;
-};
-
-const shareUrl = addUtmParams(url);
 ---
 
 <div class="share-section">
@@ -25,7 +13,9 @@ const shareUrl = addUtmParams(url);
     <button
       class="share-button twitter"
       aria-label="Share on Twitter"
-      onclick={`window.open('https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(shareUrl)}')`}
+      data-share="twitter"
+      data-title={title}
+      data-url={url}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +34,9 @@ const shareUrl = addUtmParams(url);
     <button
       class="share-button facebook"
       aria-label="Share on Facebook"
-      onclick={`window.open('https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}')`}
+      data-share="facebook"
+      data-title={title}
+      data-url={url}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +55,9 @@ const shareUrl = addUtmParams(url);
     <button
       class="share-button whatsapp"
       aria-label="Share on WhatsApp"
-      onclick={`window.open('https://api.whatsapp.com/send?text=${encodeURIComponent(title)}%0A${encodeURIComponent(shareUrl)}')`}
+      data-share="whatsapp"
+      data-title={title}
+      data-url={url}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -81,17 +75,57 @@ const shareUrl = addUtmParams(url);
   </div>
 </div>
 
+<script>
+  function addUtmParams(url: string) {
+    const utmParams = new URLSearchParams({
+      utm_source: 'website',
+      utm_medium: 'social_share',
+      utm_campaign: 'lesson_share',
+    });
+    return `${url}${url.includes('?') ? '&' : '?'}${utmParams.toString()}`;
+  }
+
+  function share(platform: string, title: string, url: string) {
+    const shareUrl = addUtmParams(url);
+    const encodedTitle = encodeURIComponent(title);
+    const encodedUrl = encodeURIComponent(shareUrl);
+
+    const urls = {
+      twitter: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+      whatsapp: `https://api.whatsapp.com/send?text=${encodedTitle}%0A${encodedUrl}`,
+    };
+
+    window.open(urls[platform], '_blank', 'noopener,noreferrer');
+  }
+
+  document.querySelectorAll('[data-share]').forEach((button) => {
+    button.addEventListener('click', (e) => {
+      const el = e.currentTarget as HTMLElement;
+      const platform = el.dataset.share;
+      const title = el.dataset.title;
+      const url = el.dataset.url;
+
+      if (platform && title && url) {
+        share(platform, title, url);
+      }
+    });
+  });
+</script>
+
 <style>
   .share-section {
     margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid #e2e8f0;
+    padding: 2rem;
+    background: #f8fafc;
+    border-radius: 12px;
   }
 
   .share-section h3 {
-    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
     color: #0f172a;
-    margin-bottom: 1rem;
   }
 
   .share-buttons {
@@ -104,45 +138,37 @@ const shareUrl = addUtmParams(url);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 500;
-    color: white;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
+  }
+
+  .share-button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .twitter {
+    background: #000000;
+    color: white;
+  }
+
+  .facebook {
+    background: #1877f2;
+    color: white;
+  }
+
+  .whatsapp {
+    background: #25d366;
+    color: white;
   }
 
   .share-button:hover {
     opacity: 0.9;
-  }
-
-  .share-button svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .twitter {
-    background-color: #000000;
-  }
-
-  .facebook {
-    background-color: #1877f2;
-  }
-
-  .whatsapp {
-    background-color: #25d366;
-  }
-
-  @media (max-width: 480px) {
-    .share-buttons {
-      flex-direction: column;
-    }
-
-    .share-button {
-      width: 100%;
-      justify-content: center;
-    }
+    transform: translateY(-1px);
   }
 </style>

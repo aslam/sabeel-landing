@@ -566,51 +566,58 @@ const meta = {
   const tabs = document.querySelectorAll('.tab-button');
   const contents = document.querySelectorAll('.tab-content');
 
+  // Helper function to extract tab ID from URL
+  function getTabFromUrl() {
+    const hash = window.location.hash;
+    if (!hash) return null;
+
+    // Get the first part of hash before any query parameters
+    const segments = hash.substring(1).split('?')[0];
+    return segments || null;
+  }
+
   function switchTab(tabId: string) {
+    // Only switch if tab exists
+    const targetTab = document.querySelector(`[data-tab="${tabId}"]`);
+    const targetContent = document.querySelector(
+      `.tab-content[data-tab="${tabId}"]`
+    );
+
+    if (!targetTab || !targetContent) return;
+
     // Update tabs and contents
     tabs.forEach((t) => t.setAttribute('aria-selected', 'false'));
     contents.forEach((c) => c.setAttribute('aria-hidden', 'true'));
 
     // Set the selected tab and show content
-    const selectedTab = document.querySelector(
-      `[data-tab="${tabId}"]`
-    );
-    const selectedContent = document.querySelector(
-      `.tab-content[data-tab="${tabId}"]`
-    );
-
-    selectedTab?.setAttribute('aria-selected', 'true');
-    selectedContent?.setAttribute('aria-hidden', 'false');
+    targetTab.setAttribute('aria-selected', 'true');
+    targetContent.setAttribute('aria-hidden', 'false');
 
     // Store the selected tab
     localStorage.setItem('selectedTab', tabId);
-    // Update URL hash without triggering scroll
-    history.replaceState(null, '', `#${tabId}`);
-  }
 
-  // Helper function to extract tab ID from hash
-  function getTabFromHash() {
-    const hash = window.location.hash;
-    // Extract just the tab ID before any query parameters
-    const tabId = hash.split('?')[0].slice(1);
-    return tabId;
+    // Update URL hash while preserving UTM parameters
+    const currentUrl = new URL(window.location.href);
+    const utmParams = currentUrl.search; // Preserve query parameters
+    const newHash = `#${tabId}${utmParams}`;
+    history.replaceState(null, '', newHash);
   }
 
   // Initialize tab from URL hash or localStorage or default to 'adults'
   const initTab = () => {
-    const hashTab = getTabFromHash();
+    const urlTab = getTabFromUrl();
     const storedTab = localStorage.getItem('selectedTab');
     const defaultTab = 'adults';
 
     // Priority: URL hash > localStorage > default
-    const tabToShow = hashTab || storedTab || defaultTab;
+    const tabToShow = urlTab || storedTab || defaultTab;
     switchTab(tabToShow);
   };
 
   // Handle tab clicks
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      const tabId = (tab as HTMLElement).dataset.tab;
+      const tabId = tab.getAttribute('data-tab');
       if (tabId) switchTab(tabId);
     });
   });
@@ -620,7 +627,7 @@ const meta = {
 
   // Handle browser back/forward
   window.addEventListener('hashchange', () => {
-    const hashTab = getTabFromHash();
-    if (hashTab) switchTab(hashTab);
+    const urlTab = getTabFromUrl();
+    if (urlTab) switchTab(urlTab);
   });
 </script>
