@@ -1,0 +1,633 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Share from '../../../../components/Share.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
+
+const tabs = [
+  { id: 'kids', label: 'For Kids' },
+  {
+    id: 'teens',
+    label: 'For Teens',
+  },
+  {
+    id: 'adults',
+    label: 'For Adults',
+    default: true,
+  },
+];
+
+const meta = {
+  title:
+    "The Kaaba: Allah's First House - Foundations of Faith | Sabeel",
+  description:
+    "Discover the history and significance of the Kaaba, Islam's most sacred site and its role in unifying Muslims worldwide.",
+  type: 'article',
+};
+---
+
+<Layout meta={meta}>
+  <main>
+    <div class="lesson-container">
+      <div class="breadcrumb">
+        <a href="/lessons">Lessons</a>
+        <span>/</span>
+        <a href="/lessons/foundations-of-faith"
+          >Foundations of Faith</a
+        >
+      </div>
+
+      <h1 class="lesson-title">The Kaaba: Allah's First House</h1>
+      <p class="lesson-subtitle">
+        A sacred symbol of unity and divine connection
+      </p>
+
+      <div class="tabs">
+        {
+          tabs.map((tab) => (
+            <button
+              class="tab-button"
+              data-tab={tab.id}
+              aria-selected={tab.default}
+            >
+              {tab.label}
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="tab-content" data-tab="kids" aria-hidden="false">
+        <div class="content-box">
+          <p>
+            Every day, millions of people around the world face a
+            special cube-shaped house in the sunny city of Makkah.
+            It's the Kaaba, Allah's amazing House on Earth! But what
+            if I told you there's an even more incredible house, way
+            up high in the heavens, that looks just like it? It's
+            called Bait-ul-Ma'mur, which means 'The Frequented House'!
+          </p>
+          <p>
+            Think of it like this: If your toy house is a small
+            version of your real house, then the Kaaba on Earth is
+            like a smaller, earthly version of Bait-ul-Ma'mur, Allah's
+            house in the heavens! Angels, countless angels who love
+            Allah very much, visit Bait-ul-Ma'mur every single day. So
+            many, that once an angel visits, they never get another
+            turn! They walk around it, just like people walk around
+            the Kaaba here.
+          </p>
+          <p>
+            Prophet Muhammad ﷺ saw this amazing heavenly house when he
+            took a special journey to the heavens. Allah showed him
+            how sacred and important it is! Because the Kaaba on Earth
+            is like its partner in the sky, Allah told Prophet Ibrahim
+            (peace be upon him) and his kind son, Prophet Ismail
+            (peace be upon him), to rebuild it here. They wanted to
+            make it a place where everyone could gather to remember
+            and worship Allah, the One God.
+          </p>
+          <p>
+            So, every time we face the Kaaba for Salah, or when
+            grown-ups go for Hajj and walk around it, we're not just
+            looking at stones. We're connecting to that incredible
+            heavenly house, <strong>Bait-ul-Ma'mur</strong>, and
+            joining all the angels and Muslims around the world who
+            are all facing the same One Allah. It reminds us we're all
+            part of one big, loving family!
+          </p>
+
+          <div class="parent-note">
+            <h4>Parent's Note:</h4>
+            <p>
+              This lesson introduces the concept of Bait-ul-Ma'mur,
+              helping children understand the Kaaba's spiritual depth
+              beyond its physical form. Emphasize that the Kaaba's
+              importance comes from its connection to the heavens and
+              its role as a meeting point for both angels
+              (celestially) and humans (terrestrially) in worshipping
+              Allah. You can tell your child, 'The Kaaba is Allah's
+              house on Earth, like a doorway to the heavens, helping
+              us feel close to Him!'
+            </p>
+          </div>
+
+          <div class="workshop-section">
+            <h3>Interactive Workshop</h3>
+            <div class="workshop-content">
+              <p>
+                Parents, talk with your child about how special it
+                feels to be part of something big! For a fun activity,
+                print out a simple outline of the Kaaba and a few
+                cloud shapes. Have them color the Kaaba and then draw
+                or stick small 'angel' figures (simple stick figures)
+                around the cloud shapes, symbolizing the angels in the
+                heavens. This can reinforce the idea of a heavenly
+                connection and shared worship.
+              </p>
+              <a
+                href="https://res.cloudinary.com/syed-aslam/image/upload/v1748787073/Sabeel/worksheets/Kaaba_Heavenly_Connection_Coloring.pdf"
+                class="download-link"
+                download="Kaaba_Heavenly_Connection_Coloring.pdf"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                  ></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Coloring Sheet
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" data-tab="teens" aria-hidden="false">
+        <div class="content-box">
+          <p>
+            What makes a building truly sacred? Is it the materials,
+            the architecture, or something far deeper? In Islam, the
+            Kaaba in Makkah is humanity's primary spiritual epicenter,
+            and its importance is rooted not just in its earthly
+            history, but in its profound connection to a celestial
+            counterpart: Bait-ul-Ma'mur, 'The Frequented House,' in
+            the seventh heaven.
+          </p>
+          <p>
+            Imagine the sheer scale of devotion: while millions of
+            Muslims perform Tawaf around the Kaaba on Earth, parallel
+            to this, 70,000 angels visit Bait-ul-Ma'mur every single
+            day to perform their own circumambulation, and once they
+            leave, they never get a second turn. This is a constant,
+            unending spiritual activity in the highest heavens, a
+            divine blueprint witnessed by Prophet Muhammad ﷺ during
+            his incredible Night Journey (<code>Mi'raj</code>).
+          </p>
+          <p>
+            The earthly Kaaba, rebuilt by Prophet Ibrahim and his son
+            Prophet Ismail (peace be upon them) upon Allah's command,
+            serves as a terrestrial reflection of this heavenly
+            archetype. It's a tangible focal point that unites us
+            globally, directing our prayers and our hearts towards
+            <code>Tawhid</code> - the absolute Oneness of Allah. Its existence
+            reinforces that worship is not just an earthly act, but a universal
+            cosmic reality, with every atom submitting to its Creator.
+          </p>
+          <p>
+            Facing the Kaaba in Salah isn't worshipping the structure
+            itself, but aligning with a divine directive, mirroring
+            the angelic devotion in the heavens. It binds us to a
+            spiritual lineage and a global community, reminding us
+            that despite our diverse locations, we are fundamentally
+            one Ummah, facing the same ultimate reality.
+          </p>
+
+          <div class="challenge-section">
+            <h3>Challenge & Discussion Prompt</h3>
+            <div class="challenge-content">
+              <p>
+                <strong>Challenge:</strong> Reflect on the concept of Bait-ul-Ma'mur
+                and its connection to the earthly Kaaba. How does knowing
+                about this celestial counterpart deepen your appreciation
+                for the Kaaba and the act of Salah? Think about how many
+                angels visit daily – what does this tell you about the
+                magnitude of worship? Discuss with a friend or family member:
+                How can connecting to this 'heavenly' perspective make
+                your own acts of worship feel more profound?
+              </p>
+              <span class="hashtag">#SabeelKaaba</span>
+              <span class="hashtag">#BaitulMamur</span>
+              <span class="hashtag">#IslamicHistory</span>
+              <span class="hashtag">#SpiritualJourney</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" data-tab="adults" aria-hidden="false">
+        <div class="content-box">
+          <p>
+            The profound sanctity of the Kaaba in Makkah is not merely
+            derived from its ancient terrestrial history or its role
+            as the <code>Qibla</code>; it is deeply interwoven with a
+            sublime celestial reality: Bait-ul-Ma'mur, 'The Frequented
+            House,' situated in the seventh heaven. This heavenly
+            Kaaba serves as the archetypal center of angelic worship,
+            a fact underscored by the Prophet Muhammad ﷺ's witnessing
+            it during his <code>Mi'raj</code> (Night Journey and Ascension).
+          </p>
+          <p>
+            Traditions narrate that 70,000 angels perform <code
+              >Tawaf</code
+            > around Bait-ul-Ma'mur daily, never to return for another
+            turn, signifying the sheer immensity and constant nature of
+            celestial devotion. The earthly Kaaba, initially built by Prophet
+            Adam (peace be upon him) and notably re-established by Prophet
+            Ibrahim and his son Prophet Ismail (peace be upon them) under
+            divine command, stands as its terrestrial counterpart. This
+            establishes a vertical axis of worship, connecting the earthly
+            and heavenly realms, inviting humanity to align its <code
+              >Tawhid</code
+            >
+            with the cosmic order.
+          </p>
+          <p>
+            The Kaaba, therefore, is not an idol, but a universal
+            signpost (<code>ayah</code>) pointing to the One Allah.
+            Its role as the
+            <code>Qibla</code> for Salah is a powerful discipline of unity,
+            transcending geographical and cultural divides. It subtly yet
+            forcefully reminds us of our shared servitude (<code
+              >ubudiyyah</code
+            >) and the egalitarian nature of Islam - every worshipper,
+            regardless of status, faces the same point in humble
+            submission.
+          </p>
+          <p>
+            Furthermore, the spiritual energy generated by the
+            ceaseless <code>Tawaf</code> around the earthly Kaaba, especially
+            during Hajj, is an echo of the perpetual angelic worship. Pondering
+            Bait-ul-Ma'mur elevates our understanding of Salah and Tawaf
+            from mere physical acts to profound spiritual participations
+            in a cosmic symphony of glorification to Allah. It reminds
+            us of our place in the grand design and the depth of Allah's
+            meticulous creation.
+          </p>
+
+          <div class="practical-section">
+            <h3>Practical Application & Self-Assessment</h3>
+            <div class="practical-content">
+              <p class="intro">Apply this today:</p>
+
+              <ol>
+                <li>
+                  <strong>Elevate Your Salah Intention:</strong>
+                  <p>
+                    Before your next Salah, take a moment to
+                    consciously connect your prayer to the broader
+                    reality of Bait-ul-Ma'mur. Intend not just to
+                    perform Salah, but to join the celestial worship,
+                    aligning your heart with the divine axis.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Reflect on Cosmic Worship:</strong>
+                  <p>
+                    Spend a few minutes post-Salah contemplating the
+                    sheer number of angels performing <code
+                      >Tawaf</code
+                    > daily. How does this perspective humble you and deepen
+                    your appreciation for the opportunity to worship Allah?
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Strengthen Unity:</strong>
+                  <p>
+                    The Kaaba symbolizes unity. Reflect on any
+                    perceived divisions within the Muslim community,
+                    locally or globally. Make a specific <code
+                      >du'a</code
+                    > for unity, remembering the common point towards which
+                    all hearts turn. Consider one small action you can
+                    take to bridge a gap or foster harmony in your immediate
+                    circle.
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Share title={meta.title} />
+      <LessonNav
+        lessons={lessons}
+        currentSlug="kaaba-heavenly-connection"
+      />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* Keep only page-specific styles here */
+  .tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .tab-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: #f1f5f9;
+    color: #405671;
+    border-radius: 9999px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .tab-button[aria-selected='true'] {
+    background: #3b82f6;
+    color: white;
+  }
+
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content[aria-hidden='false'] {
+    display: block;
+  }
+
+  /* Audio Player */
+  .audio-player {
+    margin-bottom: 2rem;
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+  }
+
+  .audio-player audio {
+    width: 100%;
+  }
+
+  /* Audio player responsive styles */
+  @media (max-width: 768px) {
+    .audio-player {
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .audio-player {
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Action Sections */
+  .workshop-section,
+  .challenge-section,
+  .practical-section {
+    margin-top: 3rem;
+    border-radius: 12px;
+    background: #f8fafc;
+    padding: 2rem;
+  }
+
+  .workshop-section h3,
+  .challenge-section h3,
+  .practical-section h3 {
+    color: #3b82f6;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Workshop specific styles */
+  .workshop-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: #e5f0ff;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+  }
+
+  .download-link:hover {
+    background: #dae8ff;
+  }
+
+  /* Challenge specific styles */
+  .challenge-content {
+    background: #e5f0ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #3b82f6;
+  }
+
+  .hashtag {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #3b82f6;
+    font-weight: 500;
+  }
+
+  /* Practical section specific styles */
+  .practical-content {
+    background: #f0f7ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #3b82f6;
+  }
+
+  .practical-content ol {
+    list-style: none;
+    counter-reset: steps;
+    padding: 0;
+  }
+
+  .practical-content li {
+    counter-increment: steps;
+    margin-bottom: 1.5rem;
+    padding-left: 2.5rem;
+    position: relative;
+  }
+
+  .practical-content li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    background: #3b82f6;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .practical-content strong {
+    display: block;
+    color: #0a3255;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Content List Styles */
+  .content-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .content-box ul li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-box ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    background: #3b82f6;
+    border-radius: 50%;
+  }
+
+  .content-box ul li strong {
+    display: block;
+    color: #0a3255;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .content-box ul li {
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .content-box ul li strong {
+      font-size: 1rem;
+    }
+  }
+
+  /* Responsive styles for action sections */
+  @media (max-width: 768px) {
+    .workshop-section,
+    .challenge-section,
+    .practical-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+    }
+
+    .workshop-content,
+    .challenge-content,
+    .practical-content {
+      padding: 1.25rem;
+    }
+
+    .practical-content li {
+      padding-left: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .workshop-section,
+    .challenge-section,
+    .practical-section {
+      padding: 1rem;
+    }
+
+    .workshop-content,
+    .challenge-content,
+    .practical-content {
+      padding: 1rem;
+    }
+  }
+</style>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-button');
+  const contents = document.querySelectorAll('.tab-content');
+
+  // Helper function to extract tab ID from URL
+  function getTabFromUrl() {
+    const hash = window.location.hash;
+    if (!hash) return null;
+
+    // Get the first part of hash before any query parameters
+    const segments = hash.substring(1).split('?')[0];
+    return segments || null;
+  }
+
+  function switchTab(tabId: string) {
+    // Only switch if tab exists
+    const targetTab = document.querySelector(`[data-tab="${tabId}"]`);
+    const targetContent = document.querySelector(
+      `.tab-content[data-tab="${tabId}"]`
+    );
+
+    if (!targetTab || !targetContent) return;
+
+    // Update tabs and contents
+    tabs.forEach((t) => t.setAttribute('aria-selected', 'false'));
+    contents.forEach((c) => c.setAttribute('aria-hidden', 'true'));
+
+    // Set the selected tab and show content
+    targetTab.setAttribute('aria-selected', 'true');
+    targetContent.setAttribute('aria-hidden', 'false');
+
+    // Store the selected tab
+    localStorage.setItem('selectedTab', tabId);
+
+    // Update URL hash while preserving UTM parameters
+    const currentUrl = new URL(window.location.href);
+    const utmParams = currentUrl.search; // Preserve query parameters
+    const newHash = `#${tabId}${utmParams}`;
+    history.replaceState(null, '', newHash);
+  }
+
+  // Initialize tab from URL hash or localStorage or default to 'adults'
+  const initTab = () => {
+    const urlTab = getTabFromUrl();
+    const storedTab = localStorage.getItem('selectedTab');
+    const defaultTab = 'adults';
+
+    // Priority: URL hash > localStorage > default
+    const tabToShow = urlTab || storedTab || defaultTab;
+    switchTab(tabToShow);
+  };
+
+  // Handle tab clicks
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const tabId = tab.getAttribute('data-tab');
+      if (tabId) switchTab(tabId);
+    });
+  });
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initTab);
+
+  // Handle browser back/forward
+  window.addEventListener('hashchange', () => {
+    const urlTab = getTabFromUrl();
+    if (urlTab) switchTab(urlTab);
+  });
+</script>
