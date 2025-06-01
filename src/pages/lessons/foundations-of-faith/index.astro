@@ -1,32 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-
-const lessons = [
-  {
-    slug: 'creator-of-all',
-    title: 'The Creator of All Things',
-    description:
-      'Understanding Allah as the Creator and Sustainer of everything in existence through simple, relatable examples.',
-    status: 'published',
-    order: 1,
-  },
-  {
-    slug: 'salah-daily-anchor',
-    title: 'Salah: Your Daily Anchor',
-    description:
-      'Understanding the essential nature of Salah as our direct connection with Allah, offering peace, guidance, and gratitude.',
-    status: 'published',
-    order: 2,
-  },
-  {
-    slug: 'names-of-allah',
-    title: 'The Beautiful Names of Allah',
-    description:
-      "Exploring the meanings and significance of Allah's names in our daily lives.",
-    status: 'coming-soon',
-    order: 3,
-  },
-];
+import { lessons } from '../../../data/lessons';
 ---
 
 <Layout>
