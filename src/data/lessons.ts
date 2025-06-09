@@ -30,6 +30,16 @@ export const lessons = [
     order: 3,
   },
   {
+    slug: 'surah-al-asr-four-keys-to-success',
+    title: 'Surah Al-Asr: Four Keys to Success',
+    subtitle: 'Lessons from the Shortest Surah',
+    description:
+      'Exploring the profound lessons of Surah Al-Asr, emphasizing the importance of time, faith, good deeds, and mutual encouragement.',
+    series: 'foundations-of-faith',
+    status: 'published',
+    order: 4,
+  },
+  {
     slug: 'names-of-allah',
     title: 'The Beautiful Names of Allah',
     status: 'coming-soon',

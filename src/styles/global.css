@@ -196,6 +196,62 @@ blockquote::before {
   font-size: 1.125rem;
 }
 
+/* Ordered List Styles */
+.content-box ol {
+  list-style: decimal;
+  padding-left: 2rem;
+  margin: 1.5rem 0;
+}
+
+.content-box ol li {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.content-box ol li strong {
+  display: block;
+  color: #0a3255;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .content-box ol li {
+    margin-bottom: 1.25rem;
+  }
+
+  .content-box ol li strong {
+    font-size: 1rem;
+  }
+}
+
+.content-box table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.content-box table th,
+.content-box table td {
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.content-box table th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #0a3255;
+}
+
+@media (max-width: 768px) {
+
+  .content-box table th,
+  .content-box table td {
+    padding: 0.5rem;
+  }
+}
+
 /* Audio Player */
 .audio-player {
   margin-bottom: 2rem;

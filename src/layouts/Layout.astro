@@ -19,6 +19,8 @@ const defaultMeta = {
     'Journey through authentic Islamic learning with daily bite-sized lessons from the Quran and Sahih sources.',
   image: '/images/sabeel_og_image.png',
   type: 'website',
+  keywords:
+    'Islamic learning, daily Islamic lessons, Muslim education, Sabeel app, short Islamic content, Islamic habit building, daily Islamic knowledge, Islamic reflection, Sabeel',
 };
 
 // Merge default meta with provided meta
@@ -46,10 +48,7 @@ const fullImageUrl = finalMeta.image?.startsWith('http')
     <title>{finalMeta.title}</title>
     <meta name="title" content={finalMeta.title} />
     <meta name="description" content={finalMeta.description} />
-    <meta
-      name="keywords"
-      content="Islamic learning, daily Islamic lessons, Muslim education, Sabeel app, short Islamic content, Islamic habit building, daily Islamic knowledge, Islamic reflection, Sabeel"
-    />
+    <meta name="keywords" content={finalMeta.keywords} />
 
     <!-- Canonical URL -->
     <link rel="canonical" href={fullUrl} />
