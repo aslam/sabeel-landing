@@ -4,20 +4,38 @@ import Share from '../../../../components/Share.astro';
 import LessonNav from '../../../../components/LessonNav.astro';
 import { lessons } from '../../../../data/lessons';
 
+const tabs = [
+  { id: 'kids', label: 'For Kids' },
+  { id: 'teens', label: 'For Teens' },
+  { id: 'adults', label: 'For Adults', default: true },
+];
+
 const meta = {
-  title: 'Creator of All - Foundations of Faith | Sabeel',
+  title: 'The Creator of All Things | Sabeel',
   description:
-    'Learn about Allah as the Creator of everything in existence and understand the fundamental concept of Tawheed.',
+    'Understanding Allah as the Creator and Sustainer of everything in existence through simple, relatable examples.',
   type: 'article',
   keywords:
-    'Allah Creator, Islamic creation, Tawheed, Islamic monotheism, Divine attributes, Islamic faith basics, Allah self-sufficient, Creator of universe, Islamic lessons for kids, Islamic lessons for teens, Islamic family education, Al-Khaliq, attributes of Allah, Islamic theology, Muslim beliefs, Quran teachings, foundations of faith, Islamic spirituality, divine power, Islamic worldview',
+    'Allah, Creator, Islam, Islamic beliefs, Tawhid, God, divine attributes, existence, purpose of life, Islamic education, foundations of faith, Muslim kids, Muslim teens, Muslim adults',
 };
+
 const title = 'The Creator of All Things';
+const subtitle = 'Understanding Allah\'s Oneness and Attributes';
 
 const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
 ---
 
-<LessonLayout title={title} meta={meta}>
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  {currentLesson && (
+    <div class="mb-8 mt-2 lg:mt-4 xl:mt-8">
+      <img
+        src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+        alt={currentLesson.title}
+        class="w-full h-auto rounded-lg shadow-lg"
+      />
+    </div>
+  )}
   <div class="content-box">
     <h3>The Creator of All Things: A Lesson in Faith</h3>
     <p>

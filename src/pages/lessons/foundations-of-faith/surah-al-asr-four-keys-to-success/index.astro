@@ -21,9 +21,19 @@ const title = 'Sūrat al-ʿAsr: Four Keys to True Success';
 const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how to achieve true success in life through faith, good deeds, and community support.';
 
 const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
 ---
 
 <LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  {currentLesson && (
+    <div class="mb-8 mt-2 lg:mt-4 xl:mt-8">
+      <img
+        src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+        alt={currentLesson.title}
+        class="w-full h-auto rounded-lg shadow-lg"
+      />
+    </div>
+  )}
   <div class="mb-8">
     <div class="flex gap-4 justify-center mb-6">
       {tabs.map((tab, i) => (

@@ -21,9 +21,19 @@ const title = "The Kaaba: Allah's First House";
 const subtitle = 'A sacred symbol of unity and divine connection';
 
 const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
 ---
 
 <LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  {currentLesson && (
+    <div class="mb-8 mt-2 lg:mt-4 xl:mt-8">
+      <img
+        src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+        alt={currentLesson.title}
+        class="w-full h-auto rounded-lg shadow-lg"
+      />
+    </div>
+  )}
   <div class="mb-8">
     <div class="flex gap-4 justify-center mb-6">
       {tabs.map((tab, i) => (

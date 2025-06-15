@@ -8,7 +8,7 @@ export const lessons = [
     series: 'foundations-of-faith',
     status: 'published',
     order: 1,
-    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1749990419/Sabeel/topics/creator-of-all.png',
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1750005376/Sabeel/topics/creator-of-all.png',
     current: false,
     
   },
@@ -46,6 +46,18 @@ export const lessons = [
     status: 'published',
     order: 4,
     image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1749991800/Sabeel/topics/surah-al-asr.png',
+    current: false,
+  },
+  {
+    slug: 'prophet-muhammad-mercy-to-all-worlds',
+    title: 'Prophet Muhammad ﷺ: The Mercy to All Worlds',
+    subtitle: "Understanding Prophet Muhammad ﷺ as Allah's universal mercy and perfect example for all of humanity, inspiring deep love and practical emulation of his noble character and Sunnah.",
+    description:
+      "Prophet Muhammad ﷺ was a perfect gift from Allah, sent with endless love and kindness for everyone and everything. He showed us the most beautiful way to live, connecting our hearts to Allah and making us a source of good for the world.",
+    series: 'foundations-of-faith',
+    status: 'published',
+    order: 5,
     current: true,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1749992183/Sabeel/topics/mercy-to-all-worlds.png'
   },
 ];
