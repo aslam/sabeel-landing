@@ -12,6 +12,7 @@ export interface Props {
 }
 import { Image } from 'astro:assets';
 import sabeel from '../assets/sabeel_no_text.png';
+import '../styles/global.css'; // Import global styles for Tailwind processing
 const { title, subtitle, meta } = Astro.props as Props;
 const defaultMeta = {
   title,
@@ -30,6 +31,7 @@ const finalMeta = { ...defaultMeta, ...meta };
     <meta property="og:title" content={finalMeta.title} />
     <meta property="og:description" content={finalMeta.description} />
     {finalMeta.image && <meta property="og:image" content={finalMeta.image} />}
+    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body class="bg-gradient-to-br from-primary-50 to-white min-h-screen flex flex-col">
     <!-- Modern Header -->
