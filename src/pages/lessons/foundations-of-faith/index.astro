@@ -4,6 +4,12 @@ import { lessons } from '../../../data/lessons';
 
 const featuredLesson = lessons.find(lesson => lesson.current) || lessons[0];
 const otherLessons = lessons.filter(lesson => !lesson.current);
+
+const addUtmParams = (url: string, source: string) => {
+  const utmMedium = 'social';
+  const utmCampaign = 'lesson_share';
+  return `${url}?utm_source=${source}&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}`;
+};
 ---
 
 <Layout>
@@ -39,9 +45,9 @@ const otherLessons = lessons.filter(lesson => !lesson.current);
             </a>
             <div class="flex gap-3 text-gray-500 text-xl md:justify-end">
               <span>Share:</span>
-              <a href="#" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href={addUtmParams(`https://twitter.com/intent/tweet?text=${encodeURIComponent(featuredLesson.title)}&url=${encodeURIComponent(`${Astro.site}lessons/foundations-of-faith/${featuredLesson.slug}`)}`, 'twitter')} aria-label="Share on Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+              <a href={addUtmParams(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${Astro.site}lessons/foundations-of-faith/${featuredLesson.slug}`)}`, 'facebook')} aria-label="Share on Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+              <a href={addUtmParams(`https://api.whatsapp.com/send?text=${encodeURIComponent(featuredLesson.title)}%0A${encodeURIComponent(`${Astro.site}lessons/foundations-of-faith/${featuredLesson.slug}`)}`, 'whatsapp')} aria-label="Share on WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
             </div>
           </div>
         </div>
@@ -77,9 +83,9 @@ const otherLessons = lessons.filter(lesson => !lesson.current);
                 <div class="px-6 py-4 flex justify-end items-center">
                   <div class="flex gap-2 text-gray-500 text-lg">
                     <span>Share:</span>
-                    <a href="#" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href={addUtmParams(`https://twitter.com/intent/tweet?text=${encodeURIComponent(lesson.title)}&url=${encodeURIComponent(`${Astro.site}lessons/foundations-of-faith/${lesson.slug}`)}`, 'twitter')} aria-label="Share on Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href={addUtmParams(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${Astro.site}lessons/foundations-of-faith/${lesson.slug}`)}`, 'facebook')} aria-label="Share on Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href={addUtmParams(`https://api.whatsapp.com/send?text=${encodeURIComponent(lesson.title)}%0A${encodeURIComponent(`${Astro.site}lessons/foundations-of-faith/${lesson.slug}`)}`, 'whatsapp')} aria-label="Share on WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
                   </div>
                 </div>
                 {lesson.status === 'coming-soon' && (
