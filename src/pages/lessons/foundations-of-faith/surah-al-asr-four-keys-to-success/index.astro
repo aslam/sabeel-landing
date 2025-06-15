@@ -22,6 +22,8 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
 
 const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
 const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
+
+meta.image = currentLesson?.image;
 ---
 
 <LessonLayout title={title} subtitle={subtitle} meta={meta}>

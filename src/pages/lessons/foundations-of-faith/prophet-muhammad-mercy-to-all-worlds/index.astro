@@ -24,6 +24,8 @@ const subtitle = 'Discover the universal mercy and exemplary character of Prophe
 
 const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
 const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
+
+meta.image = currentLesson?.image;
 ---
 
 <LessonLayout title={title} subtitle={subtitle} meta={meta}>
