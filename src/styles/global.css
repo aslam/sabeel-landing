@@ -184,7 +184,7 @@ blockquote::before {
   border-radius: 12px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   margin-bottom: 2rem;
-  font-family: var(--font-sans, 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', 'Noto Sans Symbols', 'Noto Sans Arabic', 'Noto Sans IPA', 'Noto Sans Latin', 'Arial Unicode MS', sans-serif);
+  /* font-family: var(--font-sans, 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', 'Noto Sans Symbols', 'Noto Sans Arabic', 'Noto Sans IPA', 'Noto Sans Latin', 'Arial Unicode MS', sans-serif); */
 }
 
 .content-box h3 {
