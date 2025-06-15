@@ -8,6 +8,9 @@ export const lessons = [
     series: 'foundations-of-faith',
     status: 'published',
     order: 1,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1749990419/Sabeel/topics/creator-of-all.png',
+    current: false,
+    
   },
   {
     slug: 'salah-daily-anchor',
@@ -18,6 +21,8 @@ export const lessons = [
     series: 'foundations-of-faith',
     status: 'published',
     order: 2,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1749990992/Sabeel/topics/salah.png',
+    current: false,
   },
   {
     slug: 'kaaba-heavenly-connection',
@@ -28,6 +33,8 @@ export const lessons = [
     series: 'foundations-of-faith',
     status: 'published',
     order: 3,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1749990510/Sabeel/topics/kaaba.png',
+    current: false,
   },
   {
     slug: 'surah-al-asr-four-keys-to-success',
@@ -38,10 +45,7 @@ export const lessons = [
     series: 'foundations-of-faith',
     status: 'published',
     order: 4,
-  },
-  {
-    slug: 'names-of-allah',
-    title: 'The Beautiful Names of Allah',
-    status: 'coming-soon',
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1749991800/Sabeel/topics/surah-al-asr.png',
+    current: true,
   },
 ];

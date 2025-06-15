@@ -1,40 +1,95 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import { lessons } from '../../../data/lessons';
+
+const featuredLesson = lessons.find(lesson => lesson.current) || lessons[0];
+const otherLessons = lessons.filter(lesson => !lesson.current);
 ---
 
 <Layout>
   <main>
     <div class="max-w-4xl mx-auto px-6 py-24 sm:py-32">
-      <h1 class="font-heading text-sabeel-blue-900 text-4xl sm:text-5xl lg:text-6xl mb-4">
-        Foundations of Faith
-      </h1>
-      <p class="text-sabeel-teal-800 text-lg sm:text-xl leading-relaxed mb-12">
-        Essential lessons about Islamic beliefs and practices,
-        explained with clarity and depth.
-      </p>
-
-      <div class="flex flex-col gap-6">
-        {
-          lessons.map((lesson) => (
-            <a
-              href={
-                lesson.status === 'published'
-                  ? `/lessons/foundations-of-faith/${lesson.slug}`
-                  : '#'
-              }
-              class={`block bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transform transition-transform duration-200 ease-in-out hover:-translate-y-0.5 ${lesson.status === 'coming-soon' ? 'opacity-80 cursor-default' : ''}`}
-            >
-              <span class="text-blue-500 font-semibold text-sm block mb-2">Lesson {lesson.order}</span>
-              <h2 class="text-sabeel-blue-900 text-xl font-semibold mb-3">{lesson.title}</h2>
-              <p class="text-sabeel-teal-800 leading-relaxed">{lesson.description}</p>
-              {lesson.status === 'coming-soon' && (
-                <span class="absolute top-4 right-4 bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">Coming Soon</span>
-              )}
+      <!-- Featured Lesson Section -->
+      <section class="mb-16">
+        <div class="bg-white rounded-xl shadow-lg flex flex-col md:flex-row overflow-hidden">
+          <a
+            href={
+              featuredLesson.status === 'published'
+                ? `/lessons/foundations-of-faith/${featuredLesson.slug}`
+                : '#'
+            }
+            class="w-full md:w-1/2 block flex flex-col md:flex-row"
+          >
+            <img
+              src={featuredLesson.image || '/images/lesson-placeholder.jpg'}
+              alt={featuredLesson.title}
+              class="w-full h-64 object-cover rounded-t-xl md:h-auto md:rounded-tr-none md:rounded-bl-xl"
+            />
+            
+          </a>
+          <!-- Social Share buttons for Featured Lesson -->
+          <div class="p-8 flex flex-col justify-between md:w-1/2">
+            <a href={`/lessons/foundations-of-faith/${featuredLesson.slug}`}>
+              <div class="p-8 flex-grow">
+                <h5 class="text-sabeel-teal-800 font-semibold text-sm block mb-1">Foundations of Faith</h5>
+                <p class="text-sabeel-teal-800 text-sm leading-relaxed mb-4">Essential lessons about Islamic beliefs and practices, explained with clarity and depth.</p>
+                <h3 class="font-heading text-sabeel-blue-900 text-2xl font-semibold mb-4">{featuredLesson.title}</h3>
+                <p class="text-sabeel-teal-800 text-base leading-relaxed mb-6">{featuredLesson.description}</p>
+              </div>
             </a>
-          ))
-        }
-      </div>
+            <div class="flex gap-3 text-gray-500 text-xl md:justify-end">
+              <span>Share:</span>
+              <a href="#" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Other Lessons Section -->
+      <section>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8">
+          {
+            otherLessons.map((lesson) => (
+              <div class="group block bg-white rounded-xl shadow-lg hover:shadow-xl transform transition-all duration-300 ease-in-out flex flex-col h-full">
+                <a
+                  href={
+                    lesson.status === 'published'
+                      ? `/lessons/foundations-of-faith/${lesson.slug}`
+                      : '#'
+                  }
+                  class="block flex-grow"
+                >
+                  <img
+                    src={lesson.image || '/images/lesson-placeholder.jpg'}
+                    alt={lesson.title}
+                    class="w-full h-48 object-cover rounded-t-xl"
+                  />
+                  <div class="p-6 flex-grow">
+                    <div>
+                      <h4 class="font-heading text-sabeel-blue-900 text-xl font-semibold mb-3">{lesson.title}</h4>
+                      <p class="text-sabeel-teal-800 text-base leading-relaxed mb-4 line-clamp-3">{lesson.description}</p>
+                    </div>
+                  </div>
+                </a>
+                <!-- Social Share buttons for Other Lessons -->
+                <div class="px-6 py-4 flex justify-end items-center">
+                  <div class="flex gap-2 text-gray-500 text-lg">
+                    <span>Share:</span>
+                    <a href="#" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                  </div>
+                </div>
+                {lesson.status === 'coming-soon' && (
+                  <span class="absolute top-4 right-4 bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">Coming Soon</span>
+                )}
+              </div>
+            ))
+          }
+        </div>
+      </section>
     </div>
   </main>
 </Layout>
