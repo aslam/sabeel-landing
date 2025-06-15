@@ -1,99 +1,35 @@
 ---
-import { GoogleAnalytics } from 'astro-analytics';
-import { Image } from 'astro:assets';
-import type { MetaProps } from '../types/meta';
-import sabeel from '../assets/sabeel_no_text.png';
-import '../styles/base.css';
-import '../styles/global.css';
-
-interface Props {
-  meta?: MetaProps;
+export interface Props {
+  title: string;
+  subtitle?: string;
+  meta?: {
+    title?: string;
+    description?: string;
+    keywords?: string;
+    image?: string;
+    type?: string;
+  };
 }
-
-const { meta } = Astro.props;
-
-// Default meta tags content
+import { Image } from 'astro:assets';
+import sabeel from '../assets/sabeel_no_text.png';
+const { title, subtitle, meta } = Astro.props as Props;
 const defaultMeta = {
-  title: 'Sabeel - The path to Deen',
-  description:
-    'Journey through authentic Islamic learning with daily bite-sized lessons from the Quran and Sahih sources.',
-  image: '/images/sabeel_og_image.png',
-  type: 'website',
-  keywords:
-    'Islamic learning, daily Islamic lessons, Muslim education, Sabeel app, short Islamic content, Islamic habit building, daily Islamic knowledge, Islamic reflection, Sabeel',
+  title,
+  description: subtitle,
+  type: 'article',
 };
-
-// Merge default meta with provided meta
-const finalMeta = {
-  ...defaultMeta,
-  ...meta,
-};
-
-const siteUrl = 'https://sabeel.in';
-const currentPath = Astro.url.pathname;
-const fullUrl = `${siteUrl}${currentPath}`;
-const fullImageUrl = finalMeta.image?.startsWith('http')
-  ? finalMeta.image
-  : `${siteUrl}${finalMeta.image}`;
+const finalMeta = { ...defaultMeta, ...meta };
 ---
 
-<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-    <!-- Primary Meta Tags -->
     <title>{finalMeta.title}</title>
-    <meta name="title" content={finalMeta.title} />
     <meta name="description" content={finalMeta.description} />
-    <meta name="keywords" content={finalMeta.keywords} />
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href={fullUrl} />
-
-    <!-- Open Graph / Facebook -->
+    {finalMeta.keywords && <meta name="keywords" content={finalMeta.keywords} />}
     <meta property="og:type" content={finalMeta.type} />
-    <meta property="og:url" content={fullUrl} />
     <meta property="og:title" content={finalMeta.title} />
     <meta property="og:description" content={finalMeta.description} />
-    <meta property="og:image" content={fullImageUrl} />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={fullUrl} />
-    <meta property="twitter:title" content={finalMeta.title} />
-    <meta
-      property="twitter:description"
-      content={finalMeta.description}
-    />
-    <meta property="twitter:image" content={fullImageUrl} />
-
-    <!-- Additional Meta Tags -->
-    <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="default"
-    />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Nunito:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <GoogleAnalytics id="G-T709B9JN3Y" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    {finalMeta.image && <meta property="og:image" content={finalMeta.image} />}
   </head>
   <body class="bg-gradient-to-br from-primary-50 to-white min-h-screen flex flex-col">
     <!-- Modern Header -->
@@ -120,11 +56,38 @@ const fullImageUrl = finalMeta.image?.startsWith('http')
         </div>
       </nav>
     </header>
-
     <main class="flex-1 w-full bg-gray-50 text-gray-900 flex flex-col items-center">
-      <slot />
+      <article class="max-w-3xl mx-auto py-12 px-4 md:px-0">
+        <header class="mb-10 text-center">
+          <h1 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-2">{title}</h1>
+          {subtitle && <h2 class="font-sans text-xl md:text-2xl text-gray-600 font-medium mb-4">{subtitle}</h2>}
+        </header>
+        <section class="prose prose-lg max-w-none text-gray-800 mb-12">
+          <slot />
+        </section>
+        <div class="my-12">
+          <!-- Placeholder for subscribe form -->
+          <div class="bg-green-50 border border-green-200 rounded-xl p-6 text-center mb-6">
+            <h3 class="font-serif text-2xl font-semibold text-green-800 mb-2">Stay on the Path</h3>
+            <p class="font-sans text-base text-green-900 mb-4">Subscribe for daily lessons and updates from Sabeel.</p>
+            <div class="inline-block w-full max-w-md mx-auto">
+              <!-- Subscribe form will be a component soon -->
+              <form action="https://buttondown.com/api/emails/embed-subscribe/sabeel" method="POST" target="popupwindow" onsubmit="window.open('https://buttondown.com/sabeel', 'popupwindow')" class="flex flex-col sm:flex-row gap-3">
+                <input type="email" name="email" placeholder="Your Email Address" required class="flex-1 px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500" />
+                <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-full text-base transition duration-300 shadow">Sign Up Now</button>
+              </form>
+            </div>
+            <p class="font-sans text-xs text-green-700 mt-2">No spam. Unsubscribe anytime.</p>
+          </div>
+          <!-- Feedback CTA -->
+          <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center">
+            <h3 class="font-serif text-xl font-semibold text-blue-800 mb-2">How was this lesson?</h3>
+            <p class="font-sans text-base text-blue-900 mb-4">Your feedback helps us improve Sabeel for everyone.</p>
+            <a href="/feedback" class="inline-block border border-blue-600 text-blue-700 hover:bg-blue-50 hover:border-blue-700 font-semibold py-2 px-6 rounded-full text-base shadow-sm transition duration-200">Give Feedback</a>
+          </div>
+        </div>
+      </article>
     </main>
-
     <!-- Modern Footer -->
     <footer class="w-full bg-white border-t border-gray-200 py-12 mt-16">
       <div class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row gap-10 md:gap-0 justify-between items-center md:items-start">
@@ -187,4 +150,4 @@ const fullImageUrl = finalMeta.image?.startsWith('http')
       @tailwind utilities;
     </style>
   </body>
-</html>
+</html> 

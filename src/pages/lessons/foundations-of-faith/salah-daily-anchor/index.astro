@@ -1,5 +1,5 @@
 ---
-import Layout from '../../../../layouts/Layout.astro';
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
 import Share from '../../../../components/Share.astro';
 import LessonNav from '../../../../components/LessonNav.astro';
 import { lessons } from '../../../../data/lessons';
@@ -19,6 +19,9 @@ const tabs = [
   },
 ];
 
+const title = 'Salah: Your Daily Anchor';
+const subtitle = 'Connecting with Your Creator through the gift of prayer';
+
 const meta = {
   title: 'Salah: Your Daily Anchor - Foundations of Faith | Sabeel',
   description:
@@ -29,353 +32,327 @@ const meta = {
 };
 ---
 
-<Layout meta={meta}>
-  <main>
-    <div class="lesson-container">
-      <div class="breadcrumb">
-        <a href="/lessons">Lessons</a>
-        <span>/</span>
-        <a href="/lessons/foundations-of-faith"
-          >Foundations of Faith</a
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  <div class="lesson-tabs mb-8">
+    <div class="tabs flex gap-4 justify-center mb-6">
+      {tabs.map((tab, i) => (
+        <button
+          class="tab-button px-5 py-2 rounded-full font-semibold text-base transition"
+          data-tab={tab.id}
+          aria-selected={tab.default ? 'true' : 'false'}
         >
-      </div>
-
-      <h1 class="lesson-title">Salah: Your Daily Anchor</h1>
-      <p class="lesson-subtitle">
-        Connecting with Your Creator through the gift of prayer
-      </p>
-
-      <div class="tabs">
-        {
-          tabs.map((tab) => (
-            <button
-              class="tab-button"
-              data-tab={tab.id}
-              aria-selected={tab.id === 'kids'}
-            >
-              {tab.label}
-            </button>
-          ))
-        }
-      </div>
-
-      <div class="tab-content" data-tab="kids" aria-hidden="false">
-        <div class="content-box">
-          <div class="audio-player">
-            <audio controls preload="metadata">
-              <source
-                src="https://res.cloudinary.com/syed-aslam/video/upload/v1748275428/Sabeel/audio/salah-kids.mp3"
-                type="audio/mpeg"
-              />
-              Your browser does not support the audio element.
-            </audio>
-          </div>
-          <p>
-            Imagine, my dear little one, that you have a very special
-            friend, the most powerful and loving friend in the whole
-            universe. This friend is Allah! And guess what? Allah has
-            given us a super special way to talk to Him every single
-            day, many times a day. This special way is called <strong
-              >Salah</strong
-            >, or prayer.
-          </p>
-          <p>
-            Think of it like this: Sometimes, you call your
-            grandparents on the phone to say 'I love you' or 'Thank
-            you,' right? Or maybe you tell them about your day. Salah
-            is like our special phone call to Allah. It's how we say
-            'Thank you' to Him for all His gifts - for the food we
-            eat, the clothes we wear, the air we breathe, and for
-            making everything beautiful around us. It's also how we
-            can tell Him about our day, or ask for His help when we
-            need it.
-          </p>
-          <p>
-            Prophet Muhammad ﷺ, our beloved Prophet, taught us exactly
-            how to do this special conversation with Allah. When we
-            stand up, bow down, and put our foreheads on the ground,
-            we are showing Allah how much we respect and love Him.
-            These movements are like saying 'I love You, Allah!' with
-            our whole bodies.
-          </p>
-          <p>
-            There are five special times each day when we make this
-            call to Allah. It might seem like a lot, but each time is
-            like a little break from playing or doing other things,
-            helping our hearts feel calm and happy. It's like a
-            peaceful anchor that holds our hearts steady in a busy
-            world.
-          </p>
-
-          <div class="parent-note">
-            <h3>For Parents to Explain</h3>
-            <p>
-              Just like you take breaks for snacks or rest to feel
-              better, Salah is a spiritual break that cleanses our
-              hearts and helps us feel close to Allah. It's the most
-              important way to thank the One who gives us everything.
-            </p>
-          </div>
-
-          <div class="workshop-section">
-            <h3>Interactive Workshop</h3>
-            <div class="workshop-content">
-              <p>
-                Parents, talk with your child about their favorite
-                part of Salah - maybe the quiet time, or the feeling
-                of peace afterward. Help them understand that Salah is
-                our direct line to Allah.
-              </p>
-              <p>
-                For a fun activity this week, print out this simple
-                drawing of a child praying. Encourage them to draw or
-                color what they imagine feeling when they talk to
-                Allah during Salah - maybe joy, peace, or gratitude.
-                Remind them that Allah loves when we talk to Him and
-                thank Him.
-              </p>
-              <a
-                href="https://res.cloudinary.com/syed-aslam/image/upload/v1748275315/Sabeel/worksheets/Salah_Connection_Drawing.pdf"
-                class="download-link"
-                download="Salah_Connection_Drawing.pdf"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
-                  ></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                Download Coloring Sheet
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tab-content" data-tab="teens" aria-hidden="true">
-        <div class="content-box">
-          <div class="audio-player">
-            <audio controls preload="metadata">
-              <source
-                src="https://res.cloudinary.com/syed-aslam/video/upload/v1748275429/Sabeel/audio/salah-teens.mp3"
-                type="audio/mpeg"
-              />
-              Your browser does not support the audio element.
-            </audio>
-          </div>
-          <p>
-            In a world of endless notifications, peer pressure, and
-            academic demands, it's easy to feel overwhelmed or lost.
-            But imagine having a built-in 'reset' button, a personal
-            anchor that grounds you five times a day. That's precisely
-            what Salah is - your direct, unfiltered line to the
-            Creator of the universe. It's not just a ritual; it's a
-            profound opportunity for connection, mindfulness, and
-            spiritual rejuvenation.
-          </p>
-          <p>
-            Why is this connection so crucial? Our Prophet Muhammad ﷺ
-            taught us that Salah is the very first thing we'll be
-            asked about on the Day of Judgment. Think of it like the
-            main support beam of a building. If that beam is strong,
-            the whole structure stands firm. Similarly, if our Salah
-            is strong and consistent, it strengthens the rest of our
-            deeds and character.
-          </p>
-          <p>
-            Salah helps us in so many ways beyond just connecting with
-            Allah. It's a powerful shield against wrongdoings. When
-            you stand in prayer, you're consciously acknowledging
-            Allah's presence, which naturally makes you more aware of
-            your actions throughout the day. The Qur'an beautifully
-            says,
-            <blockquote>
-              Indeed, Salah prohibits immorality and wrongdoing, and
-              the remembrance of Allah is greater. (Qur'an, 29:45)
-            </blockquote>
-
-            This means that praying properly helps you stay away from
-            things that are bad and remember Allah more in your daily
-            life.
-          </p>
-          <p>
-            It's also a source of immense peace. In moments of stress,
-            anxiety, or confusion, turning to Salah offers a unique
-            tranquility. It's your space to vent, to seek guidance, to
-            express gratitude without judgment, and to recharge your
-            spiritual battery. It's truly your daily anchor in a
-            chaotic world.
-          </p>
-
-          <div class="challenge-section">
-            <h3>Challenge & Discussion Prompt</h3>
-            <div class="challenge-content">
-              <p>
-                Challenge: For the next few days, try to shift your
-                mindset about one of your daily prayers from 'a task
-                to complete' to 'a scheduled meeting with Allah.'
-                Before that prayer, take 30 seconds to genuinely
-                intend to connect. After, spend 30 seconds reflecting
-                on a specific moment of peace or clarity you felt.
-              </p>
-              <p>
-                Did it make a difference in your day? Share your
-                experience with a close friend or family member and
-                discuss how this intentionality changes the
-                experience.
-              </p>
-              <span class="hashtag">#SabeelSalahAnchor</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tab-content" data-tab="adults" aria-hidden="true">
-        <div class="content-box">
-          <div class="audio-player">
-            <audio controls preload="metadata">
-              <source
-                src="https://res.cloudinary.com/syed-aslam/video/upload/v1748275428/Sabeel/audio/salah-adults.mp3"
-                type="audio/mpeg"
-              />
-              Your browser does not support the audio element.
-            </audio>
-          </div>
-          <p>
-            <strong>Salah</strong>, the prescribed prayer, is the very
-            bedrock of Islamic practice, meticulously designed by
-            Allah to serve as a continuous and vital link between the
-            servant and the Creator. It is not merely a ritualistic
-            obligation but a comprehensive act of worship that
-            encompasses physical movements, verbal invocations, and
-            profound spiritual introspection. As the Prophet Muhammad
-            ﷺ emphasized, 'The first matter that the slave will be
-            brought to account for on the Day of Judgment is the
-            prayer. If it is sound, then the rest of his deeds will be
-            sound. And if it is bad, then the rest of his deeds will
-            be bad.' (Tirmidhi). This highlights Salah's foundational
-            role, acting as a spiritual barometer for all other
-            aspects of one's <code>Deen</code>.
-          </p>
-          <p>
-            The profound importance of Salah extends beyond individual
-            accountability. It serves as:
-            <ul>
-              <li>
-                <strong>A Shield Against Immorality:</strong>
-                Allah states in the Qur'an, "Indeed, Salah prohibits immorality
-                and wrongdoing, and the remembrance of Allah is greater."
-                (Qur'an, 29:45). This verse encapsulates its transformative
-                power, where the conscious performance of Salah actively
-                deters one from engaging in sin and reinforces <code
-                  >Taqwa</code
-                > (consciousness of Allah).
-              </li>
-              <li>
-                <strong>A Source of Tranquility and Peace:</strong>
-                In a world rife with anxieties, Salah offers a sanctuary
-                of peace. The surrender in prostration (<code
-                  >sujood</code
-                >) is a moment of ultimate humility and profound
-                closeness to Allah, where the soul finds solace and
-                clarity, dispelling worldly worries.
-              </li>
-              <li>
-                <strong>A Constant Reminder of Purpose:</strong>
-                Five times a day, Salah recalibrates our moral compass,
-                reminding us of our ultimate purpose in life - to worship
-                Allah alone - and keeps us aligned with divine guidance.
-                It prevents heedlessness and re-establishes priorities.
-              </li>
-            </ul>
-          </p>
-          <p>
-            Understanding 'what it is' and 'why it's important' is
-            pivotal for cultivating <code>Khushu'</code> (humility and
-            attentiveness) in Salah. While there are different types of
-            prayers (Fardh/obligatory, Sunnah/prophetic tradition, Nafl/voluntary),
-            the core message and the direct connection to Allah remain
-            consistent across all.
-          </p>
-
-          <div class="practical-section">
-            <h3>Practical Application & Self-Assessment</h3>
-            <div class="practical-content">
-              <p class="intro">Apply this today:</p>
-
-              <ol>
-                <li>
-                  <strong
-                    >Re-evaluate Your <code>Niyyah</code> (Intention):</strong
-                  >
-                  <p>
-                    Before each of your five prayers today,
-                    consciously renew your intention. Go beyond mere
-                    obligation and strive to perform it as a sincere
-                    conversation with Allah, seeking His pleasure and
-                    closeness.
-                  </p>
-                </li>
-
-                <li>
-                  <strong
-                    >Enhance <code>Tadabbur</code> (Reflection) in Recitation:</strong
-                  >
-                  <p>
-                    During one <code>Raka'ah</code> (unit) of Salah, focus
-                    intently on the meaning of Surah Al-Fatiha and the
-                    short Surah you recite. Even if it's familiar, try
-                    to uncover a new layer of meaning or personal relevance.
-                  </p>
-                </li>
-
-                <li>
-                  <strong
-                    >Post-Salah <code>Muraqabah</code> (Self-Accountability):</strong
-                  >
-                  <p>
-                    Immediately after completing a Salah, take 1-2
-                    minutes for quiet reflection. Ask yourself: 'Was
-                    this prayer a true anchor for me today? How did it
-                    impact my subsequent actions or thoughts?'
-                    Identify one small aspect of your Salah (e.g.,
-                    punctuality, <code>Khushu</code>, understanding)
-                    that you commit to improving over the next week.
-                  </p>
-                </li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <Share
-        title="Learning about Salah - Your Daily Anchor with Sabeel"
-      />
-
-      <LessonNav currentSlug="salah-daily-anchor" lessons={lessons} />
+          {tab.label}
+        </button>
+      ))}
     </div>
-  </main>
-</Layout>
+    <div class="tab-content" data-tab="kids" aria-hidden="false">
+      <div class="content-box">
+        <div class="audio-player">
+          <audio controls preload="metadata">
+            <source
+              src="https://res.cloudinary.com/syed-aslam/video/upload/v1748275428/Sabeel/audio/salah-kids.mp3"
+              type="audio/mpeg"
+            />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <p>
+          Imagine, my dear little one, that you have a very special
+          friend, the most powerful and loving friend in the whole
+          universe. This friend is Allah! And guess what? Allah has
+          given us a super special way to talk to Him every single
+          day, many times a day. This special way is called <strong
+            >Salah</strong
+          >, or prayer.
+        </p>
+        <p>
+          Think of it like this: Sometimes, you call your
+          grandparents on the phone to say 'I love you' or 'Thank
+          you,' right? Or maybe you tell them about your day. Salah
+          is like our special phone call to Allah. It's how we say
+          'Thank you' to Him for all His gifts - for the food we
+          eat, the clothes we wear, the air we breathe, and for
+          making everything beautiful around us. It's also how we
+          can tell Him about our day, or ask for His help when we
+          need it.
+        </p>
+        <p>
+          Prophet Muhammad ﷺ, our beloved Prophet, taught us exactly
+          how to do this special conversation with Allah. When we
+          stand up, bow down, and put our foreheads on the ground,
+          we are showing Allah how much we respect and love Him.
+          These movements are like saying 'I love You, Allah!' with
+          our whole bodies.
+        </p>
+        <p>
+          There are five special times each day when we make this
+          call to Allah. It might seem like a lot, but each time is
+          like a little break from playing or doing other things,
+          helping our hearts feel calm and happy. It's like a
+          peaceful anchor that holds our hearts steady in a busy
+          world.
+        </p>
+
+        <div class="parent-note">
+          <h3>For Parents to Explain</h3>
+          <p>
+            Just like you take breaks for snacks or rest to feel
+            better, Salah is a spiritual break that cleanses our
+            hearts and helps us feel close to Allah. It's the most
+            important way to thank the One who gives us everything.
+          </p>
+        </div>
+
+        <div class="workshop-section">
+          <h3>Interactive Workshop</h3>
+          <div class="workshop-content">
+            <p>
+              Parents, talk with your child about their favorite
+              part of Salah - maybe the quiet time, or the feeling
+              of peace afterward. Help them understand that Salah is
+              our direct line to Allah.
+            </p>
+            <p>
+              For a fun activity this week, print out this simple
+              drawing of a child praying. Encourage them to draw or
+              color what they imagine feeling when they talk to
+              Allah during Salah - maybe joy, peace, or gratitude.
+              Remind them that Allah loves when we talk to Him and
+              thank Him.
+            </p>
+            <a
+              href="https://res.cloudinary.com/syed-aslam/image/upload/v1748275315/Sabeel/worksheets/Salah_Connection_Drawing.pdf"
+              class="download-link"
+              download="Salah_Connection_Drawing.pdf"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                ></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Coloring Sheet
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="teens" aria-hidden="true">
+      <div class="content-box">
+        <div class="audio-player">
+          <audio controls preload="metadata">
+            <source
+              src="https://res.cloudinary.com/syed-aslam/video/upload/v1748275429/Sabeel/audio/salah-teens.mp3"
+              type="audio/mpeg"
+            />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <p>
+          In a world of endless notifications, peer pressure, and
+          academic demands, it's easy to feel overwhelmed or lost.
+          But imagine having a built-in 'reset' button, a personal
+          anchor that grounds you five times a day. That's precisely
+          what Salah is - your direct, unfiltered line to the
+          Creator of the universe. It's not just a ritual; it's a
+          profound opportunity for connection, mindfulness, and
+          spiritual rejuvenation.
+        </p>
+        <p>
+          Why is this connection so crucial? Our Prophet Muhammad ﷺ
+          taught us that Salah is the very first thing we'll be
+          asked about on the Day of Judgment. Think of it like the
+          main support beam of a building. If that beam is strong,
+          the whole structure stands firm. Similarly, if our Salah
+          is strong and consistent, it strengthens the rest of our
+          deeds and character.
+        </p>
+        <p>
+          Salah helps us in so many ways beyond just connecting with
+          Allah. It's a powerful shield against wrongdoings. When
+          you stand in prayer, you're consciously acknowledging
+          Allah's presence, which naturally makes you more aware of
+          your actions throughout the day. The Qur'an beautifully
+          says,
+          <blockquote>
+            Indeed, Salah prohibits immorality and wrongdoing, and
+            the remembrance of Allah is greater. (Qur'an, 29:45)
+          </blockquote>
+
+          This means that praying properly helps you stay away from
+          things that are bad and remember Allah more in your daily
+          life.
+        </p>
+        <p>
+          It's also a source of immense peace. In moments of stress,
+          anxiety, or confusion, turning to Salah offers a unique
+          tranquility. It's your space to vent, to seek guidance, to
+          express gratitude without judgment, and to recharge your
+          spiritual battery. It's truly your daily anchor in a
+          chaotic world.
+        </p>
+
+        <div class="challenge-section">
+          <h3>Challenge & Discussion Prompt</h3>
+          <div class="challenge-content">
+            <p>
+              Challenge: For the next few days, try to shift your
+              mindset about one of your daily prayers from 'a task
+              to complete' to 'a scheduled meeting with Allah.'
+              Before that prayer, take 30 seconds to genuinely
+              intend to connect. After, spend 30 seconds reflecting
+              on a specific moment of peace or clarity you felt.
+            </p>
+            <p>
+              Did it make a difference in your day? Share your
+              experience with a close friend or family member and
+              discuss how this intentionality changes the
+              experience.
+            </p>
+            <span class="hashtag">#SabeelSalahAnchor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="adults" aria-hidden="true">
+      <div class="content-box">
+        <div class="audio-player">
+          <audio controls preload="metadata">
+            <source
+              src="https://res.cloudinary.com/syed-aslam/video/upload/v1748275428/Sabeel/audio/salah-adults.mp3"
+              type="audio/mpeg"
+            />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <p>
+          <strong>Salah</strong>, the prescribed prayer, is the very
+          bedrock of Islamic practice, meticulously designed by
+          Allah to serve as a continuous and vital link between the
+          servant and the Creator. It is not merely a ritualistic
+          obligation but a comprehensive act of worship that
+          encompasses physical movements, verbal invocations, and
+          profound spiritual introspection. As the Prophet Muhammad
+          ﷺ emphasized, 'The first matter that the slave will be
+          brought to account for on the Day of Judgment is the
+          prayer. If it is sound, then the rest of his deeds will be
+          sound. And if it is bad, then the rest of his deeds will
+          be bad.' (Tirmidhi). This highlights Salah's foundational
+          role, acting as a spiritual barometer for all other
+          aspects of one's <code>Deen</code>.
+        </p>
+        <p>
+          The profound importance of Salah extends beyond individual
+          accountability. It serves as:
+          <ul>
+            <li>
+              <strong>A Shield Against Immorality:</strong>
+              Allah states in the Qur'an, "Indeed, Salah prohibits immorality
+              and wrongdoing, and the remembrance of Allah is greater."
+              (Qur'an, 29:45). This verse encapsulates its transformative
+              power, where the conscious performance of Salah actively
+              deters one from engaging in sin and reinforces <code
+                >Taqwa</code
+              > (consciousness of Allah).
+            </li>
+            <li>
+              <strong>A Source of Tranquility and Peace:</strong>
+              In a world rife with anxieties, Salah offers a sanctuary
+              of peace. The surrender in prostration (<code
+                >sujood</code
+              >) is a moment of ultimate humility and profound
+              closeness to Allah, where the soul finds solace and
+              clarity, dispelling worldly worries.
+            </li>
+            <li>
+              <strong>A Constant Reminder of Purpose:</strong>
+              Five times a day, Salah recalibrates our moral compass,
+              reminding us of our ultimate purpose in life - to worship
+              Allah alone - and keeps us aligned with divine guidance.
+              It prevents heedlessness and re-establishes priorities.
+            </li>
+          </ul>
+        </p>
+        <p>
+          Understanding 'what it is' and 'why it's important' is
+          pivotal for cultivating <code>Khushu'</code> (humility and
+          attentiveness) in Salah. While there are different types of
+          prayers (Fardh/obligatory, Sunnah/prophetic tradition, Nafl/voluntary),
+          the core message and the direct connection to Allah remain
+          consistent across all.
+        </p>
+
+        <div class="practical-section">
+          <h3>Practical Application & Self-Assessment</h3>
+          <div class="practical-content">
+            <p class="intro">Apply this today:</p>
+
+            <ol>
+              <li>
+                <strong
+                  >Re-evaluate Your <code>Niyyah</code> (Intention):</strong
+                >
+                <p>
+                  Before each of your five prayers today,
+                  consciously renew your intention. Go beyond mere
+                  obligation and strive to perform it as a sincere
+                  conversation with Allah, seeking His pleasure and
+                  closeness.
+                </p>
+              </li>
+
+              <li>
+                <strong
+                  >Enhance <code>Tadabbur</code> (Reflection) in Recitation:</strong
+                >
+                <p>
+                  During one <code>Raka'ah</code> (unit) of Salah, focus
+                  intently on the meaning of Surah Al-Fatiha and the
+                  short Surah you recite. Even if it's familiar, try
+                  to uncover a new layer of meaning or personal relevance.
+                </p>
+              </li>
+
+              <li>
+                <strong
+                  >Post-Salah <code>Muraqabah</code> (Self-Accountability):</strong
+                >
+                <p>
+                  Immediately after completing a Salah, take 1-2
+                  minutes for quiet reflection. Ask yourself: 'Was
+                  this prayer a true anchor for me today? How did it
+                  impact my subsequent actions or thoughts?'
+                  Identify one small aspect of your Salah (e.g.,
+                  punctuality, <code>Khushu</code>, understanding)
+                  that you commit to improving over the next week.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Share title="Learning about Salah - Your Daily Anchor with Sabeel" />
+  <LessonNav currentSlug="salah-daily-anchor" lessons={lessons} />
+</LessonLayout>
 
 <style>
-  /* Keep only page-specific styles here */
   .tabs {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
   }
-
   .tab-button {
     padding: 0.75rem 1.5rem;
     border: none;
@@ -386,16 +363,13 @@ const meta = {
     cursor: pointer;
     transition: all 0.2s ease;
   }
-
   .tab-button[aria-selected='true'] {
     background: #3b82f6;
     color: white;
   }
-
   .tab-content {
     display: none;
   }
-
   .tab-content[aria-hidden='false'] {
     display: block;
   }

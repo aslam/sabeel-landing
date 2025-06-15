@@ -1,5 +1,5 @@
 ---
-import Layout from '../../../../layouts/Layout.astro';
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
 import Share from '../../../../components/Share.astro';
 import LessonNav from '../../../../components/LessonNav.astro';
 import { lessons } from '../../../../data/lessons';
@@ -12,84 +12,66 @@ const meta = {
   keywords:
     'Allah Creator, Islamic creation, Tawheed, Islamic monotheism, Divine attributes, Islamic faith basics, Allah self-sufficient, Creator of universe, Islamic lessons for kids, Islamic lessons for teens, Islamic family education, Al-Khaliq, attributes of Allah, Islamic theology, Muslim beliefs, Quran teachings, foundations of faith, Islamic spirituality, divine power, Islamic worldview',
 };
+const title = 'The Creator of All Things';
 ---
 
-<Layout meta={meta}>
-  <main>
-    <div class="lesson-container">
-      <div class="breadcrumb">
-        <a href="/lessons">Lessons</a>
-        <span>/</span>
-        <a href="/lessons/foundations-of-faith"
-          >Foundations of Faith</a
-        >
-      </div>
-
-      <h1 class="lesson-title">The Creator of All Things</h1>
-      <div class="content-box">
-        <h3>The Creator of All Things: A Lesson in Faith</h3>
-
-        <p>
-          Step outside for a moment. Look up at the sky, feel the
-          wind, and listen to the sounds around you. Have you ever
-          wondered, "Who made all of this?"
-        </p>
-
-        <p>
-          From the soft rustling of leaves to the towering mountains
-          and the vast, star-studded sky — every single thing was
-          created by Allah. And not just created, but brought to life
-          with unmatched perfection and balance, without needing any
-          help.
-        </p>
-
-        <p>
-          In Surah Al-Zumar, Allah reminds us:
-
-          <blockquote>
-            Allah is the Creator of all things, and He is, over all
-            things, Disposer of affairs. (Quran 39:62)
-          </blockquote>
-        </p>
-
-        <p>
-          For a child, this can be as simple as looking at a toy.
-          Imagine your favorite LEGO set. Could it build itself
-          without someone putting the pieces together? No way. But
-          Allah said 'Be!' — and everything in the universe came into
-          existence. Allah didn't need tools, hands, or helpers. It
-          all happened by His command.
-        </p>
-        <p>
-          For a teenager, think about the intricate systems that keep
-          life moving — the way our bodies work, the way the rain
-          falls, the way day and night follow each other without fail.
-          All of it happens perfectly, without Allah needing anything
-          in return. Before time and space, Allah was already there —
-          self-sufficient, existing without need.
-        </p>
-        <p>
-          For an adult, this verse is a call to reflect on our own
-          dependencies. We lean on our jobs for income, our families
-          for support, and our health for strength. But Allah? He is
-          the One who provides all these things without relying on
-          anything or anyone. He commands, and it is done. He is the
-          Master, the Sustainer, the Disposer of all affairs.
-        </p>
-        <p>
-          So, the next time life feels out of control, pause. Breathe.
-          Look at the sky, the earth, and even your own heartbeat.
-          Allah, the Creator of all things, is still in control. And
-          the One who created everything is more than capable of
-          taking care of you and your affairs.
-        </p>
-      </div>
-
-      <Share title="The Creator of All Things: A Lesson in Faith" />
-      <LessonNav currentSlug="creator-of-all" lessons={lessons} />
-    </div>
-  </main>
-</Layout>
+<LessonLayout title={title} meta={meta}>
+  <div class="content-box">
+    <h3>The Creator of All Things: A Lesson in Faith</h3>
+    <p>
+      Step outside for a moment. Look up at the sky, feel the
+      wind, and listen to the sounds around you. Have you ever
+      wondered, "Who made all of this?"
+    </p>
+    <p>
+      From the soft rustling of leaves to the towering mountains
+      and the vast, star-studded sky — every single thing was
+      created by Allah. And not just created, but brought to life
+      with unmatched perfection and balance, without needing any
+      help.
+    </p>
+    <p>
+      In Surah Al-Zumar, Allah reminds us:
+      <blockquote>
+        Allah is the Creator of all things, and He is, over all
+        things, Disposer of affairs. (Quran 39:62)
+      </blockquote>
+    </p>
+    <p>
+      For a child, this can be as simple as looking at a toy.
+      Imagine your favorite LEGO set. Could it build itself
+      without someone putting the pieces together? No way. But
+      Allah said 'Be!' — and everything in the universe came into
+      existence. Allah didn't need tools, hands, or helpers. It
+      all happened by His command.
+    </p>
+    <p>
+      For a teenager, think about the intricate systems that keep
+      life moving — the way our bodies work, the way the rain
+      falls, the way day and night follow each other without fail.
+      All of it happens perfectly, without Allah needing anything
+      in return. Before time and space, Allah was already there —
+      self-sufficient, existing without need.
+    </p>
+    <p>
+      For an adult, this verse is a call to reflect on our own
+      dependencies. We lean on our jobs for income, our families
+      for support, and our health for strength. But Allah? He is
+      the One who provides all these things without relying on
+      anything or anyone. He commands, and it is done. He is the
+      Master, the Sustainer, the Disposer of all affairs.
+    </p>
+    <p>
+      So, the next time life feels out of control, pause. Breathe.
+      Look at the sky, the earth, and even your own heartbeat.
+      Allah, the Creator of all things, is still in control. And
+      the One who created everything is more than capable of
+      taking care of you and your affairs.
+    </p>
+  </div>
+  <Share title="The Creator of All Things: A Lesson in Faith" />
+  <LessonNav currentSlug="creator-of-all" lessons={lessons} />
+</LessonLayout>
 
 <style>
   /* Any page-specific styles can go here */
