@@ -1,122 +1,101 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import { lessons } from '../../../data/lessons';
+
+const featuredLesson = lessons.find(lesson => lesson.current) || lessons[0];
+const otherLessons = lessons.filter(lesson => !lesson.current);
+
+const addUtmParams = (url: string, source: string) => {
+  const utmMedium = 'social';
+  const utmCampaign = 'lesson_share';
+  return `${url}?utm_source=${source}&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}`;
+};
 ---
 
 <Layout>
   <main>
-    <div class="container">
-      <h1>Foundations of Faith</h1>
-      <p class="subtitle">
-        Essential lessons about Islamic beliefs and practices,
-        explained with clarity and depth.
-      </p>
-
-      <div class="lessons-list">
-        {
-          lessons.map((lesson) => (
-            <a
-              href={
-                lesson.status === 'published'
-                  ? `/lessons/foundations-of-faith/${lesson.slug}`
-                  : '#'
-              }
-              class={`lesson-card ${lesson.status}`}
-            >
-              <span class="lesson-number">Lesson {lesson.order}</span>
-              <h2>{lesson.title}</h2>
-              <p>{lesson.description}</p>
-              {lesson.status === 'coming-soon' && (
-                <span class="status">Coming Soon</span>
-              )}
+    <div class="max-w-4xl mx-auto px-6 py-24 sm:py-32">
+      <!-- Featured Lesson Section -->
+      <section class="mb-16">
+        <div class="bg-white rounded-xl shadow-lg flex flex-col md:flex-row overflow-hidden">
+          <a
+            href={
+              featuredLesson.status === 'published'
+                ? `/lessons/foundations-of-faith/${featuredLesson.slug}`
+                : '#'
+            }
+            class="w-full md:w-1/2 block flex flex-col md:flex-row"
+          >
+            <img
+              src={featuredLesson.image || '/images/lesson-placeholder.jpg'}
+              alt={featuredLesson.title}
+              class="w-full h-64 object-cover rounded-t-xl md:h-auto md:rounded-tr-none md:rounded-bl-xl"
+            />
+            
+          </a>
+          <!-- Social Share buttons for Featured Lesson -->
+          <div class="p-8 flex flex-col justify-between md:w-1/2">
+            <a href={`/lessons/foundations-of-faith/${featuredLesson.slug}`}>
+              <div class="p-8 flex-grow">
+                <h5 class="text-sabeel-teal-800 font-semibold text-sm block mb-1">Foundations of Faith</h5>
+                <p class="text-sabeel-teal-800 text-sm leading-relaxed mb-4">Essential lessons about Islamic beliefs and practices, explained with clarity and depth.</p>
+                <h3 class="font-heading text-sabeel-blue-900 text-2xl font-semibold mb-4">{featuredLesson.title}</h3>
+                <p class="text-sabeel-teal-800 text-base leading-relaxed mb-6">{featuredLesson.description}</p>
+              </div>
             </a>
-          ))
-        }
-      </div>
+            <div class="flex gap-3 text-gray-500 text-xl md:justify-end">
+              <span>Share:</span>
+              <a href={addUtmParams(`https://twitter.com/intent/tweet?text=${encodeURIComponent(featuredLesson.title)}&url=${encodeURIComponent(`${Astro.site}lessons/foundations-of-faith/${featuredLesson.slug}`)}`, 'twitter')} aria-label="Share on Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+              <a href={addUtmParams(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${Astro.site}lessons/foundations-of-faith/${featuredLesson.slug}`)}`, 'facebook')} aria-label="Share on Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+              <a href={addUtmParams(`https://api.whatsapp.com/send?text=${encodeURIComponent(featuredLesson.title)}%0A${encodeURIComponent(`${Astro.site}lessons/foundations-of-faith/${featuredLesson.slug}`)}`, 'whatsapp')} aria-label="Share on WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Other Lessons Section -->
+      <section>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8">
+          {
+            otherLessons.map((lesson) => (
+              <div class="group block bg-white rounded-xl shadow-lg hover:shadow-xl transform transition-all duration-300 ease-in-out flex flex-col h-full">
+                <a
+                  href={
+                    lesson.status === 'published'
+                      ? `/lessons/foundations-of-faith/${lesson.slug}`
+                      : '#'
+                  }
+                  class="block flex-grow"
+                >
+                  <img
+                    src={lesson.image || '/images/lesson-placeholder.jpg'}
+                    alt={lesson.title}
+                    class="w-full h-48 object-cover rounded-t-xl"
+                  />
+                  <div class="p-6 flex-grow">
+                    <div>
+                      <h4 class="font-heading text-sabeel-blue-900 text-xl font-semibold mb-3">{lesson.title}</h4>
+                      <p class="text-sabeel-teal-800 text-base leading-relaxed mb-4 line-clamp-3">{lesson.description}</p>
+                    </div>
+                  </div>
+                </a>
+                <!-- Social Share buttons for Other Lessons -->
+                <div class="px-6 py-4 flex justify-end items-center">
+                  <div class="flex gap-2 text-gray-500 text-lg">
+                    <span>Share:</span>
+                    <a href={addUtmParams(`https://twitter.com/intent/tweet?text=${encodeURIComponent(lesson.title)}&url=${encodeURIComponent(`${Astro.site}lessons/foundations-of-faith/${lesson.slug}`)}`, 'twitter')} aria-label="Share on Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href={addUtmParams(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${Astro.site}lessons/foundations-of-faith/${lesson.slug}`)}`, 'facebook')} aria-label="Share on Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href={addUtmParams(`https://api.whatsapp.com/send?text=${encodeURIComponent(lesson.title)}%0A${encodeURIComponent(`${Astro.site}lessons/foundations-of-faith/${lesson.slug}`)}`, 'whatsapp')} aria-label="Share on WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                  </div>
+                </div>
+                {lesson.status === 'coming-soon' && (
+                  <span class="absolute top-4 right-4 bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">Coming Soon</span>
+                )}
+              </div>
+            ))
+          }
+        </div>
+      </section>
     </div>
   </main>
 </Layout>
-
-<style>
-  /* Layout & Container */
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 120px 24px 60px;
-  }
-
-  /* Typography */
-  h1 {
-    font-family: var(--font-heading);
-    color: #0a3255;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .subtitle {
-    color: #405671;
-    font-size: 1.25rem;
-    margin-bottom: 3rem;
-    line-height: 1.6;
-  }
-
-  /* Lessons List Layout */
-  .lessons-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  /* Card Styles */
-  .lesson-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-    text-decoration: none;
-    position: relative;
-    transition: transform 0.2s ease;
-  }
-
-  .lesson-card:hover {
-    transform: translateY(-2px);
-  }
-
-  .lesson-card.coming-soon {
-    opacity: 0.8;
-    cursor: default;
-  }
-
-  .lesson-card h2 {
-    color: #0a3255;
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .lesson-card p {
-    color: #405671;
-    line-height: 1.6;
-  }
-
-  /* Lesson Number */
-  .lesson-number {
-    color: #3b82f6;
-    font-weight: 600;
-    font-size: 0.875rem;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Status Badge */
-  .status {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: #e5f0ff;
-    color: #3b82f6;
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-</style>

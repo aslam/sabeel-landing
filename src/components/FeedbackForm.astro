@@ -1,0 +1,173 @@
+---
+interface Props {
+  lesson: string;
+  lessonTitle: string;
+}
+const { lesson, lessonTitle } = Astro.props;
+const url = Astro.url;
+const preselectedRating = url.searchParams.get('rating') || '';
+const ratingLabels: Record<string, string> = {
+  loved: '👍 Yes, I loved it!',
+  good: '👌 It was good, but could be improved.',
+  not_for_me: '👎 Not quite for me.',
+};
+const thankYouMessages: Record<string, string> = {
+  loved: "We're so glad you loved this lesson. May Allah bless you!",
+  good: "Thank you for your honest feedback! We're always striving to improve.",
+  not_for_me: "We're sorry this lesson wasn't for you. Your feedback helps us do better.",
+};
+const selectedRating = url.searchParams.get('rating') || '';
+---
+<div id="feedback-container">
+  <form id="feedback-form" class="feedback-form" method="GET">
+    <input type="hidden" name="submitted" value="1" />
+    <fieldset class="rating-group">
+      <legend>Was this lesson valuable to you?</legend>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="loved" required />
+        <span>👍 Yes, I loved it!</span>
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="good" required />
+        <span>👌 It was good, but could be improved.</span>
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="not_for_me" required />
+        <span>👎 Not quite for me.</span>
+      </label>
+    </fieldset>
+    <div class="feedback-form-group pt-4">
+        <label for="feedback">Optional: Please share any thoughts or suggestions</label>
+        <div>
+          <textarea id="feedback" name="feedback" placeholder="Share your thoughts..." rows="5"></textarea>
+        </div>
+    </div>
+    <div>
+      <button type="submit" class="button feedback-submit-button">Submit Feedback</button>
+    </div>
+  </form>
+
+  <div id="thank-you-message" class="thank-you" style="display: none;">
+    <h2>Jazakum Allahu Khairan!</h2>
+    <p>{thankYouMessages[selectedRating] || 'Thank you for your valuable feedback. May Allah bless you!'}</p>
+    <a href="/" class="button">Return to Home</a>
+  </div>
+</div>
+
+<style>
+.feedback-form {
+  width: 100%;
+  box-sizing: border-box;
+}
+.rating-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.rating-group legend {
+  font-weight: 600;
+  color: #0a3255;
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+}
+.rating-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.rating-option input[type="radio"] {
+  accent-color: #3b82f6;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.feedback-form label[for="feedback"] {
+  font-weight: 500;
+  color: #0a3255;
+  margin-bottom: 0.5rem;
+}
+.feedback-form > div {
+  width: 100%;
+  box-sizing: border-box;
+}
+.feedback-form textarea {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 120px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1.5rem;
+}
+.feedback-form > div:nth-of-type(1) {
+  margin-bottom: 1.5rem;
+}
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #3b82f6;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.button:hover {
+  background-color: #2563eb;
+}
+.feedback-submit-button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 1.5rem;
+}
+.thank-you {
+  text-align: center;
+}
+.thank-you h2 {
+  color: #0a3255;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.thank-you p {
+  color: #405671;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const rating = params.get('rating');
+    const submitted = params.get('submitted') === '1';
+
+    const feedbackForm = document.getElementById('feedback-form');
+    const thankYouMessage = document.getElementById('thank-you-message');
+
+    if (submitted) {
+      if (feedbackForm) feedbackForm.style.display = 'none';
+      if (thankYouMessage) thankYouMessage.style.display = 'block';
+    } else {
+      if (feedbackForm) feedbackForm.style.display = 'block';
+      if (thankYouMessage) thankYouMessage.style.display = 'none';
+    }
+
+    // Existing logic for pre-selecting rating
+    if (rating) {
+      const input = document.querySelector(`input[name='rating'][value='${rating}']`);
+      if (input) (input as HTMLInputElement).checked = true;
+    }
+  });
+</script> 

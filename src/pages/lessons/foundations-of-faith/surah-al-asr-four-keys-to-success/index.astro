@@ -1,22 +1,14 @@
 ---
-import Layout from '../../../../layouts/Layout.astro';
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
 import Share from '../../../../components/Share.astro';
 import LessonNav from '../../../../components/LessonNav.astro';
 import { lessons } from '../../../../data/lessons';
 
 const tabs = [
   { id: 'kids', label: 'For Kids' },
-  {
-    id: 'teens',
-    label: 'For Teens',
-  },
-  {
-    id: 'adults',
-    label: 'For Adults',
-    default: true,
-  },
+  { id: 'teens', label: 'For Teens' },
+  { id: 'adults', label: 'For Adults', default: true },
 ];
-
 const meta = {
   title: 'Sūrat al-ʿAsr: Four Keys to True Success | Sabeel',
   description:
@@ -25,728 +17,452 @@ const meta = {
   keywords:
     'Surah Al-Asr, Islamic success, time management in Islam, Iman, Amal Salih, righteous deeds, Tawasi bil Haqq, speaking truth, Tawasi bis Sabr, patience in Islam, Islamic lessons, Quran teaching, faith foundations, Islamic character building, Muslim self-development, Islamic time management, Quranic wisdom, Islamic parenting, Islamic youth guidance, spiritual growth',
 };
+const title = 'Sūrat al-ʿAsr: Four Keys to True Success';
+const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how to achieve true success in life through faith, good deeds, and community support.';
+
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
 ---
 
-<Layout meta={meta}>
-  <main>
-    <div class="lesson-container">
-      <div class="breadcrumb">
-        <a href="/lessons">Lessons</a>
-        <span>/</span>
-        <a href="/lessons/foundations-of-faith"
-          >Foundations of Faith</a
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  {currentLesson && (
+    <div class="mb-8 mt-2 lg:mt-4 xl:mt-8">
+      <img
+        src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+        alt={currentLesson.title}
+        class="w-full h-auto rounded-lg shadow-lg"
+      />
+    </div>
+  )}
+  <div class="mb-8">
+    <div class="flex gap-4 justify-center mb-6">
+      {tabs.map((tab, i) => (
+        <button
+          class="px-5 py-2 rounded-full font-semibold text-base transition duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-700 data-[selected=true]:bg-blue-600 data-[selected=true]:text-white data-[selected=true]:shadow-md"
+          data-tab={tab.id}
+          data-selected={tab.default ? 'true' : 'false'}
         >
-      </div>
-
-      <h1 class="lesson-title">
-        Sūrat al-ʿAsr: Four Keys to True Success
-      </h1>
-      <p class="lesson-subtitle">
-        Discover the profound lessons of Sūrat al-ʿAsr and learn how
-        to achieve true success in life through faith, good deeds, and
-        community support.
-      </p>
-
-      <div class="tabs">
-        {
-          tabs.map((tab) => (
-            <button
-              class="tab-button"
-              data-tab={tab.id}
-              aria-selected={tab.default}
-            >
-              {tab.label}
-            </button>
-          ))
-        }
-      </div>
-
-      <div class="tab-content" data-tab="kids" aria-hidden="false">
-        <div class="content-box">
-          <p>
-            Have you ever heard a grown-up say, 'Time is running out!'
-            or 'Don't waste time!'? Well, Allah has given us a very
-            short but very, very important message about time and how
-            to use it best.
-          </p>
-          <p>
-            <blockquote>
+          {tab.label}
+        </button>
+      ))}
+    </div>
+    <div class="tab-content" data-tab="kids" aria-hidden="false">
+      <div class="content-box">
+        <p>
+          Have you ever heard a grown-up say, 'Time is running out!'
+          or 'Don't waste time!'? Well, Allah has given us a very
+          short but very, very important message about time and how
+          to use it best.
+        </p>
+        <p>
+          <blockquote>
+            <p class="my-8 px-6 py-4 border-r-4 border-sabeel-blue-900 bg-gradient-to-l from-sabeel-blue-900/[0.05] to-transparent rounded-lg font-heading text-xl leading-relaxed text-sabeel-blue-900 md:px-8 md:py-6 md:text-lg">
               <strong>Sūrat al-ʿAsr</strong>
               <br />
               By the time! People are surely losing— except those who believe,
               do good, tell each other what is right, and help each other
               be patient. (Qur'an 103:1-3)
-            </blockquote>
-          </p>
-          <p>
-            If you have a special piggy bank, and every day a little
-            bit of money disappears, that's being 'in loss,' right?
-            Allah says our time is like that money. Every minute that
-            goes by, we're losing it, unless we fill it with four
-            special treasures!
-          </p>
-          <p>
-            What are these four treasures?
-            <ol>
-              <li>
-                <b>Īmān (Belief):</b> The first treasure is to believe
-                in Allah with all your heart, truly knowing He is the One,
-                the Creator, and loves you.
-              </li>
-              <li>
-                <b>ʿAmal-sāliḥ(Good deeds):</b> The second treasure is
-                to do good things! Like sharing your toys, being kind to
-                your friends, helping your parents, or saying 'Alhamdulillah'
-                for your food. This shows your belief in action!
-              </li>
-              <li>
-                <b>Tawāṣbil-ḥaqq (Reminding of Truth):</b> The third treasure
-                is to remind each other about what is true and right. If
-                you see your friend doing something wrong, gently remind
-                them of the right way. Or remind your family about Salah
-                time!
-              </li>
-              <li>
-                <b>Tawāṣbil-ṣabr (Supporting in Patience):</b> The last
-                treasure is to help each other be patient. Sometimes things
-                are hard, like waiting for your turn or when you feel upset.
-                We help each other be strong and patient, like when we
-                wait for our Salah time patiently.
-              </li>
-            </ol>
-          </p>
-          <p>
-            Only when we fill our time with these four treasures are
-            we truly winning, not losing!
-          </p>
+            </p>
+          </blockquote>
+        </p>
+        <p>
+          If you have a special piggy bank, and every day a little
+          bit of money disappears, that's being 'in loss,' right?
+          Allah says our time is like that money. Every minute that
+          goes by, we're losing it, unless we fill it with four
+          special treasures!
+        </p>
+        <p>
+          What are these four treasures?
+          <ol>
+            <li>
+              <b>Īmān (Belief):</b> The first treasure is to believe
+              in Allah with all your heart, truly knowing He is the One,
+              the Creator, and loves you.
+            </li>
+            <li>
+              <b>ʿAmal-sāliḥ(Good deeds):</b> The second treasure is
+              to do good things! Like sharing your toys, being kind to
+              your friends, helping your parents, or saying 'Alhamdulillah'
+              for your food. This shows your belief in action!
+            </li>
+            <li>
+              <b>Tawāṣbil-ḥaqq (Reminding of Truth):</b> The third treasure
+              is to remind each other about what is true and right. If
+              you see your friend doing something wrong, gently remind
+              them of the right way. Or remind your family about Salah
+              time!
+            </li>
+            <li>
+              <b>Tawāṣbil-ṣabr (Supporting in Patience):</b> The last
+              treasure is to help each other be patient. Sometimes things
+              are hard, like waiting for your turn or when you feel upset.
+              We help each other be strong and patient, like when we
+              wait for our Salah time patiently.
+            </li>
+          </ol>
+        </p>
+        <p>
+          Only when we fill our time with these four treasures are
+          we truly winning, not losing!
+        </p>
 
-          <p>
-            <blockquote>
-              “Allahumma, help us value our minutes, fill them with
+        <p>
+          <blockquote>
+            <p class="my-8 px-6 py-4 border-r-4 border-sabeel-blue-900 bg-gradient-to-l from-sabeel-blue-900/[0.05] to-transparent rounded-lg font-heading text-xl leading-relaxed text-sabeel-blue-900 md:px-8 md:py-6 md:text-lg">
+              "Allahumma, help us value our minutes, fill them with
               faith, good deeds, truth, and patience, and meet You
-              with hearts at peace.”
-            </blockquote>
-          </p>
-
-          <div class="parent-note">
-            <h4>Parent's Note:</h4>
-            <p>
-              Sūrat al-ʿAsr is a profound reminder of the value of
-              time and the essential elements for a successful life,
-              both worldly and in the Hereafter. You can explain how
-              time is a gift, constantly depleting, and its true
-              'profit' comes from investing it in these four areas.
-              Emphasize that <code>Īmān</code> is the foundation, and the
-              other three are about living that belief individually and
-              communally. For <code>Tawāṣbil-haqq</code> and <code
-                >Tawāṣbil-sabr</code
-              >, stress the gentle, encouraging approach, not
-              lecturing.
+              with hearts at peace."
             </p>
-          </div>
+          </blockquote>
+        </p>
 
-          <div class="workshop-section">
-            <h3>Offline Activity</h3>
-            <div class="workshop-content">
-              <p>
-                <i>Key-ring craft</i>
-                <br />
-                Create a key-ring with four beads, each representing one
-                of the four treasures from Sūrat al-ʿAsr. Use different
-                colors or shapes for each bead:
-                <ul>
-                  <li><code>Īmān</code> - Blue bead for belief</li>
-                  <li>
-                    <code>ʿAmal-sāliḥ</code> - Green bead for good deeds
-                  </li>
-                  <li>
-                    <code>Tawāṣbil-ḥaqq</code> - Yellow bead for reminding
-                    of truth
-                  </li>
-                  <li>
-                    <code>Tawāṣbil-ṣabr</code> - Red bead for supporting
-                    in patience
-                  </li>
-                </ul>
-                Each evening move the key you used most to the front of
-                the ring.
-              </p>
-            </div>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h4 class="text-sabeel-blue-900 font-heading mb-4">Parent's Note:</h4>
+          <p>
+            Sūrat al-ʿAsr is a profound reminder of the value of
+            time and the essential elements for a successful life,
+            both worldly and in the Hereafter. You can explain how
+            time is a gift, constantly depleting, and its true
+            'profit' comes from investing it in these four areas.
+            Emphasize that <span class="highlighted-term">Īmān</span> is the foundation, and the
+            other three are about living that belief individually and
+            communally. For <span class="highlighted-term">Tawāṣbil-ḥaqq</span> and <span
+              class="highlighted-term"
+              >Tawāṣbil-ṣabr</span
+            >, stress the gentle, encouraging approach, not
+            lecturing.
+          </p>
+        </div>
+
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h3 class="text-sabeel-blue-900 font-heading mb-4">Offline Activity</h3>
+          <div class="workshop-content">
+            <p>
+              <i>Key-ring craft</i>
+              <br />
+              Create a key-ring with four beads, each representing one
+              of the four treasures from Sūrat al-ʿAsr. Use different
+              colors or shapes for each bead:
+              <ul class="list-disc ml-6 mt-3">
+                <li class="mb-2">
+                  <span class="highlighted-term">Īmān</span> - Blue bead for belief
+                </li>
+                <li class="mb-2">
+                  <span class="highlighted-term">ʿAmal-sāliḥ</span> - Green bead for good deeds
+                </li>
+                <li class="mb-2">
+                  <span class="highlighted-term">Tawāṣbil-ḥaqq</span> - Yellow bead for reminding
+                  of truth
+                </li>
+                <li class="mb-2">
+                  <span class="highlighted-term">Tawāṣbil-ṣabr</span> - Red bead for supporting
+                  in patience
+                </li>
+              </ul>
+              Each evening move the key you used most to the front of
+              the ring.
+            </p>
           </div>
         </div>
       </div>
-
-      <div class="tab-content" data-tab="teens" aria-hidden="false">
-        <div class="content-box">
+    </div>
+    <div class="tab-content" data-tab="teens" aria-hidden="true">
+      <div class="content-box">
+        <p>
+          <i
+            >Ever feel like time is just flying by, and you're not
+            really getting anywhere?</i
+          >
+        </p>
+        <p>
+          Time feels slow in class and lightning-fast at exam week.
+          The Qur'an addresses this feeling directly in Sūrat
+          al-ʿAsr, one of its shortest yet most impactful chapters.
+          Allah begins by swearing by Time itself, immediately
+          drawing our attention to its immense value. Then comes the
+          stark truth: 'Indeed, mankind is in loss.' It's a wake-up
+          call - every moment that passes is a loss unless we invest
+          it wisely.
+        </p>
+        <p>
+          But there's an exception, a blueprint for true success,
+          outlined in four interconnected principles:
+          <ol class="list-decimal ml-6">
+            <li class="mb-4">
+              <b class="text-sabeel-blue-900">Īmān (Faith):</b> This is the foundation. It's about
+              anchoring your heart in genuine belief in Allah, His Angels,
+              Books, Messengers, the Last Day, and Divine Decree. It's
+              <span class="highlighted-term">Īmān</span> that provides the correct
+              worldview and motivation for righteous living.
+            </li>
+            <li class="mb-4">
+              <b class="text-sabeel-blue-900">ʿAmal-sāliḥ (Righteous Deeds):</b> Belief isn't passive;
+              it leads to action. Amal-ṣāliḥ means turning your Īmān
+              into positive, constructive deeds – being kind, honest,
+              respectful, upholding prayers, striving for excellence,
+              and contributing positively to your environment. These
+              are the fruits of true faith.
+            </li>
+            <li class="mb-4">
+              <b class="text-sabeel-blue-900">Tawāṣbil-ḥaqq (Reminding Each Other of Truth):</b> This
+              means more than just speaking the truth. It's about actively
+              advocating for justice, integrity, and Islamic principles,
+              and gently encouraging others towards them. In a world
+              full of misinformation, being a beacon of truth is crucial.
+              It's about being a supportive voice for what is right,
+              even when it's challenging.
+            </li>
+            <li class="mb-4">
+              <b
+                class="text-sabeel-blue-900"
+                >Tawāṣbil-ṣabr (Supporting Each Other in Patience):</b
+              > The path of truth and good deeds isn't always easy. Sabr
+              (patience, perseverance, steadfastness) is essential. This
+              principle calls us to encourage and support one another
+              in enduring difficulties, in remaining firm on good, and
+              in resisting temptation. It's about building a resilient
+              community where everyone lifts each other up.
+            </li>
+          </ol>
           <p>
-            <i
-              >Ever feel like time is just flying by, and you're not
-              really getting anywhere?</i
-            >
+            These four elements aren't optional extras; they're the
+            complete, interconnected formula for escaping 'loss' and
+            achieving enduring success in both this life and the
+            Hereafter. They transform fleeting time into everlasting
+            reward.
           </p>
           <p>
-            Time feels slow in class and lightning-fast at exam week.
-            The Qur'an addresses this feeling directly in Sūrat
-            al-ʿAsr, one of its shortest yet most impactful chapters.
-            Allah begins by swearing by Time itself, immediately
-            drawing our attention to its immense value. Then comes the
-            stark truth: 'Indeed, mankind is in loss.' It's a wake-up
-            call - every moment that passes is a loss unless we invest
-            it wisely.
-          </p>
-          <p>
-            But there's an exception, a blueprint for true success,
-            outlined in four interconnected principles:
-            <ol>
-              <li>
-                <b>Īmān (Faith):</b> This is the foundation. It's about
-                anchoring your heart in genuine belief in Allah, His Angels,
-                Books, Messengers, the Last Day, and Divine Decree. It's
-                not just head-knowledge, but a deep conviction that shapes
-                your outlook.
-              </li>
-              <li>
-                <b>ʿAmal-sāliḥ (Righteous Deeds):</b> Belief isn't passive;
-                it leads to action. Amal-ṣāliḥ means turning your Īmān
-                into positive, constructive deeds – being kind, honest,
-                respectful, upholding prayers, striving for excellence,
-                and contributing positively to your environment. These
-                are the fruits of true faith.
-              </li>
-              <li>
-                <b>Tawāṣbil-haqq (Reminding Each Other of Truth):</b> This
-                means more than just speaking the truth. It's about actively
-                advocating for justice, integrity, and Islamic principles,
-                and gently encouraging others towards them. In a world
-                full of misinformation, being a beacon of truth is crucial.
-                It's about being a supportive voice for what is right,
-                even when it's challenging.
-              </li>
-              <li>
-                <b
-                  >Tawāṣbil-sabr (Supporting Each Other in Patience):</b
-                > The path of truth and good deeds isn't always easy. Sabr
-                (patience, perseverance, steadfastness) is essential. This
-                principle calls us to encourage and support one another
-                in enduring difficulties, in remaining firm on good, and
-                in resisting temptation. It's about building a resilient
-                community where everyone lifts each other up.
-              </li>
-            </ol>
-            <p>
-              These four elements aren't optional extras; they're the
-              complete, interconnected formula for escaping 'loss' and
-              achieving enduring success in both this life and the
-              Hereafter. They transform fleeting time into everlasting
-              reward.
-            </p>
-            <p>
-              The Prophet ﷺ said, “The strong believer is better… but
-              in each there is good.” Strength is consistency, not
-              biceps.
-            </p>
-
-            <p>
-              <blockquote>
-                “Allahumma, help us value our minutes, fill them with
-                faith, good deeds, truth, and patience, and meet You
-                with hearts at peace.”
-              </blockquote>
-            </p>
-
-            <div class="challenge-content">
-              <p>
-                <strong>Challenge:</strong> This week, pick one of the
-                four keys from Sūrat al-ʿAṣr that you feel you can focus
-                on strengthening in your own life. Think of one online
-                habit that drains time yet adds no good deed. Plan how
-                to swap it for something that fits one of the four keys.
-              </p>
-              <span class="hashtag">#TrueSuccess</span>
-              <span class="hashtag">#TimeManagement</span>
-              <span class="hashtag">#FaithInAction</span>
-            </div>
-          </p>
-        </div>
-      </div>
-
-      <div class="tab-content" data-tab="adults" aria-hidden="false">
-        <div class="content-box">
-          <p>
-            Sūrat al-ʿAṣr, though comprising just three verses,
-            encapsulates a complete methodology for human success and
-            salvation. Allah begins by taking an oath 'by Time,' a
-            profound emphasis on the fleeting nature of our earthly
-            existence and the urgency of its utilization. The
-            subsequent declaration, 'Indeed, mankind is in loss,'
-            serves as a sobering universal indictment, asserting that
-            without conscious adherence to a specific framework, human
-            existence is inherently unprofitable, culminating in
-            ultimate regret.
-          </p>
-          <p>
-            Imām al-Shāfiʿī said this sûrah alone would suffice as
-            proof. Notice its structure:
-
-            <table>
-              <thead>
-                <tr>
-                  <th>Word/Phrase</th>
-                  <th>Nuance</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Wal-ʿaṣr</strong></td>
-                  <td
-                    >Allah takes an oath by the slipping of time;
-                    urgency begins.</td
-                  >
-                </tr>
-                <tr>
-                  <td><strong>Innal-insāna la-fī khusr</strong></td>
-                  <td
-                    ><em>la-fī</em> = drowned in loss, unless rescued.</td
-                  >
-                </tr>
-                <tr>
-                  <td><strong>Illā</strong></td>
-                  <td
-                    >A single sharp exception, built on four pillars
-                    that operate together.</td
-                  >
-                </tr>
-              </tbody>
-            </table>
-          </p>
-          <p>
-            <b>Why four, not one?</b> Faith without action is claim. Action
-            without faith may be hollow. Truth without patience becomes
-            harsh; patience without truth becomes passive. Balance is the
-            goal.
-          </p>
-          <h3 class="!mb-0">Historical Echo:</h3>
-          <p>
-            Early Muslims recited Sūrat al-ʿAṣr before parting, a
-            polite code for “Use your hours well until we meet again.”
-          </p>
-          <p>
-            The Surah then delineates four interconnected pillars that
-            constitute the path to redemption and true prosperity:
-            <ol>
-              <li>
-                <b>Īmān (Faith):</b> This is the foundational anchor. It
-                refers to a comprehensive, sincere belief in Allah, His
-                angels, books, messengers, the Day of Judgment, and Divine
-                Decree. It's <code>Īmān</code> that provides the correct
-                worldview and motivation for righteous living. Without
-                this internal conviction, all subsequent actions lack true
-                spiritual weight.
-              </li>
-              <li>
-                <b>ʿAmal-ṣāliḥ (Righteous Deeds):</b>
-                <code>Īmān</code> is inert without
-                <code>ʿAmal-ṣāliḥ</code>. These are deeds that are
-                good, sincere, and performed in accordance with divine
-                guidance. They are the practical manifestation of <code
-                  >Īmān</code
-                >, shaping character (akhlaq) and translating belief
-                into tangible benefit for oneself and society. The
-                quality of <code>Īmān</code> is reflected in the consistency
-                and excellence of one's <code>ʿAmal-ṣāliḥ</code>.
-              </li>
-              <li>
-                <b>Tawāṣbil-ḥaqq (Mutual Reminding of Truth):</b> This
-                pillar moves beyond individual righteousness to collective
-                responsibility. It is the active, compassionate enjoinment
-                of truth and justice, and the gentle discouragement of
-                falsehood and wrongdoing. In an era of rampant misinformation
-                and moral relativism, <code>Tawāṣbil-ḥaqq</code> demands
-                courage, wisdom, and an unwavering commitment to propagating
-                the authentic message of Islam, always with sincerity and
-                appropriate means.
-              </li>
-              <li>
-                <b
-                  >Tawāṣbil-ṣabr (Mutual Support in
-                  Patience/Perseverance):</b
-                > The path of <code>ḥaqq</code> is fraught with challenges.
-                <code>Ṣabr</code> encompasses patience in obedience to
-                Allah, patience in abstaining from sins, and patience in
-                the face of adversity. This pillar stresses the communal
-                aspect: we are not to endure alone, but to actively counsel
-                and support one another in steadfastness, building a resilient
-                <code>Ummah</code> capable of weathering trials and remaining
-                firm on truth.
-              </li>
-            </ol>
-          </p>
-          <p>
-            These four keys work together. They are not separate
-            things. If you have all four, you use your time well. You
-            are not losing out. You are building a life that is
-            successful now and also for when we return to Allah. They
-            help you live with purpose.
+            The Prophet ﷺ said, "The strong believer is better… but
+            in each there is good." Strength is consistency, not
+            biceps.
           </p>
 
           <p>
             <blockquote>
-              Allāhumma inni asʾaluka qalban salīman waʿamalan ṣāliḥan
-              - O Allah, I ask You for a sound heart and righteous
-              deeds.
+              <p class="my-8 px-6 py-4 border-r-4 border-sabeel-blue-900 bg-gradient-to-l from-sabeel-blue-900/[0.05] to-transparent rounded-lg font-heading text-xl leading-relaxed text-sabeel-blue-900 md:px-8 md:py-6 md:text-lg">
+                "Allahumma, help us value our minutes, fill them with
+                faith, good deeds, truth, and patience, and meet You
+                with hearts at peace."
+              </p>
             </blockquote>
           </p>
 
-          <div class="practical-content">
-            <p class="intro">Apply this today:</p>
-
-            <ol>
-              <li>
-                <b>Identify a Gap:</b>
-                Reflect honestly on which of the four keys from Sūrat al-ʿAṣr
-                you find most challenging to consistently implement in
-                your daily life. Is it reinforcing your Īmān, consistently
-                performing ʿAmal-ṣāliḥ, speaking the ḥaqq to others (or
-                even yourself), or exercising ṣabr with grace?
-              </li>
-
-              <li>
-                <b>Formulate a Small, Actionable Step:</b>
-                Choose one tiny, specific action you can take in the next
-                24 hours to address that identified gap. For example, if
-                it's Īmān, spend 2 minutes reflecting on an Ayah of the
-                Qur'an; if Tawāṣbil-ḥaqq, gently correct a minor falsehood
-                you hear.
-              </li>
-
-              <li>
-                <b>Seek Support (Optional):</b>
-                If Tawāṣbil-ṣabr is your focus, reach out to a trusted
-                friend or mentor for encouragement or simply to share a
-                challenge you're facing, actively seeking 'support in patience'.
-              </li>
-            </ol>
+          <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+            <p>
+              <strong class="text-sabeel-blue-900 font-heading block mb-4">Challenge:</strong> This week, pick one of the
+              four keys from Sūrat al-ʿAṣr that you feel you can focus
+              on strengthening in your own life. Think of one online
+              habit that drains time yet adds no good deed. Plan how
+              to swap it for something that fits one of the four keys.
+            </p>
+            <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#TrueSuccess</span>
+            <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#TimeManagement</span>
+            <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#FaithInAction</span>
           </div>
+        </p>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="adults" aria-hidden="true">
+      <div class="content-box">
+        <p>
+          Sūrat al-ʿAṣr, though comprising just three verses,
+          encapsulates a complete methodology for human success and
+          salvation. Allah begins by taking an oath 'by Time,'
+          a profound emphasis on the fleeting nature of our earthly
+          existence and the urgency of its utilization. The
+          subsequent declaration, 'Indeed, mankind is in loss,'
+          serves as a sobering universal indictment, asserting that
+          without conscious adherence to a specific framework, human
+          existence is inherently unprofitable, culminating in
+          ultimate regret.
+        </p>
+        <p>
+          Imām al-Shāfiʿī said this sūrah alone would suffice as
+          proof. Notice its structure:
+
+          <table>
+            <thead>
+              <tr>
+                <th>Word/Phrase</th>
+                <th>Nuance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Wal-ʿaṣr</strong></td>
+                <td
+                  >Allah takes an oath by the slipping of time;
+                  urgency begins.</td
+                >
+              </tr>
+              <tr>
+                <td><strong>Innal-insāna la-fī khusr</strong></td>
+                <td
+                  ><em>la-fī</em> = drowned in loss, unless rescued.</td
+                >
+              </tr>
+              <tr>
+                <td><strong>Illā</strong></td>
+                <td
+                  >A single sharp exception, built on four pillars
+                  that operate together.</td
+                >
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <p>
+          <b>Why four, not one?</b> Faith without action is claim. Action
+          without faith may be hollow. Truth without patience becomes
+          harsh; patience without truth becomes passive. Balance is the
+          goal.
+        </p>
+        <h3 class="!mb-0">Historical Echo:</h3>
+        <p>
+          Early Muslims recited Sūrat al-ʿAṣr before parting, a
+          polite code for "Use your hours well until we meet again."
+        </p>
+        <p>
+          The Surah then delineates four interconnected pillars that
+          constitute the path to redemption and true prosperity:
+          <ol>
+            <li>
+              <b><span class="highlighted-term">Īmān</span> (Faith):</b> This is the foundational anchor. It
+              refers to a comprehensive, sincere belief in Allah, His
+              angels, books, messengers, the Day of Judgment, and Divine
+              Decree. It's <span class="highlighted-term">Īmān</span> that provides the correct
+              worldview and motivation for righteous living. Without
+              this internal conviction, all subsequent actions lack true
+              spiritual weight.
+            </li>
+            <li>
+              <b><span class="highlighted-term">ʿAmal-ṣāliḥ</span> (Righteous Deeds):</b>
+              <span class="highlighted-term">Īmān</span> is inert without
+              <span class="highlighted-term">ʿAmal-ṣāliḥ</span>. These are deeds that are
+              good, sincere, and performed in accordance with divine
+              guidance. They are the practical manifestation of <span
+                class="highlighted-term"
+                >Īmān</span
+              >, shaping character (akhlaq) and translating belief
+              into tangible benefit for oneself and society. The
+              quality of <span class="highlighted-term">Īmān</span> is reflected in the consistency
+              and excellence of one's <span class="highlighted-term">ʿAmal-ṣāliḥ</span>.
+            </li>
+            <li>
+              <b><span class="highlighted-term">Tawāṣbil-ḥaqq</span> (Mutual Reminding of Truth):</b> This
+              pillar moves beyond individual righteousness to collective
+              responsibility. It is the active, compassionate enjoinment
+              of truth and justice, and the gentle discouragement of
+              falsehood and wrongdoing. In an era of rampant misinformation
+              and moral relativism, <span class="highlighted-term">Tawāṣbil-ḥaqq</span> demands
+              courage, wisdom, and an unwavering commitment to propagating
+              the authentic message of Islam, always with sincerity and
+              appropriate means.
+            </li>
+            <li>
+              <b><span
+                class="highlighted-term"
+                >Tawāṣbil-ṣabr</span
+              > (Mutual Support in
+                Patience/Perseverance):</b
+              > The path of <span class="highlighted-term">ḥaqq</span> is fraught with challenges.
+              <span class="highlighted-term">Ṣabr</span> encompasses patience in obedience to
+              Allah, patience in abstaining from sins, and patience in
+              the face of adversity. This pillar stresses the communal
+              aspect: we are not to endure alone, but to actively counsel
+              and support one another in steadfastness, building a resilient
+              <span class="highlighted-term">Ummah</span> capable of weathering trials and remaining
+              firm on truth.
+            </li>
+          </ol>
+        </p>
+        <p>
+          These four keys work together. They are not separate
+          things. If you have all four, you use your time well. You
+          are not losing out. You are building a life that is
+          successful now and also for when we return to Allah. They
+          help you live with purpose.
+        </p>
+
+        <p>
+          <blockquote>
+            Allāhumma inni asʾaluka qalban salīman waʿamalan ṣāliḥan
+            - O Allah, I ask You for a sound heart and righteous
+            deeds.
+          </blockquote>
+        </p>
+
+        <div class="practical-content">
+          <p class="intro">Apply this today:</p>
+
+          <ol>
+            <li>
+              <b>Identify a Gap:</b>
+              Reflect honestly on which of the four keys from Sūrat al-ʿAṣr
+              you find most challenging to consistently implement in
+              your daily life. Is it reinforcing your Īmān, consistently
+              performing ʿAmal-ṣāliḥ, speaking the ḥaqq to others (or
+              even yourself), or exercising ṣabr with grace?
+            </li>
+
+            <li>
+              <b>Formulate a Small, Actionable Step:</b>
+              Choose one tiny, specific action you can take in the next
+              24 hours to address that identified gap. For example, if
+              it's Īmān, spend 2 minutes reflecting on an Ayah of the
+              Qur'an; if Tawāṣbil-ḥaqq, gently correct a minor falsehood
+              you hear.
+            </li>
+
+            <li>
+              <b>Seek Support (Optional):</b>
+              If Tawāṣbil-ṣabr is your focus, reach out to a trusted
+              friend or mentor for encouragement or simply to share a
+              challenge you're facing, actively seeking 'support in patience'.
+            </li>
+          </ol>
         </div>
       </div>
-
-      <Share title={meta.title} />
-      <LessonNav
-        lessons={lessons}
-        currentSlug="surah-al-asr-four-keys-to-success"
-      />
     </div>
-  </main>
-</Layout>
+  </div>
+  <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center mb-8">
+    <h3 class="font-serif text-xl font-semibold text-blue-800 mb-2">How was this lesson?</h3>
+    <p class="font-sans text-base text-blue-900 mb-4">Your feedback helps us improve Sabeel for everyone.</p>
+    <a href={`/feedback/${currentSlug}`} class="inline-block border border-blue-600 text-blue-700 hover:bg-blue-50 hover:border-blue-700 font-semibold py-2 px-6 rounded-full text-base shadow-sm transition duration-200">Give Feedback</a>
+  </div>
+  <Share title={title} />
+  <LessonNav currentSlug="surah-al-asr-four-keys-to-success" lessons={lessons} />
+</LessonLayout>
 
-<style>
-  /* Keep only page-specific styles here */
-  .tabs {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('[data-tab]');
+    const tabContents = document.querySelectorAll('.tab-content');
 
-  .tab-button {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    background: #f1f5f9;
-    color: #405671;
-    border-radius: 9999px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
+    const activateTab = (tabId) => {
+      tabButtons.forEach(button => {
+        button.dataset.selected = (button.dataset.tab === tabId).toString();
+      });
 
-  .tab-button[aria-selected='true'] {
-    background: #3b82f6;
-    color: white;
-  }
+      tabContents.forEach(content => {
+        content.setAttribute('aria-hidden', (content.dataset.tab !== tabId).toString());
+      });
+    };
 
-  .tab-content {
-    display: none;
-  }
-
-  .tab-content[aria-hidden='false'] {
-    display: block;
-  }
-
-  /* Audio Player */
-  .audio-player {
-    margin-bottom: 2rem;
-    background: #f8fafc;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
-  }
-
-  .audio-player audio {
-    width: 100%;
-  }
-
-  /* Audio player responsive styles */
-  @media (max-width: 768px) {
-    .audio-player {
-      padding: 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .audio-player {
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-    }
-  }
-
-  /* Action Sections */
-  .workshop-section,
-  .challenge-section,
-  .practical-section {
-    margin-top: 3rem;
-    border-radius: 12px;
-    background: #f8fafc;
-    padding: 2rem;
-  }
-
-  .workshop-section h3,
-  .challenge-section h3,
-  .practical-section h3 {
-    color: #3b82f6;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Workshop specific styles */
-  .workshop-content {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  }
-
-  .download-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #3b82f6;
-    text-decoration: none;
-    font-weight: 500;
-    margin-top: 1rem;
-    padding: 0.75rem 1rem;
-    background: #e5f0ff;
-    border-radius: 6px;
-    transition: background 0.2s ease;
-  }
-
-  .download-link:hover {
-    background: #dae8ff;
-  }
-
-  /* Challenge specific styles */
-  .challenge-content {
-    background: #e5f0ff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #3b82f6;
-  }
-
-  .hashtag {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #3b82f6;
-    font-weight: 500;
-  }
-
-  /* Practical section specific styles */
-  .practical-content {
-    background: #f0f7ff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #3b82f6;
-  }
-
-  .practical-content ol {
-    list-style: none;
-    counter-reset: steps;
-    padding: 0;
-  }
-
-  .practical-content li {
-    counter-increment: steps;
-    margin-bottom: 1.5rem;
-    padding-left: 2.5rem;
-    position: relative;
-  }
-
-  .practical-content li::before {
-    content: counter(steps);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1.75rem;
-    height: 1.75rem;
-    background: #3b82f6;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 0.875rem;
-  }
-
-  .practical-content strong {
-    display: block;
-    color: #0a3255;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Content List Styles */
-  .content-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-  }
-
-  .content-box ul li {
-    position: relative;
-    padding-left: 1.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .content-box ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    width: 6px;
-    height: 6px;
-    background: #3b82f6;
-    border-radius: 50%;
-  }
-
-  .content-box ul li strong {
-    display: block;
-    color: #0a3255;
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .content-box ul li {
-      padding-left: 1.5rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .content-box ul li strong {
-      font-size: 1rem;
-    }
-  }
-
-  /* Responsive styles for action sections */
-  @media (max-width: 768px) {
-    .workshop-section,
-    .challenge-section,
-    .practical-section {
-      margin-top: 2rem;
-      padding: 1.5rem;
-    }
-
-    .workshop-content,
-    .challenge-content,
-    .practical-content {
-      padding: 1.25rem;
-    }
-
-    .practical-content li {
-      padding-left: 2rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .workshop-section,
-    .challenge-section,
-    .practical-section {
-      padding: 1rem;
-    }
-
-    .workshop-content,
-    .challenge-content,
-    .practical-content {
-      padding: 1rem;
-    }
-  }
-</style>
-
-<script>
-  const tabs = document.querySelectorAll('.tab-button');
-  const contents = document.querySelectorAll('.tab-content');
-
-  // Helper function to extract tab ID from URL
-  function getTabFromUrl() {
-    const hash = window.location.hash;
-    if (!hash) return null;
-
-    // Get the first part of hash before any query parameters
-    const segments = hash.substring(1).split('?')[0];
-    return segments || null;
-  }
-
-  function switchTab(tabId: string) {
-    // Only switch if tab exists
-    const targetTab = document.querySelector(`[data-tab="${tabId}"]`);
-    const targetContent = document.querySelector(
-      `.tab-content[data-tab="${tabId}"]`
-    );
-
-    if (!targetTab || !targetContent) return;
-
-    // Update tabs and contents
-    tabs.forEach((t) => t.setAttribute('aria-selected', 'false'));
-    contents.forEach((c) => c.setAttribute('aria-hidden', 'true'));
-
-    // Set the selected tab and show content
-    targetTab.setAttribute('aria-selected', 'true');
-    targetContent.setAttribute('aria-hidden', 'false');
-
-    // Store the selected tab
-    localStorage.setItem('selectedTab', tabId);
-
-    // Update URL hash while preserving UTM parameters
-    const currentUrl = new URL(window.location.href);
-    const utmParams = currentUrl.search; // Preserve query parameters
-    const newHash = `#${tabId}${utmParams}`;
-    history.replaceState(null, '', newHash);
-  }
-
-  // Initialize tab from URL hash or localStorage or default to 'adults'
-  const initTab = () => {
-    const urlTab = getTabFromUrl();
-    const storedTab = localStorage.getItem('selectedTab');
-    const defaultTab = 'adults';
-
-    // Priority: URL hash > localStorage > default
-    const tabToShow = urlTab || storedTab || defaultTab;
-    switchTab(tabToShow);
-  };
-
-  // Handle tab clicks
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const tabId = tab.getAttribute('data-tab');
-      if (tabId) switchTab(tabId);
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activateTab(button.dataset.tab);
+      });
     });
-  });
 
-  // Initialize on page load
-  document.addEventListener('DOMContentLoaded', initTab);
-
-  // Handle browser back/forward
-  window.addEventListener('hashchange', () => {
-    const urlTab = getTabFromUrl();
-    if (urlTab) switchTab(urlTab);
+    // Activate default tab on load
+    const defaultTab = document.querySelector('[data-selected="true"]');
+    if (defaultTab) {
+      activateTab(defaultTab.dataset.tab);
+    } else if (tabButtons.length > 0) {
+      // Fallback to first tab if no default is set
+      activateTab(tabButtons[0].dataset.tab);
+    }
   });
 </script>

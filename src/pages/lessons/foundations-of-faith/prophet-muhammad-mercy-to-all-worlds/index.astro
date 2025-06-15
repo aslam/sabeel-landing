@@ -1,0 +1,181 @@
+---
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
+import Share from '../../../../components/Share.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
+
+const tabs = [
+  { id: 'kids', label: 'For Kids' },
+  { id: 'teens', label: 'For Teens' },
+  { id: 'adults', label: 'For Adults', default: true },
+];
+
+const meta = {
+  title: 'Prophet Muhammad ﷺ: Mercy to All Worlds | Sabeel',
+  description:
+    'Discover the universal mercy and exemplary character of Prophet Muhammad ﷺ.',
+  type: 'article',
+  keywords:
+    'Prophet Muhammad, Muhammad ﷺ, Islam, Mercy, Rahmatan lil Alameen, Islamic teachings, Sunnah, Seerah, Islamic ethics, compassion in Islam, Islamic role model, foundations of faith',
+};
+
+const title = 'Prophet Muhammad ﷺ: Mercy to All Worlds';
+const subtitle = 'Discover the universal mercy and exemplary character of Prophet Muhammad ﷺ, and how his life serves as a perfect guide for humanity.';
+
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
+---
+
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  {currentLesson && (
+    <div class="mb-8 mt-2 lg:mt-4 xl:mt-8">
+      <img
+        src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+        alt={currentLesson.title}
+        class="w-full h-auto rounded-lg shadow-lg"
+      />
+    </div>
+  )}
+  <div class="mb-8">
+    <div class="flex gap-4 justify-center mb-6">
+      {tabs.map((tab, i) => (
+        <button
+          class="px-5 py-2 rounded-full font-semibold text-base transition duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-700 data-[selected=true]:bg-blue-600 data-[selected=true]:text-white data-[selected=true]:shadow-md"
+          data-tab={tab.id}
+          data-selected={tab.default ? 'true' : 'false'}
+        >
+          {tab.label}
+        </button>
+      ))}
+    </div>
+    <div class="tab-content" data-tab="kids" aria-hidden="false">
+      <div class="content-box">
+        <p>
+          Long ago, there lived the kindest man ever: Prophet Muhammad ﷺ. Allah loved him so much that He sent him to teach people how to be good, kind, and loving.
+        </p>
+        <p>
+          The Prophet ﷺ never shouted, never hit, and never hurt anyone. Even when someone was unkind, he stayed gentle. Once, a lady would throw garbage on him every day. But one day, when she didn't show up, he visited her home to see if she was okay. That's how kind he was!
+        </p>
+        <p>
+          He loved children, helped the poor, cared for animals, and smiled often. Allah made him a light that guides us even today.
+        </p>
+        <p>
+          Prophet Muhammad ﷺ was truly the most amazing person. He was always gentle, even when others were not. One time, a very old lady used to put thorns in his path to hurt him. Every day, he would quietly remove them. One day, the thorns were not there. He worried about her, and instead of being angry, he went to visit her to see if she was okay. She was sick, and seeing his kindness, she learned about Islam! This shows how huge his heart was, filled with mercy for everyone.
+        </p>
+        <p>
+          He is our perfect guide, teaching us everything: how to talk to Allah in Salah, how to be thankful for our food, and how to treat others with respect. When we remember him and try our best to follow his example, we make Allah happy and our hearts feel full of peace.
+        </p>
+
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h4 class="text-sabeel-blue-900 font-heading mb-4">For Parents to Explain:</h4>
+          <p>
+            This lesson aims to instill a profound, emotional connection and love for Prophet Muhammad ﷺ in children by highlighting his mercy and beautiful interactions. Emphasize that his mercy was universal, extending to all creation. Reinforce that following his example (<span class="highlighted-term">Sunnah</span>) is the most direct way to gain Allah's pleasure and live a life of beauty. You can say, 'Prophet Muhammad ﷺ showed us how to be a walking example of Allah's love in the world!'
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="teens" aria-hidden="true">
+      <div class="content-box">
+        <p>
+          In an age where authenticity and positive influence are constantly sought, the life of <span class="highlighted-term">Prophet Muhammad ﷺ</span> stands as the ultimate benchmark. He was declared by Allah as 'a <span class="highlighted-term">Mercy to All Worlds</span>' (<span class="highlighted-term">Rahmatan lil 'Alameen</span>) - a title that captures the universal and timeless relevance of his person and mission. His existence wasn't just a historical event; it was a living demonstration of how divine guidance transforms lives and societies.
+        </p>
+        <p>
+          Consider his integrity (<span class="highlighted-term">Amanah</span>). Even before prophethood, he was known as 'Al-Amin' (The Trustworthy). He kept his promises, was fair in his dealings, and never compromised on truth, even when it was unpopular. In a world full of broken trust, his unwavering honesty offers a powerful lesson in building genuine relationships and a strong character.
+        </p>
+        <p>
+          His mercy extended beyond the human realm. He taught us gentleness with animals, moderation in consuming resources, and care for the environment. When Makkah, the city that persecuted him for years, fell to him, he extended an unparalleled general amnesty, famously asking, 'What do you think I shall do with you?' and then declaring, 'Go, you are free.' This act of profound forgiveness transformed enemies into devoted followers and stands as a testament to his universal compassion.
+        </p>
+        <p>
+          Prophet Muhammad ﷺ perfectly balanced spiritual devotion with real-world engagement. He was a husband, father, leader, and community builder. His <span class="highlighted-term">Sunnah</span> provides practical wisdom for every challenge you face - from managing anger to building friendships, from pursuing knowledge to standing for justice. He is the blueprint for a balanced, purposeful, and impactful life.
+        </p>
+
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <p>
+            <strong class="text-sabeel-blue-900 font-heading block mb-4">Challenge:</strong> This week, identify <span class="highlighted-term">one</span> specific area where you want to embody the Prophet's mercy or integrity in your interactions. For example: a) When you're frustrated, consciously pause and respond with kindness, not anger. b) Go out of your way to help someone, even if it's inconvenient. c) Be completely honest in a situation where it might be easier to bend the truth. Reflect on how this shifts your inner state and your relationships. Share your chosen focus with a trusted friend or mentor, encouraging accountability.
+          </p>
+          <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#SabeelProphetMercy</span>
+          <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#SunnahGoals</span>
+          <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#TeenTruth</span>
+          <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#RoleModelMuhammad</span>
+          <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#IslamicInspiration</span>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="adults" aria-hidden="true">
+      <div class="content-box">
+        <p>
+          The Qur'anic declaration of <span class="highlighted-term">Prophet Muhammad ﷺ</span> as 'a <span class="highlighted-term">Mercy to All Worlds</span>' (<span class="highlighted-term">Rahmatan lil 'Alameen</span>, Surah Al-Anbiya, 21:107) is a profound theological statement and a call to emulate. It signifies that his prophethood and the message he conveyed were not confined to a specific time, place, or people, but encompassed a universal, timeless, and comprehensive compassion that benefits all existence – human, animal, and environment.
+        </p>
+        <p>
+          His <span class="highlighted-term">Seerah</span> (biography) is the living exegesis of the Qur'an, illustrating how divine injunctions translate into human conduct. Every facet of his life—his unwavering <span class="highlighted-term">Tawhid</span>, his profound <span class="highlighted-term">Ikhlas</span> (sincerity), his exemplary <span class="highlighted-term">Sabr</span> (patience), and his boundless <span class="highlighted-term">Rahmah</span> (mercy)—serves as a complete model (<span class="highlighted-term">Uswa Hasana</span>, Surah Al-Ahzab, 33:21). Consider the stark contrast between his universal amnesty after the conquest of Makkah and the norms of victory at the time; this single event epitomizes his merciful character and its transformative power.
+        </p>
+        <p>
+          Emulating the Prophet's universal mercy implies a conscious effort to extend benefit and alleviate hardship wherever possible, transcending personal biases or perceived grievances. It means embodying justice in our roles as employers, parents, spouses, and community members. It compels us to cultivate compassion for the vulnerable, to advocate for the oppressed, and to be stewards of the Earth, just as he taught.
+        </p>
+        <p>
+          In our increasingly fragmented world, studying his life allows us to reconnect with the authentic principles of Islam: a faith that is holistic, just, and compassionate. His <span class="highlighted-term">Sunnah</span> provides practical solutions to contemporary challenges, from emotional regulation to conflict resolution, from fostering interfaith harmony to building resilient communities. To be his follower is to strive to become a source of mercy and a blessing in our own spheres, reflecting the light he brought to humanity.
+        </p>
+
+        <div class="practical-content">
+          <p class="intro">Apply this today:</p>
+
+          <ol>
+            <li>
+              <b>Cultivate Conscious Mercy:</b>
+              Identify one specific interaction or situation today where your default response might be irritation, judgment, or indifference. Consciously choose to respond with Prophet Muhammad's ﷺ <span class="highlighted-term">Rahmah</span> (mercy), even if it's just a subtle shift in tone or a moment of empathy. Reflect on its impact.
+            </li>
+
+            <li>
+              <b>Emulate a <span class="highlighted-term">Sunnah</span> of Interaction:</b>
+              Pick one lesser-practiced <span class="highlighted-term">Sunnah</span> related to social conduct (e.g., genuinely smiling, initiating <span class="highlighted-term">salaam</span>, visiting the sick, being gentle with animals, listening without interrupting) and make a deliberate effort to embody it throughout your day. How does this consistent practice transform your presence?
+            </li>
+
+            <li>
+              <b>Reflect on <span class="highlighted-term">Seerah</span> for Modern Challenges:</b>
+              Choose one contemporary challenge you face (e.g., digital distraction, stress, community polarization). Spend a few moments reflecting on an aspect of Prophet Muhammad's ﷺ <span class="highlighted-term">Seerah</span> or a specific Hadith. How might his example guide your approach to this challenge? Write down one specific action you can take based on this reflection.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center mb-8">
+    <h3 class="font-serif text-xl font-semibold text-blue-800 mb-2">How was this lesson?</h3>
+    <p class="font-sans text-base text-blue-900 mb-4">Your feedback helps us improve Sabeel for everyone.</p>
+    <a href={`/feedback/${currentSlug}`} class="inline-block border border-blue-600 text-blue-700 hover:bg-blue-50 hover:border-blue-700 font-semibold py-2 px-6 rounded-full text-base shadow-sm transition duration-200">Give Feedback</a>
+  </div>
+  <Share title={title} />
+  <LessonNav currentSlug="prophet-muhammad-mercy-to-all-worlds" lessons={lessons} />
+</LessonLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('[data-tab]');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    const activateTab = (tabId) => {
+      tabButtons.forEach(button => {
+        button.dataset.selected = (button.dataset.tab === tabId).toString();
+      });
+
+      tabContents.forEach(content => {
+        content.setAttribute('aria-hidden', (content.dataset.tab !== tabId).toString());
+      });
+    };
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activateTab(button.dataset.tab);
+      });
+    });
+
+    // Activate default tab on load
+    const defaultTab = document.querySelector('[data-selected="true"]');
+    if (defaultTab) {
+      activateTab(defaultTab.dataset.tab);
+    } else if (tabButtons.length > 0) {
+      // Fallback to first tab if no default is set
+      activateTab(tabButtons[0].dataset.tab);
+    }
+  });
+</script>

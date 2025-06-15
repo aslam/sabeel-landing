@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --font-heading: 'Amiri', serif;
   --font-body: 'Nunito', sans-serif;
@@ -180,6 +184,7 @@ blockquote::before {
   border-radius: 12px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   margin-bottom: 2rem;
+  /* font-family: var(--font-sans, 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', 'Noto Sans Symbols', 'Noto Sans Arabic', 'Noto Sans IPA', 'Noto Sans Latin', 'Arial Unicode MS', sans-serif); */
 }
 
 .content-box h3 {
@@ -280,17 +285,6 @@ blockquote::before {
   margin-bottom: 0.75rem;
 }
 
-/* Code Blocks */
-code {
-  background: #f1f5f9;
-  color: #0f172a;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.25rem;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.875em;
-  border: 1px solid #e2e8f0;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .lesson-container {
@@ -327,4 +321,74 @@ code {
   .content-box {
     padding: 1.25rem;
   }
+}
+
+@layer components {
+  .feedback-cta {
+    @apply flex justify-center mb-8 max-w-lg mx-auto;
+  }
+
+  .feedback-button {
+    @apply inline-block px-8 py-3 text-lg font-bold text-white bg-sabeel-accent-500 rounded-full no-underline shadow-md transition duration-200;
+  }
+
+  .feedback-button:hover {
+    @apply bg-sabeel-accent-600;
+  }
+
+  /* Ensure correct button display in FeedbackForm.astro after removing local styles */
+  .feedback-form button[type="submit"] {
+    @apply block w-full mt-6;
+  }
+
+  .feedback-form textarea {
+    @apply block w-full border border-gray-300 rounded-md p-3 text-base resize-y min-h-[120px] mb-4;
+  }
+
+  .feedback-form label[for="feedback"] {
+    @apply font-medium text-sabeel-blue-900 block mb-2;
+  }
+
+  .rating-group {
+    @apply flex flex-col gap-4 border-none m-0 p-0;
+  }
+
+  .rating-group legend {
+    @apply font-semibold text-sabeel-blue-900 mb-2 text-lg;
+  }
+
+  .rating-option {
+    @apply flex items-center gap-3 text-lg font-medium cursor-pointer;
+  }
+
+  .rating-option input[type="radio"] {
+    @apply accent-sabeel-accent-500 w-5 h-5;
+  }
+
+  .thank-you {
+    @apply text-center;
+  }
+
+  .thank-you h2 {
+    @apply text-sabeel-blue-900 text-3xl mb-4;
+  }
+
+  .thank-you p {
+    @apply text-sabeel-teal-800 text-lg mb-8;
+  }
+
+  /* Hide inactive tab content */
+  .tab-content[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+.highlighted-term {
+  background-color: #e2e8f0;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: #0a3255;
+  font-weight: bold;
 }

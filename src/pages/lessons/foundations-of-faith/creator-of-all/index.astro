@@ -1,118 +1,99 @@
 ---
-import Layout from '../../../../layouts/Layout.astro';
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
 import Share from '../../../../components/Share.astro';
 import LessonNav from '../../../../components/LessonNav.astro';
 import { lessons } from '../../../../data/lessons';
 
+const tabs = [
+  { id: 'kids', label: 'For Kids' },
+  { id: 'teens', label: 'For Teens' },
+  { id: 'adults', label: 'For Adults', default: true },
+];
+
 const meta = {
-  title: 'Creator of All - Foundations of Faith | Sabeel',
+  title: 'The Creator of All Things | Sabeel',
   description:
-    'Learn about Allah as the Creator of everything in existence and understand the fundamental concept of Tawheed.',
+    'Understanding Allah as the Creator and Sustainer of everything in existence through simple, relatable examples.',
   type: 'article',
   keywords:
-    'Allah Creator, Islamic creation, Tawheed, Islamic monotheism, Divine attributes, Islamic faith basics, Allah self-sufficient, Creator of universe, Islamic lessons for kids, Islamic lessons for teens, Islamic family education, Al-Khaliq, attributes of Allah, Islamic theology, Muslim beliefs, Quran teachings, foundations of faith, Islamic spirituality, divine power, Islamic worldview',
+    'Allah, Creator, Islam, Islamic beliefs, Tawhid, God, divine attributes, existence, purpose of life, Islamic education, foundations of faith, Muslim kids, Muslim teens, Muslim adults',
 };
+
+const title = 'The Creator of All Things';
+const subtitle = 'Understanding Allah\'s Oneness and Attributes';
+
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
 ---
 
-<Layout meta={meta}>
-  <main>
-    <div class="lesson-container">
-      <div class="breadcrumb">
-        <a href="/lessons">Lessons</a>
-        <span>/</span>
-        <a href="/lessons/foundations-of-faith"
-          >Foundations of Faith</a
-        >
-      </div>
-
-      <h1 class="lesson-title">The Creator of All Things</h1>
-      <div class="content-box">
-        <h3>The Creator of All Things: A Lesson in Faith</h3>
-
-        <p>
-          Step outside for a moment. Look up at the sky, feel the
-          wind, and listen to the sounds around you. Have you ever
-          wondered, "Who made all of this?"
-        </p>
-
-        <p>
-          From the soft rustling of leaves to the towering mountains
-          and the vast, star-studded sky — every single thing was
-          created by Allah. And not just created, but brought to life
-          with unmatched perfection and balance, without needing any
-          help.
-        </p>
-
-        <p>
-          In Surah Al-Zumar, Allah reminds us:
-
-          <blockquote>
-            Allah is the Creator of all things, and He is, over all
-            things, Disposer of affairs. (Quran 39:62)
-          </blockquote>
-        </p>
-
-        <p>
-          For a child, this can be as simple as looking at a toy.
-          Imagine your favorite LEGO set. Could it build itself
-          without someone putting the pieces together? No way. But
-          Allah said 'Be!' — and everything in the universe came into
-          existence. Allah didn't need tools, hands, or helpers. It
-          all happened by His command.
-        </p>
-        <p>
-          For a teenager, think about the intricate systems that keep
-          life moving — the way our bodies work, the way the rain
-          falls, the way day and night follow each other without fail.
-          All of it happens perfectly, without Allah needing anything
-          in return. Before time and space, Allah was already there —
-          self-sufficient, existing without need.
-        </p>
-        <p>
-          For an adult, this verse is a call to reflect on our own
-          dependencies. We lean on our jobs for income, our families
-          for support, and our health for strength. But Allah? He is
-          the One who provides all these things without relying on
-          anything or anyone. He commands, and it is done. He is the
-          Master, the Sustainer, the Disposer of all affairs.
-        </p>
-        <p>
-          So, the next time life feels out of control, pause. Breathe.
-          Look at the sky, the earth, and even your own heartbeat.
-          Allah, the Creator of all things, is still in control. And
-          the One who created everything is more than capable of
-          taking care of you and your affairs.
-        </p>
-      </div>
-
-      <Share title="The Creator of All Things: A Lesson in Faith" />
-      <LessonNav currentSlug="creator-of-all" lessons={lessons} />
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  {currentLesson && (
+    <div class="mb-8 mt-2 lg:mt-4 xl:mt-8">
+      <img
+        src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+        alt={currentLesson.title}
+        class="w-full h-auto rounded-lg shadow-lg"
+      />
     </div>
-  </main>
-</Layout>
-
-<style>
-  /* Any page-specific styles can go here */
-  blockquote {
-    margin: 2rem 0;
-    padding: 1.5rem 2rem;
-    border-right: 4px solid #0a3255;
-    background: linear-gradient(
-      to left,
-      rgba(10, 50, 85, 0.05),
-      transparent
-    );
-    border-radius: 8px;
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: #0a3255;
-  }
-
-  @media (max-width: 768px) {
-    blockquote {
-      padding: 1.25rem 1.5rem;
-      font-size: 1.125rem;
-    }
-  }
-</style>
+  )}
+  <div class="content-box">
+    <h3>The Creator of All Things: A Lesson in Faith</h3>
+    <p>
+      Step outside for a moment. Look up at the sky, feel the
+      wind, and listen to the sounds around you. Have you ever
+      wondered, "Who made all of this?"
+    </p>
+    <p>
+      From the soft rustling of leaves to the towering mountains
+      and the vast, star-studded sky — every single thing was
+      created by Allah. And not just created, but brought to life
+      with unmatched perfection and balance, without needing any
+      help.
+    </p>
+    <p>
+      In Surah Al-Zumar, Allah reminds us:
+      <blockquote class="my-8 px-6 py-4 border-r-4 border-sabeel-blue-900 bg-gradient-to-l from-sabeel-blue-900/[0.05] to-transparent rounded-lg font-heading text-xl leading-relaxed text-sabeel-blue-900 md:px-8 md:py-6 md:text-lg">
+        Allah is the Creator of all things, and He is, over all
+        things, Disposer of affairs. (Quran 39:62)
+      </blockquote>
+    </p>
+    <p>
+      For a child, this can be as simple as looking at a toy.
+      Imagine your favorite LEGO set. Could it build itself
+      without someone putting the pieces together? No way. But
+      Allah said 'Be!' — and everything in the universe came into
+      existence. Allah didn't need tools, hands, or helpers. It
+      all happened by His command.
+    </p>
+    <p>
+      For a teenager, think about the intricate systems that keep
+      life moving — the way our bodies work, the way the rain
+      falls, the way day and night follow each other without fail.
+      All of it happens perfectly, without Allah needing anything
+      in return. Before time and space, Allah was already there —
+      self-sufficient, existing without need.
+    </p>
+    <p>
+      For an adult, this verse is a call to reflect on our own
+      dependencies. We lean on our jobs for income, our families
+      for support, and our health for strength. But Allah? He is
+      the One who provides all these things without relying on
+      anything or anyone. He commands, and it is done. He is the
+      Master, the Sustainer, the Disposer of all affairs.
+    </p>
+    <p>
+      So, the next time life feels out of control, pause. Breathe.
+      Look at the sky, the earth, and even your own heartbeat.
+      Allah, the Creator of all things, is still in control. And
+      the One who created everything is more than capable of
+      taking care of you and your affairs.
+    </p>
+  </div>
+  <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center mb-8">
+    <h3 class="font-serif text-xl font-semibold text-blue-800 mb-2">How was this lesson?</h3>
+    <p class="font-sans text-base text-blue-900 mb-4">Your feedback helps us improve Sabeel for everyone.</p>
+    <a href={`/feedback/${currentSlug}`} class="inline-block border border-blue-600 text-blue-700 hover:bg-blue-50 hover:border-blue-700 font-semibold py-2 px-6 rounded-full text-base shadow-sm transition duration-200">Give Feedback</a>
+  </div>
+  <Share title={title} />
+  <LessonNav currentSlug="creator-of-all" lessons={lessons} />
+</LessonLayout>

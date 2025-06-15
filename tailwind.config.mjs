@@ -17,6 +17,18 @@ export default {
           800: '#003d99',
           900: '#002966',
         },
+        sabeel: {
+          blue: {
+            900: '#0a3255',
+          },
+          teal: {
+            800: '#065f46',
+          },
+          accent: {
+            500: '#3b82f6',
+            600: '#2563eb',
+          },
+        },
       },
       fontFamily: {
         sans: ['Nunito', 'sans-serif'],

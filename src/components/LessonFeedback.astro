@@ -1,0 +1,31 @@
+---
+interface Props {
+  lessonId: string;
+}
+
+const { lessonId } = Astro.props;
+
+const feedbackUrls = {
+  loved: `/feedback/${lessonId}/loved`,
+  needsImprovement: `/feedback/${lessonId}/good-needs-improvement`,
+  notForMe: `/feedback/${lessonId}/not-for-me`,
+};
+---
+
+<div class="feedback-section">
+  <h3>Was this lesson helpful?</h3>
+  <div class="feedback-buttons">
+    <a href={feedbackUrls.loved} class="feedback-button good">
+      Yes, I learned something new
+    </a>
+    <a
+      href={feedbackUrls.needsImprovement}
+      class="feedback-button needs-improvement"
+    >
+      Good, but needs improvement
+    </a>
+    <a href={feedbackUrls.notForMe} class="feedback-button difficult">
+      Too difficult to understand
+    </a>
+  </div>
+</div>
