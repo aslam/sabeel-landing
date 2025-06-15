@@ -416,72 +416,34 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
   <LessonNav currentSlug="surah-al-asr-four-keys-to-success" lessons={lessons} />
 </LessonLayout>
 
-<script>
-  const tabs = document.querySelectorAll('.tab-button');
-  const contents = document.querySelectorAll('.tab-content');
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('[data-tab]');
+    const tabContents = document.querySelectorAll('.tab-content');
 
-  // Helper function to extract tab ID from URL
-  function getTabFromUrl() {
-    const hash = window.location.hash;
-    if (!hash) return null;
+    const activateTab = (tabId) => {
+      tabButtons.forEach(button => {
+        button.dataset.selected = (button.dataset.tab === tabId).toString();
+      });
 
-    // Get the first part of hash before any query parameters
-    const segments = hash.substring(1).split('?')[0];
-    return segments || null;
-  }
+      tabContents.forEach(content => {
+        content.setAttribute('aria-hidden', (content.dataset.tab !== tabId).toString());
+      });
+    };
 
-  function switchTab(tabId: string) {
-    // Only switch if tab exists
-    const targetTab = document.querySelector(`[data-tab="${tabId}"]`);
-    const targetContent = document.querySelector(
-      `.tab-content[data-tab="${tabId}"]`
-    );
-
-    if (!targetTab || !targetContent) return;
-
-    // Update tabs and contents
-    tabs.forEach((t) => t.setAttribute('data-selected', 'false'));
-    contents.forEach((c) => c.setAttribute('aria-hidden', 'true'));
-
-    // Set the selected tab and show content
-    targetTab.setAttribute('data-selected', 'true');
-    targetContent.setAttribute('aria-hidden', 'false');
-
-    // Store the selected tab
-    localStorage.setItem('selectedTab', tabId);
-
-    // Update URL hash while preserving UTM parameters
-    const currentUrl = new URL(window.location.href);
-    const utmParams = currentUrl.search; // Preserve query parameters
-    const newHash = `#${tabId}${utmParams}`;
-    history.replaceState(null, '', newHash);
-  }
-
-  // Initialize tab from URL hash or localStorage or default to 'adults'
-  const initTab = () => {
-    const urlTab = getTabFromUrl();
-    const storedTab = localStorage.getItem('selectedTab');
-    const defaultTab = 'adults';
-
-    // Priority: URL hash > localStorage > default
-    const tabToShow = urlTab || storedTab || defaultTab;
-    switchTab(tabToShow);
-  };
-
-  // Handle tab clicks
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const tabId = tab.getAttribute('data-tab');
-      if (tabId) switchTab(tabId);
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activateTab(button.dataset.tab);
+      });
     });
-  });
 
-  // Initialize on page load
-  document.addEventListener('DOMContentLoaded', initTab);
-
-  // Handle browser back/forward
-  window.addEventListener('hashchange', () => {
-    const urlTab = getTabFromUrl();
-    if (urlTab) switchTab(urlTab);
+    // Activate default tab on load
+    const defaultTab = document.querySelector('[data-selected="true"]');
+    if (defaultTab) {
+      activateTab(defaultTab.dataset.tab);
+    } else if (tabButtons.length > 0) {
+      // Fallback to first tab if no default is set
+      activateTab(tabButtons[0].dataset.tab);
+    }
   });
 </script>

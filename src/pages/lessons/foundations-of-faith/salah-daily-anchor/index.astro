@@ -313,7 +313,7 @@ const meta = {
   <div class="feedback-cta">
     <a href="/feedback/salah-daily-anchor" class="feedback-button">Give Feedback on this Lesson</a>
   </div>
-  <Share title="Learning about Salah - Your Daily Anchor with Sabeel" />
+  <Share title={title} />
   <LessonNav currentSlug="salah-daily-anchor" lessons={lessons} />
 </LessonLayout>
 
@@ -390,35 +390,34 @@ const meta = {
   }
 </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const tabsContainer = document.querySelector('.tabs'); // Changed selector
-    const tabButtons = tabsContainer ? Array.from(tabsContainer.querySelectorAll('button[data-tab]')) as HTMLButtonElement[] : [];
-    const tabContents = Array.from(document.querySelectorAll('.tab-content'));
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('[data-tab]');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    const activateTab = (tabId) => {
+      tabButtons.forEach(button => {
+        button.dataset.selected = (button.dataset.tab === tabId).toString();
+      });
+
+      tabContents.forEach(content => {
+        content.setAttribute('aria-hidden', (content.dataset.tab !== tabId).toString());
+      });
+    };
 
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
-        const targetTabId = button.dataset.tab;
-        const targetContent = document.querySelector(`.tab-content[data-tab="${targetTabId}"]`);
-
-        if (targetContent) {
-          tabButtons.forEach((t: HTMLButtonElement) => t.setAttribute('data-selected', 'false'));
-          tabContents.forEach(c => c.setAttribute('aria-hidden', 'true'));
-
-          button.setAttribute('data-selected', 'true');
-          targetContent.setAttribute('aria-hidden', 'false');
-        }
+        activateTab(button.dataset.tab);
       });
     });
 
-    // Initial active tab based on default set in Astro or first tab
-    const defaultTabButton = document.querySelector('button[data-selected="true"]') as HTMLButtonElement || tabButtons[0];
-    if (defaultTabButton) {
-      const defaultTabContent = document.querySelector(`.tab-content[data-tab="${defaultTabButton.dataset.tab}"]`);
-      if (defaultTabContent) {
-        defaultTabButton.setAttribute('data-selected', 'true');
-        defaultTabContent.setAttribute('aria-hidden', 'false');
-      }
+    // Activate default tab on load
+    const defaultTab = document.querySelector('[data-selected="true"]');
+    if (defaultTab) {
+      activateTab(defaultTab.dataset.tab);
+    } else if (tabButtons.length > 0) {
+      // Fallback to first tab if no default is set
+      activateTab(tabButtons[0].dataset.tab);
     }
   });
 </script>

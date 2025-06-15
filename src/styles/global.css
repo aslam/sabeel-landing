@@ -387,4 +387,9 @@ code {
   .thank-you p {
     @apply text-sabeel-teal-800 text-lg mb-8;
   }
+
+  /* Hide inactive tab content */
+  .tab-content[aria-hidden="true"] {
+    display: none;
+  }
 }
