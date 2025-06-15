@@ -22,13 +22,13 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
 ---
 
 <LessonLayout title={title} subtitle={subtitle} meta={meta}>
-  <div class="lesson-tabs mb-8">
-    <div class="tabs flex gap-4 justify-center mb-6">
+  <div class="mb-8">
+    <div class="flex gap-4 justify-center mb-6">
       {tabs.map((tab, i) => (
         <button
-          class="tab-button px-5 py-2 rounded-full font-semibold text-base transition"
+          class="px-5 py-2 rounded-full font-semibold text-base transition duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-700 data-[selected=true]:bg-blue-600 data-[selected=true]:text-white data-[selected=true]:shadow-md"
           data-tab={tab.id}
-          aria-selected={tab.default ? 'true' : 'false'}
+          data-selected={tab.default ? 'true' : 'false'}
         >
           {tab.label}
         </button>
@@ -44,11 +44,13 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
         </p>
         <p>
           <blockquote>
-            <strong>Sūrat al-ʿAsr</strong>
-            <br />
-            By the time! People are surely losing— except those who believe,
-            do good, tell each other what is right, and help each other
-            be patient. (Qur'an 103:1-3)
+            <p class="my-8 px-6 py-4 border-r-4 border-sabeel-blue-900 bg-gradient-to-l from-sabeel-blue-900/[0.05] to-transparent rounded-lg font-heading text-xl leading-relaxed text-sabeel-blue-900 md:px-8 md:py-6 md:text-lg">
+              <strong>Sūrat al-ʿAsr</strong>
+              <br />
+              By the time! People are surely losing— except those who believe,
+              do good, tell each other what is right, and help each other
+              be patient. (Qur'an 103:1-3)
+            </p>
           </blockquote>
         </p>
         <p>
@@ -95,31 +97,34 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
 
         <p>
           <blockquote>
-            "Allahumma, help us value our minutes, fill them with
-            faith, good deeds, truth, and patience, and meet You
-            with hearts at peace."
+            <p class="my-8 px-6 py-4 border-r-4 border-sabeel-blue-900 bg-gradient-to-l from-sabeel-blue-900/[0.05] to-transparent rounded-lg font-heading text-xl leading-relaxed text-sabeel-blue-900 md:px-8 md:py-6 md:text-lg">
+              "Allahumma, help us value our minutes, fill them with
+              faith, good deeds, truth, and patience, and meet You
+              with hearts at peace."
+            </p>
           </blockquote>
         </p>
 
-        <div class="parent-note">
-          <h4>Parent's Note:</h4>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h4 class="text-sabeel-blue-900 font-heading mb-4">Parent's Note:</h4>
           <p>
             Sūrat al-ʿAsr is a profound reminder of the value of
             time and the essential elements for a successful life,
             both worldly and in the Hereafter. You can explain how
             time is a gift, constantly depleting, and its true
             'profit' comes from investing it in these four areas.
-            Emphasize that <code>Īmān</code> is the foundation, and the
+            Emphasize that <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Īmān</code> is the foundation, and the
             other three are about living that belief individually and
-            communally. For <code>Tawāṣbil-haqq</code> and <code
+            communally. For <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Tawāṣbil-haqq</code> and <code
+              class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm"
               >Tawāṣbil-sabr</code
             >, stress the gentle, encouraging approach, not
             lecturing.
           </p>
         </div>
 
-        <div class="workshop-section">
-          <h3>Offline Activity</h3>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h3 class="text-sabeel-blue-900 font-heading mb-4">Offline Activity</h3>
           <div class="workshop-content">
             <p>
               <i>Key-ring craft</i>
@@ -127,17 +132,19 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
               Create a key-ring with four beads, each representing one
               of the four treasures from Sūrat al-ʿAsr. Use different
               colors or shapes for each bead:
-              <ul>
-                <li><code>Īmān</code> - Blue bead for belief</li>
-                <li>
-                  <code>ʿAmal-sāliḥ</code> - Green bead for good deeds
+              <ul class="list-disc ml-6 mt-3">
+                <li class="mb-2">
+                  <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Īmān</code> - Blue bead for belief
                 </li>
-                <li>
-                  <code>Tawāṣbil-ḥaqq</code> - Yellow bead for reminding
+                <li class="mb-2">
+                  <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">ʿAmal-sāliḥ</code> - Green bead for good deeds
+                </li>
+                <li class="mb-2">
+                  <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Tawāṣbil-ḥaqq</code> - Yellow bead for reminding
                   of truth
                 </li>
-                <li>
-                  <code>Tawāṣbil-ṣabr</code> - Red bead for supporting
+                <li class="mb-2">
+                  <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Tawāṣbil-ṣabr</code> - Red bead for supporting
                   in patience
                 </li>
               </ul>
@@ -169,24 +176,24 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
         <p>
           But there's an exception, a blueprint for true success,
           outlined in four interconnected principles:
-          <ol>
-            <li>
-              <b>Īmān (Faith):</b> This is the foundation. It's about
+          <ol class="list-decimal ml-6">
+            <li class="mb-4">
+              <b class="text-sabeel-blue-900">Īmān (Faith):</b> This is the foundation. It's about
               anchoring your heart in genuine belief in Allah, His Angels,
               Books, Messengers, the Last Day, and Divine Decree. It's
               not just head-knowledge, but a deep conviction that shapes
               your outlook.
             </li>
-            <li>
-              <b>ʿAmal-sāliḥ (Righteous Deeds):</b> Belief isn't passive;
+            <li class="mb-4">
+              <b class="text-sabeel-blue-900">ʿAmal-sāliḥ (Righteous Deeds):</b> Belief isn't passive;
               it leads to action. Amal-ṣāliḥ means turning your Īmān
               into positive, constructive deeds – being kind, honest,
               respectful, upholding prayers, striving for excellence,
               and contributing positively to your environment. These
               are the fruits of true faith.
             </li>
-            <li>
-              <b>Tawāṣbil-haqq (Reminding Each Other of Truth):</b> This
+            <li class="mb-4">
+              <b class="text-sabeel-blue-900">Tawāṣbil-haqq (Reminding Each Other of Truth):</b> This
               means more than just speaking the truth. It's about actively
               advocating for justice, integrity, and Islamic principles,
               and gently encouraging others towards them. In a world
@@ -194,8 +201,9 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
               It's about being a supportive voice for what is right,
               even when it's challenging.
             </li>
-            <li>
+            <li class="mb-4">
               <b
+                class="text-sabeel-blue-900"
                 >Tawāṣbil-sabr (Supporting Each Other in Patience):</b
               > The path of truth and good deeds isn't always easy. Sabr
               (patience, perseverance, steadfastness) is essential. This
@@ -219,24 +227,24 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
           </p>
 
           <p>
-            <blockquote>
+            <blockquote class="my-8 px-6 py-4 border-r-4 border-sabeel-blue-900 bg-gradient-to-l from-sabeel-blue-900/[0.05] to-transparent rounded-lg font-heading text-xl leading-relaxed text-sabeel-blue-900 md:px-8 md:py-6 md:text-lg">
               "Allahumma, help us value our minutes, fill them with
               faith, good deeds, truth, and patience, and meet You
               with hearts at peace."
             </blockquote>
           </p>
 
-          <div class="challenge-content">
+          <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
             <p>
-              <strong>Challenge:</strong> This week, pick one of the
+              <strong class="text-sabeel-blue-900 font-heading block mb-4">Challenge:</strong> This week, pick one of the
               four keys from Sūrat al-ʿAṣr that you feel you can focus
               on strengthening in your own life. Think of one online
               habit that drains time yet adds no good deed. Plan how
               to swap it for something that fits one of the four keys.
             </p>
-            <span class="hashtag">#TrueSuccess</span>
-            <span class="hashtag">#TimeManagement</span>
-            <span class="hashtag">#FaithInAction</span>
+            <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#TrueSuccess</span>
+            <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#TimeManagement</span>
+            <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#FaithInAction</span>
           </div>
         </p>
       </div>
@@ -408,269 +416,6 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
   <LessonNav currentSlug="surah-al-asr-four-keys-to-success" lessons={lessons} />
 </LessonLayout>
 
-<style>
-  /* Keep only page-specific styles here */
-  .tabs {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .tab-button {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    background: #f1f5f9;
-    color: #405671;
-    border-radius: 9999px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .tab-button[aria-selected='true'] {
-    background: #3b82f6;
-    color: white;
-  }
-
-  .tab-content {
-    display: none;
-  }
-
-  .tab-content[aria-hidden='false'] {
-    display: block;
-  }
-
-  /* Audio Player */
-  .audio-player {
-    margin-bottom: 2rem;
-    background: #f8fafc;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
-  }
-
-  .audio-player audio {
-    width: 100%;
-  }
-
-  /* Audio player responsive styles */
-  @media (max-width: 768px) {
-    .audio-player {
-      padding: 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .audio-player {
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-    }
-  }
-
-  /* Action Sections */
-  .workshop-section,
-  .challenge-section,
-  .practical-section {
-    margin-top: 3rem;
-    border-radius: 12px;
-    background: #f8fafc;
-    padding: 2rem;
-  }
-
-  .workshop-section h3,
-  .challenge-section h3,
-  .practical-section h3 {
-    color: #3b82f6;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Workshop specific styles */
-  .workshop-content {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  }
-
-  .download-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #3b82f6;
-    text-decoration: none;
-    font-weight: 500;
-    margin-top: 1rem;
-    padding: 0.75rem 1rem;
-    background: #e5f0ff;
-    border-radius: 6px;
-    transition: background 0.2s ease;
-  }
-
-  .download-link:hover {
-    background: #dae8ff;
-  }
-
-  /* Challenge specific styles */
-  .challenge-content {
-    background: #e5f0ff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #3b82f6;
-  }
-
-  .hashtag {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #3b82f6;
-    font-weight: 500;
-  }
-
-  /* Practical section specific styles */
-  .practical-content {
-    background: #f0f7ff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #3b82f6;
-  }
-
-  .practical-content ol {
-    list-style: none;
-    counter-reset: steps;
-    padding: 0;
-  }
-
-  .practical-content li {
-    counter-increment: steps;
-    margin-bottom: 1.5rem;
-    padding-left: 2.5rem;
-    position: relative;
-  }
-
-  .practical-content li::before {
-    content: counter(steps);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1.75rem;
-    height: 1.75rem;
-    background: #3b82f6;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 0.875rem;
-  }
-
-  .practical-content strong {
-    display: block;
-    color: #0a3255;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Content List Styles */
-  .content-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-  }
-
-  .content-box ul li {
-    position: relative;
-    padding-left: 1.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .content-box ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    width: 6px;
-    height: 6px;
-    background: #3b82f6;
-    border-radius: 50%;
-  }
-
-  .content-box ul li strong {
-    display: block;
-    color: #0a3255;
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .content-box ul li {
-      padding-left: 1.5rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .content-box ul li strong {
-      font-size: 1rem;
-    }
-  }
-
-  /* Responsive styles for action sections */
-  @media (max-width: 768px) {
-    .workshop-section,
-    .challenge-section,
-    .practical-section {
-      margin-top: 2rem;
-      padding: 1.5rem;
-    }
-
-    .workshop-content,
-    .challenge-content,
-    .practical-content {
-      padding: 1.25rem;
-    }
-
-    .practical-content li {
-      padding-left: 2rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .workshop-section,
-    .challenge-section,
-    .practical-section {
-      padding: 1rem;
-    }
-
-    .workshop-content,
-    .challenge-content,
-    .practical-content {
-      padding: 1rem;
-    }
-  }
-
-  .feedback-cta {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-  }
-  .feedback-button {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #fff;
-    background: #3b82f6;
-    border-radius: 9999px;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
-    transition: background 0.2s;
-  }
-  .feedback-button:hover {
-    background: #2563eb;
-  }
-</style>
-
 <script>
   const tabs = document.querySelectorAll('.tab-button');
   const contents = document.querySelectorAll('.tab-content');
@@ -695,11 +440,11 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
     if (!targetTab || !targetContent) return;
 
     // Update tabs and contents
-    tabs.forEach((t) => t.setAttribute('aria-selected', 'false'));
+    tabs.forEach((t) => t.setAttribute('data-selected', 'false'));
     contents.forEach((c) => c.setAttribute('aria-hidden', 'true'));
 
     // Set the selected tab and show content
-    targetTab.setAttribute('aria-selected', 'true');
+    targetTab.setAttribute('data-selected', 'true');
     targetContent.setAttribute('aria-hidden', 'false');
 
     // Store the selected tab

@@ -5,14 +5,16 @@ import { lessons } from '../../../data/lessons';
 
 <Layout>
   <main>
-    <div class="container">
-      <h1>Foundations of Faith</h1>
-      <p class="subtitle">
+    <div class="max-w-4xl mx-auto px-6 py-24 sm:py-32">
+      <h1 class="font-heading text-sabeel-blue-900 text-4xl sm:text-5xl lg:text-6xl mb-4">
+        Foundations of Faith
+      </h1>
+      <p class="text-sabeel-teal-800 text-lg sm:text-xl leading-relaxed mb-12">
         Essential lessons about Islamic beliefs and practices,
         explained with clarity and depth.
       </p>
 
-      <div class="lessons-list">
+      <div class="flex flex-col gap-6">
         {
           lessons.map((lesson) => (
             <a
@@ -21,13 +23,13 @@ import { lessons } from '../../../data/lessons';
                   ? `/lessons/foundations-of-faith/${lesson.slug}`
                   : '#'
               }
-              class={`lesson-card ${lesson.status}`}
+              class={`block bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transform transition-transform duration-200 ease-in-out hover:-translate-y-0.5 ${lesson.status === 'coming-soon' ? 'opacity-80 cursor-default' : ''}`}
             >
-              <span class="lesson-number">Lesson {lesson.order}</span>
-              <h2>{lesson.title}</h2>
-              <p>{lesson.description}</p>
+              <span class="text-blue-500 font-semibold text-sm block mb-2">Lesson {lesson.order}</span>
+              <h2 class="text-sabeel-blue-900 text-xl font-semibold mb-3">{lesson.title}</h2>
+              <p class="text-sabeel-teal-800 leading-relaxed">{lesson.description}</p>
               {lesson.status === 'coming-soon' && (
-                <span class="status">Coming Soon</span>
+                <span class="absolute top-4 right-4 bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">Coming Soon</span>
               )}
             </a>
           ))
@@ -36,87 +38,3 @@ import { lessons } from '../../../data/lessons';
     </div>
   </main>
 </Layout>
-
-<style>
-  /* Layout & Container */
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 120px 24px 60px;
-  }
-
-  /* Typography */
-  h1 {
-    font-family: var(--font-heading);
-    color: #0a3255;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .subtitle {
-    color: #405671;
-    font-size: 1.25rem;
-    margin-bottom: 3rem;
-    line-height: 1.6;
-  }
-
-  /* Lessons List Layout */
-  .lessons-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  /* Card Styles */
-  .lesson-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-    text-decoration: none;
-    position: relative;
-    transition: transform 0.2s ease;
-  }
-
-  .lesson-card:hover {
-    transform: translateY(-2px);
-  }
-
-  .lesson-card.coming-soon {
-    opacity: 0.8;
-    cursor: default;
-  }
-
-  .lesson-card h2 {
-    color: #0a3255;
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .lesson-card p {
-    color: #405671;
-    line-height: 1.6;
-  }
-
-  /* Lesson Number */
-  .lesson-number {
-    color: #3b82f6;
-    font-weight: 600;
-    font-size: 0.875rem;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Status Badge */
-  .status {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: #e5f0ff;
-    color: #3b82f6;
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-</style>

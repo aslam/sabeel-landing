@@ -22,13 +22,13 @@ const subtitle = 'A sacred symbol of unity and divine connection';
 ---
 
 <LessonLayout title={title} subtitle={subtitle} meta={meta}>
-  <div class="lesson-tabs mb-8">
-    <div class="tabs flex gap-4 justify-center mb-6">
+  <div class="mb-8">
+    <div class="flex gap-4 justify-center mb-6">
       {tabs.map((tab, i) => (
         <button
-          class="tab-button px-5 py-2 rounded-full font-semibold text-base transition"
+          class="px-5 py-2 rounded-full font-semibold text-base transition duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-700 data-[selected=true]:bg-blue-600 data-[selected=true]:text-white data-[selected=true]:shadow-md"
           data-tab={tab.id}
-          aria-selected={tab.default ? 'true' : 'false'}
+          data-selected={tab.default ? 'true' : 'false'}
         >
           {tab.label}
         </button>
@@ -74,8 +74,8 @@ const subtitle = 'A sacred symbol of unity and divine connection';
           part of one big, loving family!
         </p>
 
-        <div class="parent-note">
-          <h4>Parent's Note:</h4>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h4 class="text-sabeel-blue-900 font-heading mb-4">Parent's Note:</h4>
           <p>
             This lesson introduces the concept of Bait-ul-Ma'mur,
             helping children understand the Kaaba's spiritual depth
@@ -89,8 +89,8 @@ const subtitle = 'A sacred symbol of unity and divine connection';
           </p>
         </div>
 
-        <div class="workshop-section">
-          <h3>Interactive Workshop</h3>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h3 class="text-sabeel-blue-900 font-heading mb-4">Interactive Workshop</h3>
           <div class="workshop-content">
             <p>
               Parents, talk with your child about how special it
@@ -104,7 +104,7 @@ const subtitle = 'A sacred symbol of unity and divine connection';
             </p>
             <a
               href="https://res.cloudinary.com/syed-aslam/image/upload/v1748787073/Sabeel/worksheets/Kaaba_Heavenly_Connection_Coloring.pdf"
-              class="download-link"
+              class="inline-flex items-center gap-2 text-blue-600 font-medium mt-4 px-4 py-3 bg-blue-100 rounded-md transition-colors duration-200 hover:bg-blue-200 no-underline"
               download="Kaaba_Heavenly_Connection_Coloring.pdf"
             >
               <svg
@@ -148,7 +148,7 @@ const subtitle = 'A sacred symbol of unity and divine connection';
           leave, they never get a second turn. This is a constant,
           unending spiritual activity in the highest heavens, a
           divine blueprint witnessed by Prophet Muhammad ﷺ during
-          his incredible Night Journey (<code>Mi'raj</code>).
+          his incredible Night Journey (<code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Mi'raj</code>).
         </p>
         <p>
           The earthly Kaaba, rebuilt by Prophet Ibrahim and his son
@@ -156,7 +156,7 @@ const subtitle = 'A sacred symbol of unity and divine connection';
           serves as a terrestrial reflection of this heavenly
           archetype. It's a tangible focal point that unites us
           globally, directing our prayers and our hearts towards
-          <code>Tawhid</code> - the absolute Oneness of Allah. Its existence
+          <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Tawhid</code> - the absolute Oneness of Allah. Its existence
           reinforces that worship is not just an earthly act, but a universal
           cosmic reality, with every atom submitting to its Creator.
         </p>
@@ -169,11 +169,11 @@ const subtitle = 'A sacred symbol of unity and divine connection';
           one Ummah, facing the same ultimate reality.
         </p>
 
-        <div class="challenge-section">
-          <h3>Challenge & Discussion Prompt</h3>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h3 class="text-sabeel-blue-900 font-heading mb-4">Challenge & Discussion Prompt</h3>
           <div class="challenge-content">
             <p>
-              <strong>Challenge:</strong> Reflect on the concept of Bait-ul-Ma'mur
+              <strong class="text-sabeel-blue-900 font-heading block mb-4">Challenge:</strong> Reflect on the concept of Bait-ul-Ma'mur
               and its connection to the earthly Kaaba. How does knowing
               about this celestial counterpart deepen your appreciation
               for the Kaaba and the act of Salah? Think about how many
@@ -182,10 +182,10 @@ const subtitle = 'A sacred symbol of unity and divine connection';
               How can connecting to this 'heavenly' perspective make
               your own acts of worship feel more profound?
             </p>
-            <span class="hashtag">#SabeelKaaba</span>
-            <span class="hashtag">#BaitulMamur</span>
-            <span class="hashtag">#IslamicHistory</span>
-            <span class="hashtag">#SpiritualJourney</span>
+            <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#SabeelKaaba</span>
+            <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#BaitulMamur</span>
+            <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#IslamicHistory</span>
+            <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#SpiritualJourney</span>
           </div>
         </div>
       </div>
@@ -195,15 +195,16 @@ const subtitle = 'A sacred symbol of unity and divine connection';
         <p>
           The profound sanctity of the Kaaba in Makkah is not merely
           derived from its ancient terrestrial history or its role
-          as the <code>Qibla</code>; it is deeply interwoven with a
+          as the <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Qibla</code>; it is deeply interwoven with a
           sublime celestial reality: Bait-ul-Ma'mur, 'The Frequented
           House,' situated in the seventh heaven. This heavenly
           Kaaba serves as the archetypal center of angelic worship,
           a fact underscored by the Prophet Muhammad ﷺ's witnessing
-          it during his <code>Mi'raj</code> (Night Journey and Ascension).
+          it during his <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Mi'raj</code> (Night Journey and Ascension).
         </p>
         <p>
           Traditions narrate that 70,000 angels perform <code
+            class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm"
             >Tawaf</code
           > around Bait-ul-Ma'mur daily, never to return for another
           turn, signifying the sheer immensity and constant nature of
@@ -213,17 +214,19 @@ const subtitle = 'A sacred symbol of unity and divine connection';
           divine command, stands as its terrestrial counterpart. This
           establishes a vertical axis of worship, connecting the earthly
           and heavenly realms, inviting humanity to align its <code
+            class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm"
             >Tawhid</code
           >
           with the cosmic order.
         </p>
         <p>
           The Kaaba, therefore, is not an idol, but a universal
-          signpost (<code>ayah</code>) pointing to the One Allah.
+          signpost (<code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">ayah</code>) pointing to the One Allah.
           Its role as the
-          <code>Qibla</code> for Salah is a powerful discipline of unity,
+          <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Qibla</code> for Salah is a powerful discipline of unity,
           transcending geographical and cultural divides. It subtly yet
           forcefully reminds us of our shared servitude (<code
+            class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm"
             >ubudiyyah</code
           >) and the egalitarian nature of Islam - every worshipper,
           regardless of status, faces the same point in humble
@@ -231,7 +234,7 @@ const subtitle = 'A sacred symbol of unity and divine connection';
         </p>
         <p>
           Furthermore, the spiritual energy generated by the
-          ceaseless <code>Tawaf</code> around the earthly Kaaba, especially
+          ceaseless <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Tawaf</code> around the earthly Kaaba, especially
           during Hajj, is an echo of the perpetual angelic worship. Pondering
           Bait-ul-Ma'mur elevates our understanding of Salah and Tawaf
           from mere physical acts to profound spiritual participations
@@ -240,45 +243,43 @@ const subtitle = 'A sacred symbol of unity and divine connection';
           meticulous creation.
         </p>
 
-        <div class="practical-section">
-          <h3>Practical Application & Self-Assessment</h3>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h3 class="text-sabeel-blue-900 font-heading mb-4">Practical Application & Self-Assessment</h3>
           <div class="practical-content">
             <p class="intro">Apply this today:</p>
 
-            <ol>
-              <li>
-                <strong>Elevate Your Salah Intention:</strong>
+            <ol class="list-decimal ml-6">
+              <li class="mb-4">
+                <strong class="text-sabeel-blue-900 font-heading block mb-4">Elevate Your Salah Intention:</strong>
                 <p>
-                  Before your next Salah, take a moment to
-                  consciously connect your prayer to the broader
-                  reality of Bait-ul-Ma'mur. Intend not just to
-                  perform Salah, but to join the celestial worship,
-                  aligning your heart with the divine axis.
+                  Before each of your five prayers today,
+                  consciously renew your intention. Go beyond mere
+                  obligation and strive to perform it as a sincere
+                  conversation with Allah, seeking His pleasure and
+                  closeness.
                 </p>
               </li>
 
-              <li>
-                <strong>Reflect on Cosmic Worship:</strong>
+              <li class="mb-4">
+                <strong class="text-sabeel-blue-900 font-heading block mb-4">Enhance <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Tadabbur</code> (Reflection) in Recitation:</strong>
                 <p>
-                  Spend a few minutes post-Salah contemplating the
-                  sheer number of angels performing <code
-                    >Tawaf</code
-                  > daily. How does this perspective humble you and deepen
-                  your appreciation for the opportunity to worship Allah?
+                  During one <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Raka'ah</code> (unit) of Salah, focus
+                  intently on the meaning of Surah Al-Fatiha and the
+                  short Surah you recite. Even if it's familiar, try
+                  to uncover a new layer of meaning or personal relevance.
                 </p>
               </li>
 
-              <li>
-                <strong>Strengthen Unity:</strong>
+              <li class="mb-4">
+                <strong class="text-sabeel-blue-900 font-heading block mb-4">Post-Salah <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Muraqabah</code> (Self-Accountability):</strong>
                 <p>
-                  The Kaaba symbolizes unity. Reflect on any
-                  perceived divisions within the Muslim community,
-                  locally or globally. Make a specific <code
-                    >du'a</code
-                  > for unity, remembering the common point towards which
-                  all hearts turn. Consider one small action you can
-                  take to bridge a gap or foster harmony in your immediate
-                  circle.
+                  Immediately after completing a Salah, take 1-2
+                  minutes for quiet reflection. Ask yourself: 'Was
+                  this prayer a true anchor for me today? How did it
+                  impact my subsequent actions or thoughts?'
+                  Identify one small aspect of your Salah (e.g.,
+                  punctuality, <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm">Khushu</code>, understanding)
+                  that you commit to improving over the next week.
                 </p>
               </li>
             </ol>
@@ -294,335 +295,35 @@ const subtitle = 'A sacred symbol of unity and divine connection';
   <LessonNav currentSlug="kaaba-heavenly-connection" lessons={lessons} />
 </LessonLayout>
 
-<style>
-  /* Keep only page-specific styles here */
-  .tabs {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .tab-button {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    background: #f1f5f9;
-    color: #405671;
-    border-radius: 9999px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .tab-button[aria-selected='true'] {
-    background: #3b82f6;
-    color: white;
-  }
-
-  .tab-content {
-    display: none;
-  }
-
-  .tab-content[aria-hidden='false'] {
-    display: block;
-  }
-
-  /* Audio Player */
-  .audio-player {
-    margin-bottom: 2rem;
-    background: #f8fafc;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
-  }
-
-  .audio-player audio {
-    width: 100%;
-  }
-
-  /* Audio player responsive styles */
-  @media (max-width: 768px) {
-    .audio-player {
-      padding: 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .audio-player {
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-    }
-  }
-
-  /* Action Sections */
-  .workshop-section,
-  .challenge-section,
-  .practical-section {
-    margin-top: 3rem;
-    border-radius: 12px;
-    background: #f8fafc;
-    padding: 2rem;
-  }
-
-  .workshop-section h3,
-  .challenge-section h3,
-  .practical-section h3 {
-    color: #3b82f6;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Workshop specific styles */
-  .workshop-content {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  }
-
-  .download-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #3b82f6;
-    text-decoration: none;
-    font-weight: 500;
-    margin-top: 1rem;
-    padding: 0.75rem 1rem;
-    background: #e5f0ff;
-    border-radius: 6px;
-    transition: background 0.2s ease;
-  }
-
-  .download-link:hover {
-    background: #dae8ff;
-  }
-
-  /* Challenge specific styles */
-  .challenge-content {
-    background: #e5f0ff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #3b82f6;
-  }
-
-  .hashtag {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #3b82f6;
-    font-weight: 500;
-  }
-
-  /* Practical section specific styles */
-  .practical-content {
-    background: #f0f7ff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #3b82f6;
-  }
-
-  .practical-content ol {
-    list-style: none;
-    counter-reset: steps;
-    padding: 0;
-  }
-
-  .practical-content li {
-    counter-increment: steps;
-    margin-bottom: 1.5rem;
-    padding-left: 2.5rem;
-    position: relative;
-  }
-
-  .practical-content li::before {
-    content: counter(steps);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1.75rem;
-    height: 1.75rem;
-    background: #3b82f6;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 0.875rem;
-  }
-
-  .practical-content strong {
-    display: block;
-    color: #0a3255;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Content List Styles */
-  .content-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-  }
-
-  .content-box ul li {
-    position: relative;
-    padding-left: 1.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .content-box ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    width: 6px;
-    height: 6px;
-    background: #3b82f6;
-    border-radius: 50%;
-  }
-
-  .content-box ul li strong {
-    display: block;
-    color: #0a3255;
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .content-box ul li {
-      padding-left: 1.5rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .content-box ul li strong {
-      font-size: 1rem;
-    }
-  }
-
-  /* Responsive styles for action sections */
-  @media (max-width: 768px) {
-    .workshop-section,
-    .challenge-section,
-    .practical-section {
-      margin-top: 2rem;
-      padding: 1.5rem;
-    }
-
-    .workshop-content,
-    .challenge-content,
-    .practical-content {
-      padding: 1.25rem;
-    }
-
-    .practical-content li {
-      padding-left: 2rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .workshop-section,
-    .challenge-section,
-    .practical-section {
-      padding: 1rem;
-    }
-
-    .workshop-content,
-    .challenge-content,
-    .practical-content {
-      padding: 1rem;
-    }
-  }
-
-  .feedback-cta {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-  }
-  .feedback-button {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #fff;
-    background: #3b82f6;
-    border-radius: 9999px;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
-    transition: background 0.2s;
-  }
-  .feedback-button:hover {
-    background: #2563eb;
-  }
-</style>
-
 <script>
-  const tabs = document.querySelectorAll('.tab-button');
-  const contents = document.querySelectorAll('.tab-content');
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabsContainer = document.querySelector('.tabs');
+    const tabButtons = tabsContainer ? Array.from(tabsContainer.querySelectorAll('button[data-tab]')) as HTMLButtonElement[] : [];
+    const tabContents = Array.from(document.querySelectorAll('.tab-content'));
 
-  // Helper function to extract tab ID from URL
-  function getTabFromUrl() {
-    const hash = window.location.hash;
-    if (!hash) return null;
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetTabId = button.dataset.tab;
+        const targetContent = document.querySelector(`.tab-content[data-tab="${targetTabId}"]`);
 
-    // Get the first part of hash before any query parameters
-    const segments = hash.substring(1).split('?')[0];
-    return segments || null;
-  }
+        if (targetContent) {
+          tabButtons.forEach((t: HTMLButtonElement) => t.setAttribute('data-selected', 'false'));
+          tabContents.forEach(c => c.setAttribute('aria-hidden', 'true'));
 
-  function switchTab(tabId: string) {
-    // Only switch if tab exists
-    const targetTab = document.querySelector(`[data-tab="${tabId}"]`);
-    const targetContent = document.querySelector(
-      `.tab-content[data-tab="${tabId}"]`
-    );
-
-    if (!targetTab || !targetContent) return;
-
-    // Update tabs and contents
-    tabs.forEach((t) => t.setAttribute('aria-selected', 'false'));
-    contents.forEach((c) => c.setAttribute('aria-hidden', 'true'));
-
-    // Set the selected tab and show content
-    targetTab.setAttribute('aria-selected', 'true');
-    targetContent.setAttribute('aria-hidden', 'false');
-
-    // Store the selected tab
-    localStorage.setItem('selectedTab', tabId);
-
-    // Update URL hash while preserving UTM parameters
-    const currentUrl = new URL(window.location.href);
-    const utmParams = currentUrl.search; // Preserve query parameters
-    const newHash = `#${tabId}${utmParams}`;
-    history.replaceState(null, '', newHash);
-  }
-
-  // Initialize tab from URL hash or localStorage or default to 'adults'
-  const initTab = () => {
-    const urlTab = getTabFromUrl();
-    const storedTab = localStorage.getItem('selectedTab');
-    const defaultTab = 'adults';
-
-    // Priority: URL hash > localStorage > default
-    const tabToShow = urlTab || storedTab || defaultTab;
-    switchTab(tabToShow);
-  };
-
-  // Handle tab clicks
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const tabId = tab.getAttribute('data-tab');
-      if (tabId) switchTab(tabId);
+          button.setAttribute('data-selected', 'true');
+          targetContent.setAttribute('aria-hidden', 'false');
+        }
+      });
     });
-  });
 
-  // Initialize on page load
-  document.addEventListener('DOMContentLoaded', initTab);
-
-  // Handle browser back/forward
-  window.addEventListener('hashchange', () => {
-    const urlTab = getTabFromUrl();
-    if (urlTab) switchTab(urlTab);
+    // Initial active tab based on default set in Astro or first tab
+    const defaultTabButton = document.querySelector('button[data-selected="true"]') as HTMLButtonElement || tabButtons[0];
+    if (defaultTabButton) {
+      const defaultTabContent = document.querySelector(`.tab-content[data-tab="${defaultTabButton.dataset.tab}"]`);
+      if (defaultTabContent) {
+        defaultTabButton.setAttribute('data-selected', 'true');
+        defaultTabContent.setAttribute('aria-hidden', 'false');
+      }
+    }
   });
 </script>

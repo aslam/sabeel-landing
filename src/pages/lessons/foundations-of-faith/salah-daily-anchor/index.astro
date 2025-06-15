@@ -33,13 +33,13 @@ const meta = {
 ---
 
 <LessonLayout title={title} subtitle={subtitle} meta={meta}>
-  <div class="lesson-tabs mb-8">
-    <div class="tabs flex gap-4 justify-center mb-6">
+  <div class="mb-8">
+    <div class="flex gap-4 justify-center mb-6">
       {tabs.map((tab, i) => (
         <button
-          class="tab-button px-5 py-2 rounded-full font-semibold text-base transition"
+          class="px-5 py-2 rounded-full font-semibold text-base transition duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-700 data-[selected=true]:bg-blue-600 data-[selected=true]:text-white data-[selected=true]:shadow-md"
           data-tab={tab.id}
-          aria-selected={tab.default ? 'true' : 'false'}
+          data-selected={tab.default ? 'true' : 'false'}
         >
           {tab.label}
         </button>
@@ -47,8 +47,8 @@ const meta = {
     </div>
     <div class="tab-content" data-tab="kids" aria-hidden="false">
       <div class="content-box">
-        <div class="audio-player">
-          <audio controls preload="metadata">
+        <div class="mb-8 bg-gray-50 p-4 rounded-md border border-gray-200">
+          <audio controls preload="metadata" class="w-full">
             <source
               src="https://res.cloudinary.com/syed-aslam/video/upload/v1748275428/Sabeel/audio/salah-kids.mp3"
               type="audio/mpeg"
@@ -93,8 +93,8 @@ const meta = {
           world.
         </p>
 
-        <div class="parent-note">
-          <h3>For Parents to Explain</h3>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h3 class="text-sabeel-blue-900 font-heading mb-4">For Parents to Explain</h3>
           <p>
             Just like you take breaks for snacks or rest to feel
             better, Salah is a spiritual break that cleanses our
@@ -103,8 +103,8 @@ const meta = {
           </p>
         </div>
 
-        <div class="workshop-section">
-          <h3>Interactive Workshop</h3>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h3 class="text-sabeel-blue-900 font-heading mb-4">Interactive Workshop</h3>
           <div class="workshop-content">
             <p>
               Parents, talk with your child about their favorite
@@ -122,7 +122,7 @@ const meta = {
             </p>
             <a
               href="https://res.cloudinary.com/syed-aslam/image/upload/v1748275315/Sabeel/worksheets/Salah_Connection_Drawing.pdf"
-              class="download-link"
+              class="inline-flex items-center gap-2 text-blue-600 font-medium mt-4 px-4 py-3 bg-blue-100 rounded-md transition-colors duration-200 hover:bg-blue-200 no-underline"
               download="Salah_Connection_Drawing.pdf"
             >
               <svg
@@ -184,7 +184,7 @@ const meta = {
           Allah's presence, which naturally makes you more aware of
           your actions throughout the day. The Qur'an beautifully
           says,
-          <blockquote>
+          <blockquote class="my-8 px-6 py-4 border-r-4 border-sabeel-blue-900 bg-gradient-to-l from-sabeel-blue-900/[0.05] to-transparent rounded-lg font-heading text-xl leading-relaxed text-sabeel-blue-900 md:px-8 md:py-6 md:text-lg">
             Indeed, Salah prohibits immorality and wrongdoing, and
             the remembrance of Allah is greater. (Qur'an, 29:45)
           </blockquote>
@@ -202,11 +202,11 @@ const meta = {
           chaotic world.
         </p>
 
-        <div class="challenge-section">
-          <h3>Challenge & Discussion Prompt</h3>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h3 class="text-sabeel-blue-900 font-heading mb-4">Challenge & Discussion Prompt</h3>
           <div class="challenge-content">
             <p>
-              Challenge: For the next few days, try to shift your
+              <strong class="text-sabeel-blue-900 font-heading block mb-4">Challenge:</strong> For the next few days, try to shift your
               mindset about one of your daily prayers from 'a task
               to complete' to 'a scheduled meeting with Allah.'
               Before that prayer, take 30 seconds to genuinely
@@ -219,15 +219,15 @@ const meta = {
               discuss how this intentionality changes the
               experience.
             </p>
-            <span class="hashtag">#SabeelSalahAnchor</span>
+            <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#SabeelSalahAnchor</span>
           </div>
         </div>
       </div>
     </div>
     <div class="tab-content" data-tab="adults" aria-hidden="true">
       <div class="content-box">
-        <div class="audio-player">
-          <audio controls preload="metadata">
+        <div class="mb-8 bg-gray-50 p-4 rounded-md border border-gray-200">
+          <audio controls preload="metadata" class="w-full">
             <source
               src="https://res.cloudinary.com/syed-aslam/video/upload/v1748275428/Sabeel/audio/salah-adults.mp3"
               type="audio/mpeg"
@@ -248,97 +248,64 @@ const meta = {
           prayer. If it is sound, then the rest of his deeds will be
           sound. And if it is bad, then the rest of his deeds will
           be bad.' (Tirmidhi). This highlights Salah's foundational
-          role, acting as a spiritual barometer for all other
-          aspects of one's <code>Deen</code>.
+          nature and its pivotal role in the believer's life. It is
+          a demonstration of humility, gratitude, and submission to
+          the Divine Will.
+        </p>
+        <blockquote class="my-8 px-6 py-4 border-r-4 border-sabeel-blue-900 bg-gradient-to-l from-sabeel-blue-900/[0.05] to-transparent rounded-lg font-heading text-xl leading-relaxed text-sabeel-blue-900 md:px-8 md:py-6 md:text-lg">
+          "Recite, [O Muhammad], what has been revealed to you of the Book
+          and establish prayer. Indeed, prayer prohibits immorality and
+          wrongdoing, and the remembrance of Allah is greater. And Allah
+          knows that which you do." (Quran 29:45)
+        </blockquote>
+        <p>
+          Salah serves as a powerful spiritual anchor, grounding the
+          individual amidst the distractions and challenges of worldly
+          life. Its prescribed timings throughout the day ensure a
+          constant return to a state of mindfulness and remembrance of
+          Allah. This regular connection fosters Taqwa (God-consciousness)
+          and acts as a purification for the soul. The physical
+          movements, from standing in humility to bowing in reverence
+          and prostrating in ultimate submission, each carry profound
+          spiritual significance.
+        </p>
+        <blockquote class="my-8 px-6 py-4 border-r-4 border-sabeel-blue-900 bg-gradient-to-l from-sabeel-blue-900/[0.05] to-transparent rounded-lg font-heading text-xl leading-relaxed text-sabeel-blue-900 md:px-8 md:py-6 md:text-lg">
+          The Prophet Muhammad ﷺ said: 'The prayer is light.' (Muslim)
+        </blockquote>
+        <p>
+          This Hadith beautifully encapsulates Salah's essence – it
+          illuminates the path for the believer, guiding them away from
+          darkness and towards righteousness. It is a source of inner
+          peace, strength, and clarity. Furthermore, Salah is a communal
+          act, fostering unity and equality among Muslims as they stand
+          shoulder to shoulder, irrespective of their worldly status, all
+          facing the Kaaba and worshipping the One God.
         </p>
         <p>
-          The profound importance of Salah extends beyond individual
-          accountability. It serves as:
-          <ul>
-            <li>
-              <strong>A Shield Against Immorality:</strong>
-              Allah states in the Qur'an, "Indeed, Salah prohibits immorality
-              and wrongdoing, and the remembrance of Allah is greater."
-              (Qur'an, 29:45). This verse encapsulates its transformative
-              power, where the conscious performance of Salah actively
-              deters one from engaging in sin and reinforces <code
-                >Taqwa</code
-              > (consciousness of Allah).
-            </li>
-            <li>
-              <strong>A Source of Tranquility and Peace:</strong>
-              In a world rife with anxieties, Salah offers a sanctuary
-              of peace. The surrender in prostration (<code
-                >sujood</code
-              >) is a moment of ultimate humility and profound
-              closeness to Allah, where the soul finds solace and
-              clarity, dispelling worldly worries.
-            </li>
-            <li>
-              <strong>A Constant Reminder of Purpose:</strong>
-              Five times a day, Salah recalibrates our moral compass,
-              reminding us of our ultimate purpose in life - to worship
-              Allah alone - and keeps us aligned with divine guidance.
-              It prevents heedlessness and re-establishes priorities.
-            </li>
-          </ul>
-        </p>
-        <p>
-          Understanding 'what it is' and 'why it's important' is
-          pivotal for cultivating <code>Khushu'</code> (humility and
-          attentiveness) in Salah. While there are different types of
-          prayers (Fardh/obligatory, Sunnah/prophetic tradition, Nafl/voluntary),
-          the core message and the direct connection to Allah remain
-          consistent across all.
+          In essence, Salah is more than an obligation; it is a divine gift,
+          a daily opportunity for spiritual cleansing, a shield against
+          sin, and a profound connection that sustains the believer's
+          faith and character. It is truly the daily anchor that keeps
+          the ship of faith steady in the ocean of life.
         </p>
 
-        <div class="practical-section">
-          <h3>Practical Application & Self-Assessment</h3>
-          <div class="practical-content">
-            <p class="intro">Apply this today:</p>
-
-            <ol>
-              <li>
-                <strong
-                  >Re-evaluate Your <code>Niyyah</code> (Intention):</strong
-                >
-                <p>
-                  Before each of your five prayers today,
-                  consciously renew your intention. Go beyond mere
-                  obligation and strive to perform it as a sincere
-                  conversation with Allah, seeking His pleasure and
-                  closeness.
-                </p>
-              </li>
-
-              <li>
-                <strong
-                  >Enhance <code>Tadabbur</code> (Reflection) in Recitation:</strong
-                >
-                <p>
-                  During one <code>Raka'ah</code> (unit) of Salah, focus
-                  intently on the meaning of Surah Al-Fatiha and the
-                  short Surah you recite. Even if it's familiar, try
-                  to uncover a new layer of meaning or personal relevance.
-                </p>
-              </li>
-
-              <li>
-                <strong
-                  >Post-Salah <code>Muraqabah</code> (Self-Accountability):</strong
-                >
-                <p>
-                  Immediately after completing a Salah, take 1-2
-                  minutes for quiet reflection. Ask yourself: 'Was
-                  this prayer a true anchor for me today? How did it
-                  impact my subsequent actions or thoughts?'
-                  Identify one small aspect of your Salah (e.g.,
-                  punctuality, <code>Khushu</code>, understanding)
-                  that you commit to improving over the next week.
-                </p>
-              </li>
-            </ol>
-          </div>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h3 class="text-sabeel-blue-900 font-heading mb-4">Further Reflection & Action</h3>
+          <p class="mb-4">
+            Reflect on the `khushu` (humility and attentiveness) in your
+            Salah. What distractions commonly arise, and what practical
+            steps can you take to minimize them?
+          </p>
+          <h4 class="text-sabeel-blue-900 font-heading mb-4">Action Item:</h4>
+          <p class="mb-4">
+            Choose one specific time for Salah this week and dedicate 10
+            extra minutes to pre-prayer preparation (e.g., focused Wudu,
+            reciting extra dhikr, reflecting on the meaning of the surahs
+            you will recite). Observe if this enhances your connection and
+            tranquility in Salah.
+          </p>
+          <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#SalahReflection</span>
+          <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mr-2 mt-2">#DailyAnchor</span>
         </div>
       </div>
     </div>
@@ -351,85 +318,57 @@ const meta = {
 </LessonLayout>
 
 <style>
-  .tabs {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  .tab-button {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    background: #f1f5f9;
-    color: #405671;
-    border-radius: 9999px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .tab-button[aria-selected='true'] {
-    background: #3b82f6;
-    color: white;
-  }
-  .tab-content {
-    display: none;
-  }
-  .tab-content[aria-hidden='false'] {
-    display: block;
-  }
-
-  /* Audio Player */
-  .audio-player {
-    margin-bottom: 2rem;
-    background: #f8fafc;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
-  }
-
-  .audio-player audio {
-    width: 100%;
-  }
-
-  /* Audio player responsive styles */
-  @media (max-width: 768px) {
-    .audio-player {
-      padding: 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .audio-player {
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-    }
-  }
-
-  /* Action Sections */
+  .parent-note,
   .workshop-section,
-  .challenge-section,
-  .practical-section {
-    margin-top: 3rem;
-    border-radius: 12px;
-    background: #f8fafc;
-    padding: 2rem;
-  }
-
-  .workshop-section h3,
-  .challenge-section h3,
-  .practical-section h3 {
-    color: #3b82f6;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Workshop specific styles */
-  .workshop-content {
-    background: white;
+  .challenge-section {
+    background-color: #f8faff;
+    border-left: 5px solid #3b82f6;
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+  }
+
+  .parent-note h3,
+  .parent-note h4,
+  .workshop-section h3,
+  .challenge-section h3,
+  .challenge-section strong {
+    color: #0a3255;
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+  }
+
+  .workshop-content ul,
+  .challenge-content ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .workshop-content ul li,
+  .challenge-content ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  .workshop-content code,
+  .challenge-content code {
+    background-color: #e5e7eb;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+  }
+
+  .hashtag {
+    display: inline-block;
+    background-color: #e5f0ff;
+    color: #3b82f6;
+    padding: 0.3rem 0.8rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
   }
 
   .download-link {
@@ -448,142 +387,6 @@ const meta = {
 
   .download-link:hover {
     background: #dae8ff;
-  }
-
-  /* Challenge specific styles */
-  .challenge-content {
-    background: #e5f0ff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #3b82f6;
-  }
-
-  .hashtag {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #3b82f6;
-    font-weight: 500;
-  }
-
-  /* Practical section specific styles */
-  .practical-content {
-    background: #f0f7ff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #3b82f6;
-  }
-
-  .practical-content ol {
-    list-style: none;
-    counter-reset: steps;
-    padding: 0;
-  }
-
-  .practical-content li {
-    counter-increment: steps;
-    margin-bottom: 1.5rem;
-    padding-left: 2.5rem;
-    position: relative;
-  }
-
-  .practical-content li::before {
-    content: counter(steps);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1.75rem;
-    height: 1.75rem;
-    background: #3b82f6;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 0.875rem;
-  }
-
-  .practical-content strong {
-    display: block;
-    color: #0a3255;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Content List Styles */
-  .content-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-  }
-
-  .content-box ul li {
-    position: relative;
-    padding-left: 1.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .content-box ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    width: 6px;
-    height: 6px;
-    background: #3b82f6;
-    border-radius: 50%;
-  }
-
-  .content-box ul li strong {
-    display: block;
-    color: #0a3255;
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .content-box ul li {
-      padding-left: 1.5rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .content-box ul li strong {
-      font-size: 1rem;
-    }
-  }
-
-  /* Responsive styles for action sections */
-  @media (max-width: 768px) {
-    .workshop-section,
-    .challenge-section,
-    .practical-section {
-      margin-top: 2rem;
-      padding: 1.5rem;
-    }
-
-    .workshop-content,
-    .challenge-content,
-    .practical-content {
-      padding: 1.25rem;
-    }
-
-    .practical-content li {
-      padding-left: 2rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .workshop-section,
-    .challenge-section,
-    .practical-section {
-      padding: 1rem;
-    }
-
-    .workshop-content,
-    .challenge-content,
-    .practical-content {
-      padding: 1rem;
-    }
   }
 
   .feedback-cta {
@@ -609,64 +412,34 @@ const meta = {
 </style>
 
 <script>
-  const tabs = document.querySelectorAll('.tab-button');
-  const contents = document.querySelectorAll('.tab-content');
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabsContainer = document.querySelector('.tabs'); // Changed selector
+    const tabButtons = tabsContainer ? Array.from(tabsContainer.querySelectorAll('button[data-tab]')) as HTMLButtonElement[] : [];
+    const tabContents = Array.from(document.querySelectorAll('.tab-content'));
 
-  function switchTab(tabId: string) {
-    // Update tabs and contents
-    tabs.forEach((t) => t.setAttribute('aria-selected', 'false'));
-    contents.forEach((c) => c.setAttribute('aria-hidden', 'true'));
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetTabId = button.dataset.tab;
+        const targetContent = document.querySelector(`.tab-content[data-tab="${targetTabId}"]`);
 
-    // Set the selected tab and show content
-    const selectedTab = document.querySelector(
-      `[data-tab="${tabId}"]`
-    );
-    const selectedContent = document.querySelector(
-      `.tab-content[data-tab="${tabId}"]`
-    );
+        if (targetContent) {
+          tabButtons.forEach((t: HTMLButtonElement) => t.setAttribute('data-selected', 'false'));
+          tabContents.forEach(c => c.setAttribute('aria-hidden', 'true'));
 
-    selectedTab?.setAttribute('aria-selected', 'true');
-    selectedContent?.setAttribute('aria-hidden', 'false');
-
-    // Store the selected tab
-    localStorage.setItem('selectedTab', tabId);
-    // Update URL hash without triggering scroll
-    history.replaceState(null, '', `#${tabId}`);
-  }
-
-  // Helper function to extract tab ID from hash
-  function getTabFromHash() {
-    const hash = window.location.hash;
-    // Extract just the tab ID before any query parameters
-    const tabId = hash.split('?')[0].slice(1);
-    return tabId;
-  }
-
-  // Initialize tab from URL hash or localStorage or default to 'adults'
-  const initTab = () => {
-    const hashTab = getTabFromHash();
-    const storedTab = localStorage.getItem('selectedTab');
-    const defaultTab = 'adults';
-
-    // Priority: URL hash > localStorage > default
-    const tabToShow = hashTab || storedTab || defaultTab;
-    switchTab(tabToShow);
-  };
-
-  // Handle tab clicks
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const tabId = (tab as HTMLElement).dataset.tab;
-      if (tabId) switchTab(tabId);
+          button.setAttribute('data-selected', 'true');
+          targetContent.setAttribute('aria-hidden', 'false');
+        }
+      });
     });
-  });
 
-  // Initialize on page load
-  document.addEventListener('DOMContentLoaded', initTab);
-
-  // Handle browser back/forward
-  window.addEventListener('hashchange', () => {
-    const hashTab = getTabFromHash();
-    if (hashTab) switchTab(hashTab);
+    // Initial active tab based on default set in Astro or first tab
+    const defaultTabButton = document.querySelector('button[data-selected="true"]') as HTMLButtonElement || tabButtons[0];
+    if (defaultTabButton) {
+      const defaultTabContent = document.querySelector(`.tab-content[data-tab="${defaultTabButton.dataset.tab}"]`);
+      if (defaultTabContent) {
+        defaultTabButton.setAttribute('data-selected', 'true');
+        defaultTabContent.setAttribute('aria-hidden', 'false');
+      }
+    }
   });
 </script>
