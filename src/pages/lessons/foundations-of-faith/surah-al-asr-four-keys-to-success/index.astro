@@ -401,6 +401,9 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
       </div>
     </div>
   </div>
+  <div class="feedback-cta">
+    <a href="/feedback/surah-al-asr-four-keys-to-success" class="feedback-button">Give Feedback on this Lesson</a>
+  </div>
   <Share title="Sūrat al-ʿAsr: Four Keys to True Success" />
   <LessonNav currentSlug="surah-al-asr-four-keys-to-success" lessons={lessons} />
 </LessonLayout>
@@ -644,6 +647,27 @@ const subtitle = 'Discover the profound lessons of Sūrat al-ʿAsr and learn how
     .practical-content {
       padding: 1rem;
     }
+  }
+
+  .feedback-cta {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .feedback-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #fff;
+    background: #3b82f6;
+    border-radius: 9999px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+    transition: background 0.2s;
+  }
+  .feedback-button:hover {
+    background: #2563eb;
   }
 </style>
 

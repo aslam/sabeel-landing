@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeedbackForm from '../../components/FeedbackForm.astro';
+import { lessons } from '../../data/lessons';
+
+export async function getStaticPaths() {
+  return lessons
+    .filter((lesson) => lesson.status === 'published')
+    .map((lesson) => ({ params: { lesson: lesson.slug } }));
+}
+
+// Optionally, map lesson slugs to human-friendly titles
+const lessonTitles: Record<string, string> = {
+  'surah-al-asr-four-keys-to-success': 'Sūrat al-ʿAsr: Four Keys to True Success',
+  'kaaba-heavenly-connection': 'The Kaaba: Allah\'s First House',
+  'salah-daily-anchor': 'Salah: Your Daily Anchor',
+  'creator-of-all': 'The Creator of All Things',
+  // Add more as needed
+};
+
+const { lesson } = Astro.params;
+const lessonTitle = lessonTitles[lesson as string] || 'This Lesson';
+---
+
+<Layout>
+  <main class="feedback-container">
+    <div class="feedback-card">
+      <h1>We value your feedback!</h1>
+      <p>
+        Your thoughts help us improve Sabeel. Please share your feedback for <strong>{lessonTitle}</strong> below.
+      </p>
+      <FeedbackForm lesson={lesson} lessonTitle={lessonTitle} />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .feedback-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .feedback-card {
+    text-align: center;
+    max-width: 36rem;
+    margin: 0 auto;
+    background: var(--color-bg);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
+  h1 {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+  }
+  p {
+    font-size: 1.125rem;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+  }
+</style> 
