@@ -1,0 +1,211 @@
+---
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
+import Share from '../../../../components/Share.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
+
+const tabs = [
+  { id: 'kids', label: 'For Kids' },
+  { id: 'teens', label: 'For Teens' },
+  { id: 'adults', label: 'For Adults', default: true },
+];
+const meta = {
+  title: 'The Virtue of Reviving a Sunnah | Sabeel',
+  description:
+    "Learn how to follow the Prophet Muhammad ﷺ in our daily lives and how to apply his teachings in our daily lives to live a life of faith, goodness, and peace. Sabeel's lesson explores living Islam holisically through his timeless example.",
+  type: 'article',
+  keywords:
+    'Reviving Sunnah, Islamic success, Virtue of Sunnah, Prophet Muhammad Sunnah, Love for Prophet Muhammad, Living Islam, Islamic teachings, Prophetic example, Sunnah of Prophet, Islamic lessons, Quran teaching, Islamic character building, Muslim self-development, Islamic parenting, Islamic youth guidance, spiritual growth',
+};
+const title = 'The Virtue of Reviving a Sunnah';
+const subtitle = 'Love for Prophet Muhammad (peace be upon him) and a holistic commitment to living Islam as exemplified by its greatest embodiment: the Prophet himself.';
+
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
+
+meta.image = currentLesson?.image;
+---
+
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  {currentLesson && (
+    <div class="mb-8 mt-2 lg:mt-4 xl:mt-8">
+      <img
+        src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+        alt={currentLesson.title}
+        class="w-full h-auto rounded-lg shadow-lg"
+      />
+    </div>
+  )}
+  <div class="mb-8">
+    <div class="flex gap-4 justify-center mb-6">
+      {tabs.map((tab, i) => (
+        <button
+          class="px-5 py-2 rounded-full font-semibold text-base transition duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-700 data-[selected=true]:bg-blue-600 data-[selected=true]:text-white data-[selected=true]:shadow-md"
+          data-tab={tab.id}
+          data-selected={tab.default ? 'true' : 'false'}
+        >
+          {tab.label}
+        </button>
+      ))}
+    </div>
+    <div class="tab-content" data-tab="kids" aria-hidden="false">
+      <div class="content-box">
+        <h4>Story Time: Being Like Our Best Friend, Prophet Muhammad!</h4>
+        <p>
+          Do you have a best friend you love to play with and try to be like? Our <strong>Prophet Muhammad</strong> (peace be upon him) is like our best friend in Islam! Allah sent him to teach us how to be kind, brave, and how to live a happy life that pleases Allah.
+        </p>
+        <p>
+          Everything Prophet Muhammad (peace be upon him) said, did, or even approved of, is called a <strong>Sunnah</strong>. It's like his special way of doing things! For example, he always used to brush his teeth with a miswak (a natural toothbrush) to keep them clean. He always started things with his right hand. He smiled a lot and was always kind to everyone.
+        </p>
+        <p>
+          Sometimes, over time, people might forget some of these good ways Prophet Muhammad (peace be upon him) showed us. But guess what? When we learn about a <strong>Sunnah</strong> and start doing it again, it's like we are <strong>reviving it!</strong> It's like bringing a forgotten treasure back to life! When we do this, Allah loves it, and it shows how much we love Prophet Muhammad (peace be upon him) and want to follow his beautiful example.
+        </p>
+        <p>
+          It's a way to keep his teachings alive and shining, like a bright light for everyone to see. When we try to be like our best friend Prophet Muhammad (peace be upon him), we learn to be better Muslims and make Allah happy!
+        </p>
+
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h3 class="text-sabeel-blue-900 font-heading mb-4">Offline Activity</h3>
+          <div class="workshop-content">
+            <p>
+              <i>Parent prompt:</i>
+              <br />
+              Dear Parents, when discussing Sunnah with your child, emphasize that it's about following the Prophet's excellent character and practical advice for daily life. You can explain that by practicing a Sunnah, we show our love for him and connect with his timeless wisdom. A simple point to emphasize is that following the Prophet's example helps us live a good, beautiful life.
+              Each evening move the key you used most to the front of
+              the ring.
+            </p>
+
+            <p>
+              <i>Interactive Idea:</i>
+              <br />
+              Let's practice a simple Sunnah today! When you eat, try to start with your right hand and say "Bismillah" (in the name of Allah). When you finish, say "Alhamdulillah" (all praise is to Allah). This is a Sunnah of eating! You can even draw a picture of yourself eating nicely with your right hand.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="teens" aria-hidden="true">
+      <div class="content-box">
+        <p>
+          This week, we're talking about something really cool: <strong>reviving a Sunnah</strong>. It's not just about old traditions; it's about bringing the timeless wisdom and beautiful example of <strong>Prophet Muhammad</strong> (peace be upon him) back into our daily lives.
+        </p>
+        <p>
+          What exactly is a <strong>Sunnah?</strong> It's everything the Prophet (peace be upon him) said, did, or approved of. It's his lifestyle, his character, his habits, and his teachings. Think of it as a comprehensive guide to living a balanced, purposeful, and fulfilling life. For example, his emphasis on cleanliness, his kindness to neighbors, his practice of seeking knowledge, or even simple acts like greeting others with a smile.
+        </p>
+        <p>
+          Why is "reviving" a Sunnah so virtuous? Prophet Muhammad (peace be upon him) himself said:
+          <blockquote>
+            "Whoever revives a Sunnah from my Sunnah and people act upon it, then he will have the reward of all those who act upon it without any decrease in their reward." (Sunan Ibn Majah)
+          </blockquote>
+        </p>
+        <p>
+          This Hadith highlights an incredible opportunity for continuous reward! When a Sunnah becomes forgotten or less common, and you actively bring it back into practice – and others follow your lead – you get a share in their rewards too. This isn't just about rituals; it's about embodying the prophetic character in our modern lives. It means living with compassion, honesty, humility, and excellence in everything we do, just as he did.
+        </p>
+        <p>
+          Reviving a Sunnah is a powerful way to express our <strong>love for the Prophet</strong> (peace be upon him) and a holistic commitment to living Islam. It shows we're not just passive believers but active followers who strive to emulate the greatest example of humanity. It helps us connect with a rich heritage and ensures that the practical wisdom of Islam continues to guide generations.
+        </p>
+
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <p>
+            <strong class="text-sabeel-blue-900 font-heading block mb-4">Challenge:</strong> Think about your daily routine. Can you identify one small Sunnah that you might not be regularly practicing, or one that seems less common nowadays, and commit to reviving it this week? It could be something as simple as sleeping on your right side, greeting everyone you meet, or remembering Allah before starting a task. Share your chosen Sunnah with a friend or family member and discuss why you chose it.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="adults" aria-hidden="true">
+      <div class="content-box">
+        <p>
+          Our discourse this week centers on the profound virtue of <strong>reviving a Sunnah</strong>, a concept that transcends mere adherence to rituals, delving into a holistic commitment to embodying the prophetic ideal. It is an expression of our deep <strong>love for Prophet Muhammad</strong> (peace be upon him) and a practical means of living Islam as exemplified by its greatest embodiment.
+        </p>
+        <p>
+          The Sunnah encompasses the entirety of the Prophet's life – his words, actions, silent approvals, and his sublime character (<i>akhlaq</i>). It is the living tafsir (explanation) of the Quran, providing the practical blueprint for divine guidance. Allah states in the Quran:
+
+          <blockquote>
+            "And indeed, you are upon a tremendous character." (Quran, 68:4)
+          </blockquote>
+        </p>
+        <p>
+          And also:
+
+          <blockquote>
+            "There has certainly been for you in the Messenger of Allah an excellent pattern for anyone whose hope is in Allah and the Last Day and [who] remembers Allah often." (Quran, 33:21)
+          </blockquote>
+        </p>
+        <p>
+          To "<strong>revive a Sunnah</strong>" is to resuscitate a practice, an etiquette, a character trait, or a forgotten teaching of the Prophet (peace be upon him) that has become less prevalent in society. The immense reward for this act is highlighted in the Hadith:
+
+          <blockquote>
+            "Whoever revives a Sunnah from my Sunnah and people act upon it, then he will have the reward of all those who act upon it without any decrease in their reward. And whoever introduces an evil innovation (bid'ah) which is not approved by Allah and His Messenger, will have the sin of everyone who acts upon it without any decrease in their sins." (Sunan Ibn Majah)
+          </blockquote>
+        </p>
+        <p>
+          This Hadith illuminates the multiplying effect of good deeds and the profound responsibility of preserving prophetic guidance. Reviving a Sunnah is not simply about personal piety; it's an act of collective benefit, contributing to the spiritual health and moral compass of the <i>Ummah</i>. It guards against innovation (<i>bid'ah</i>) by reinforcing authentic practice and ensures that the light of prophetic wisdom continues to illuminate our lives. It's a conscious effort to align our daily existence with the most perfected human example, fostering spiritual growth, ethical clarity, and a deeper connection to Allah. It demonstrates a commitment to truly <i>live</i> Islam, not just intellectually assent to it.
+        </p>
+
+        <div class="practical-content">
+          <h3 class="intro">Practical Application/Self-Assessment/Goal Setting:</h3>
+
+          <ol>
+            <li>
+              <b>Identify a Forgotten Sunnah:</b>
+              Reflect on your daily routines, interactions, and character. Is there a minor Sunnah (e.g., specific adhkar for various occasions, the etiquette of visiting the sick, prioritizing the right side for actions, the emphasis on a specific type of charity like sadaqah jariyah) that you rarely practice or that seems less common in your community?
+            </li>
+
+            <li>
+              <b>Intentional Implementation:</b>
+              Choose one specific Sunnah you wish to revive this week. Make a conscious, sincere intention to incorporate it into your daily life. Document its impact on your spiritual state or interactions.
+            </li>
+
+            <li>
+              <b>Encourage (Subtly):</b>
+              Consider how you might subtly encourage others to adopt this Sunnah, perhaps by simply practicing it consistently yourself, allowing it to become an inspiring example rather than preachy instruction.
+            </li>
+            <li>
+              <b>Self-Assessment:</b>
+              How does striving to revive a Sunnah deepen your love and appreciation for Prophet Muhammad (peace be upon him)? In what ways does it help you live a more holistic and fulfilling Islamic life?
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center mb-8">
+    <h3 class="font-serif text-xl font-semibold text-blue-800 mb-2">How was this lesson?</h3>
+    <p class="font-sans text-base text-blue-900 mb-4">Your feedback helps us improve Sabeel for everyone.</p>
+    <a href={`/feedback/${currentSlug}`} class="inline-block border border-blue-600 text-blue-700 hover:bg-blue-50 hover:border-blue-700 font-semibold py-2 px-6 rounded-full text-base shadow-sm transition duration-200">Give Feedback</a>
+  </div>
+  <Share title={title} />
+  <LessonNav currentSlug="surah-al-asr-four-keys-to-success" lessons={lessons} />
+</LessonLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('[data-tab]');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    const activateTab = (tabId) => {
+      tabButtons.forEach(button => {
+        button.dataset.selected = (button.dataset.tab === tabId).toString();
+      });
+
+      tabContents.forEach(content => {
+        content.setAttribute('aria-hidden', (content.dataset.tab !== tabId).toString());
+      });
+    };
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activateTab(button.dataset.tab);
+      });
+    });
+
+    // Activate default tab on load
+    const defaultTab = document.querySelector('[data-selected="true"]');
+    if (defaultTab) {
+      activateTab(defaultTab.dataset.tab);
+    } else if (tabButtons.length > 0) {
+      // Fallback to first tab if no default is set
+      activateTab(tabButtons[0].dataset.tab);
+    }
+  });
+</script>

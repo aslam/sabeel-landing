@@ -60,4 +60,15 @@ export const lessons = [
     current: true,
     image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1749992183/Sabeel/topics/mercy-to-all-worlds.png'
   },
+  {
+    slug: 'reviving-sunnah',
+    title: 'The Virtue of Reviving Sunnah',
+    subtitle: 'How to follow the Prophet Muhammad ﷺ in our daily lives',
+    description:
+      "Learning from the Prophet Muhammad ﷺ's example and teachings, and how to apply them in our daily lives to live a life of faith, goodness, and peace.",
+    series: 'sunnah-of-the-prophet',
+    status: 'published',
+    order: 1,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1750657181/Sabeel/topics/revive-sunnah.png'
+  }
 ];
