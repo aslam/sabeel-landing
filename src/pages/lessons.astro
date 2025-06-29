@@ -7,26 +7,31 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <h1>Daily Islamic Lessons</h1>
       <p class="subtitle">
-        Join us on a journey of continuous learning, one lesson at a
-        time.
+        Join us on a journey of continuous learning, one lesson at a time.
       </p>
 
       <div class="lessons-grid">
         <a href="/lessons/foundations-of-faith" class="lesson-card">
+          <img src="/src/components/icons/book-open.svg" alt="Foundations of Faith Icon" class="lesson-icon" />
           <h2>Foundations of Faith</h2>
           <p>
-            Essential lessons about Islamic beliefs and practices,
-            explained with clarity and depth.
+            Essential lessons about Islamic beliefs and practices, explained with clarity and depth.
           </p>
+          <button class="view-lessons-btn">
+            View Lessons
+            <img src="/src/components/icons/arrow-right.svg" alt="Arrow right" class="arrow-icon" />
+          </button>
         </a>
-      </div>
-
-      <div class="lessons-grid">
         <a href="/lessons/sunnah-of-the-prophet" class="lesson-card">
+          <img src="/src/components/icons/heart.svg" alt="Sunnah of the Prophet Icon" class="lesson-icon" />
           <h2>Sunnah of the Prophet</h2>
           <p>
             Love for Prophet Muhammad (peace be upon him) and a holistic commitment to living Islam, exemplified by its greatest embodiment: the Prophet himself.
           </p>
+          <button class="view-lessons-btn">
+            View Lessons
+            <img src="/src/components/icons/arrow-right.svg" alt="Arrow right" class="arrow-icon" />
+          </button>
         </a>
       </div>
     </div>
@@ -65,55 +70,81 @@ import Layout from '../layouts/Layout.astro';
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    margin-top: 2rem;
   }
 
   /* Card Styles */
   .lesson-card {
     background: white;
-    padding: 2rem;
-    border-radius: 12px;
+    padding: 2.5rem 2rem 2rem 2rem;
+    border-radius: 16px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
     position: relative;
     text-decoration: none;
     transition:
       transform 0.2s ease,
       box-shadow 0.2s ease;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 340px;
   }
 
   .lesson-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px) scale(1.02);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .lesson-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1.5rem;
+    display: block;
   }
 
   .lesson-card h2 {
     color: #0a3255;
     font-size: 1.5rem;
-    margin: 1rem 0;
+    margin: 0 0 1rem 0;
   }
 
   .lesson-card p {
     color: #405671;
     line-height: 1.6;
+    margin-bottom: auto;
   }
 
-  /* Status Badge */
-  .status {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: #e5f0ff;
-    color: #3b82f6;
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
+  .view-lessons-btn {
+    margin-top: 2rem;
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+  }
+
+  .view-lessons-btn:hover {
+    background: #2563eb;
+  }
+
+  .arrow-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
   }
 
   /* Responsive Styles */
   @media (max-width: 768px) {
     .container {
-      padding: 24px 16px;
+      padding: 24px 8px;
     }
 
     h1 {
@@ -122,6 +153,31 @@ import Layout from '../layouts/Layout.astro';
 
     .subtitle {
       font-size: 1.125rem;
+    }
+
+    .lessons-grid {
+      gap: 1.25rem;
+    }
+
+    .lesson-card {
+      padding: 2rem 1rem 1.5rem 1rem;
+      min-height: 260px;
+    }
+
+    .lesson-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 1rem;
+    }
+
+    .view-lessons-btn {
+      padding: 0.6rem 1.1rem;
+      font-size: 0.95rem;
+    }
+
+    .arrow-icon {
+      width: 18px;
+      height: 18px;
     }
   }
 </style>
