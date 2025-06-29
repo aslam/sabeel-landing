@@ -7,43 +7,21 @@ interface Props {
 const { title, url = Astro.url.href } = Astro.props;
 ---
 
-<div class="fixed left-0 top-1/2 -translate-y-1/2 z-50 p-2 md:p-4 hidden md:flex flex-col space-y-4 bg-white/90 shadow-lg rounded-r-lg">
-  <h3 class="sr-only">Share This Lesson</h3>
-  <div class="flex flex-col space-y-3">
-    <button
-      class="share-button twitter text-gray-700 hover:text-blue-500"
-      aria-label="Share on Twitter"
-      data-share="twitter"
-      data-title={title}
-      data-url={url}
-    >
-      <i class="fab fa-twitter text-2xl"></i>
-    </button>
-
-    <button
-      class="share-button facebook text-gray-700 hover:text-blue-700"
-      aria-label="Share on Facebook"
-      data-share="facebook"
-      data-title={title}
-      data-url={url}
-    >
-      <i class="fab fa-facebook-f text-2xl"></i>
-    </button>
-
-    <button
-      class="share-button whatsapp text-gray-700 hover:text-green-500"
-      aria-label="Share on WhatsApp"
-      data-share="whatsapp"
-      data-title={title}
-      data-url={url}
-    >
-      <i class="fab fa-whatsapp text-2xl"></i>
-    </button>
-  </div>
+<div class="share-inline flex items-center gap-3 my-6">
+  <span class="font-semibold text-gray-700">Share:</span>
+  <button class="share-btn" aria-label="Share on Twitter" data-share="twitter" data-title={title} data-url={url}>
+    <i class="fab fa-twitter"></i>
+  </button>
+  <button class="share-btn" aria-label="Share on Facebook" data-share="facebook" data-title={title} data-url={url}>
+    <i class="fab fa-facebook-f"></i>
+  </button>
+  <button class="share-btn" aria-label="Share on WhatsApp" data-share="whatsapp" data-title={title} data-url={url}>
+    <i class="fab fa-whatsapp"></i>
+  </button>
 </div>
 
 <script>
-  function addUtmParams(url: string) {
+  function addUtmParams(url) {
     const utmParams = new URLSearchParams({
       utm_source: 'website',
       utm_medium: 'social_share',
@@ -52,12 +30,12 @@ const { title, url = Astro.url.href } = Astro.props;
     return `${url}${url.includes('?') ? '&' : '?'}${utmParams.toString()}`;
   }
 
-  function share(platform: string, title: string, url: string) {
+  function share(platform, title, url) {
     const shareUrl = addUtmParams(url);
     const encodedTitle = encodeURIComponent(title);
     const encodedUrl = encodeURIComponent(shareUrl);
 
-    const urls: { [key: string]: string } = {
+    const urls = {
       twitter: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
       whatsapp: `https://api.whatsapp.com/send?text=${encodedTitle}%0A${encodedUrl}`,
@@ -68,7 +46,7 @@ const { title, url = Astro.url.href } = Astro.props;
 
   document.querySelectorAll('[data-share]').forEach((button) => {
     button.addEventListener('click', (e) => {
-      const el = e.currentTarget as HTMLElement;
+      const el = e.currentTarget;
       const platform = el.dataset.share;
       const title = el.dataset.title;
       const url = el.dataset.url;
@@ -81,30 +59,30 @@ const { title, url = Astro.url.href } = Astro.props;
 </script>
 
 <style>
-  .share-section {
-    display: none; /* Hide the original share section */
+  .share-inline {
+    justify-content: flex-start;
   }
-
-  .share-button {
+  .share-btn {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 48px; /* Fixed width for icon buttons */
-    height: 48px; /* Fixed height for icon buttons */
+    justify-content: center;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #166534;
+    font-size: 1.25rem;
     border: none;
-    border-radius: 50%; /* Make them circular */
-    background: none; /* No background, icons will handle color */
+    transition: background 0.2s, color 0.2s;
     cursor: pointer;
-    transition: all 0.2s ease;
   }
-
-  .share-button:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-    opacity: 0.8;
+  .share-btn:hover {
+    background: #e0fbe7;
+    color: #15803d;
   }
-
-  /* Specific color adjustments for hover, if needed, can be handled by Tailwind classes */
-  /* .twitter:hover { color: #1DA1F2; } */
-  /* .facebook:hover { color: #1877F2; } */
-  /* .whatsapp:hover { color: #25D366; } */
+  @media (max-width: 640px) {
+    .share-inline {
+      gap: 1rem;
+      justify-content: center;
+    }
+  }
 </style>

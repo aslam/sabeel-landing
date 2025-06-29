@@ -1,6 +1,5 @@
 ---
 import LessonLayout from '../../../../layouts/LessonLayout.astro';
-import Share from '../../../../components/Share.astro';
 import LessonNav from '../../../../components/LessonNav.astro';
 import { lessons } from '../../../../data/lessons';
 
@@ -28,11 +27,11 @@ meta.image = currentLesson?.image;
 
 <LessonLayout title={title} subtitle={subtitle} meta={meta}>
   {currentLesson && (
-    <div class="mb-8 mt-2 lg:mt-4 xl:mt-8">
+    <div class="mb-8 mt-2 lg:mt-4 xl:mt-8 px-2 sm:px-0">
       <img
         src={currentLesson.image || '/images/lesson-placeholder.jpg'}
         alt={currentLesson.title}
-        class="w-full h-auto rounded-lg shadow-lg"
+        class="w-full max-w-full h-auto rounded-lg shadow-lg"
       />
     </div>
   )}
@@ -307,7 +306,6 @@ meta.image = currentLesson?.image;
     <p class="font-sans text-base text-blue-900 mb-4">Your feedback helps us improve Sabeel for everyone.</p>
     <a href={`/feedback/${currentSlug}`} class="inline-block border border-blue-600 text-blue-700 hover:bg-blue-50 hover:border-blue-700 font-semibold py-2 px-6 rounded-full text-base shadow-sm transition duration-200">Give Feedback</a>
   </div>
-  <Share title={title} />
   <LessonNav currentSlug="kaaba-heavenly-connection" lessons={lessons} />
 </LessonLayout>
 
