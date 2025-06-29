@@ -5,6 +5,7 @@ interface Props {
     slug: string;
     title: string;
     status: string;
+    series: string;
   }[];
 }
 
@@ -24,7 +25,7 @@ const nextLesson =
   {
     prevLesson?.status === 'published' && (
       <a
-        href={`/lessons/foundations-of-faith/${prevLesson.slug}`}
+        href={`/lessons/${prevLesson.series}/${prevLesson.slug}`}
         class="nav-link prev"
       >
         <span class="direction">Previous Lesson</span>
@@ -36,7 +37,7 @@ const nextLesson =
   {
     nextLesson?.status === 'published' && (
       <a
-        href={`/lessons/foundations-of-faith/${nextLesson.slug}`}
+        href={`/lessons/${nextLesson.series}/${nextLesson.slug}`}
         class="nav-link next"
       >
         <span class="direction">Next Lesson</span>
