@@ -30,7 +30,7 @@ const addUtmParams = (url: string, source: string) => {
             <img
               src={featuredLesson.image || '/images/lesson-placeholder.jpg'}
               alt={featuredLesson.title}
-              class="w-full h-64 object-cover rounded-t-xl md:h-auto md:rounded-tr-none md:rounded-bl-xl"
+              class="w-full aspect-[16/9] object-cover rounded-t-xl md:rounded-tr-none md:rounded-bl-xl"
             />
             
           </a>
@@ -71,7 +71,7 @@ const addUtmParams = (url: string, source: string) => {
                   <img
                     src={lesson.image || '/images/lesson-placeholder.jpg'}
                     alt={lesson.title}
-                    class="w-full h-48 object-cover rounded-t-xl"
+                    class="w-full aspect-[16/9] object-cover rounded-t-xl"
                   />
                   <div class="p-6 flex-grow">
                     <div>
