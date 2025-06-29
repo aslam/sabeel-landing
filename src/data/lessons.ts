@@ -69,6 +69,19 @@ export const lessons = [
     series: 'sunnah-of-the-prophet',
     status: 'published',
     order: 1,
+    current: false,
     image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1750657181/Sabeel/topics/revive-sunnah.png'
+  },
+  {
+    slug: 'signs-of-a-hypocrite',
+    title: 'A Sin | The Signs of a Hypocrite',
+    subtitle: 'The Prophetic warning against hypocrisy and the call to truthfulness, promise-keeping, and trustworthiness',
+    description:
+      "Prophet Muhammad (PBUH) taught us to avoid hypocrisy by being truthful in speech, honoring promises, and being trustworthy with what's entrusted to us.",
+    series: 'sunnah-of-the-prophet',
+    status: 'published',
+    order: 2,
+    current: true,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1751202708/Sabeel/topics/hipocracy-a-sin.jpg'
   }
 ];

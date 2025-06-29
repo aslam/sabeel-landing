@@ -1,0 +1,151 @@
+---
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
+import Share from '../../../../components/Share.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
+
+const tabs = [
+  { id: 'kids', label: 'For Kids' },
+  { id: 'teens', label: 'For Teens' },
+  { id: 'adults', label: 'For Adults', default: true },
+];
+const meta: {
+  title: string;
+  description: string;
+  type: string;
+  keywords: string;
+  image?: string;
+} = {
+  title: 'A Sin | The Signs of a Hypocrite | Sabeel',
+  description:
+    "Prophet Muhammad (PBUH) taught us to avoid hypocrisy by being truthful in speech, honoring promises, and being trustworthy with what's entrusted to us.",
+  type: 'article',
+  keywords:
+    'Hypocrisy, Signs of a Hypocrite, Islamic character, Truthfulness, Promise keeping, Trustworthiness, Prophet Muhammad, Hadith, Islamic lessons, Sabeel',
+};
+const title = 'A Sin | The Signs of a Hypocrite';
+const subtitle = 'The Prophetic warning against hypocrisy and the call to truthfulness, promise-keeping, and trustworthiness.';
+
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
+if (currentLesson?.image) meta.image = currentLesson.image;
+---
+
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  {currentLesson && (
+    <div class="mb-8 mt-2 lg:mt-4 xl:mt-8">
+      <img
+        src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+        alt={currentLesson.title}
+        class="w-full h-auto rounded-lg shadow-lg"
+      />
+    </div>
+  )}
+  <div class="mb-8">
+    <div class="flex gap-4 justify-center mb-6">
+      <button data-tab="kids" data-selected="false" class="px-5 py-2 rounded-full font-semibold text-base transition duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-700">For Kids</button>
+      <button data-tab="teens" data-selected="false" class="px-5 py-2 rounded-full font-semibold text-base transition duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-700">For Teens</button>
+      <button data-tab="adults" data-selected="true" class="px-5 py-2 rounded-full font-semibold text-base transition duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-700 bg-blue-600 text-white shadow-md">For Adults</button>
+    </div>
+    <div class="tab-content" data-tab="kids" aria-hidden="true">
+      <div class="content-box">
+        <h4>Story Time: Being a True Friend!</h4>
+        <p>Do you know what makes a really, really good friend? Someone you can always trust! Our beloved Prophet Muhammad (peace be upon him) taught us how to be true and honest people. He said there are three things that show someone isn't being a true friend of Allah:</p>
+        <ul class="list-disc ml-6">
+          <li>When they speak, they tell lies. Imagine your friend says they didn't take your toy, but they really did. That's lying, and it makes it hard to trust them.</li>
+          <li>When they make a promise, they break it. If your friend promises to play with you after school but then plays with someone else without telling you, that's breaking a promise. It makes you sad, right?</li>
+          <li>When you trust them with something, they don't take care of it. If you let your friend borrow your favorite book, and they lose it or ruin it, that's breaking your trust.</li>
+        </ul>
+        <p>Prophet Muhammad (peace be upon him) wants us to be the opposite of these things! He wants us to always tell the truth, even when it's hard. He wants us to keep our promises, no matter what. And he wants us to be trustworthy with everything, whether it's a secret, a toy, or a job we're given.</p>
+        <p>Being honest, keeping promises, and being trustworthy are like superpowers that make you a true friend to everyone and a beloved friend of Allah! Allah loves people who are truthful and dependable.</p>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h3 class="text-sabeel-blue-900 font-heading mb-4">Parent Prompt</h3>
+          <p>Dear Parents, this Hadith is crucial for building a strong moral foundation. Explain that "hypocrite" in this context refers to someone whose actions don't match their words or inner sincerity, emphasizing that these are traits to actively avoid. A simple point to highlight is that being honest, keeping promises, and being trustworthy makes us strong individuals and beloved by Allah.</p>
+          <h3 class="text-sabeel-blue-900 font-heading mb-4 mt-6">Interactive Idea</h3>
+          <p>Let's play "Promise Keeper"! Make a simple promise to your child (e.g., "I promise we'll read a story before bed tonight" or "I promise to help you clean up after this game"). Then, make sure you keep it! Afterwards, discuss with your child how it felt when the promise was kept. You can also draw three pictures: one of a mouth speaking truth, one of hands shaking on a promise, and one of hands holding something carefully, representing trustworthiness.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="teens" aria-hidden="true">
+      <div class="content-box">
+        <h4>The Hypocrite's Signs: Building a Foundation of Truth</h4>
+        <p>In our journey to live a life pleasing to Allah, understanding the qualities we should cultivate and those we should avoid is crucial. This week, we're looking at a profound warning from Prophet Muhammad (peace be upon him) about the signs of a hypocrite. He said:</p>
+        <blockquote>
+          "There are three signs of a hypocrite: when he speaks, he lies, when he makes a promise, he breaks it and when entrusted with something he breaches the trust."<br />
+          <span class="text-xs">[Bukhaari 33, Muslim 211, from Hadhrat Abu Hurayrah (RA)]</span>
+        </blockquote>
+        <p>This Hadith isn't about labeling others, but about self-reflection and striving for sincerity. Hypocrisy (nifaq) is a serious spiritual disease. While true hypocrisy is about pretending to believe while disbelieving, these specific signs point to moral hypocrisy – a disconnect between one's outward appearance or claims and their actual behavior.</p>
+        <ul class="list-disc ml-6">
+          <li><b>Lying in Speech:</b> Truthfulness (sidq) is a cornerstone of Islam. Lies erode trust, destroy relationships, and distort reality. Living truthfully, even when inconvenient, builds integrity.</li>
+          <li><b>Breaking Promises:</b> Promises are commitments. When we make a promise, we are essentially giving our word, and breaking it shows a lack of respect for others and for our own integrity. Keeping promises builds reliability and strong bonds.</li>
+          <li><b>Breaching Trust:</b> Whether it's a secret shared, a borrowed item, or a responsibility given, betraying trust is a serious moral failing. Being trustworthy (amanah) means guarding what's entrusted to us, demonstrating responsibility and honesty.</li>
+        </ul>
+        <p>These three traits are foundational to a person's character and their social interactions. When these are absent, true sincerity and respect become impossible. The Prophet (peace be upon him) is teaching us that being a genuine Muslim means aligning our inner beliefs with our outward actions, striving to be consistently truthful, reliable, and trustworthy. These are the qualities that foster healthy communities and strong individual character.</p>
+        <div class="bg-sabeel-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <strong class="text-sabeel-blue-900 font-heading block mb-4">Challenge/Discussion Prompt:</strong>
+          <p>Think about one instance this week where you might have been tempted to bend the truth, let a small commitment slide, or not fully uphold a responsibility. How did you react? Reflect on the importance of these three signs. Choose one of these areas (truthfulness, promise-keeping, or trustworthiness) to consciously focus on and strengthen in your life this week.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="adults" aria-hidden="false">
+      <div class="content-box">
+        <h4>The Signs of a Hypocrite: A Call to Introspection and Integrity</h4>
+        <p>The Prophetic warning regarding the signs of a hypocrite is a profound lesson for every Muslim, not as a tool for judging others, but as a mirror for radical self-assessment. Rasulullah (peace be upon him) stated:</p>
+        <blockquote>
+          "There are three signs of a hypocrite: when he speaks, he lies, when he makes a promise, he breaks it and when entrusted with something he breaches the trust."<br />
+          <span class="text-xs">[Bukhaari 33, Muslim 211, from Hadhrat Abu Hurayrah (RA)]</span>
+        </blockquote>
+        <p>This Hadith addresses Nifaq al-Amali (hypocrisy in actions), distinguishing it from Nifaq al-I'tiqadi (hypocrisy in belief, which is disbelief veiled as faith). While the latter pertains to one's core creed, the former pertains to moral and ethical failings that erode the very fabric of sincerity and trust within a community.</p>
+        <ul class="list-disc ml-6">
+          <li><b>When he speaks, he lies:</b> Truthfulness (Sidq) is an absolute cornerstone of Islamic character. Lying, whether overtly or through omission and deception, corrupts communication, undermines justice, and destroys credibility. A truthful tongue reflects an honest heart and a sincere relationship with Allah, as Allah Himself is the Truth (Al-Haqq).</li>
+          <li><b>When he makes a promise, he breaks it:</b> Honoring commitments ('Ahd) is a hallmark of integrity and reliability. Breaking promises, whether to Allah or to people, indicates a lack of seriousness and respect for covenants. It breeds distrust and instability in all relationships, from the personal to the societal.</li>
+          <li><b>When entrusted with something he breaches the trust:</b> Trustworthiness (Amanah) is a comprehensive concept in Islam. It extends beyond material possessions to secrets, responsibilities, knowledge, positions of authority, and even one's own faculties (body, mind, time) which are trusts from Allah. Betraying trust is a profound act of moral corruption, indicating a deep internal misalignment.</li>
+        </ul>
+        <p>These three characteristics, when habitually manifested, signify a dangerous spiritual ailment: a disconnect between outward display and inner reality. They are vices that prevent genuine spiritual growth and corrupt one's interactions, ultimately leading to a hollow existence. The Prophet's warning serves as a profound call to cultivate authenticity, integrity, and sincerity in every aspect of our lives. By striving to eradicate these traits within ourselves, we build strong, trustworthy characters that are beloved by Allah and beneficial to humanity.</p>
+        <div class="practical-content mt-8">
+          <h3 class="intro">Practical Application/Self-Assessment/Goal Setting:</h3>
+          <ol class="list-decimal ml-6">
+            <li><b>Truthfulness Audit:</b> Reflect on your speech over the past 24 hours. Were there any instances, big or small, where you exaggerated, omitted a truth, or deliberately misrepresented something? Commit to absolute truthfulness in your communication this week, even when it's challenging.</li>
+            <li><b>Promise Accountability:</b> Review any promises you've made recently (to family, friends, colleagues, or even yourself regarding religious practices). Have you fulfilled them? If not, take steps to rectify them or communicate transparently. Set a goal to be meticulous about honoring all your commitments.</li>
+            <li><b>Trustworthiness Check:</b> Consider what has been entrusted to you – a secret, a task at work, a borrowed item, or even your time and health. Are you upholding that trust? Identify one area where you can improve your amanah this week and consciously work on it.</li>
+            <li><b>Reflective Dua:</b> Incorporate dua into your daily routine, specifically asking Allah to purify your heart from hypocrisy and to adorn you with the virtues of truthfulness, promise-keeping, and trustworthiness.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center mb-8">
+    <h3 class="font-serif text-xl font-semibold text-blue-800 mb-2">How was this lesson?</h3>
+    <p class="font-sans text-base text-blue-900 mb-4">Your feedback helps us improve Sabeel for everyone.</p>
+    <a href={`/feedback/${currentSlug}`} class="inline-block border border-blue-600 text-blue-700 hover:bg-blue-50 hover:border-blue-700 font-semibold py-2 px-6 rounded-full text-base shadow-sm transition duration-200">Give Feedback</a>
+  </div>
+  <Share title={title} />
+  <LessonNav currentSlug="signs-of-a-hypocrite" lessons={lessons} />
+</LessonLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('button[data-tab]');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    const activateTab = (tabId) => {
+      tabButtons.forEach(button => {
+        button.dataset.selected = (button.dataset.tab === tabId).toString();
+        if (button.dataset.tab === tabId) {
+          button.classList.add('bg-blue-600', 'text-white', 'shadow-md');
+        } else {
+          button.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
+        }
+      });
+      tabContents.forEach(content => {
+        content.setAttribute('aria-hidden', (content.dataset.tab !== tabId).toString());
+      });
+    };
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activateTab(button.dataset.tab);
+      });
+    });
+  });
+</script> 
