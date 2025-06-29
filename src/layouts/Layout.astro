@@ -5,6 +5,7 @@ import type { MetaProps } from '../types/meta';
 import sabeel from '../assets/sabeel_no_text.png';
 import '../styles/base.css';
 import '../styles/global.css';
+import Header from '../components/Header.astro';
 
 interface Props {
   meta?: MetaProps;
@@ -108,31 +109,7 @@ const fullImageUrl = finalMeta.image?.startsWith('http')
     class="bg-gradient-to-br from-primary-50 to-white min-h-screen flex flex-col"
   >
     <!-- Modern Header -->
-    <header class="w-full bg-white/90 shadow-sm sticky top-0 z-50">
-      <nav
-        class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 md:px-8"
-      >
-        <a href="/" class="flex items-center gap-3">
-          <Image
-            src={sabeel}
-            alt="Sabeel Logo"
-            width={44}
-            height={44}
-            class="h-11 w-auto rounded-full shadow"
-            format="webp"
-            quality="high"
-          />
-        </a>
-        <div class="flex items-center gap-4">
-          <a
-            href="/lessons/foundations-of-faith"
-            class="inline-block border border-green-600 text-green-700 hover:bg-green-50 hover:border-green-700 font-semibold py-2 px-6 rounded-full text-base shadow-sm transition duration-200"
-          >
-            Early Access Lessons
-          </a>
-        </div>
-      </nav>
-    </header>
+    <Header />
 
     <main
       class="flex-1 w-full bg-gray-50 text-gray-900 flex flex-col items-center"
