@@ -1,0 +1,130 @@
+---
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
+
+const tabs = [
+  { id: 'kids', label: 'For Kids' },
+  { id: 'teens', label: 'For Teens' },
+  { id: 'adults', label: 'For Adults', default: true },
+];
+const meta = {
+  title: 'With Hardship Comes Ease - Foundations of Faith | Sabeel',
+  description: 'Believing everything is under the control of Allah, and that after every hardship, there is ease. Allah\'s help is always with us in all difficulties.',
+  type: 'article',
+};
+const title = 'With Hardship Comes Ease';
+const subtitle = '';
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
+---
+
+<LessonLayout title={title} meta={meta}>
+  <p>Believing everything is under the control of Allah, and that after every hardship, there is ease. Allah's help is always with us in all difficulties.</p>
+
+  {currentLesson && (
+    <div class="mb-8 mt-2 lg:mt-4 xl:mt-8 px-2 sm:px-0">
+      <img
+        src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+        alt={currentLesson.title}
+        class="w-full max-w-full h-auto rounded-lg shadow-lg"
+      />
+    </div>
+  )}
+  <div class="mb-8">
+    <div class="flex gap-4 justify-center mb-6">
+      {tabs.map((tab, i) => (
+        <button
+          class="px-5 py-2 rounded-full font-semibold text-base transition duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-700 data-[selected=true]:bg-blue-600 data-[selected=true]:text-white data-[selected=true]:shadow-md"
+          data-tab={tab.id}
+          data-selected={tab.default ? 'true' : 'false'}
+        >
+          {tab.label}
+        </button>
+      ))}
+    </div>
+    <div class="tab-content" data-tab="kids" aria-hidden="false">
+      <div class="content-box">
+        <h3>Story Time: The Rainy Day and Allah's Sunshine!</h3>
+        <p>Assalamu Alaikum, little friends! Have you ever had a day when things just didn't go your way? Maybe your favorite toy broke, or it rained when you wanted to play outside, or you found a tricky puzzle. Those moments can feel a bit sad or difficult, right? These little tough times are like small tests from Allah!</p>
+        <p>Imagine you are doing a puzzle. Sometimes a piece doesn't fit, and it feels hard. But you keep trying, and suddenly, it fits! And how happy you feel then! Allah gives us little tests like this in our lives, not to make us sad, but to make us stronger, kinder, and more patient.</p>
+        <p>Allah loves us so much, and He is always in control of everything. Even when it's raining, we know the sun will come out again, don't we? Just like that, Allah promises us that after every hardship, there is ease and sunshine. He says in the Quran:</p>
+        <blockquote>"Indeed, with hardship [will be] ease." (Quran, 94:5)</blockquote>
+        <p>This means when something is hard, ease is coming right after it! We just need to trust, keep trying our best, and remember that help is always with us. He is always there to listen to our prayers and make things easier, even if we don't see it right away. So, when things are tough, let's remember to be patient, ask Allah for help, and know that beautiful ease is on its way!</p>
+        <h4>Parent Prompt</h4>
+        <p>Dear Parents, when explaining this to your child, emphasize that Allah's tests are a sign of His love, not punishment. Frame challenges as opportunities for growth, patience, and turning to Allah. A simple point to emphasize is that just like clouds eventually clear for the sun, difficulties pass with Allah's help.</p>
+        <h4>Interactive Idea: Let's play "Cloud and Sunshine"!</h4>
+        <p>Draw some big grey clouds on one side of a paper and a bright yellow sun on the other. On the cloud side, draw something that feels a little hard (like a tangled shoelace or a difficult math problem). On the sunshine side, draw how you feel after you solve it or when things get better (like playing happily or understanding the math). Remember to say "Alhamdulillah!" when you see the sunshine!</p>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="teens" aria-hidden="true">
+      <div class="content-box">
+        <h3>Navigating Life's Waves: Hardships as Allah's Tests</h3>
+        <p>Life, especially as a teen, can often feel like a rollercoaster. From academic pressure to social dilemmas, family challenges, or even just a bad day, we all face moments that feel tough. It's easy to get overwhelmed or feel like things are out of control. But as Muslims, we have a unique perspective: these hardships are tests from Allah.</p>
+        <p>Understanding this isn't about being passive; it's about empowerment. It means believing that everything is under the control of Allah. He is Al-Qadir, the All-Powerful, and nothing happens without His knowledge and wisdom. This belief gives us immense peace, knowing that even in chaos, there's a divine plan.</p>
+        <blockquote>"For indeed, with hardship [will be] ease. Indeed, with hardship [will be] ease." (Quran, 94:5-6)</blockquote>
+        <p>This isn't just a hopeful statement; it's a divine guarantee. It means that the ease isn't just coming after the hardship, but often, it's intertwined with it. The lessons we learn, the patience we develop, the inner strength we discover during the struggle - that's the ease already unfolding.</p>
+        <p>Remember, Allah's help is always with us in all hardships. We are never alone. Turning to Him through prayer, dua, and remembrance (dhikr) becomes our greatest source of strength and resilience. These tests are designed to refine us, to increase our reliance on Allah, and ultimately, to elevate our spiritual rank. They build character, deepen our faith, and show us what we're truly capable of with Allah's support.</p>
+        <h4>Challenge/Discussion Prompt</h4>
+        <p>Think about a recent small hardship you faced (e.g., a frustrating assignment, a disagreement with a friend). How did you react? Now, reflecting on this lesson, how might you approach a similar situation differently next time, focusing on Allah's control and the promise of ease? Share your thoughts with a trusted friend or family member.</p>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="adults" aria-hidden="true">
+      <div class="content-box">
+        <h3>Hardships as Divine Tests: The Alchemy of Faith</h3>
+        <p>As we navigate the complexities of life, hardships are an undeniable reality. From professional setbacks and financial strains to health challenges and personal losses, the human experience is replete with trials. How we perceive and respond to these trials is a profound testament to our faith. In Islam, we understand that these hardships are not random occurrences but purposeful tests from Allah.</p>
+        <p>This understanding is rooted in the fundamental belief that everything is under the control of Allah (Al-Qadar). This isn't a fatalistic resignation but an empowering conviction that every event, seemingly good or bad, is part of a grander divine design, meticulously orchestrated by a Being of ultimate Wisdom and Justice. This conviction liberates us from despair, fostering a deep sense of reliance (tawakkul) on Allah. As the Quran reminds us:</p>
+        <blockquote>"And We will surely test you with something of fear and hunger and a loss of wealth and lives and fruits, but give good tidings to the patient, who, when disaster strikes them, say, 'Indeed we belong to Allah, and indeed to Him we will return.'" (Quran, 2:155-156)</blockquote>
+        <p>Crucially, these tests are always accompanied by the divine promise of relief:</p>
+        <blockquote>"For indeed, with hardship [will be] ease. Indeed, with hardship [will be] ease." (Quran, 94:5-6)</blockquote>
+        <p>This double affirmation is a source of immense comfort and hope. It signifies that ease is not merely a consequence after a hardship, but often emerges from within the hardship itself. The spiritual growth, resilience, deepened connection to Allah, and the wisdom gained through enduring a trial often represent the very essence of that ease.</p>
+        <p>Furthermore, Allah's help is always with us in all hardships. His presence is not merely spiritual but active and encompassing. Our invocation (dua), our perseverance (sabr), and our gratitude (shukr) during times of difficulty are potent acts of worship that draw us closer to Him. Hardships, therefore, become catalysts for spiritual alchemy, transforming our understanding of self, our relationship with the Divine, and our appreciation for ease when it arrives. They are opportunities for purification, elevation of rank, and a profound realization of Allah's mercy and omnipotence.</p>
+        <h4>Practical Application / Self-Assessment / Goal Setting</h4>
+        <ul>
+          <li><strong>Reframing Challenges:</strong> Identify a current or recent hardship in your life. Instead of focusing solely on its difficulty, try to reframe it as a specific test from Allah designed to teach you something (e.g., patience, gratitude, reliance on Him, humility). What might be the lesson?</li>
+          <li><strong>Activating Tawakkul:</strong> During a challenging moment this week, consciously practice tawakkul. Make your best effort in the situation, then release the outcome to Allah, repeating 'Inna lillahi wa inna ilayhi raji'un' (Indeed we belong to Allah, and indeed to Him we will return) and focusing on His ultimate control.</li>
+          <li><strong>Seeking Ease Within Hardship:</strong> Reflect on a past difficulty you overcame. Can you identify moments of "ease" that were present during the hardship itself (e.g., unexpected support, a moment of clarity, inner peace despite external chaos)? Journal about this to reinforce the Quranic promise.</li>
+          <li><strong>Proactive Dua:</strong> Make it a habit to specifically ask Allah for strength, patience, and wisdom during hardships, and for the ability to see the ease within them. Your dua is a direct connection to Allah's help.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center mb-8">
+    <h3 class="font-serif text-xl font-semibold text-blue-800 mb-2">How was this lesson?</h3>
+    <p class="font-sans text-base text-blue-900 mb-4">Your feedback helps us improve Sabeel for everyone.</p>
+    <a href={`/feedback/${currentSlug}`} class="inline-block border border-blue-600 text-blue-700 hover:bg-blue-50 hover:border-blue-700 font-semibold py-2 px-6 rounded-full text-base shadow-sm transition duration-200">Give Feedback</a>
+  </div>
+  <LessonNav currentSlug="with-hardship-comes-ease" lessons={lessons} />
+</LessonLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('[data-tab]');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    const activateTab = (tabId) => {
+      tabButtons.forEach(button => {
+        button.dataset.selected = (button.dataset.tab === tabId).toString();
+      });
+
+      tabContents.forEach(content => {
+        content.setAttribute('aria-hidden', (content.dataset.tab !== tabId).toString());
+      });
+    };
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activateTab(button.dataset.tab);
+      });
+    });
+
+    // Activate default tab on load
+    const defaultTab = document.querySelector('[data-selected="true"]');
+    if (defaultTab) {
+      activateTab(defaultTab.dataset.tab);
+    } else if (tabButtons.length > 0) {
+      // Fallback to first tab if no default is set
+      activateTab(tabButtons[0].dataset.tab);
+    }
+  });
+</script> 

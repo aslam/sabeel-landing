@@ -8,7 +8,7 @@ export const lessons = [
     series: 'foundations-of-faith',
     status: 'published',
     order: 1,
-    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1750005376/Sabeel/topics/creator-of-all.png',
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1750005376/Sabeel/topics/creator-of-all.png',
     current: false,
     
   },
@@ -21,7 +21,7 @@ export const lessons = [
     series: 'foundations-of-faith',
     status: 'published',
     order: 2,
-    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1749990992/Sabeel/topics/salah.png',
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1749990992/Sabeel/topics/salah.png',
     current: false,
   },
   {
@@ -33,7 +33,7 @@ export const lessons = [
     series: 'foundations-of-faith',
     status: 'published',
     order: 3,
-    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1749990510/Sabeel/topics/kaaba.png',
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1749990510/Sabeel/topics/kaaba.png',
     current: false,
   },
   {
@@ -45,7 +45,7 @@ export const lessons = [
     series: 'foundations-of-faith',
     status: 'published',
     order: 4,
-    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1749991800/Sabeel/topics/surah-al-asr.png',
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1749991800/Sabeel/topics/surah-al-asr.png',
     current: false,
   },
   {
@@ -57,8 +57,8 @@ export const lessons = [
     series: 'foundations-of-faith',
     status: 'published',
     order: 5,
-    current: true,
-    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1749992183/Sabeel/topics/mercy-to-all-worlds.png'
+    current: false,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1749992183/Sabeel/topics/mercy-to-all-worlds.png'
   },
   {
     slug: 'reviving-sunnah',
@@ -70,7 +70,7 @@ export const lessons = [
     status: 'published',
     order: 1,
     current: false,
-    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1750657181/Sabeel/topics/revive-sunnah.png'
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1750657181/Sabeel/topics/revive-sunnah.png'
   },
   {
     slug: 'signs-of-a-hypocrite',
@@ -82,6 +82,19 @@ export const lessons = [
     status: 'published',
     order: 2,
     current: true,
-    image: 'https://res.cloudinary.com/syed-aslam/image/upload/v1751202708/Sabeel/topics/hipocracy-a-sin.jpg'
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1751202708/Sabeel/topics/hipocracy-a-sin.jpg'
+  },
+  {
+    slug: 'with-hardship-comes-ease',
+    title: 'With Hardship Comes Ease',
+    subtitle: "Belief in Allah's wisdom and the promise of ease after hardship",
+    description:
+      'Understanding that hardships are tests from Allah, and with every hardship comes ease. This lesson explores patience, trust in Allah, and the Quranic promise of relief for all ages.',
+    series: 'foundations-of-faith',
+    status: 'published',
+    order: 6,
+    current: true,
+    // image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1750000000/Sabeel/topics/with-hardship-comes-ease-2.png'
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1751790200/Sabeel/topics/with-hardship-comes-ease-2.png'
   }
 ];
