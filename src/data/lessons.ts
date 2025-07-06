@@ -94,7 +94,6 @@ export const lessons = [
     status: 'published',
     order: 6,
     current: true,
-    // image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1750000000/Sabeel/topics/with-hardship-comes-ease-2.png'
-    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1751790200/Sabeel/topics/with-hardship-comes-ease-2.png'
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1751789302/Sabeel/topics/with-hardship-comes-ease.png'
   }
 ];

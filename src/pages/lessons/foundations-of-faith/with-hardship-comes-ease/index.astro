@@ -17,6 +17,8 @@ const title = 'With Hardship Comes Ease';
 const subtitle = '';
 const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
 const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
+
+meta.image = currentLesson?.image;
 ---
 
 <LessonLayout title={title} meta={meta}>
