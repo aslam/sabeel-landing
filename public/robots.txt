@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://sabeel.in/sitemap-index.xml
+
+Disallow: /feedback/
