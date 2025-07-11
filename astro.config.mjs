@@ -12,6 +12,8 @@ export default defineConfig({
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
+      // Exclude feedback pages from sitemap
+      filter: (page) => !page.pathname.startsWith('/feedback/')
     }),
   ],
 });
