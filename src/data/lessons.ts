@@ -95,5 +95,17 @@ export const lessons = [
     order: 6,
     current: true,
     image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1751789302/Sabeel/topics/with-hardship-comes-ease.png'
+  },
+  {
+    slug: 'creation-of-the-angels',
+    title: 'The Creation of the Angels',
+    subtitle: 'Allah’s Amazing Helpers of Light',
+    description:
+      "Explore how Allah created the angels from celestial light (Noor), their countless numbers, unique roles, and how they perfectly serve Allah, demonstrating His immense power and the wonders of His creation.",
+    series: 'islamic-history',
+    status: 'published',
+    order: 1,
+    current: true,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1752408290/Sabeel/topics/creation-of-the-angels.jpg'
   }
 ];

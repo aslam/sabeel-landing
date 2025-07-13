@@ -1,0 +1,164 @@
+---
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
+
+const tabs = [
+  { id: 'kids', label: 'For Kids', default: true },
+  { id: 'teens', label: 'For Teens' },
+  { id: 'adults', label: 'For Adults' },
+];
+const meta = {
+  title: "The Creation of the Angels - Islamic History | Sabeel",
+  description:
+    "Discover how Allah created the angels from celestial light (Noor), their countless numbers, unique roles, and how they perfectly serve Allah, demonstrating His immense power and the wonders of His creation.",
+  type: 'article',
+  keywords:
+    'Angels, Islamic history, Noor, celestial light, Jibraeel, Mikaaeel, Israafeel, Azrael, Ridwaan, Maalik, Arsh, Quran, Islamic education, kids, teens, adults, Sabeel, faith, unseen world, divine order',
+};
+const title = "The Creation of the Angels";
+const subtitle = "Allah’s Amazing Helpers of Light";
+
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
+
+meta.image = currentLesson?.image;
+---
+
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  {currentLesson && (
+    <div class="mb-8 mt-2 lg:mt-4 xl:mt-8 px-2 sm:px-0">
+      <img
+        src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+        alt={currentLesson.title}
+        class="w-full max-w-full h-auto rounded-lg shadow-lg"
+      />
+    </div>
+  )}
+  <div class="mb-8">
+    <div class="flex gap-4 justify-center mb-6">
+      {tabs.map((tab, i) => (
+        <button
+          class="px-5 py-2 rounded-full font-semibold text-base transition duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-700 data-[selected=true]:bg-blue-600 data-[selected=true]:text-white data-[selected=true]:shadow-md"
+          data-tab={tab.id}
+          data-selected={tab.default ? 'true' : 'false'}
+        >
+          {tab.label}
+        </button>
+      ))}
+    </div>
+    <div class="tab-content" data-tab="kids" aria-hidden="false">
+      <div class="content-box">
+        <h3>Story Time: Allah's Amazing Helpers of Light!</h3>
+        <p>Assalamu Alaikum, little friends! Do you know how many amazing things Allah has created? So many! Today, let's talk about some special helpers Allah made called Angels!</p>
+        <p>Imagine a light that is super bright and pure, like sunshine but even more special. Allah created the angels from this pure, celestial light (called Noor in Arabic)! Isn't that wonderful?</p>
+        <p>There are so, so many angels – more than we can ever count! They are everywhere, doing different important jobs that Allah has given them. They are like Allah's perfect helpers, and they always, always obey Him. They never get tired or complain!</p>
+        <p>Some angels are very, very big and strong! For example, some angels are so strong they carry something called Allah's Arsh (which is like Allah's mighty throne, but we can't imagine how vast it is!).</p>
+        <p>And do you know about Hadrat Jibra'eel (alayhi as-salam)? He is a very special angel who used to bring messages from Allah to the Prophets, like our Prophet Muhammad (peace be upon him)! Other angels help with rain, or making plants grow. There's even an angel named Ridwaan who guards the beautiful gate of Jannah (Paradise), and an angel named Maalik who guards the gate of Jahannam (Hellfire).</p>
+        <p>Allah tells us in the Quran that He made angels with different numbers of wings, like two, three, or even four wings! This shows how powerful Allah is, because He can create anything He wants, in any way He pleases!</p>
+        <p>So, angels are Allah's pure, light-filled helpers who always do what Allah commands. They remind us of Allah's amazing power and how everything in the universe is managed by His perfect plan!</p>
+        <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg mt-8">
+          <h4 class="text-green-900 font-heading mb-4">Parent Prompt:</h4>
+          <p>Dear Parents, when discussing angels with your child, emphasize their perfect obedience to Allah and their role as Allah's creation, not as objects of worship. Focus on how angels demonstrate Allah's power and intricate design of the universe. A simple point to emphasize is that angels are beautiful creations of light who always do good, reminding us to strive for goodness too.</p>
+        </div>
+        <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg mt-8">
+          <h3 class="text-green-900 font-heading mb-4">Interactive Idea:</h3>
+          <p>Let's imagine angels helping! Draw a picture of something good that happens in nature (like rain falling, a flower growing, or the sun shining). Imagine how an angel might be involved in helping Allah make that happen. You can even draw two, three, or four wings on your imagined angel!</p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="teens" aria-hidden="true">
+      <div class="content-box">
+        <h3>The Unseen World: Understanding the Creation of Angels</h3>
+        <p>Hey Sabeel family! As Muslims, our faith extends beyond what we can see and touch. One crucial aspect of the unseen world is the existence and nature of angels. Understanding angels isn't just about knowing facts; it's about appreciating Allah's infinite power and the intricate workings of His creation.</p>
+        <p>The core belief is profound: a narration of Muslim states that Allah has created the angels from Noor (celestial light). This origin signifies their purity, their spiritual nature, and their complete obedience to Allah. Unlike humans, angels have no free will; they are solely devoted to executing Allah's commands without error or deviation.</p>
+        <p>The sheer number of angels is immense – Allah has created countless angels. This emphasizes the vastness of Allah's army and His dominion over all creation. Among these countless beings are those with monumental tasks and close proximity to Allah. We learn about:</p>
+        <ul>
+          <li><strong>Carriers of Allah's Arsh (Throne):</strong> These are angels of immense size and strength, signifying the grandeur of Allah's sovereignty.</li>
+          <li><strong>Archangels (Close to Allah):</strong>
+            <ul>
+              <li>Hadrat Jibra'eel (alayhi as-salam): The chief of angels, responsible for delivering divine revelations to Prophets, including the Quran to Prophet Muhammad (peace be upon him).</li>
+              <li>Hadrat Mikaa'eel (alayhi as-salam): Responsible for sustenance, including rain and vegetation.</li>
+              <li>Hadrat Israafeel (alayhi as-salam): Assigned the task of blowing the trumpet on the Day of Judgment.</li>
+              <li>Hadrat Israa'eel (Azrael) (alayhi as-salam): The Angel of Death, responsible for taking souls.</li>
+            </ul>
+          </li>
+          <li><strong>Managers of the Universe's Affairs:</strong> The Quran mentions that Allah deploys angels to run various affairs of the universe, from natural phenomena to recording deeds.</li>
+          <li><strong>Guardians of Jannah and Jahannam:</strong> Ahadeeth tell us the angel at the gate of Jannah is Ridwaan, and the angel at the gate of Jahannam is Maalik.</li>
+        </ul>
+        <p>Allah beautifully encapsulates their nature and His power in the Quran:</p>
+        <blockquote>
+          "All praise be to Allah, the Creator of the heavens and the earth, Who made (some of) the angels messengers (carrying His messages to the Ambiyaa), possessing two, three and four wings. Allah increases in His creation as He pleases (making some larger and more powerful than others). Verily Allah has power over all things." (Surah Faatir, verse 1)
+        </blockquote>
+        <p>This verse not only confirms their existence and role as messengers but also highlights Allah's boundless power in creating beings with diverse forms and capabilities. Believing in angels deepens our faith in Allah's unseen power, His meticulous planning, and the spiritual dimensions of existence. It reinforces the idea that we are part of a grand divine order, constantly surrounded by unseen servants of Allah.</p>
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+          <h3 class="text-blue-900 font-heading mb-4">Challenge/Discussion Prompt:</h3>
+          <p>How does believing in angels, even though we can't see them, strengthen your faith in Allah's omnipresence and His detailed management of the universe? Think of one daily activity (e.g., getting rain, writing notes, seeing new life) and reflect on how angels might be involved in Allah's command, making you feel more connected to the unseen world.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" data-tab="adults" aria-hidden="true">
+      <div class="content-box">
+        <h3>Angels: Cosmic Servants and Manifestations of Divine Order</h3>
+        <p>Our exploration into Islamic history this week delves into the profound reality of angels, a fundamental tenet of our faith that expands our understanding of Allah's absolute power and the intricate unseen cosmos. The existence of angels, their nature, and their functions illuminate divine attributes and the meticulously orchestrated framework of creation.</p>
+        <p>The foundational understanding is rooted in a narration by Muslim, stating that angels were created from Noor (celestial light). This luminous origin signifies their pure, ethereal, and incorporeal essence, distinguishing them from humans (created from clay) and jinn (created from smokeless fire). Crucially, angels are beings of perfect obedience, devoid of free will and personal desires, dedicating their existence to the worship and execution of Allah's commands. Their constant praise and submission serve as a perpetual reminder of ultimate servitude.</p>
+        <p>Allah has created countless angels, a number beyond human comprehension, underscoring the boundless scope of divine creation and the meticulousness with which the universe is managed. Among this vast host, certain angels hold immense significance due to their roles and proximity to the Divine:</p>
+        <ul>
+          <li><strong>Hamlatal-Arsh (Carriers of the Throne):</strong> Angels of immense magnitude and power, entrusted with carrying Allah's Arsh, a testament to Allah's infinite greatness, as His Throne itself requires such magnificent beings to bear it.</li>
+          <li><strong>Archangels and Their Roles:</strong>
+            <ul>
+              <li>Jibra'eel (alayhi as-salam): The trustworthy spirit, the primary messenger of revelation, connecting Allah's direct communication to His chosen Prophets.</li>
+              <li>Mikaa'eel (alayhi as-salam): The angel responsible for distributing provisions and sustenance, including rain and vegetation.</li>
+              <li>Israafeel (alayhi as-salam): The one designated to blow the trumpet (Sur) heralding the Day of Judgment and Resurrection.</li>
+              <li>Israa'eel (Azrael) (alayhi as-salam): The Angel of Death, tasked with retrieving souls at their appointed time.</li>
+            </ul>
+          </li>
+          <li><strong>Universal Management:</strong> The Quran explicitly states that Allah deploys angels to run the affairs of the universe (e.g., controlling winds, clouds, recording deeds). They are the unseen executors of divine decrees, ensuring the harmonious functioning of all phenomena.</li>
+          <li><strong>Guardians of the Hereafter:</strong> As narrated in Ahadeeth, Ridwaan guards the gates of Jannah, and Maalik is the custodian of Jahannam, illustrating the ordered nature of the afterlife under Allah's command.</li>
+        </ul>
+        <p>The Quranic verse from Surah Faatir encapsulates their creation and diversity:</p>
+        <blockquote>
+          "All praise be to Allah, the Creator of the heavens and the earth, Who made (some of) the angels messengers (carrying His messages to the Ambiyaa), possessing two, three and four wings. Allah increases in His creation as He pleases (making some larger and more powerful than others). Verily Allah has power over all things." (Surah Faatir, verse 1)
+        </blockquote>
+        <p>This verse affirms Allah's unbridled power in creation, His ability to craft beings of varied forms and capacities, and their role as divine envoys. Believing in angels deepens our conviction in the unseen, reinforces Tawhid (Oneness of Allah) by directing all worship solely to Him, and fosters a sense of awe at the grand scale of Allah's dominion. Their constant glorification and submission serve as a powerful inspiration for our own journey of worship and obedience.</p>
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-lg mt-8">
+          <h3 class="text-yellow-900 font-heading mb-4">Practical Application/Self-Assessment/Goal Setting:</h3>
+          <ul>
+            <li><strong>Reflect on Allah's Grandeur:</strong> Spend a few moments reflecting on the sheer number and diverse roles of angels. How does this awareness deepen your appreciation for Allah's meticulous management of the universe and His infinite power?</li>
+            <li><strong>Increased Awareness of Unseen:</strong> When observing natural phenomena (e.g., rain, wind, sunrise), try to consciously remember that angels are involved in executing Allah's command. How does this spiritual lens change your perception of these everyday occurrences?</li>
+            <li><strong>Drawing Inspiration from Obedience:</strong> Angels embody perfect obedience to Allah. How can their unwavering submission inspire you to improve your own consistency in worship, dhikr, and adherence to Allah's commands, especially when faced with challenges?</li>
+            <li><strong>Dua for Awareness:</strong> Make a specific dua asking Allah to increase your understanding of His creation, including the unseen world of angels, and to strengthen your faith through this knowledge.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <LessonNav currentSlug={currentSlug} lessons={lessons} />
+</LessonLayout>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabButtons = document.querySelectorAll('button[data-tab]');
+      const tabContents = document.querySelectorAll('.tab-content');
+  
+      const activateTab = (tabId) => {
+        tabButtons.forEach(button => {
+          button.dataset.selected = (button.dataset.tab === tabId).toString();
+          if (button.dataset.tab === tabId) {
+            button.classList.add('bg-blue-600', 'text-white', 'shadow-md');
+          } else {
+            button.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
+          }
+        });
+        tabContents.forEach(content => {
+          content.setAttribute('aria-hidden', (content.dataset.tab !== tabId).toString());
+        });
+      };
+  
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          activateTab(button.dataset.tab);
+        });
+      });
+    });
+  </script>
