@@ -105,7 +105,19 @@ export const lessons = [
     series: 'islamic-history',
     status: 'published',
     order: 1,
-    current: true,
+    current: false,
     image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1752408290/Sabeel/topics/creation-of-the-angels.jpg'
+  },
+  {
+    slug: 'allahs-messengers-and-books',
+    title: "Allah's Messengers and Books",
+    subtitle: "The chain of Prophethood and Divine Books in Islam",
+    description:
+      "Explore the chain of Prophethood and Divine Books in Islam. Learn how Allah guided humanity through countless Prophets and revealed scriptures, culminating in Prophet Muhammad (PBUH) and the Qur'an.",
+    series: 'islamic-history',
+    status: 'published',
+    order: 2,
+    current: true,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1752998548/Sabeel/topics/allahs-messengers-and-books.png' // Placeholder, update if you have a specific image
   }
 ];

@@ -8,17 +8,18 @@ const tabs = [
   { id: 'teens', label: 'For Teens' },
   { id: 'adults', label: 'For Adults', default: true },
 ];
-const meta = {
-  title: 'With Hardship Comes Ease - Foundations of Faith | Sabeel',
-  description: 'Believing everything is under the control of Allah, and that after every hardship, there is ease. Allah\'s help is always with us in all difficulties.',
-  type: 'article',
-};
 const title = 'With Hardship Comes Ease';
 const subtitle = '';
 const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
 const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
 
-meta.image = currentLesson?.image;
+const meta = {
+  title: 'With Hardship Comes Ease - Foundations of Faith | Sabeel',
+  description: 'Believing everything is under the control of Allah, and that after every hardship, there is ease. Allah\'s help is always with us in all difficulties.',
+  type: 'article',
+  keywords: 'With hardship comes ease, Quranic promise, Patience in Islam, Sabr, Islamic resilience, Trust in Allah, Hardship and ease, Islamic teachings on hardship, Quranic lessons, Faith during trials, Coping with difficulties Islam, Islamic motivation, Hope in Islam, Relief after hardship, Islamic perseverance, Quranic guidance, Spiritual growth, Overcoming challenges Islam, Tawakkul, Islamic inspiration, Muslim self-development, Islamic life lessons, Hard times in Islam, Divine wisdom, Allah’s mercy',
+  image: currentLesson && currentLesson.image ? currentLesson.image : '/images/sabeel_og_image.png',
+};
 ---
 
 <LessonLayout title={title} meta={meta}>
