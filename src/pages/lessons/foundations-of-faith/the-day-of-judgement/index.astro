@@ -1,0 +1,56 @@
+---
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
+
+const title = 'The Day of Judgment: Every Soul Returns';
+const subtitle = "The Day of Judgment is the day when Allah will judge all of humanity based on their actions in this life.";
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
+
+const meta = {
+  title: 'The Day of Judgment: Every Soul Returns | Sabeel',
+  description: 'Explore the profound reality of the Day of Judgment in Islam. Understand how every deed is recorded and weighed, and discover the perfect justice of Allah, where no action is ever lost. Prepare for your ultimate return.',
+  type: 'article',
+  keywords: 'Day of Judgment, Yawm al-Qiyamah, Accountability, Deeds, Justice of Allah, Afterlife, Islam, Quran, Resurrection, Return to Allah',
+  image: currentLesson && currentLesson.image ? currentLesson.image : '/images/sabeel_og_image.png',
+};
+---
+
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+    {currentLesson && (
+      <div class="mb-8 mt-2 lg:mt-4 xl:mt-8 px-2 sm:px-0">
+        <img
+          src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+          alt={currentLesson.title}
+          class="w-full max-w-full h-auto rounded-lg shadow-lg"
+        />
+      </div>
+    )}
+    <div class="mb-8">
+        <div class="content-box">
+            <p>Life is a journey, and for every journey, there's a destination. For us, as believers, the ultimate, unavoidable stop is the Day of Judgment (Yawm al-Qiyamah). It's the day when every soul will return to its Creator, Allah (SWT), and be held accountable for its time spent in this worldly life.</p>
+            <h4>Our Deeds: Recorded and Weighed</h4>
+            <p>Imagine a meticulous record keeper who misses nothing - not a whispered word, not a fleeting thought, not a hidden intention, and certainly not a visible action. That's precisely how our lives are being recorded. Allah says in the Quran:</p>
+            <blockquote>
+                And [for] every person We have fastened his fate to his neck, and We will produce for him on the Day of Resurrection a record which he will find spread open. (Quran 17:13)
+            </blockquote>
+            <p>Every single action, whether seemingly <strong>big or small</strong>, good or bad, is being documented. From a genuine smile to a charitable donation, from a hurtful word to an act of injustice - it's all being noted down. On the Day of Judgment, these records will be presented, and our deeds will be <strong>weighed</strong> on a precise scale.</p>
+            <h4>Allah's Perfect Justice</h4>
+            <p>Sometimes in this world, we see injustice. Good deeds go unnoticed, and wrongdoers seem to escape consequences. But on the Day of Judgment, Allah's justice is perfect and absolute. There will be no shortcuts, no unfair advantages, and no deed will be lost or forgotten.</p>
+            <blockquote>
+                So whoever does an atom's weight of good will see it, And whoever does an atom's weight of evil will see it. (Quran 99:7-8)
+            </blockquote>
+            <p>This means that even the smallest act of kindness, done sincerely for Allah's sake, will be rewarded. Similarly, even the slightest transgression will be accounted for. This understanding should motivate us to be mindful of our every action, big or small, and strive to fill our scales with good deeds.</p>
+            <h4>Preparing for the Return</h4>
+            <p>Knowing about the Day of Judgment isn't meant to instill fear, but rather to inspire <strong>mindfulness, accountability, and hope</strong>. It reminds us that this life is a test, and our time here is precious. Every moment is an opportunity to earn rewards and seek forgiveness.</p>
+            <p>Let us ask ourselves:</p>
+            <ul>
+                <li>Are we living each day as if it could be our last, and our account is about to be presented?</li>
+                <li>Are we prioritizing actions that will weigh heavily on the side of good on that Great Day?</li>
+            </ul>
+            <p>The Day of Judgment is not just a concept; it's a reality we will all face. Let us prepare for our ultimate return with sincere repentance, consistent good deeds, and unwavering faith in Allah's boundless mercy.</p>
+        </div>
+    </div>
+    <LessonNav currentSlug={currentSlug} lessons={lessons} />
+</LessonLayout>

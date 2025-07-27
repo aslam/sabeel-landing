@@ -3,15 +3,16 @@ import Layout from '../../../../layouts/LessonLayout.astro';
 import LessonNav from '../../../../components/LessonNav.astro';
 import { lessons } from '../../../../data/lessons';
 
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
+
 const meta = {
   title: "Allah's Messengers and Books | Islamic History | Sabeel",
   description: "Explore the chain of Prophethood and Divine Books in Islam. Learn how Allah guided humanity through countless Prophets and revealed scriptures, culminating in Prophet Muhammad (PBUH) and the Qur'an.",
-  image: "/images/sabeel_og_image.png",
+  image: currentLesson && currentLesson.image ? currentLesson.image : '/images/sabeel_og_image.png',
   type: "article",
   keywords: "Prophets in Islam, Divine Books, Islamic History, Quran, Torah, Zaboor, Injeel, Prophet Muhammad, Hadhrat Moosa, Hadhrat Dawood, Hadhrat Isa, Hadhrat Aadam, Sahifahs, Kitaabs, Final Prophet, Final Revelation, Islamic guidance, Islamic teachings, Islamic education for kids, Islamic education for teens, Islamic education for adults, Monotheism, Tawhid, Revelation in Islam, Chain of Prophethood, Mercy of Allah, Guidance in Islam"
 };
-
-const currentSlug = 'allahs-messengers-and-books';
 ---
 
 <Layout title="Allah's Messengers and Books" meta={meta}>

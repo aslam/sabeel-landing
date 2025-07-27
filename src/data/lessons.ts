@@ -61,6 +61,30 @@ export const lessons = [
     image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1749992183/Sabeel/topics/mercy-to-all-worlds.png'
   },
   {
+    slug: 'with-hardship-comes-ease',
+    title: 'With Hardship Comes Ease',
+    subtitle: "Belief in Allah's wisdom and the promise of ease after hardship",
+    description:
+      'Understanding that hardships are tests from Allah, and with every hardship comes ease. This lesson explores patience, trust in Allah, and the Quranic promise of relief for all ages.',
+    series: 'foundations-of-faith',
+    status: 'published',
+    order: 6,
+    current: false,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1751789302/Sabeel/topics/with-hardship-comes-ease.png'
+  },
+  {
+    slug: 'the-day-of-judgement',
+    title: 'The Day of Judgment: Every Soul Returns',
+    subtitle: "The Day of Judgment is the day when Allah will judge all of humanity based on their actions in this life.",
+    description:
+      "Explore the profound reality of the Day of Judgment in Islam. Understand how every deed is recorded and weighed, and discover the perfect justice of Allah, where no action is ever lost. Prepare for your ultimate return.",
+    series: 'foundations-of-faith',
+    status: 'published',
+    order: 7,
+    current: true,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1753605732/Sabeel/topics/the-day-of-judgement.png'
+  },
+  {
     slug: 'reviving-sunnah',
     title: 'The Virtue of Reviving Sunnah',
     subtitle: 'How to follow the Prophet Muhammad ﷺ in our daily lives',
@@ -83,18 +107,6 @@ export const lessons = [
     order: 2,
     current: true,
     image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1751202708/Sabeel/topics/hipocracy-a-sin.jpg'
-  },
-  {
-    slug: 'with-hardship-comes-ease',
-    title: 'With Hardship Comes Ease',
-    subtitle: "Belief in Allah's wisdom and the promise of ease after hardship",
-    description:
-      'Understanding that hardships are tests from Allah, and with every hardship comes ease. This lesson explores patience, trust in Allah, and the Quranic promise of relief for all ages.',
-    series: 'foundations-of-faith',
-    status: 'published',
-    order: 6,
-    current: true,
-    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1751789302/Sabeel/topics/with-hardship-comes-ease.png'
   },
   {
     slug: 'creation-of-the-angels',
