@@ -81,8 +81,20 @@ export const lessons = [
     series: 'foundations-of-faith',
     status: 'published',
     order: 7,
-    current: true,
+    current: false,
     image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1753605732/Sabeel/topics/the-day-of-judgement.png'
+  },
+  {
+    slug: 'treat-parents-kindly',
+    title: 'The Obligation to Treat Our Parents Kindly',
+    subtitle: 'Our love and kindness to our parents are not just a good thing to do; they are a fundamental obligation from Allah, second only to worshipping Him. By honoring and serving them, we fulfill a divine command and open the doors to Allah\'s blessings.',
+    description:
+      'Our love and kindness to our parents are not just a good thing to do; they are a fundamental obligation from Allah, second only to worshipping Him. By honoring and serving them, we fulfill a divine command and open the doors to Allah\'s blessings.',
+    series: 'foundations-of-faith',
+    status: 'published',
+    order: 8,
+    current: true,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1754225088/Sabeel/topics/treat-parents-kindly.png'
   },
   {
     slug: 'reviving-sunnah',
