@@ -1,0 +1,70 @@
+---
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
+
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
+const title = currentLesson?.title || '';
+const subtitle = currentLesson?.subtitle || '';
+
+const meta = {
+  title: currentLesson?.title || '',
+  description: "Learn about the Islamic principle of treating parents with utmost kindness and respect, highlighting its status as a Fardh (religious obligation) in Islam, second only to the worship of Allah.",
+  type: 'article',
+  keywords: "Islamic parenting, kindness to parents, fardh in Islam, children in Islam, respect parents, Islamic values for kids, Sabeel lesson, Islam, parents, kindness, filial piety, Fardh, obligation, Allah, worship, blessings, Sabeel",
+  image: currentLesson && currentLesson.image ? currentLesson.image : '/images/sabeel_og_image.png',
+};
+---
+
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+    {currentLesson && (
+      <div class="mb-8 mt-2 lg:mt-4 xl:mt-8 px-2 sm:px-0">
+        <img
+          src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+          alt={currentLesson.title}
+          class="w-full max-w-full h-auto rounded-lg shadow-lg"
+        />
+      </div>
+    )}
+    <div class="mb-8">
+      <div class="content-box">
+        <h4>The Divine Command</h4>
+        <p>In Islam, the kindness we show to our parents isn't merely a matter of good manners—it is an act of worship. Allah (SWT) has elevated the status of parents to an incredible degree, placing the duty to honor them directly after the most important command in all of Islam: the worship of Him alone.</p>
+        <p>
+          The Quran states:<br/>
+          <blockquote>
+            And your Lord has decreed that you shall not worship anyone except Him, and to be good to your parents. (Quran 17:23)
+          </blockquote>
+          This verse makes it crystal clear: the right of our parents is second only to the right of Allah Himself. This isn't a suggestion; it is a fardh—a mandatory religious obligation for every Muslim.
+        </p>
+        <h4>Why is this obligation so significant?</h4>
+        <p>Consider the immense sacrifices our parents have made. The nine months of a mother's pregnancy, the pain of childbirth, and the endless nights she spent nursing and caring for us are unparalleled. The father's tireless work and dedication to provide for and protect the family are a testament to his love. Their lives are a continuous cycle of giving for our sake.</p>
+        <p>The Prophet Muhammad (peace be upon him) emphasized this by teaching us that <strong>“Paradise lies under the feet of mothers.”</strong> This profound statement shows us that the path to Jannah (Paradise) is closely linked to how we treat our mothers.</p>
+        <h4>How to Fulfill this Obligation</h4>
+        <p>Fulfilling this sacred duty goes beyond just providing for them. It is about a state of mind and a way of being.</p>
+        <ul>
+          <li><strong>Speak with Respect:</strong> Allah commands us not to utter a word of annoyance, not even to say "uff" (an expression of impatience), to them. We must always speak to them with kindness and humility.</li>
+          <li><strong>Be Humble and Gentle:</strong> The Quran instructs us to lower our "wing of humility" to them out of mercy. This means approaching them with gentleness, gratitude, and a soft heart, recognizing the great debt we owe them.</li>
+          <li><strong>Serve Them:</strong> Take care of their needs, listen to their advice, and do not prioritize your own wants over their genuine needs. Your service to them is a direct service to Allah.</li>
+          <li><strong>Pray for Them:</strong> Make constant du'a (supplication) for your parents. A beautiful prayer from the Quran is: <strong>“My Lord, have mercy upon them as they brought me up when I was small.” (Quran 17:24)</strong></li>
+        </ul>
+        <p>By honoring our parents, we are not just repaying a debt we can never fully settle; we are obeying Allah's direct command. This obedience is a source of immense barakah (blessings) in our lives, our families, and our livelihoods. It is a path to a more peaceful life in this world and eternal salvation in the Hereafter.</p>
+        <p>The Prophet ﷺ said:</p>
+        <blockquote>
+          The pleasure of Allah lies in the pleasure of the parent, and the displeasure of Allah lies in the displeasure of the parent. (Tirmidhi)
+        </blockquote>
+        <div class="practical-content">
+          <p class="intro">A Short Dua to Teach Kids</p>
+
+          <blockquote>
+            <div class="text-right">رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا</div>
+            <br/>
+            My Lord! Be merciful to them as they raised me when I was young. (Surah Al-Isra 17:24)
+          </blockquote>
+        </div>
+        <p>Remember, the way you treat your parents sets an example for your own children. They will learn from you how to treat you in your old age. By fulfilling this obligation with love and sincerity, you are investing in a cycle of kindness and respect that will return to you many times over.</p>
+      </div>
+    </div>
+    <LessonNav currentSlug={currentSlug} lessons={lessons} />
+</LessonLayout>
