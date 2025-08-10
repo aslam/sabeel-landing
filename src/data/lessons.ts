@@ -93,8 +93,20 @@ export const lessons = [
     series: 'foundations-of-faith',
     status: 'published',
     order: 8,
-    current: true,
+    current: false,
     image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1754225088/Sabeel/topics/treat-parents-kindly.png'
+  },
+  {
+    slug: 'shaitan-the-whisperer',
+    title: 'Shaitan the Whisperer: We Should Resist',
+    subtitle: 'Understanding Shaitan\'s origin and nature as a subtle whisperer is the first step in recognizing his tricks',
+    description:
+      'By actively and consciously seeking refuge in Allah and fortifying our hearts with prayer and good deeds, we can resist his attempts to mislead us and strengthen our faith.',
+    series: 'foundations-of-faith',
+    status: 'published',
+    order: 9,
+    current: true,
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1754833855/Sabeel/topics/shaitan-the-wisperer.png'
   },
   {
     slug: 'reviving-sunnah',

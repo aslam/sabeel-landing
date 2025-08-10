@@ -1,0 +1,113 @@
+---
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
+
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop() || '';
+const currentLesson = lessons.find(lesson => lesson.slug === currentSlug);
+const title = currentLesson?.title || '';
+const subtitle = currentLesson?.subtitle || '';
+
+const meta = {
+  title: currentLesson?.title || '',
+  description: "Learn about Shaitan's origin and nature as a subtle whisperer, and how to resist his attempts to mislead us through seeking refuge in Allah and fortifying our hearts with prayer and good deeds.",
+  type: 'article',
+  keywords: "Shaitan, devil, whisperer, Islamic faith, spiritual protection, seeking refuge in Allah, prayer, good deeds, spiritual warfare, Islamic lessons, Sabeel, faith strengthening, temptation resistance",
+  image: currentLesson && currentLesson.image ? currentLesson.image : '/images/sabeel_og_image.png',
+};
+---
+
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+    {currentLesson && (
+      <div class="mb-8 mt-2 lg:mt-4 xl:mt-8 px-2 sm:px-0">
+        <img
+          src={currentLesson.image || '/images/lesson-placeholder.jpg'}
+          alt={currentLesson.title || 'Lesson Image'}
+          class="w-full max-w-full h-auto rounded-lg shadow-lg"
+        />
+      </div>
+    )}
+    <div class="mb-8">
+      <div class="content-box">
+        <h4>1. Introduction: The Unseen Enemy</h4>
+        <p>Have you ever had a thought pop into your head that you knew was wrong? A tiny voice telling you to be lazy instead of praying, to be angry instead of patient, or to be selfish instead of generous? That voice, my dear brothers and sisters, is a whisper. It's the whisper of an unseen enemy whose only goal is to lead us astray. This enemy is Shaitan, and today, we're going to learn about his nature, his tricks, and most importantly, how to resist him.</p>
+        
+        <p>Allah (SWT) tells us in the Quran:</p>
+        <blockquote>
+          "Indeed, Shaitan is to you an enemy, so take him as an enemy. He only invites his party to be among the companions of the Blaze." (Quran 35:6)
+        </blockquote>
+        
+        <p>This verse is a direct command from Allah. He is telling us, in plain language, that Shaitan is our enemy, and we must treat him as such. We wouldn't trust a known enemy, would we? We wouldn't listen to their advice. So why do we sometimes listen to Shaitan's whispers?</p>
+        
+        <h4>2. Who is Shaitan? His Origin and Nature</h4>
+        <p>Before we can fight an enemy, we must know them. Shaitan wasn't always a source of evil. His name was Iblees, and he was a Jinn (a being created from smokeless fire) who was known for his intense worship of Allah. He was so pious that Allah elevated his status to be among the angels.</p>
+        
+        <p>However, when Allah created Adam (AS) and commanded the angels and Iblees to prostrate to him, Iblees refused. Why? Because of arrogance. He said, in his pride:</p>
+        
+        <blockquote>
+          "I am better than him. You created me from fire and created him from clay." (Quran 7:12)
+        </blockquote>
+        
+        <p>This act of rebellion, born of arrogance and jealousy, was his downfall. For his disobedience, Allah cast him out of His mercy and named him Shaitan (the outcast). Iblees, now Shaitan, swore an oath to Allah that he would mislead humanity until the Day of Judgment.</p>
+        
+        <p><strong>Key takeaway:</strong> Shaitan's fall was a result of pride. This is a crucial lesson for us. Pride and arrogance can be the first whispers that lead us away from Allah.</p>
+        
+        <h4>3. Shaitan's Strategy: The Subtle Whisperer</h4>
+        <p>Shaitan doesn't usually appear in a terrifying form or scream temptations at us. His most dangerous weapon is the whisper (waswas). He plants tiny, subtle doubts and evil suggestions in our hearts and minds.</p>
+        
+        <p>Think of it like a hacker trying to break into a secure computer system. He doesn't just attack with full force. He looks for small vulnerabilities, a weak password, or a loophole. Similarly, Shaitan looks for the weaknesses in our hearts and exploits them.</p>
+        
+        <p>His whispers can take many forms:</p>
+        <ul>
+          <li><strong>Doubt:</strong> "Is prayer really that important? You can make it up later."</li>
+          <li><strong>Procrastination:</strong> "You have plenty of time. You don't need to read the Quran today."</li>
+          <li><strong>Anger:</strong> "They disrespected you! You have every right to be furious."</li>
+          <li><strong>Arrogance:</strong> "Look at how much I pray. I'm better than him/her."</li>
+          <li><strong>Despair:</strong> "My sins are too great. Allah will never forgive me."</li>
+        </ul>
+        
+        <p>These are all whispers designed to weaken our resolve, chip away at our faith, and turn us away from good deeds.</p>
+        
+        <h4>4. The Shield Against the Whispers</h4>
+        <p>So, how do we fight this unseen enemy and his subtle whispers? Our primary defense is to actively and consciously seek refuge in Allah.</p>
+        
+        <h5>a. Seeking Refuge (Ta'awwudh):</h5>
+        <p>The first and most powerful shield is to say <strong>A'udhu billahi minash-shaytanir-rajim</strong> (I seek refuge in Allah from Shaitan, the outcast). The moment you feel a bad thought or a negative whisper, say this with conviction. This is a direct prayer to Allah to protect you from His enemy.</p>
+        
+        <p>Allah (SWT) says in the Quran:</p>
+        <blockquote>
+          "And if an evil suggestion comes to you from Shaitan, then seek refuge in Allah. Indeed, He is Hearing and Knowing." (Quran 7:200)
+        </blockquote>
+        
+        <h5>b. Fortifying the Heart:</h5>
+        <p>A heart filled with the remembrance of Allah is like a fortress that Shaitan cannot penetrate. He can only whisper where there is a void. We fill that void by:</p>
+        
+        <ul>
+          <li><strong>Prayer (Salat):</strong> Our five daily prayers are our strongest defense. They remind us of our purpose and reconnect us with Allah. A person who prays regularly is less likely to fall into Shaitan's traps.</li>
+          <li><strong>Dhikr (Remembrance of Allah):</strong> Constantly remembering Allah through phrases like SubhanAllah, Alhamdulillah, La ilaha illallah, and Allahu Akbar keeps our hearts vigilant and strong.</li>
+          <li><strong>Reading the Quran:</strong> The Quran is the word of Allah, filled with light and guidance. It cleanses our hearts and provides clear directions to counter Shaitan's misleading paths.</li>
+          <li><strong>Good Deeds:</strong> When we are busy doing good, there is little room for Shaitan to whisper evil. Helping others, being kind, and speaking good words are all acts that repel him.</li>
+        </ul>
+        
+        <h4>5. Discussion & Reflection</h4>
+        <ul>
+          <li>Can you recall a time when you felt a bad whisper from Shaitan? How did you deal with it?</li>
+          <li>What is the difference between an evil whisper from Shaitan and a bad thought that comes from our own desires (nafs)? (Hint: Shaitan's whispers often plant doubt and despair, while our nafs desires instant gratification and worldly pleasures).</li>
+          <li>Why is the prayer "A'udhu billahi minash-shaytanir-rajim" so powerful against Shaitan?</li>
+        </ul>
+        
+        <div class="practical-content">
+          <p class="intro">6. Action Plan</p>
+          <ul>
+            <li><strong>Daily Practice:</strong> Make it a habit to say A'udhu billahi minash-shaytanir-rajim the moment you feel a negative thought or a whisper.</li>
+            <li><strong>Strengthen your Fort:</strong> Be diligent with your five daily prayers and spend at least 5 minutes a day doing Dhikr.</li>
+            <li><strong>Mindful Awareness:</strong> Pay close attention to your thoughts. If you hear a whisper telling you to do something wrong or to feel despair, recognize it as Shaitan's trick and consciously reject it. Remember that with Allah's help, you can resist.</li>
+          </ul>
+        </div>
+        
+        <h4>Conclusion</h4>
+        <p>Shaitan is an enemy we cannot see, but his tricks are very real. He preys on our weaknesses and whispers doubts and evil suggestions into our hearts. But Allah has given us the tools to resist him. By seeking refuge in Allah, strengthening our faith through prayer and good deeds, and being mindful of his whispers, we can build a strong shield around our hearts. Let us remember the words of our Lord and not fall into the traps of our enemy. May Allah protect us all from Shaitan and his evil whispers. Amin.</p>
+      </div>
+    </div>
+    <LessonNav currentSlug={currentSlug} lessons={lessons} />
+</LessonLayout> 
