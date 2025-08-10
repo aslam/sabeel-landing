@@ -5,6 +5,7 @@ export const lessons = [
     subtitle: "Understanding Allah's Oneness and Attributes",
     description:
       'Understanding Allah as the Creator and Sustainer of everything in existence through simple, relatable examples.',
+    teaser: 'How do you explain Allah to a child? This lesson shows you the perfect way.',
     series: 'foundations-of-faith',
     status: 'published',
     order: 1,
@@ -102,6 +103,7 @@ export const lessons = [
     subtitle: 'Understanding Shaitan\'s origin and nature as a subtle whisperer is the first step in recognizing his tricks',
     description:
       'By actively and consciously seeking refuge in Allah and fortifying our hearts with prayer and good deeds, we can resist his attempts to mislead us and strengthen our faith.',
+    teaser: 'Do you know the first step in resisting Shaitan? Most overlook it.',
     series: 'foundations-of-faith',
     status: 'published',
     order: 9,
@@ -126,6 +128,7 @@ export const lessons = [
     subtitle: 'The Prophetic warning against hypocrisy and the call to truthfulness, promise-keeping, and trustworthiness',
     description:
       "Prophet Muhammad (PBUH) taught us to avoid hypocrisy by being truthful in speech, honoring promises, and being trustworthy with what's entrusted to us.",
+    teaser: 'What\'s the one sin that Prophet Muhammad warned us about most? The answer might surprise you.',
     series: 'sunnah-of-the-prophet',
     status: 'published',
     order: 2,
@@ -150,6 +153,7 @@ export const lessons = [
     subtitle: "The chain of Prophethood and Divine Books in Islam",
     description:
       "Explore the chain of Prophethood and Divine Books in Islam. Learn how Allah guided humanity through countless Prophets and revealed scriptures, culminating in Prophet Muhammad (PBUH) and the Qur'an.",
+    teaser: 'Did you know there were over 124,000 prophets? Discover the incredible story of divine guidance.',
     series: 'islamic-history',
     status: 'published',
     order: 2,
