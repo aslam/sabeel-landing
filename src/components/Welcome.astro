@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import sabeel from '../assets/sabeel.png';
+import FeaturedLessons from './FeaturedLessons.astro';
+import EnhancedEmailSignup from './EnhancedEmailSignup.astro';
+
 const heroHeading = 'Sabeel';
 const heroSubheading = 'The path to Deen. One day at a time.';
 const ctaText = 'Subscribe for Early Access';
@@ -21,12 +24,17 @@ const secondaryCtaText = 'Or explore a free lesson';
     />
     <h1 class="font-serif text-5xl md:text-7xl font-extrabold text-gray-900 mb-4 tracking-tight">{heroHeading}</h1>
     <p class="font-sans text-2xl md:text-3xl text-gray-700 mb-8 max-w-2xl mx-auto">{heroSubheading}</p>
-    <a
-      href="#early-access"
-      class="inline-block bg-green-600 hover:bg-green-700 text-white font-extrabold py-4 px-10 rounded-full text-2xl shadow-lg transition duration-300 mb-3 tracking-tight"
-    >
-      {ctaText}
-    </a>
+    
+    <!-- Enhanced Hero CTA -->
+    <div class="mb-6">
+      <EnhancedEmailSignup 
+        variant="hero"
+        title="Start Your Daily Spiritual Journey"
+        subtitle="Get early access to daily lessons and a free checklist to begin your path"
+        showChecklist={true}
+      />
+    </div>
+    
     <a
       href="/lessons/foundations-of-faith/surah-al-asr-four-keys-to-success#adults?utm_source=homepage&utm_medium=cta&utm_campaign=free_lesson"
       class="block text-green-700 hover:underline text-base mt-1"
@@ -35,6 +43,9 @@ const secondaryCtaText = 'Or explore a free lesson';
     </a>
   </div>
 </section>
+
+<!-- FEATURED LESSONS SECTION -->
+<FeaturedLessons />
 
 <!-- VALUE PROPOSITION -->
 <section class="max-w-6xl mx-auto py-16 px-4 md:px-8">
@@ -100,6 +111,20 @@ const secondaryCtaText = 'Or explore a free lesson';
       <p class="font-sans text-sm text-purple-800">Guiding towards consistent spiritual practice and deeper connection with Allah, seamlessly integrating faith into daily life.</p>
     </div>
   </div>
+  
+  <!-- Inline Email Signup after Tailored Content -->
+  <div class="mt-12 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
+    <div class="text-center">
+      <h3 class="font-serif text-2xl font-bold text-gray-900 mb-4">Ready to Start Your Journey?</h3>
+      <p class="font-sans text-gray-700 mb-6">Get daily lessons tailored to your age group, plus exclusive access to our growing library.</p>
+      <EnhancedEmailSignup 
+        variant="cta"
+        title=""
+        subtitle=""
+        showChecklist={false}
+      />
+    </div>
+  </div>
 </section>
 
 <!-- WHAT'S COMING NEXT -->
@@ -119,7 +144,7 @@ const secondaryCtaText = 'Or explore a free lesson';
       <span class="font-sans text-base text-gray-700"><strong>Favorites:</strong> Save and revisit lessons that deeply resonate with you.</span>
     </div>
     <div class="flex items-center space-x-4 bg-white rounded-xl shadow p-6">
-      <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16a5 5 0 01-.916-9.916 5.002 5.002 0 019.832 0A5 5 0 0116 16M12 12v6m0 0l3-3m-3 3l-3-3" /></svg>
+      <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16a5 5 0 01-.916-9.916 5.002 5.002 0 019.832 0A5.5 0 0116 16M12 12v6m0 0l3-3m-3 3l-3-3" /></svg>
       <span class="font-sans text-base text-gray-700"><strong>Offline Access:</strong> Learn anytime, anywhere, without an internet connection.</span>
     </div>
     <div class="flex items-center space-x-4 bg-white rounded-xl shadow p-6">
@@ -129,30 +154,18 @@ const secondaryCtaText = 'Or explore a free lesson';
   </div>
 </section>
 
-<!-- EARLY ACCESS CTA -->
+<!-- FINAL EARLY ACCESS CTA -->
 <section id="early-access" class="max-w-2xl mx-auto py-20 px-4">
   <div class="bg-white rounded-2xl shadow-xl p-10 flex flex-col items-center">
     <h2 class="font-serif text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">Join Our Early Access Community</h2>
     <p class="font-sans text-lg text-gray-700 text-center mb-6">Be among the first to experience Sabeel! Get exclusive early access to lessons and help us shape the future of Islamic learning.</p>
-    <form
-      action="https://buttondown.com/api/emails/embed-subscribe/sabeel"
-      method="POST"
-      target="popupwindow"
-      onsubmit="window.open('https://buttondown.com/sabeel', 'popupwindow')"
-      class="w-full flex flex-col sm:flex-row gap-4 mb-4"
-    >
-      <input
-        type="email"
-        name="email"
-        placeholder="Your Email Address"
-        required
-        class="font-sans flex-1 px-5 py-3 rounded-full border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500"
-      />
-      <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg">
-        Sign Up Now
-      </button>
-    </form>
-    <p class="font-sans text-sm text-gray-500 text-center">We respect your privacy. No spam, ever.</p>
+    
+    <EnhancedEmailSignup 
+      variant="cta"
+      title=""
+      subtitle=""
+      showChecklist={true}
+    />
   </div>
 </section>
 
