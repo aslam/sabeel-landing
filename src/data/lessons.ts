@@ -98,7 +98,7 @@ export const lessons = [
   },
   {
     slug: 'shaitan-the-whisperer',
-    title: 'Shaitan the Whisperer: We Should Resist',
+    title: 'Shaitan the Whisperer: How to Recognize & Resist His Tricks',
     subtitle: 'Understanding Shaitan\'s origin and nature as a subtle whisperer is the first step in recognizing his tricks',
     description:
       'By actively and consciously seeking refuge in Allah and fortifying our hearts with prayer and good deeds, we can resist his attempts to mislead us and strengthen our faith.',
@@ -106,7 +106,7 @@ export const lessons = [
     status: 'published',
     order: 9,
     current: true,
-    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1754833855/Sabeel/topics/shaitan-the-wisperer.png'
+    image: 'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1754838592/Sabeel/topics/shaitan-the-whisperer.png'
   },
   {
     slug: 'reviving-sunnah',
