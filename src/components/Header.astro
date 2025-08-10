@@ -3,138 +3,228 @@ import { Image } from 'astro:assets';
 import sabeel from '../assets/sabeel_no_text.png';
 ---
 
-<header class="w-full bg-white/90 shadow-sm sticky top-0 z-50">
+<header class="w-full bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-green-100">
   <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 md:px-8 relative">
-    <a href="/" class="flex items-center gap-3">
-      <Image
-        src={sabeel}
-        alt="Sabeel Logo"
-        width={44}
-        height={44}
-        class="h-11 w-auto rounded-full shadow"
-        format="webp"
-        quality="high"
-      />
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="relative">
+        <Image
+          src={sabeel}
+          alt="Sabeel Logo"
+          width={44}
+          height={44}
+          class="h-11 w-auto rounded-full shadow-lg transition-transform duration-300 group-hover:scale-110"
+          format="webp"
+          quality="high"
+        />
+        <div class="absolute inset-0 rounded-full bg-green-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
     </a>
-    <!-- Desktop Nav -->
-    <div class="nav-links flex items-center gap-4">
-      <a href="/lessons" class="nav-link" title="View all lesson topics">Topics</a>
-      <a href="/lessons/islamic-history" class="nav-link" title="Islamic History lessons">Islamic History</a>
-      <a href="/lessons/foundations-of-faith" class="nav-link" title="Foundations of Faith lessons">Foundations of Faith</a>
-      <a href="/lessons/sunnah-of-the-prophet" class="nav-link" title="Sunnah of the Prophet lessons">Sunnah of the Prophet</a>
+
+    <!-- Desktop Navigation -->
+    <div class="nav-links hidden md:flex items-center gap-2">
+      <a href="/lessons" class="nav-link-primary" title="Explore all lesson topics">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+        Browse Lessons
+      </a>
+      <div class="relative group">
+        <button class="nav-link-secondary">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+          Topics
+        </button>
+        <!-- Dropdown Menu -->
+        <div class="absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+          <div class="p-2">
+            <a href="/lessons/foundations-of-faith" class="dropdown-link">
+              <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">Foundations of Faith</div>
+                <div class="text-sm text-gray-500">Core Islamic beliefs & practices</div>
+              </div>
+            </a>
+            <a href="/lessons/sunnah-of-the-prophet" class="dropdown-link">
+              <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">Sunnah of the Prophet</div>
+                <div class="text-sm text-gray-500">Following Prophet Muhammad ﷺ</div>
+              </div>
+            </a>
+            <a href="/lessons/islamic-history" class="dropdown-link">
+              <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">Islamic History</div>
+                <div class="text-sm text-gray-500">Stories of prophets & divine books</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Hamburger Button (Mobile) -->
+
+    <!-- Mobile Menu Button -->
     <button
-      class="hamburger"
+      class="hamburger md:hidden"
       aria-label="Open menu"
       aria-expanded="false"
       aria-controls="mobile-menu"
       data-menu-toggle
       type="button"
     >
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      <div class="hamburger-lines">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </button>
-    <!-- Slide-down Mobile Menu -->
+
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu" data-menu>
-      <a href="/lessons" class="nav-link" data-menu-close>Topics</a>
-      <a href="/lessons/islamic-history" class="nav-link" data-menu-close>Islamic History</a>
-      <a href="/lessons/foundations-of-faith" class="nav-link" data-menu-close>Foundations of Faith</a>
-      <a href="/lessons/sunnah-of-the-prophet" class="nav-link" data-menu-close>Sunnah of the Prophet</a>
+      <div class="mobile-menu-header">
+        <span class="text-sm font-medium text-gray-500">Navigation</span>
+      </div>
+      <a href="/lessons" class="mobile-nav-link" data-menu-close>
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+        Browse All Lessons
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/lessons/foundations-of-faith" class="mobile-nav-link" data-menu-close>
+        <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+          <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <div>
+          <div class="font-semibold text-gray-900">Foundations of Faith</div>
+          <div class="text-sm text-gray-500">Core beliefs & practices</div>
+        </div>
+      </a>
+      <a href="/lessons/sunnah-of-the-prophet" class="mobile-nav-link" data-menu-close>
+        <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+          <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+        </div>
+        <div>
+          <div class="font-semibold text-gray-900">Sunnah of the Prophet</div>
+          <div class="text-sm text-gray-500">Following Prophet Muhammad ﷺ</div>
+        </div>
+      </a>
+      <a href="/lessons/islamic-history" class="mobile-nav-link" data-menu-close>
+        <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+          <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+        </div>
+        <div>
+          <div class="font-semibold text-gray-900">Islamic History</div>
+          <div class="text-sm text-gray-500">Stories of prophets & divine books</div>
+        </div>
+      </a>
     </div>
   </nav>
 </header>
 
 <style>
-  .nav-link {
-    border: none;
-    color: #166534;
-    font-weight: 700;
-    padding: 0.6rem 1.4rem;
-    border-radius: 9999px;
-    font-size: 1.08rem;
-    transition: 
-      background 0.18s cubic-bezier(0.4,0,0.2,1),
-      color 0.18s cubic-bezier(0.4,0,0.2,1),
-      box-shadow 0.18s cubic-bezier(0.4,0,0.2,1),
-      transform 0.18s cubic-bezier(0.4,0,0.2,1);
-    text-decoration: none;
-    background: transparent;
-    box-shadow: 0 1px 4px rgba(21, 128, 61, 0.04);
-    letter-spacing: 0.01em;
-    display: inline-block;
-    cursor: pointer;
+  /* Primary Navigation Link */
+  .nav-link-primary {
+    @apply inline-flex items-center px-4 py-2.5 bg-green-600 text-white font-semibold rounded-full text-sm transition-all duration-300 hover:bg-green-700 hover:scale-105 hover:shadow-lg shadow-md;
   }
-  .nav-link:hover, .nav-link:focus {
-    background: #e0fbe7;
-    color: #15803d;
-    box-shadow: 0 4px 16px rgba(21, 128, 61, 0.10);
-    outline: none;
-    transform: scale(1.045);
+
+  /* Secondary Navigation Link */
+  .nav-link-secondary {
+    @apply inline-flex items-center px-4 py-2.5 bg-gray-100 text-gray-700 font-medium rounded-full text-sm transition-all duration-300 hover:bg-gray-200 hover:text-gray-900 hover:scale-105;
   }
-  .nav-link:active {
-    background: #bbf7d0;
-    color: #166534;
-    transform: scale(0.98);
+
+  /* Dropdown Links */
+  .dropdown-link {
+    @apply flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-left w-full;
   }
-  .hamburger {
-    display: none;
-    background: none;
-    border: none;
-    padding: 0.5rem;
-    margin-left: 0.5rem;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.18s;
-  }
-  .hamburger:focus {
-    outline: 2px solid #15803d;
-    background: #e0fbe7;
-  }
+
+  /* Mobile Menu */
   .mobile-menu {
-    display: none;
+    @apply hidden md:hidden;
     max-height: 0;
     opacity: 0;
   }
+
+  .mobile-menu.open {
+    @apply block;
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  .mobile-menu-header {
+    @apply px-4 py-3 border-b border-gray-200 bg-gray-50;
+  }
+
+  .mobile-nav-link {
+    @apply flex items-center px-4 py-4 hover:bg-gray-50 transition-colors duration-200 border-b border-gray-100 last:border-b-0;
+  }
+
+  .mobile-menu-divider {
+    @apply h-px bg-gray-200 mx-4;
+  }
+
+  /* Hamburger Animation */
+  .hamburger {
+    @apply relative p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200;
+  }
+
+  .hamburger-lines {
+    @apply relative w-6 h-6;
+  }
+
+  .hamburger-lines span {
+    @apply absolute left-0 w-6 h-0.5 bg-gray-700 rounded-full transition-all duration-300;
+  }
+
+  .hamburger-lines span:nth-child(1) {
+    @apply top-2;
+  }
+
+  .hamburger-lines span:nth-child(2) {
+    @apply top-3;
+  }
+
+  .hamburger-lines span:nth-child(3) {
+    @apply top-4;
+  }
+
+  /* Hamburger Animation when menu is open */
+  .hamburger[aria-expanded="true"] .hamburger-lines span:nth-child(1) {
+    @apply top-3 rotate-45;
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-lines span:nth-child(2) {
+    @apply opacity-0;
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-lines span:nth-child(3) {
+    @apply top-3 -rotate-45;
+  }
+
+  /* Responsive adjustments */
   @media (max-width: 640px) {
-    .nav-links {
-      display: none;
-    }
-    .hamburger {
-      display: block;
-    }
     .mobile-menu {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      left: 0;
-      background: #fff;
-      box-shadow: 0 8px 32px rgba(21, 128, 61, 0.08);
-      border-radius: 0 0 16px 16px;
-      overflow: hidden;
-      z-index: 40;
-      transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
-      max-height: 0;
-      opacity: 0;
-      pointer-events: none;
-    }
-    .mobile-menu.open {
-      max-height: 300px;
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .mobile-menu .nav-link {
-      width: 100%;
-      text-align: center;
-      padding: 1rem 0.5rem;
-      font-size: 1.08rem;
-      border-radius: 0;
-      box-shadow: none;
-      border-bottom: 1px solid #e5e7eb;
-    }
-    .mobile-menu .nav-link:last-child {
-      border-bottom: none;
+      @apply absolute top-full right-0 left-0 bg-white shadow-xl border-t border-gray-100 rounded-b-2xl overflow-hidden z-40;
     }
   }
 </style>
@@ -143,18 +233,21 @@ import sabeel from '../assets/sabeel_no_text.png';
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const mobileMenu = document.querySelector('[data-menu]');
   const menuLinks = document.querySelectorAll('[data-menu-close]');
+  
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
+    
     menuLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
         menuToggle.setAttribute('aria-expanded', 'false');
       });
     });
-    // Optional: Close menu on outside click
+    
+    // Close menu on outside click
     document.addEventListener('click', (e) => {
       if (
         mobileMenu.classList.contains('open') &&
