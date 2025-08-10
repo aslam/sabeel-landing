@@ -9,17 +9,9 @@ export async function getStaticPaths() {
     .map((lesson) => ({ params: { lesson: lesson.slug } }));
 }
 
-// Optionally, map lesson slugs to human-friendly titles
-const lessonTitles: Record<string, string> = {
-  'surah-al-asr-four-keys-to-success': 'Sūrat al-ʿAsr: Four Keys to True Success',
-  'kaaba-heavenly-connection': 'The Kaaba: Allah\'s First House',
-  'salah-daily-anchor': 'Salah: Your Daily Anchor',
-  'creator-of-all': 'The Creator of All Things',
-  // Add more as needed
-};
-
 const { lesson } = Astro.params;
-const lessonTitle = lessonTitles[lesson as string] || 'This Lesson';
+const currentLesson = lessons.find(l => l.slug === lesson);
+const lessonTitle = currentLesson?.title || 'This Lesson';
 ---
 <head>
   <meta name="robots" content="noindex, nofollow">
