@@ -6,24 +6,51 @@ interface Props {
     title: string;
     status: string;
     series: string;
+    order: number;
   }[];
 }
 
 const { currentSlug, lessons } = Astro.props;
 
-// Find current lesson index
-const currentIndex = lessons.findIndex((l) => l.slug === currentSlug);
-const prevLesson =
-  currentIndex > 0 ? lessons[currentIndex - 1] : null;
-const nextLesson =
-  currentIndex < lessons.length - 1
-    ? lessons[currentIndex + 1]
-    : null;
+const currentLesson = lessons.find((l) => l.slug === currentSlug);
+
+const seriesTitle = currentLesson?.series
+  .replace(/-/g, ' ')
+  .replace(/\b\w/g, (l) => l.toUpperCase());
+
+let prevLesson = null;
+let nextLesson = null;
+
+if (currentLesson) {
+  // Filter for published lessons in the same series and sort them by order
+  const seriesLessons = lessons
+    .filter(
+      (lesson) =>
+        lesson.series === currentLesson.series &&
+        lesson.status === 'published'
+    )
+    .sort((a, b) => a.order - b.order);
+
+  // Find the index of the current lesson within its series
+  const currentIndexInSeries = seriesLessons.findIndex(
+    (lesson) => lesson.slug === currentSlug
+  );
+
+  // Assign previous and next lessons based on the sorted series list
+  prevLesson =
+    currentIndexInSeries > 0
+      ? seriesLessons[currentIndexInSeries - 1]
+      : null;
+  nextLesson =
+    currentIndexInSeries < seriesLessons.length - 1
+      ? seriesLessons[currentIndexInSeries + 1]
+      : null;
+}
 ---
 
 <nav class="lesson-nav">
   {
-    prevLesson?.status === 'published' && (
+    prevLesson && (
       <a
         href={`/lessons/${prevLesson.series}/${prevLesson.slug}`}
         class="nav-link prev"
@@ -35,7 +62,35 @@ const nextLesson =
   }
 
   {
-    nextLesson?.status === 'published' && (
+    currentLesson && (
+      <a
+        href={`/lessons/${currentLesson.series}`}
+        class="nav-link-center"
+        title={`Back to ${seriesTitle}`}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <>
+            <rect width="7" height="7" x="3" y="3" rx="1" />
+            <rect width="7" height="7" x="14" y="3" rx="1" />
+            <rect width="7" height="7" x="14" y="14" rx="1" />
+            <rect width="7" height="7" x="3" y="14" rx="1" />
+          </>
+        </svg>
+        <span class="direction">Back to Series</span>
+      </a>
+    )
+  }
+
+  {
+    nextLesson && (
       <a
         href={`/lessons/${nextLesson.series}/${nextLesson.slug}`}
         class="nav-link next"
@@ -51,6 +106,7 @@ const nextLesson =
   .lesson-nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 1rem;
     margin-top: 3rem;
     padding-top: 2rem;
@@ -82,6 +138,29 @@ const nextLesson =
     text-align: right;
   }
 
+  .nav-link-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    color: #405671;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+  }
+
+  .nav-link-center:hover {
+    background-color: #f1f5f9;
+  }
+
+  .nav-link-center svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #3b82f6;
+  }
+
   .direction {
     display: block;
     font-size: 0.875rem;
@@ -100,9 +179,16 @@ const nextLesson =
       flex-direction: column;
     }
 
+    .nav-link-center {
+      order: -1; /* Move it to the top on mobile */
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
     .nav-link.prev,
     .nav-link.next {
       text-align: center;
+      width: 100%;
     }
   }
 </style>

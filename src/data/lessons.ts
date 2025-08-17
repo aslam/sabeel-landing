@@ -9,7 +9,7 @@ export const lessons = [
       'How do you explain Allah to a child? This lesson shows you the perfect way.',
     series: 'foundations-of-faith',
     status: 'published',
-    publishedAt: '2024-04-07',
+    publishedAt: '2025-05-19',
     order: 1,
     image:
       'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1750005376/Sabeel/topics/creator-of-all.png',
@@ -23,7 +23,7 @@ export const lessons = [
       "Exploring the significance of Salah (prayer) in a Muslim's daily life, its spiritual benefits, and how it connects us to Allah.",
     series: 'foundations-of-faith',
     status: 'published',
-    publishedAt: '2024-04-14',
+    publishedAt: '2025-05-26',
     order: 2,
     image:
       'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1749990992/Sabeel/topics/salah.png',
@@ -37,7 +37,7 @@ export const lessons = [
       "Discover the history and significance of the Kaaba, Islam's most sacred site and its role in unifying Muslims worldwide.",
     series: 'foundations-of-faith',
     status: 'published',
-    publishedAt: '2024-04-21',
+    publishedAt: '2025-06-01',
     order: 3,
     image:
       'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1749990510/Sabeel/topics/kaaba.png',
@@ -51,7 +51,7 @@ export const lessons = [
       'Exploring the profound lessons of Surah Al-Asr, emphasizing the importance of time, faith, good deeds, and mutual encouragement.',
     series: 'foundations-of-faith',
     status: 'published',
-    publishedAt: '2024-04-28',
+    publishedAt: '2025-06-09',
     order: 4,
     image:
       'https://res.cloudinary.com/syed-aslam/image/upload/w_1000/q_auto/f_auto/v1749991800/Sabeel/topics/surah-al-asr.png',
@@ -66,7 +66,7 @@ export const lessons = [
       'Prophet Muhammad ﷺ was a perfect gift from Allah, sent with endless love and kindness for everyone and everything. He showed us the most beautiful way to live, connecting our hearts to Allah and making us a source of good for the world.',
     series: 'foundations-of-faith',
     status: 'published',
-    publishedAt: '2024-05-05',
+    publishedAt: '2025-06-15',
     order: 5,
     current: false,
     image:
@@ -81,7 +81,7 @@ export const lessons = [
       'Understanding that hardships are tests from Allah, and with every hardship comes ease. This lesson explores patience, trust in Allah, and the Quranic promise of relief for all ages.',
     series: 'foundations-of-faith',
     status: 'published',
-    publishedAt: '2024-05-12',
+    publishedAt: '2025-07-06',
     order: 6,
     current: false,
     image:
@@ -96,7 +96,7 @@ export const lessons = [
       'Explore the profound reality of the Day of Judgment in Islam. Understand how every deed is recorded and weighed, and discover the perfect justice of Allah, where no action is ever lost. Prepare for your ultimate return.',
     series: 'foundations-of-faith',
     status: 'published',
-    publishedAt: '2024-05-19',
+    publishedAt: '2025-07-27',
     order: 7,
     current: false,
     image:
@@ -111,7 +111,7 @@ export const lessons = [
       "Our love and kindness to our parents are not just a good thing to do; they are a fundamental obligation from Allah, second only to worshipping Him. By honoring and serving them, we fulfill a divine command and open the doors to Allah's blessings.",
     series: 'foundations-of-faith',
     status: 'published',
-    publishedAt: '2024-05-26',
+    publishedAt: '2025-08-03',
     order: 8,
     current: false,
     image:
@@ -129,7 +129,7 @@ export const lessons = [
       'Do you know the first step in resisting Shaitan? Most overlook it.',
     series: 'foundations-of-faith',
     status: 'published',
-    publishedAt: '2024-06-02',
+    publishedAt: '2025-08-10',
     order: 9,
     current: true,
     image:
@@ -144,7 +144,7 @@ export const lessons = [
       "Learning from the Prophet Muhammad ﷺ's example and teachings, and how to apply them in our daily lives to live a life of faith, goodness, and peace.",
     series: 'sunnah-of-the-prophet',
     status: 'published',
-    publishedAt: '2024-05-15',
+    publishedAt: '2025-06-24',
     order: 1,
     current: false,
     image:
@@ -161,7 +161,7 @@ export const lessons = [
       "What's the one sin that Prophet Muhammad warned us about most? The answer might surprise you.",
     series: 'sunnah-of-the-prophet',
     status: 'published',
-    publishedAt: '2024-05-22',
+    publishedAt: '2025-06-29',
     order: 2,
     current: false,
     image:
@@ -176,7 +176,7 @@ export const lessons = [
     series: 'sunnah-of-the-prophet',
     teaser:
       'What are the three basic necessities every person is entitled to?',
-    publishedAt: '2024-06-09',
+    publishedAt: '2025-08-17',
     status: 'published',
     order: 3,
     current: true,
@@ -192,7 +192,7 @@ export const lessons = [
     teaser: 'What are the unique roles of angels in Islam?',
     series: 'islamic-history',
     status: 'published',
-    publishedAt: '2024-05-20',
+    publishedAt: '2025-07-13',
     order: 1,
     current: false,
     image:
@@ -208,7 +208,7 @@ export const lessons = [
       'Did you know there were over 124,000 prophets? Discover the incredible story of divine guidance.',
     series: 'islamic-history',
     status: 'published',
-    publishedAt: '2024-05-27',
+    publishedAt: '2025-07-20',
     order: 2,
     current: true,
     image:
