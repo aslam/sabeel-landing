@@ -1,0 +1,108 @@
+---
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
+
+const currentSlug =
+  Astro.url.pathname.split('/').filter(Boolean).pop() || '';
+const currentLesson = lessons.find(
+  (lesson) => lesson.slug === currentSlug
+);
+const title = currentLesson?.title || '';
+const subtitle = currentLesson?.description || '';
+
+const meta = {
+  title: currentLesson?.title || '',
+  description:
+    'This lesson explores the profound wisdom of the Prophet Muhammad (peace be upon him) on the nature of our essential needs versus our wants. It delves into the spiritual value of simplicity and gratitude, reminding us that our core entitlements are food, clothing, and shelter, while everything else is a blessing from Allah that comes with accountability. The lesson encourages a shift in mindset from material consumption to contentment and thankfulness.',
+  type: 'article',
+  keywords:
+    'Islamic faith, prayer, good deeds, Islamic advice on simplicity, Islamic lessons, Sabeel, faith strengthening, temptation resistance, Islamic lesson, Prophet Muhammad, Simplicity, Gratitude, Contentment, Islamic teachings, Hadith, Accountability, Worldly possessions, Zakat, Barakah',
+  image:
+    currentLesson && currentLesson.image
+      ? currentLesson.image
+      : '/images/sabeel_og_image.png',
+};
+---
+
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  {
+    currentLesson && (
+      <div class="mb-8 mt-2 lg:mt-4 xl:mt-8 px-2 sm:px-0">
+        <img
+          src={
+            currentLesson.image || '/images/lesson-placeholder.jpg'
+          }
+          alt={currentLesson.title || 'Lesson Image'}
+          class="w-full max-w-full h-auto rounded-lg shadow-lg"
+        />
+      </div>
+    )
+  }
+  <div class="mb-8">
+    <div class="content-box">
+      <p>
+        In a world that constantly tells us we need more—more money,
+        more clothes, more gadgets, bigger cars, and larger houses—the
+        Prophet Muhammad (peace be upon him) offered a profound and
+        liberating message about what truly matters. He simplified
+        life to its most fundamental necessities, teaching us a
+        powerful lesson in simplicity, contentment, and gratitude.
+      </p>
+      <p>
+        The Prophet (peace be upon him) said: <strong
+          >"A person has no more right than to have a house to live
+          in, enough food to sustain them, and clothing to cover their
+          body."</strong
+        >
+      </p>
+      <p>
+        This beautiful teaching reminds us that our most essential
+        needs are simple:
+        <ol>
+          <li>
+            <b>A home for shelter:</b> A place of refuge, safety, and rest.
+          </li>
+          <li>
+            <b>Food to sustain us:</b> Nourishment to give us the energy
+            to worship and live.
+          </li>
+          <li>
+            <b>Clothing to cover us:</b> A means of modesty and protection.
+          </li>
+        </ol>
+      </p>
+      <p>
+        Everything beyond these three things is an extra blessing from
+        Allah (SWT) and a test. The bigger house, the fancier car, the
+        latest smartphone—these are not things we are entitled to.
+        They are luxuries we are blessed with, and with those
+        blessings comes responsibility.
+      </p>
+      <p>
+        This teaching is not meant to discourage us from seeking
+        success or comfort. Instead, it invites us to reflect on our
+        priorities. Are we chasing after more and more, or are we
+        truly grateful for what we have?
+      </p>
+      <p>
+        The Prophet's words call us to a life of gratitude. When we
+        see a home as a blessing instead of a right, a meal as a gift
+        instead of a given, and our clothes as a mercy instead of a
+        necessity, our hearts are filled with thanks to Allah. This
+        perspective frees us from the endless pursuit of materialism
+        and allows us to focus on what truly matters: our connection
+        with Allah and our purpose in this life.
+      </p>
+      <p>
+        This week, let's take a moment to reflect on this message. Can
+        we find contentment in simplicity? Can we be grateful for the
+        roof over our heads, the food in our stomachs, and the clothes
+        on our backs, understanding that these are the true
+        essentials? Let's work towards a life of gratitude and
+        simplicity, following the timeless wisdom of our beloved
+        Prophet.
+      </p>
+    </div>
+  </div>
+</LessonLayout>
