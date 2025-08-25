@@ -1,0 +1,187 @@
+---
+import { Image } from 'astro:assets';
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
+
+const allLessonImages = await import.meta.glob<ImageMetadata>(
+  '/src/assets/lessons/*.png'
+);
+
+const currentSlug = Astro.url.pathname
+  .split('/')
+  .filter(Boolean)
+  .pop();
+const currentLesson = lessons.find(
+  (lesson) => lesson.slug === currentSlug
+);
+const title = currentLesson?.title || '';
+const subtitle = currentLesson?.subtitle || '';
+
+const lessonImage = currentLesson?.image;
+let imageSrc;
+let isLocalImage = false;
+
+if (lessonImage) {
+  if (lessonImage.startsWith('/src')) {
+    const imagePath = lessonImage as keyof typeof allLessonImages;
+    if (allLessonImages[imagePath]) {
+      imageSrc = (await allLessonImages[imagePath]()).default;
+      isLocalImage = true;
+    }
+  } else {
+    imageSrc = lessonImage;
+  }
+}
+
+const meta = {
+  title: currentLesson?.title || '',
+  description: currentLesson?.description || '',
+  type: 'article',
+  keywords:
+    'Aakhirah, Scales of Justice, Day of Judgment, Qiyaamah, Divine Justice, accountability in Islam, Islamic ethics, Muslim beliefs, Surah Al-Ambiyaa, Islamic eschatology, deeds in Islam, intentions in Islam, Allah the Reckoner, Sabeel',
+  image: isLocalImage
+    ? new URL(currentLesson?.image || '', Astro.site).pathname
+    : currentLesson?.image || '/images/sabeel_og_image.png',
+};
+---
+
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  {
+    currentLesson && imageSrc && (
+      <div class="mb-8 mt-2 lg:mt-4 xl:mt-8 px-2 sm:px-0">
+        {isLocalImage ? (
+          <Image
+            src={imageSrc}
+            alt={currentLesson.title}
+            class="w-full max-w-full h-auto rounded-lg shadow-lg"
+          />
+        ) : (
+          <img
+            src={imageSrc}
+            alt={currentLesson.title}
+            class="w-full max-w-full h-auto rounded-lg shadow-lg"
+          />
+        )}
+      </div>
+    )
+  }
+  <div class="mb-8">
+    <div class="content-box">
+      <p>
+        The Islamic belief in the <strong>Aakhirah</strong> and the
+        <strong>Scales of Justice</strong>
+        is a cornerstone of our faith, providing a metaphysical framework
+        for ethics and a profound understanding of divine fairness. The
+        Qur'anic verse in Surah Al-Ambiyaa is a powerful articulation of
+        this reality:
+      </p>
+      <p>
+        <blockquote>
+          On the Day of Qiyaamah, We will erect the scales of justice
+          (to weigh the good and bad actions of people) and no soul
+          will be oppressed (wronged) in the least. Even if a deed
+          (good or bad) is equal to the weight of a mustard seed, we
+          shall bring it (to be weighed on the scales). We suffice as
+          Reckoners (and need no one else for the task). (Surah
+          Ambiyaa, verse 47)
+        </blockquote>
+        This verse reveals several deep spiritual and philosophical insights.
+      </p>
+      <p>
+        <ol>
+          <li>
+            <strong>The Perfection of Divine Justice</strong>
+            The promise that "no soul will be oppressed in the least" is
+            a radical statement of justice. It reassures us that, unlike
+            human systems, which are often flawed, biased, or incomplete,
+            Allah's justice is perfect and absolute. Our grievances and
+            injustices will be fully accounted for, and every right will
+            be given to its rightful owner. This should instill in us a
+            profound trust in Allah's ultimate reckoning, relieving us
+            from the burden of seeking perfect justice in this imperfect
+            world.
+          </li>
+          <li>
+            <strong>The Significance of Every Action</strong>
+            The imagery of the "mustard seed" is a powerful symbol of accountability.
+            It deconstructs the notion that some deeds are too small to
+            matter. It tells us that our every word, every thought, and
+            every intention will be brought forth. This calls for a radical
+            form of mindfulness, where piety is not just about grand acts
+            of worship, but about the sincerity in our everyday interactions,
+            the kindness in our words, and the integrity of our private
+            moments. Every small act of charity, every moment of patience,
+            and every silent word of dhikr carries immense weight.
+          </li>
+          <li>
+            <strong>Intentionality and Accountability</strong>
+            While the verse speaks of deeds, the aHadeeth clarify that
+            it is the intention behind the deed that gives it its true
+            weight. A small act done with sincere devotion can outweigh
+            a large act done for show. This encourages us to focus not
+            just on the external performance of our religion but on the
+            internal state of our hearts.
+          </li>
+          <li>
+            <strong>The Sufficiency of Allah</strong>
+            The final phrase, "We suffice as Reckoners," is a powerful
+            reassurance. It means that Allah alone is sufficient to account
+            for all of creation. There is no need for human judgment or
+            approval. This should liberate us from seeking validation from
+            others and redirect our focus entirely to our relationship
+            with our Creator.
+          </li>
+        </ol>
+      </p>
+      <p>
+        This knowledge of the Scales of Justice is not meant to
+        paralyze us with fear but to inspire us with a sense of
+        purpose and a profound awareness of the value of every moment.
+        It is a call to live a life of intentionality, where every
+        breath is a chance to add to our scale of good deeds and every
+        moment is an opportunity to draw closer to Allah.
+      </p>
+
+      <div class="practical-content">
+        <p class="intro">
+          Practical Application/Self-Assessment/Goal Setting:
+        </p>
+
+        <ol>
+          <li>
+            <b>Mindfulness of Small Deeds:</b>
+            For the next week, practice being mindful of the small, often-overlooked
+            good deeds. This could be smiling at a stranger, making a du'a
+            for someone without telling them, or picking up a piece of
+            litter.
+          </li>
+          <li>
+            <b>Daily Reckoning:</b>
+            At the end of each day, take a few minutes to reflect on your
+            actions. What are 3 good deeds you can place on your scale?
+            Were there any negative deeds you can sincerely repent for?
+            This is a mini-rehearsal for the Day of Judgment.
+          </li>
+          <li>
+            <b>Reflect on Intentions:</b>
+            When performing an act of worship or kindness, consciously
+            check your intention. Ask yourself, "Am I doing this for Allah's
+            sake?" Strive to purify your intentions to ensure your deeds
+            have the most weight on the Scales.
+          </li>
+          <li>
+            <b>Goal Setting:</b>
+            Set a goal to incorporate one small, consistent good deed into
+            your daily routine (e.g., saying
+            <i>Subhanallah</i>
+            10 times a day, or giving a small charity). Do this with the
+            firm conviction that even this tiny deed will have immense
+            weight on your scale.
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <LessonNav currentSlug={currentSlug} lessons={lessons} />
+</LessonLayout>

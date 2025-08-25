@@ -131,9 +131,27 @@ export const lessons = [
     status: 'published',
     publishedAt: '2025-08-10',
     order: 9,
-    current: true,
+    current: false,
     image:
       'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1754838592/Sabeel/topics/shaitan-the-whisperer.png',
+  },
+  {
+    slug: 'aakhirah-the-book-of-deeds',
+    title:
+      'The Divine Scale: A Reflection on Justice and Intentionality',
+    subtitle:
+      'Understanding the balance of deeds and intentions in the sight of Allah.',
+    description:
+      'This lesson delves into the concept of the Divine Scale, exploring how Allah weighs our deeds and intentions with perfect justice. It emphasizes the importance of sincerity in our actions and the profound impact of our intentions on our ultimate judgment.',
+    teaser:
+      'What is the Divine Scale and how does it impact our deeds?',
+    series: 'foundations-of-faith',
+    status: 'published',
+    publishedAt: '2025-08-24',
+    order: 10,
+    current: true,
+    image:
+      '/src/assets/lessons/aakhirah-the-book-of-deeds.png',
   },
   {
     slug: 'reviving-sunnah',
