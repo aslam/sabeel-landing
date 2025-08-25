@@ -18,51 +18,30 @@ const currentLesson = lessons.find(
 const title = currentLesson?.title || '';
 const subtitle = currentLesson?.subtitle || '';
 
-const lessonImage = currentLesson?.image;
-let imageSrc;
-let isLocalImage = false;
-
-if (lessonImage) {
-  if (lessonImage.startsWith('/src')) {
-    const imagePath = lessonImage as keyof typeof allLessonImages;
-    if (allLessonImages[imagePath]) {
-      imageSrc = (await allLessonImages[imagePath]()).default;
-      isLocalImage = true;
-    }
-  } else {
-    imageSrc = lessonImage;
-  }
-}
-
 const meta = {
   title: currentLesson?.title || '',
   description: currentLesson?.description || '',
   type: 'article',
   keywords:
     'Aakhirah, Scales of Justice, Day of Judgment, Qiyaamah, Divine Justice, accountability in Islam, Islamic ethics, Muslim beliefs, Surah Al-Ambiyaa, Islamic eschatology, deeds in Islam, intentions in Islam, Allah the Reckoner, Sabeel',
-  image: isLocalImage
-    ? new URL(currentLesson?.image || '', Astro.site).pathname
-    : currentLesson?.image || '/images/sabeel_og_image.png',
+  image:
+    currentLesson && currentLesson.image
+      ? currentLesson.image
+      : '/images/sabeel_og_image.png',
 };
 ---
 
 <LessonLayout title={title} subtitle={subtitle} meta={meta}>
   {
-    currentLesson && imageSrc && (
+    currentLesson && (
       <div class="mb-8 mt-2 lg:mt-4 xl:mt-8 px-2 sm:px-0">
-        {isLocalImage ? (
-          <Image
-            src={imageSrc}
-            alt={currentLesson.title}
-            class="w-full max-w-full h-auto rounded-lg shadow-lg"
-          />
-        ) : (
-          <img
-            src={imageSrc}
-            alt={currentLesson.title}
-            class="w-full max-w-full h-auto rounded-lg shadow-lg"
-          />
-        )}
+        <img
+          src={
+            currentLesson.image || '/images/lesson-placeholder.jpg'
+          }
+          alt={currentLesson.title}
+          class="w-full max-w-full h-auto rounded-lg shadow-lg"
+        />
       </div>
     )
   }

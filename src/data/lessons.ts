@@ -151,7 +151,7 @@ export const lessons = [
     order: 10,
     current: true,
     image:
-      '/src/assets/lessons/aakhirah-the-book-of-deeds.png',
+      'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1756114291/Sabeel/topics/aakhirah-the-book-of-deeds.png',
   },
   {
     slug: 'reviving-sunnah',
