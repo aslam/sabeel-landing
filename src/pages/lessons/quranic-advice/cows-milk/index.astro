@@ -1,0 +1,149 @@
+---
+import LessonLayout from '../../../../layouts/LessonLayout.astro';
+import LessonNav from '../../../../components/LessonNav.astro';
+import { lessons } from '../../../../data/lessons';
+
+const currentSlug = Astro.url.pathname
+  .split('/')
+  .filter(Boolean)
+  .pop();
+const currentLesson = lessons.find(
+  (lesson) => lesson.slug === currentSlug
+);
+const title = currentLesson?.title || '';
+const subtitle = currentLesson?.subtitle || '';
+
+const meta = {
+  title: currentLesson?.title || '',
+  description:
+    "Discover the Qur'aanic wisdom on the blessings of cow's milk. Learn how our Prophet Muhammad ﷺ highlighted its healing benefits and how gratitude and trust in Allah bring holistic well-being.",
+  type: 'article',
+  keywords:
+    "Qur'aan cures, blessings in cow's milk, prophetic guidance on health, holistic well-being in Islam, healing foods in the Qur'an, Islamic health teachings, Sunnah on milk, Islam, cures from the Qur'an, blessings, Sabeel",
+  image:
+    currentLesson && currentLesson.image
+      ? currentLesson.image
+      : '/images/sabeel_og_image.png',
+};
+---
+
+<LessonLayout title={title} subtitle={subtitle} meta={meta}>
+  {
+    currentLesson && (
+      <div class="mb-8 mt-2 lg:mt-4 xl:mt-8 px-2 sm:px-0">
+        <img
+          src={
+            currentLesson.image || '/images/lesson-placeholder.jpg'
+          }
+          alt={currentLesson.title}
+          class="w-full max-w-full h-auto rounded-lg shadow-lg"
+        />
+      </div>
+    )
+  }
+  <div class="mb-8">
+    <div class="content-box">
+      <h4>The Prophet’s Guidance on Wellness: A Holistic Approach</h4>
+      <p>
+        In our modern world, we are surrounded by endless information
+        on health, diet, and wellness. We see new fads and cures
+        emerge every day. Yet, the timeless guidance of our Prophet
+        Muhammad (peace be upon him), known as Tibb an-Nabawi
+        (Prophetic Medicine), offers a holistic and profound
+        perspective on well-being that transcends time.
+      </p>
+      <p>
+        Consider this remarkable Hadith:<br />
+        <blockquote>
+          Rasulullaah (peace be upon him) said, “Allaah has sent down
+          a cure for every illness and you will find in cow\'s milk a
+          cure for every illness.” [Mustadrak 7423, from Hadhrat
+          Abdullaah bin Mas'ood]
+        </blockquote>
+        This is not a simple medical prescription, but a statement of spiritual
+        reality. It tells us that for every ailment, from the physical
+        to the spiritual, a cure has been created by Allah. It also draws
+        our attention to a specific blessing: cow's milk. The Prophet's
+        statement implies that in this common, everyday sustenance, there
+        is an immense and comprehensive blessing of healing.
+      </p>
+      <h4>Deeper Reflection: Wisdom in the Specifics</h4>
+      <p>
+        This Hadith, however, must be understood within the larger
+        context of Islamic wisdom. As the great scholar Allama Ibn
+        Qayyim points out in <i>Tibbun Nabawi</i>, while butter (a
+        product of milk) is beneficial for some conditions like
+        promoting teeth growth in children, it can be "harmful for a
+        person suffering from an excess of phlegm."
+      </p>
+      <p>
+        This seemingly nuanced detail offers a powerful lesson for us
+        today. The prophetic guidance on healing is not a
+        one-size-fits-all command. It is a profound call for:
+        <ul>
+          <li>
+            <b>Discernment and Wisdom:</b> We are encouraged to seek knowledge
+            and apply it with wisdom. The general principle is that milk
+            is a source of cure, but its specific application depends on
+            individual circumstances. Our faith does not ask us to abandon
+            reason; it asks us to use it in conjunction with divine guidance.
+          </li>
+          <li>
+            <b>Holistic Healing:</b> Islamic healing is not just about
+            a substance; it's about the entire process. It includes the
+            physical remedy, our spiritual state, our reliance on Allah,
+            and our understanding of our own body's needs. The cure is
+            from Allah, and our role is to seek it in the best possible
+            way He has taught us, by both physical means and spiritual
+            supplication.
+          </li>
+          <li>
+            <b>Gratitude for the Ordinary:</b> The very fact that a common
+            blessing like cow's milk is highlighted as a source of cure
+            should inspire us. It reminds us that Allah has placed immense
+            value and benefit in the simple, wholesome things around us.
+            It is a call to be more grateful for our daily sustenance and
+            to see the hand of the Creator in every single blessing.
+          </li>
+        </ul>
+        Ultimately, the lesson here is a beautiful blend of faith and action.
+        We are taught to use the means Allah has provided for our well-being,
+        to seek knowledge about what is beneficial for our bodies, and
+        to always remember that the power to heal lies with Allah alone.
+      </p>
+      <h4>Practical Application and Reflection:</h4>
+      <ul>
+        <li>
+          <strong>Mindful Consumption:</strong> The next time you consume
+          milk or any food, take a moment to reflect on it not just as
+          a commodity, but as a direct blessing from Allah. Recite <i
+            >Bismillah</i
+          >
+          with a renewed sense of gratitude and awareness that you are
+          consuming a gift from your Creator.
+        </li>
+        <li>
+          <strong>Seek Knowledge with Faith:</strong> If you are dealing
+          with a health concern, combine your trust (<i>tawakkul</i>)
+          in Allah with sincere effort. Research holistic remedies
+          from
+          <i>Tibb an-Nabawi</i> and consult with qualified medical professionals,
+          understanding that both are means provided by Allah.
+        </li>
+        <li>
+          <strong>Du'a for Healing:</strong> Remember that the Hadith begins
+          by saying Allah has sent down a cure. This places the ultimate
+          source of healing with Him. Make it a habit to recite a du'a
+          for healing for yourself and your loved ones, such as: "<i
+            >Allahumma Rabban-naas, adh-hibil-ba's, washfi
+            antash-Shaafi, laa shifaa'a illaa shifaa'uk, shifaa'an laa
+            yughaadiru saqaman.</i
+          >" (O Allah, Lord of mankind, remove the affliction and
+          grant a cure. You are the Healer; there is no cure except
+          Your cure. Grant us a cure that leaves no illness.)
+        </li>
+      </ul>
+    </div>
+  </div>
+  <LessonNav currentSlug={currentSlug} lessons={lessons} />
+</LessonLayout>

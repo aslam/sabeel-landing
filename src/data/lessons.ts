@@ -230,6 +230,22 @@ export const lessons = [
     order: 2,
     current: true,
     image:
-      'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1752998548/Sabeel/topics/allahs-messengers-and-books.png', // Placeholder, update if you have a specific image
+      'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1752998548/Sabeel/topics/allahs-messengers-and-books.png',
+  },
+  {
+    slug: 'cows-milk',
+    title: "Cures from the Qur'an and Cow's Milk",
+    description: 'Exploring Healing in Islamic Tradition',
+    subtitle:
+      "Our Prophet Muhammad ﷺ taught us that Allah has placed profound blessings and cures in His creation, including cow's milk. This guidance encourages us to seek holistic well-being by combining the blessings of Allah's provisions with conscious effort, gratitude, and unwavering trust in Him as the ultimate source of all healing.",
+    teaser:
+      "What does the Qur'an say about healing? Find out the surprising benefits of cow's milk!",
+    series: 'quranic-advice',
+    status: 'published',
+    publishedAt: '2025-08-31',
+    order: 1,
+    current: true,
+    image:
+      'https://res.cloudinary.com/syed-aslam/image/upload/w_auto/q_auto/f_auto/v1756644118/Sabeel/topics/cows-milk.png',
   },
 ];

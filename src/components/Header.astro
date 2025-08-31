@@ -3,8 +3,12 @@ import { Image } from 'astro:assets';
 import sabeel from '../assets/sabeel_no_text.png';
 ---
 
-<header class="w-full bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-green-100">
-  <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 md:px-8 relative">
+<header
+  class="w-full bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-green-100"
+>
+  <nav
+    class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 md:px-8 relative"
+  >
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3 group">
       <div class="relative">
@@ -17,59 +21,168 @@ import sabeel from '../assets/sabeel_no_text.png';
           format="webp"
           quality="high"
         />
-        <div class="absolute inset-0 rounded-full bg-green-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div
+          class="absolute inset-0 rounded-full bg-green-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+        </div>
       </div>
     </a>
 
     <!-- Desktop Navigation -->
     <div class="nav-links hidden md:flex items-center gap-2">
-      <a href="/lessons" class="nav-link-primary" title="Explore all lesson topics">
-        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+      <a
+        href="/lessons"
+        class="nav-link-primary"
+        title="Explore all lesson topics"
+      >
+        <svg
+          class="w-4 h-4 mr-2"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+          ></path>
         </svg>
         Browse Lessons
       </a>
       <div class="relative group">
         <button class="nav-link-secondary">
-          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          <svg
+            class="w-4 h-4 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
           </svg>
           Topics
         </button>
         <!-- Dropdown Menu -->
-        <div class="absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+        <div
+          class="absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0"
+        >
           <div class="p-2">
-            <a href="/lessons/foundations-of-faith" class="dropdown-link">
-              <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
-                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            <a
+              href="/lessons/foundations-of-faith"
+              class="dropdown-link"
+            >
+              <div
+                class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3"
+              >
+                <svg
+                  class="w-4 h-4 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  ></path>
                 </svg>
               </div>
               <div>
-                <div class="font-semibold text-gray-900">Foundations of Faith</div>
-                <div class="text-sm text-gray-500">Core Islamic beliefs & practices</div>
+                <div class="font-semibold text-gray-900">
+                  Foundations of Faith
+                </div>
+                <div class="text-sm text-gray-500">
+                  Core Islamic beliefs & practices
+                </div>
               </div>
             </a>
-            <a href="/lessons/sunnah-of-the-prophet" class="dropdown-link">
-              <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
-                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            <a
+              href="/lessons/sunnah-of-the-prophet"
+              class="dropdown-link"
+            >
+              <div
+                class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3"
+              >
+                <svg
+                  class="w-4 h-4 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
                 </svg>
               </div>
               <div>
-                <div class="font-semibold text-gray-900">Sunnah of the Prophet</div>
-                <div class="text-sm text-gray-500">Following Prophet Muhammad ﷺ</div>
+                <div class="font-semibold text-gray-900">
+                  Sunnah of the Prophet
+                </div>
+                <div class="text-sm text-gray-500">
+                  Following Prophet Muhammad ﷺ
+                </div>
               </div>
             </a>
             <a href="/lessons/islamic-history" class="dropdown-link">
-              <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
-                <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              <div
+                class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3"
+              >
+                <svg
+                  class="w-4 h-4 text-purple-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  ></path>
                 </svg>
               </div>
               <div>
-                <div class="font-semibold text-gray-900">Islamic History</div>
-                <div class="text-sm text-gray-500">Stories of prophets & divine books</div>
+                <div class="font-semibold text-gray-900">
+                  Islamic History
+                </div>
+                <div class="text-sm text-gray-500">
+                  Stories of prophets & divine books
+                </div>
+              </div>
+            </a>
+            <a href="/lessons/quraanic-advice" class="dropdown-link">
+              <div
+                class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-3"
+              >
+                <svg
+                  class="w-4 h-4 text-yellow-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">
+                  Quranic Advice
+                </div>
+                <div class="text-sm text-gray-500">
+                  Guidance from the Quran
+                </div>
               </div>
             </a>
           </div>
@@ -96,46 +209,149 @@ import sabeel from '../assets/sabeel_no_text.png';
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu" data-menu>
       <div class="mobile-menu-header">
-        <span class="text-sm font-medium text-gray-500">Navigation</span>
+        <span class="text-sm font-medium text-gray-500"
+          >Navigation</span
+        >
       </div>
       <a href="/lessons" class="mobile-nav-link" data-menu-close>
-        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        <svg
+          class="w-5 h-5 mr-3"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+          ></path>
         </svg>
         Browse All Lessons
       </a>
       <div class="mobile-menu-divider"></div>
-      <a href="/lessons/foundations-of-faith" class="mobile-nav-link" data-menu-close>
-        <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
-          <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      <a
+        href="/lessons/foundations-of-faith"
+        class="mobile-nav-link"
+        data-menu-close
+      >
+        <div
+          class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3"
+        >
+          <svg
+            class="w-4 h-4 text-green-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            ></path>
           </svg>
         </div>
         <div>
-          <div class="font-semibold text-gray-900">Foundations of Faith</div>
-          <div class="text-sm text-gray-500">Core beliefs & practices</div>
+          <div class="font-semibold text-gray-900">
+            Foundations of Faith
+          </div>
+          <div class="text-sm text-gray-500">
+            Core beliefs & practices
+          </div>
         </div>
       </a>
-      <a href="/lessons/sunnah-of-the-prophet" class="mobile-nav-link" data-menu-close>
-        <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
-          <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+      <a
+        href="/lessons/sunnah-of-the-prophet"
+        class="mobile-nav-link"
+        data-menu-close
+      >
+        <div
+          class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3"
+        >
+          <svg
+            class="w-4 h-4 text-blue-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            ></path>
           </svg>
         </div>
         <div>
-          <div class="font-semibold text-gray-900">Sunnah of the Prophet</div>
-          <div class="text-sm text-gray-500">Following Prophet Muhammad ﷺ</div>
+          <div class="font-semibold text-gray-900">
+            Sunnah of the Prophet
+          </div>
+          <div class="text-sm text-gray-500">
+            Following Prophet Muhammad ﷺ
+          </div>
         </div>
       </a>
-      <a href="/lessons/islamic-history" class="mobile-nav-link" data-menu-close>
-        <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
-          <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+      <a
+        href="/lessons/islamic-history"
+        class="mobile-nav-link"
+        data-menu-close
+      >
+        <div
+          class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3"
+        >
+          <svg
+            class="w-4 h-4 text-purple-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+            ></path>
           </svg>
         </div>
         <div>
-          <div class="font-semibold text-gray-900">Islamic History</div>
-          <div class="text-sm text-gray-500">Stories of prophets & divine books</div>
+          <div class="font-semibold text-gray-900">
+            Islamic History
+          </div>
+          <div class="text-sm text-gray-500">
+            Stories of prophets & divine books
+          </div>
+        </div>
+      </a>
+      <a
+        href="/lessons/quranic-advice"
+        class="mobile-nav-link"
+        data-menu-close
+      >
+        <div
+          class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-3"
+        >
+          <svg
+            class="w-4 h-4 text-yellow-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+            ></path>
+          </svg>
+        </div>
+        <div>
+          <div class="font-semibold text-gray-900">
+            Quranic Advice
+          </div>
+          <div class="text-sm text-gray-500">
+            Guidance from the Quran
+          </div>
         </div>
       </a>
     </div>
@@ -209,15 +425,21 @@ import sabeel from '../assets/sabeel_no_text.png';
   }
 
   /* Hamburger Animation when menu is open */
-  .hamburger[aria-expanded="true"] .hamburger-lines span:nth-child(1) {
+  .hamburger[aria-expanded='true']
+    .hamburger-lines
+    span:nth-child(1) {
     @apply top-3 rotate-45;
   }
 
-  .hamburger[aria-expanded="true"] .hamburger-lines span:nth-child(2) {
+  .hamburger[aria-expanded='true']
+    .hamburger-lines
+    span:nth-child(2) {
     @apply opacity-0;
   }
 
-  .hamburger[aria-expanded="true"] .hamburger-lines span:nth-child(3) {
+  .hamburger[aria-expanded='true']
+    .hamburger-lines
+    span:nth-child(3) {
     @apply top-3 -rotate-45;
   }
 
@@ -233,20 +455,23 @@ import sabeel from '../assets/sabeel_no_text.png';
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const mobileMenu = document.querySelector('[data-menu]');
   const menuLinks = document.querySelectorAll('[data-menu-close]');
-  
+
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute(
+        'aria-expanded',
+        isOpen ? 'true' : 'false'
+      );
     });
-    
-    menuLinks.forEach(link => {
+
+    menuLinks.forEach((link) => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
         menuToggle.setAttribute('aria-expanded', 'false');
       });
     });
-    
+
     // Close menu on outside click
     document.addEventListener('click', (e) => {
       if (
@@ -259,4 +484,4 @@ import sabeel from '../assets/sabeel_no_text.png';
       }
     });
   }
-</script> 
+</script>
